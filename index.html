@@ -1,0 +1,1059 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ydkukudeshuai">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Blog of Shuai">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Blog of Shuai">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Ydkukudeshuai">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Blog of Shuai</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":8128732132,"measurement_id":"G-RS98DN4LLB","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Shuai</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Blog of Shuai"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E8%AF%86/" target="_self">
+          <img src="/img/dianluchangshi.png" srcset="/img/loading.gif" lazyload alt="电路冗杂知识">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E8%AF%86/" target="_self">
+          电路冗杂知识
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E8%AF%86/" target="_self">
+        <div>
+          简介：介绍基本知识 米勒平台原因：Mosfet寄生电容 影响：延长导通时间，增加开关管动态损耗 电路模型  模态分析： 四个阶段近似波形图  MOSFET工作状态：①截止区②Vgs上升横流区(工作曲线上移)③Vgs不变，Vds下降，横流区(工作曲线左移)④Vgs上升饱和区(工作曲线左移)    具体波形图  驱动波形、栅极电流、栅极源极电压、MOS 漏源极电压&#x2F;电流 ①t1—t2  Vg
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BE%E7%A8%8B/" class="category-chain-item">课程</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AF%BE%E7%A8%8B/%E4%B8%93%E4%B8%9A%E8%AF%BE/" class="category-chain-item">专业课</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%B5%E8%B7%AF/">#电路</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86/" target="_self">
+          <img src="/img/dianlu.png" srcset="/img/loading.gif" lazyload alt="电路原理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86/" target="_self">
+          电路原理
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/%E7%94%B5%E8%B7%AF%E5%8E%9F%E7%90%86/" target="_self">
+        <div>
+          简介：参考书籍：  邱关源 《电路》 第三章 列方程求解电路定义： 结点： 支路： 回路： 树：n个结点，有n-1个树枝。 3-2 KCL KVL独立方程个数对于b个支路，电压，电流两个变量，所以有2b个未知数。 n个结点  b个支路 KCL：n-1个独立电流源方程。（对于每一个结点，流入流出相等） KVL：b-n+1个独立电压源方程。（对于每一个结点，流入流出相等） b(支路数)-(n-1(树枝
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BE%E7%A8%8B/" class="category-chain-item">课程</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AF%BE%E7%A8%8B/%E4%B8%93%E4%B8%9A%E8%AF%BE/" class="category-chain-item">专业课</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%B5%E8%B7%AF/">#电路</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/%E6%A8%A1%E7%94%B5/" target="_self">
+          <img src="/img/Modian.png" srcset="/img/loading.gif" lazyload alt="模电">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/%E6%A8%A1%E7%94%B5/" target="_self">
+          模电
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/%E6%A8%A1%E7%94%B5/" target="_self">
+        <div>
+          一、常用半导体器件2~91.1 PN结P区形成： 纯Si区(本征半导体)掺加少量(相比于Si的量)   3价元素 Be    多数载流子(多子)：空穴(空穴移动≈自由电子反向移动)       少子：自由电子 N区形成：纯Si区(本征半导体)掺加少量(相比于S i的量)  5价元素 P    多数载流子(多子)：自由电子
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AF%BE%E7%A8%8B/" class="category-chain-item">课程</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E8%AF%BE%E7%A8%8B/%E4%B8%93%E4%B8%9A%E8%AF%BE/" class="category-chain-item">专业课</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%B5%E8%B7%AF/">#电路</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E9%A1%B9%E7%9B%AE/" target="_self">
+          <img src="/img/Kaiguandianyuan.png" srcset="/img/loading.gif" lazyload alt="开关电源项目">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E9%A1%B9%E7%9B%AE/" target="_self">
+          开关电源项目
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E9%A1%B9%E7%9B%AE/" target="_self">
+        <div>
+          Buck变换器(恒压&#x2F;横流源)输入要求： 输出要求： 器件选型： 驱动：IR2104   MOSFET： 扼流圈： 输出电容： 模块介绍：主回路采样回路输入电压采样采样电阻取值原则： ①损耗小→电阻大 ②0.6Uadc_max&lt;保持采样值&lt;Uadc_max，采样误差小且不超量程 两种方式： ①直接分压接ADC采样 ②分压后接电压跟随器，接ADC。减小ADC电流的导致的采样误差
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/" class="category-chain-item">开关电源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E9%A1%B9%E7%9B%AE/" class="category-chain-item">项目</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/">#开关电源</a>
+            
+              <a href="/tags/%E9%A1%B9%E7%9B%AE/">#项目</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/" target="_self">
+          <img src="/img/Tuopu.png" srcset="/img/loading.gif" lazyload alt="开关电源设计原理">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/" target="_self">
+          开关电源设计原理
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/" target="_self">
+        <div>
+          简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零) P 一般情况：(电压电流同时变换开始，结束) ​      最坏情况：(导通电流先升高、关断电流先升高) Buck变换器LLC谐振变换器注：软开关(零电压开通、零电流关断) 优点：能实现、LLC实现的是零电压开通、
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/" class="category-chain-item">开关电源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%8E%9F%E7%90%86/" class="category-chain-item">原理</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/">#开关电源</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/%E5%88%9D%E5%BF%83/" target="_self">
+          建立博客的初心
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/05/31/%E5%88%9D%E5%BF%83/" target="_self">
+        <div>
+          ①建立自己学习成长的线索，以便自己回顾知识，了解自己学习进度和确定下一步方向。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/%E5%85%B1%E6%A8%A1%E5%99%AA%E5%A3%B0/" target="_self">
+          <img src="/img/Gongmo.png" srcset="/img/loading.gif" lazyload alt="共模噪声">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/%E5%85%B1%E6%A8%A1%E5%99%AA%E5%A3%B0/" target="_self">
+          共模噪声
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/%E5%85%B1%E6%A8%A1%E5%99%AA%E5%A3%B0/" target="_self">
+        <div>
+          EMI 建模分析参考：Identification_of_Essential_Coupling_Path_Models_for_Conducted_EMI_Prediction_in_Switching_Power_Converters 共模噪声消除方法产生原因： ①对地寄生电容 ②电压高频变化结点 无源消除 参考文献：Passive_cancellation_of_common-mode_noi
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/" class="category-chain-item">开关电源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%8E%9F%E7%90%86/" class="category-chain-item">原理</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%8E%9F%E7%90%86/%E7%94%B5%E7%A3%81%E5%B9%B2%E6%89%B0/" class="category-chain-item">电磁干扰</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%B5%E7%A3%81%E5%B9%B2%E6%89%B0/">#电磁干扰</a>
+            
+              <a href="/tags/EMI/">#EMI</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/Windows%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E6%95%99%E7%A8%8B/" target="_self">
+          <img src="/img/windows.png" srcset="/img/loading.gif" lazyload alt="Windows批处理文件教程">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/Windows%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E6%95%99%E7%A8%8B/" target="_self">
+          Windows批处理文件教程
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/Windows%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E6%95%99%E7%A8%8B/" target="_self">
+        <div>
+          命令行cmd与PowerShellcmd是power shell的子集。 说明 不区分大小写 按上下键可以查看历史命令 Tab键可以自动补全 使用/?或/help可以查看命令用法，用法中的[]代表可选 命令基本格式命令 参数列表   基本命令   命令 功能 举例    echo 显示    pause 暂停 pause &gt; nul   cls 清屏    exit 退出    常用命令
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B7%A5%E5%85%B7/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="category-chain-item">开发工具</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%89%B9%E5%A4%84%E7%90%86%E5%91%BD%E4%BB%A4/">#批处理命令</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/Simplorer_Maxwell%E8%81%94%E5%90%88%E4%BB%BF%E7%9C%9F/" target="_self">
+          <img src="/img/maxwell.png" srcset="/img/loading.gif" lazyload alt="Simplorer_Maxwell联合仿真">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/Simplorer_Maxwell%E8%81%94%E5%90%88%E4%BB%BF%E7%9C%9F/" target="_self">
+          Simplorer_Maxwell联合仿真
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/Simplorer_Maxwell%E8%81%94%E5%90%88%E4%BB%BF%E7%9C%9F/" target="_self">
+        <div>
+          Maxwell线圈自感建模： 资料教程：https://pan.baidu.com/s/1MdFJy7BNmWE-VoBvgyQ1sw?pwd=1234 Maxwell参数化扫描： 参考：https://www.bilibili.com/video/BV1Lv4y1f7pR?p=3&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7 Maxwell互感建模
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B7%A5%E5%85%B7/%E4%BB%BF%E7%9C%9F%E5%B7%A5%E5%85%B7/" class="category-chain-item">仿真工具</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Maxwell/">#Maxwell</a>
+            
+              <a href="/tags/Simplorer/">#Simplorer</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/05/31/Git/" target="_self">
+          <img src="/img/Git.png" srcset="/img/loading.gif" lazyload alt="Git">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/05/31/Git/" target="_self">
+          Git
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/05/31/Git/" target="_self">
+        <div>
+          参考：https://www.runoob.com/git/git-tutorial.html
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-05-31 20:47" pubdate>
+              2024-05-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%B7%A5%E5%85%B7/" class="category-chain-item">工具</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%B7%A5%E5%85%B7/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" class="category-chain-item">开发工具</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Git/">#Git</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
