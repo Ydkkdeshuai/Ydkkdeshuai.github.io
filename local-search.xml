@@ -62,7 +62,7 @@
     <link href="/2024/05/31/%E6%A8%A1%E7%94%B5/"/>
     <url>/2024/05/31/%E6%A8%A1%E7%94%B5/</url>
     
-    <content type="html"><![CDATA[<h1 id="一、常用半导体器件2-9"><a href="#一、常用半导体器件2-9" class="headerlink" title="一、常用半导体器件2~9"></a>一、常用半导体器件2~9</h1><h2 id="1-1-PN结"><a href="#1-1-PN结" class="headerlink" title="1.1 PN结"></a>1.1 PN结</h2><p><strong>P区形成</strong>： 纯Si区(本征半导体)掺加少量(相比于Si的量)   3价元素 Be    多数载流子(多子)：空穴(空穴移动≈自由电子反向移动)       少子：自由电子</p><p><strong>N区形成</strong>：纯Si区(本征半导体)掺加少量(相比于S i的量)  5价元素 P    多数载流子(多子)：自由电子                                                少子：空穴</p><p>温度影响少子浓度更剧烈、少子本来浓度低。→<strong>少子决定的特性受温度影响大</strong>。</p><p><strong>P&#x2F;N区内两种运动：</strong></p><blockquote><p>热运动(本征激发—空穴 、电子分离)              本征激发速度↑，温度↑，浓度↑</p></blockquote><blockquote><p>复合(空穴 自由电子结合)                                 浓度↑，复合速度↑，浓度↓</p></blockquote><blockquote><p>两者动态平衡类似与化学的离子电离</p></blockquote><p>PN结内两种运动</p><blockquote><p>扩散运动：浓度差导致P&#x2F;N区多子(空穴&#x2F;电子)向N&#x2F;P区运动。      形成电势差。</p></blockquote><blockquote><p>漂移运动：因为电势差P&#x2F;N区在 耗尽层被加速漂移过去。</p></blockquote><blockquote><p>最终两者运动动态平衡</p></blockquote><p><img src="/../pic/image-20240531193247107.png" alt="PN结两种运动和空间电荷区(耗尽层)的形成"></p><p><strong>PN结正偏</strong>：使阻止漂移运动的电势差削弱，耗尽层缩小，削弱漂移运动，增强扩散运动，但是因为产生扩散运动的多子浓度高，所以正向电流大。</p><p>正向电流指数增长原因：少部分需要削弱一点，多部份需要更多电压，多子数量随需要的电势指数增长→电流随电压指数增长。</p><p><img src="/../pic/image-20240531194003444.png" alt="PN结正偏"></p><p><strong>PN结反偏</strong>：使阻止漂移运动的电势差加强，耗尽层变宽，增强漂移运动，进一步削弱多子扩散运动，让扩散运动主要是少子，所以电流反向，但是少子浓度低，所以反向电流小。</p><p><img src="/../pic/image-20240531194026100.png" alt="PN结反偏"></p><p><strong>温度影响少子浓度多，所以反向饱和电流受温度影响多。</strong></p><p><strong>PN结伏安特性</strong></p><p><img src="/../pic/image-20240531194333516.png" alt="PN结伏安特性"></p><p>PN结伏安方程：<br>$$<br>i &#x3D; I_s(e^{U&#x2F;u_{T}}-1)<br>$$</p><blockquote><p>正向死区</p></blockquote><blockquote><p><strong>反向击穿</strong></p><p>​<strong>雪崩击穿</strong>：反向电压增强耗尽层，增强漂移运动的做功能力，是少子能量高，撞开其他共价键。造成雪崩效应   发生情况：掺杂浓度低使耗尽层宽，加速距离足够长。</p><p>​温度↑，热运动加剧，电子空穴之间更容易复合，需要更大的耗尽层距离加速，需要更高雪崩击穿电压。</p><p>​<strong>齐纳击穿</strong>：电场很大使共价键破裂。                                                                                                                              发生情况：掺杂浓度高使电场强度很高。</p><p>​温度↑，价电子更容易被破坏，需要齐纳击穿电压低。</p></blockquote><blockquote><p>反向斜率无穷大：稳压二极管</p></blockquote><blockquote><p>电容特性：</p><p>​势垒电容(漂移运动)：耗尽层厚度变化</p><p><img src="/../pic/image-20240531200326128.png" alt="势垒电容"></p><p>​扩散电容(扩散运动—非平衡少子)：</p><p><img src="/../pic/image-20240531200413301.png" alt="扩散电容"></p></blockquote><h2 id="1-2-二极管"><a href="#1-2-二极管" class="headerlink" title="1.2  二极管"></a>1.2  二极管</h2><h1 id="二、基本放大电路10-17"><a href="#二、基本放大电路10-17" class="headerlink" title="二、基本放大电路10~17"></a>二、基本放大电路10~17</h1><h1 id="三、集成运算放大电路18-21"><a href="#三、集成运算放大电路18-21" class="headerlink" title="三、集成运算放大电路18~21"></a>三、集成运算放大电路18~21</h1><h1 id="八、功率放大电路22"><a href="#八、功率放大电路22" class="headerlink" title="八、功率放大电路22"></a>八、功率放大电路22</h1><h1 id="四、放大电路的频率响应23-29"><a href="#四、放大电路的频率响应23-29" class="headerlink" title="四、放大电路的频率响应23~29"></a>四、放大电路的频率响应23~29</h1><h1 id="五、放大电路中的反馈29-35"><a href="#五、放大电路中的反馈29-35" class="headerlink" title="五、放大电路中的反馈29~35"></a>五、放大电路中的反馈29~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><p>参考：视频-郑益慧 <a href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="一、常用半导体器件2-9"><a href="#一、常用半导体器件2-9" class="headerlink" title="一、常用半导体器件2~9"></a>一、常用半导体器件2~9</h1><h2 id="1-1-PN结"><a href="#1-1-PN结" class="headerlink" title="1.1 PN结"></a>1.1 PN结</h2><p><strong>P区形成</strong>： 纯Si区(本征半导体)掺加少量(相比于Si的量)   3价元素 Be    多数载流子(多子)：空穴(空穴移动≈自由电子反向移动)       少子：自由电子</p><p><strong>N区形成</strong>：纯Si区(本征半导体)掺加少量(相比于S i的量)  5价元素 P    多数载流子(多子)：自由电子                                                少子：空穴</p><p>温度影响少子浓度更剧烈、少子本来浓度低。→<strong>少子决定的特性受温度影响大</strong>。</p><p><strong>P&#x2F;N区内两种运动：</strong></p><blockquote><p>热运动(本征激发—空穴 、电子分离)              本征激发速度↑，温度↑，浓度↑</p></blockquote><blockquote><p>复合(空穴 自由电子结合)                                 浓度↑，复合速度↑，浓度↓</p></blockquote><blockquote><p>两者动态平衡类似与化学的离子电离</p></blockquote><p>PN结内两种运动</p><blockquote><p>扩散运动：浓度差导致P&#x2F;N区多子(空穴&#x2F;电子)向N&#x2F;P区运动。      形成电势差。</p></blockquote><blockquote><p>漂移运动：因为电势差P&#x2F;N区在 耗尽层被加速漂移过去。</p></blockquote><blockquote><p>最终两者运动动态平衡</p></blockquote><p><img src="/../pic/image-20240531193247107.png" alt="PN结两种运动和空间电荷区(耗尽层)的形成"></p><p><strong>PN结正偏</strong>：使阻止漂移运动的电势差削弱，耗尽层缩小，削弱漂移运动，增强扩散运动，但是因为产生扩散运动的多子浓度高，所以正向电流大。</p><p>正向电流指数增长原因：少部分需要削弱一点，多部份需要更多电压，多子数量随需要的电势指数增长→电流随电压指数增长。</p><p><img src="/../pic/image-20240531194003444.png" alt="PN结正偏"></p><p><strong>PN结反偏</strong>：使阻止漂移运动的电势差加强，耗尽层变宽，增强漂移运动，进一步削弱多子扩散运动，让扩散运动主要是少子，所以电流反向，但是少子浓度低，所以反向电流小。</p><p><img src="/../pic/image-20240531194026100.png" alt="PN结反偏"></p><p><strong>温度影响少子浓度多，所以反向饱和电流受温度影响多。</strong></p><p><strong>PN结伏安特性</strong></p><p><img src="/../pic/image-20240531194333516.png" alt="PN结伏安特性"></p><p>PN结伏安方程：<br>$$<br>i &#x3D; I_s(e^{U&#x2F;u_{T}}-1)<br>$$</p><blockquote><p>正向死区</p></blockquote><blockquote><p><strong>反向击穿</strong></p><p>​<strong>雪崩击穿</strong>：反向电压增强耗尽层，增强漂移运动的做功能力，是少子能量高，撞开其他共价键。造成雪崩效应   发生情况：掺杂浓度低使耗尽层宽，加速距离足够长。</p><p>​温度↑，热运动加剧，电子空穴之间更容易复合，需要更大的耗尽层距离加速，需要更高雪崩击穿电压。</p><p>​<strong>齐纳击穿</strong>：电场很大使共价键破裂。                                                                                                                              发生情况：掺杂浓度高使电场强度很高。</p><p>​温度↑，价电子更容易被破坏，需要齐纳击穿电压低。</p></blockquote><blockquote><p>反向斜率无穷大：稳压二极管</p></blockquote><blockquote><p>电容特性：</p><p>​势垒电容(漂移运动)：耗尽层厚度变化</p><p><img src="/../pic/image-20240531200326128.png" alt="势垒电容"></p><p>​扩散电容(扩散运动—非平衡少子)：</p><p><img src="/../pic/image-20240531200413301.png" alt="扩散电容"></p></blockquote><h2 id="1-2-二极管"><a href="#1-2-二极管" class="headerlink" title="1.2  二极管"></a>1.2  二极管</h2><h3 id="1-2-1-主要参数"><a href="#1-2-1-主要参数" class="headerlink" title="1.2.1 主要参数"></a>1.2.1 主要参数</h3><p>IF：最大平均电流</p><p>UR：最高反向工作电压(击穿)</p><p>IR：反向饱和电流    IR小，反向特性好</p><p>fM：最高工作频率，电容特性 容抗不可忽略     高频电路重要</p><h3 id="1-2-2-等效模型"><a href="#1-2-2-等效模型" class="headerlink" title="1.2.2 等效模型"></a><strong>1.2.2 等效模型</strong></h3><p><img src="/../pic/image-20240531213720705.png" alt="等效模型"></p><h1 id="二、基本放大电路10-17"><a href="#二、基本放大电路10-17" class="headerlink" title="二、基本放大电路10~17"></a>二、基本放大电路10~17</h1><h1 id="三、集成运算放大电路18-21"><a href="#三、集成运算放大电路18-21" class="headerlink" title="三、集成运算放大电路18~21"></a>三、集成运算放大电路18~21</h1><h1 id="八、功率放大电路22"><a href="#八、功率放大电路22" class="headerlink" title="八、功率放大电路22"></a>八、功率放大电路22</h1><h1 id="四、放大电路的频率响应23-29"><a href="#四、放大电路的频率响应23-29" class="headerlink" title="四、放大电路的频率响应23~29"></a>四、放大电路的频率响应23~29</h1><h1 id="五、放大电路中的反馈29-35"><a href="#五、放大电路中的反馈29-35" class="headerlink" title="五、放大电路中的反馈29~35"></a>五、放大电路中的反馈29~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><p>参考：视频-郑益慧 <a href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>]]></content>
     
     
     <categories>
@@ -114,6 +114,19 @@
   
   
   <entry>
+    <title>建立博客的初心</title>
+    <link href="/2024/05/31/%E5%88%9D%E5%BF%83/"/>
+    <url>/2024/05/31/%E5%88%9D%E5%BF%83/</url>
+    
+    <content type="html"><![CDATA[<p>①建立自己学习成长的线索，以便自己回顾知识，了解自己学习进度和确定下一步方向。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>开关电源设计原理</title>
     <link href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/"/>
     <url>/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/</url>
@@ -135,19 +148,6 @@
       <tag>开关电源</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>建立博客的初心</title>
-    <link href="/2024/05/31/%E5%88%9D%E5%BF%83/"/>
-    <url>/2024/05/31/%E5%88%9D%E5%BF%83/</url>
-    
-    <content type="html"><![CDATA[<p>①建立自己学习成长的线索，以便自己回顾知识，了解自己学习进度和确定下一步方向。</p>]]></content>
-    
-    
     
   </entry>
   
@@ -295,31 +295,6 @@
   
   
   <entry>
-    <title>LOL</title>
-    <link href="/2024/05/31/camile/"/>
-    <url>/2024/05/31/camile/</url>
-    
-    <content type="html"><![CDATA[<h1 id="Camile"><a href="#Camile" class="headerlink" title="Camile"></a>Camile</h1><h2 id="自身优势"><a href="#自身优势" class="headerlink" title="自身优势"></a>自身优势</h2><p>Q：</p><p>控制抵消(猜武器E)</p><p>加速  间歇高伤</p><p>W：(W开始空了就说明累了该休息了)</p><blockquote><p>记住对面位移，破骸骨</p><p>越塔藏E</p></blockquote><p>E：</p><blockquote><p>长E控制抵消</p><p>短E拉开防止被拉断(诺手、腕豪)</p><p>逃跑(对线不随便交E,除非知道打野位置)</p><p>踢侧边(剑魔Q3，剑姬W)</p><p>骗技能(诺手E，剑姬W，剑魔Q3)</p></blockquote><p>R：</p><blockquote><p>躲技能</p><p>越塔躲塔攻击</p><p>打团框AD金身</p></blockquote><p>被动：盾快好上去换血</p><p>骸骨：防止被破</p><p>不灭：Q拉开换血。</p><h3 id="中后期（塔掉对线结束）："><a href="#中后期（塔掉对线结束）：" class="headerlink" title="中后期（塔掉对线结束）："></a>中后期（塔掉对线结束）：</h3><p>1️⃣换扫描。      压缩对方视野，防止肆意抓人。<br>2️⃣看地图。      是否被抓，队友是否打团。<br>3️⃣小龙。          务必参团，，蓄q2再上。</p><p>①单带能越塔杀：看对面位置，防被抓。单杀推塔。</p><p>②不能越塔杀：带线过去抓人5V4</p><h1 id="杰斯"><a href="#杰斯" class="headerlink" title="杰斯"></a>杰斯</h1><p>1级W行进速率换血，抢线</p><p>EQ消耗</p><h2 id="剑魔："><a href="#剑魔：" class="headerlink" title="剑魔："></a>剑魔：</h2><p>2-4优势，回推线到三项小劣</p><p>剑气：不被戳。&#x2F;前期可用不灭Q对换。</p><p>Q：左右走卡a骗Q1。   贴脸用加速躲Q2Q3剑锋<br>W：e上去不a&#x2F;Q走位躲w。</p><p>E：有E不W，除非逼位置<br>换血：<br>1️⃣ 卡a骗q躲，往后走躲q2e\或者靠近躲q2e\W换Q2，E踢侧边AQ出链子。<br>2️⃣ 有优势无脑E打一套，第二套兵线进塔越塔</p><h2 id="剑姬："><a href="#剑姬：" class="headerlink" title="剑姬："></a>剑姬：</h2><p>破绽：走位卡破绽</p><p>Q：不灭Q换Q破绽，R断Q。E挂墙等Q位移。</p><p>W：E踢侧面，QW骗W</p><p>E：</p><p>R：剑姬ALL IN的底牌，对面塔下别乱踢。</p><p>​R卡破绽</p><p>换血：卡破绽抢线等Q上来对换Q，卡破绽兵堆对A，拉开后趁他QCD W刮，侧向刮不吃W。</p><p>有优势：QW骗W结束Q2踢</p><h2 id="腕豪："><a href="#腕豪：" class="headerlink" title="腕豪："></a>腕豪：</h2><p>前期不打架保守换血</p><p>被动：换血不被右拳起手，不然被动盾挡不下来        CD</p><p>W：R躲，换完一套，躲真伤                                        CD</p><p>E：不被拉小兵、短E拉开                                              CD</p><p>R：防止拉长E断E</p><p>换血：</p><p>前提W破骸骨，</p><p>①对Q他左拳起手，QQ拉开，躲W</p><p>②被E到AQQ拉开，躲W</p><h2 id="蛮王："><a href="#蛮王：" class="headerlink" title="蛮王："></a>蛮王：</h2><p>疾跑点燃，不带点燃杀不掉</p><p>没怒气拿线再换血，有怒气放线。</p><p>不对A</p><h2 id="螃蟹："><a href="#螃蟹：" class="headerlink" title="螃蟹："></a>螃蟹：</h2><p>QW行进速率Q2，E控制抵消背</p><p>E，R躲拉背</p><p>打两套</p><h1 id="格温："><a href="#格温：" class="headerlink" title="格温："></a>格温：</h1><p><img src="/../pic/image-20240529210107213.png" alt="Counter图"></p><h1 id="永恩："><a href="#永恩：" class="headerlink" title="永恩："></a>永恩：</h1>]]></content>
-    
-    
-    <categories>
-      
-      <category>游戏</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>LOL</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Cmake</title>
     <link href="/2024/05/31/Cmake/"/>
     <url>/2024/05/31/Cmake/</url>
@@ -339,6 +314,31 @@
     <tags>
       
       <tag>Cmake</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LOL</title>
+    <link href="/2024/05/31/camile/"/>
+    <url>/2024/05/31/camile/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Camile"><a href="#Camile" class="headerlink" title="Camile"></a>Camile</h1><h2 id="自身优势"><a href="#自身优势" class="headerlink" title="自身优势"></a>自身优势</h2><p>Q：</p><p>控制抵消(猜武器E)</p><p>加速  间歇高伤</p><p>W：(W开始空了就说明累了该休息了)</p><blockquote><p>记住对面位移，破骸骨</p><p>越塔藏E</p></blockquote><p>E：</p><blockquote><p>长E控制抵消</p><p>短E拉开防止被拉断(诺手、腕豪)</p><p>逃跑(对线不随便交E,除非知道打野位置)</p><p>踢侧边(剑魔Q3，剑姬W)</p><p>骗技能(诺手E，剑姬W，剑魔Q3)</p></blockquote><p>R：</p><blockquote><p>躲技能</p><p>越塔躲塔攻击</p><p>打团框AD金身</p></blockquote><p>被动：盾快好上去换血</p><p>骸骨：防止被破</p><p>不灭：Q拉开换血。</p><h3 id="中后期（塔掉对线结束）："><a href="#中后期（塔掉对线结束）：" class="headerlink" title="中后期（塔掉对线结束）："></a>中后期（塔掉对线结束）：</h3><p>1️⃣换扫描。      压缩对方视野，防止肆意抓人。<br>2️⃣看地图。      是否被抓，队友是否打团。<br>3️⃣小龙。          务必参团，，蓄q2再上。</p><p>①单带能越塔杀：看对面位置，防被抓。单杀推塔。</p><p>②不能越塔杀：带线过去抓人5V4</p><h1 id="杰斯"><a href="#杰斯" class="headerlink" title="杰斯"></a>杰斯</h1><p>1级W行进速率换血，抢线</p><p>EQ消耗</p><h2 id="剑魔："><a href="#剑魔：" class="headerlink" title="剑魔："></a>剑魔：</h2><p>2-4优势，回推线到三项小劣</p><p>剑气：不被戳。&#x2F;前期可用不灭Q对换。</p><p>Q：左右走卡a骗Q1。   贴脸用加速躲Q2Q3剑锋<br>W：e上去不a&#x2F;Q走位躲w。</p><p>E：有E不W，除非逼位置<br>换血：<br>1️⃣ 卡a骗q躲，往后走躲q2e\或者靠近躲q2e\W换Q2，E踢侧边AQ出链子。<br>2️⃣ 有优势无脑E打一套，第二套兵线进塔越塔</p><h2 id="剑姬："><a href="#剑姬：" class="headerlink" title="剑姬："></a>剑姬：</h2><p>破绽：走位卡破绽</p><p>Q：不灭Q换Q破绽，R断Q。E挂墙等Q位移。</p><p>W：E踢侧面，QW骗W</p><p>E：</p><p>R：剑姬ALL IN的底牌，对面塔下别乱踢。</p><p>​R卡破绽</p><p>换血：卡破绽抢线等Q上来对换Q，卡破绽兵堆对A，拉开后趁他QCD W刮，侧向刮不吃W。</p><p>有优势：QW骗W结束Q2踢</p><h2 id="腕豪："><a href="#腕豪：" class="headerlink" title="腕豪："></a>腕豪：</h2><p>前期不打架保守换血</p><p>被动：换血不被右拳起手，不然被动盾挡不下来        CD</p><p>W：R躲，换完一套，躲真伤                                        CD</p><p>E：不被拉小兵、短E拉开                                              CD</p><p>R：防止拉长E断E</p><p>换血：</p><p>前提W破骸骨，</p><p>①对Q他左拳起手，QQ拉开，躲W</p><p>②被E到AQQ拉开，躲W</p><h2 id="蛮王："><a href="#蛮王：" class="headerlink" title="蛮王："></a>蛮王：</h2><p>疾跑点燃，不带点燃杀不掉</p><p>没怒气拿线再换血，有怒气放线。</p><p>不对A</p><h2 id="螃蟹："><a href="#螃蟹：" class="headerlink" title="螃蟹："></a>螃蟹：</h2><p>QW行进速率Q2，E控制抵消背</p><p>E，R躲拉背</p><p>打两套</p><h1 id="格温："><a href="#格温：" class="headerlink" title="格温："></a>格温：</h1><p><img src="/../pic/image-20240529210107213.png" alt="Counter图"></p><h1 id="永恩："><a href="#永恩：" class="headerlink" title="永恩："></a>永恩：</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>游戏</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>LOL</tag>
       
     </tags>
     
@@ -403,7 +403,7 @@
     <link href="/2024/05/31/hello-world/"/>
     <url>/2024/05/31/hello-world/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
     
