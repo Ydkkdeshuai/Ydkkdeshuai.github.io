@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Modian.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.623Z">
-<meta property="article:modified_time" content="2024-06-01T01:48:55.603Z">
+<meta property="article:modified_time" content="2024-06-01T02:46:42.131Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 分钟
+          14 分钟
         
       </span>
     
@@ -307,7 +307,7 @@
 <p><strong>温度影响少子浓度多，所以反向饱和电流受温度影响多。</strong></p>
 <p><strong>PN结伏安特性</strong></p>
 <p><img src="/../pic/image-20240531194333516.png" srcset="/img/loading.gif" lazyload alt="PN结伏安特性"></p>
-<p>PN结伏安方程：<br>$$<br>i &#x3D; I_s(e^{U&#x2F;u_{T}}-1)<br>$$</p>
+<p>PN结伏安方程：$i &#x3D; I_s(e^{U&#x2F;u_{T}}-1)$</p>
 <blockquote>
 <p>正向死区</p>
 </blockquote>
@@ -348,11 +348,13 @@
 <p>e（emitter）：掺杂浓度高</p>
 <p>发射结：be</p>
 <p>集电结：cb</p>
-<h3 id="BJT放大原理"><a href="#BJT放大原理" class="headerlink" title="BJT放大原理"></a>BJT放大原理</h3><p><img src="/../pic/image-20240601085345264.png" srcset="/img/loading.gif" lazyload alt="NPN BJT放大原理"><br>$$<br>发射结正偏加强扩散运动：I_{EP}\ I_{EN}\<br>集电结反偏加强少子漂移运动：I_{CBO}\</p>
-<p>I_E &#x3D; I_{EN} + I_{EP} &#x3D;  I_{CN} + I_{BN}  + I_{EP}\<br>I_B &#x3D; I_{BN} + I_{EP}\<br>I_C &#x3D; I_{CN} + I_{CBO}\</p>
-<p>B区掺杂浓度低→ I_{EP} &lt;&lt; I_{BN}\<br>B区面积薄，收集载流子能力弱→ I_{BN} &lt;&lt;  I_{CN}\<br>集电极反偏，少子漂移产生I_{CBO}→I_{CBO}&lt;&lt;I_{BN}&lt;&lt;I_{CN}\</p>
-<p>因此：\<br>I_E ≈ I_{CN} + I_{BN}\<br>I_B ≈ I_{BN}\<br>I_C ≈ I_{CN}\</p>
-<p>又因为b，c区收集载流子能力固定，c为b的β倍，所以I_E ≈ I_{CN} + I_{BN} &#x3D; βI_{BN} + I_{BN}<br>$$<br>参数：</p>
+<h3 id="BJT放大原理"><a href="#BJT放大原理" class="headerlink" title="BJT放大原理"></a>BJT放大原理</h3><p><img src="/../pic/image-20240601085345264.png" srcset="/img/loading.gif" lazyload alt="NPN BJT放大原理"></p>
+<p>发射结正偏加强扩散运动：$I_{EP}\ I_{EN}$<br>集电结反偏加强少子漂移运动：$I_{CBO}$</p>
+<p>$I_E &#x3D; I_{EN} + I_{EP} &#x3D;  I_{CN} + I_{BN}  + I_{EP}$<br>$I_B &#x3D; I_{BN} + I_{EP}$<br>$I_C &#x3D; I_{CN} + I_{CBO}$</p>
+<p>B区掺杂浓度低→ $I_{EP} &lt;&lt; I_{BN}$<br>B区面积薄，收集载流子能力弱→ $I_{BN} &lt;&lt;  I_{CN}$<br>集电极反偏，少子漂移产生$I_{CBO}→I_{CBO}&lt;&lt;I_{BN}&lt;&lt;I_{CN}$</p>
+<p>因此：<br>$I_E ≈ I_{CN} + I_{BN}$<br>$I_B ≈ I_{BN}$<br>$I_C ≈ I_{CN}$</p>
+<p>又因为b，c区收集载流子能力固定，c为b的β倍，所以$I_E ≈ I_{CN} + I_{BN} &#x3D; βI_{BN} + I_{BN}$</p>
+<p>参数：</p>
 <p>$β$：放大倍数</p>
 <p>$I_{CEO}$：穿透电流   b开路。ce电流</p>
 <p>$I_{CBO}$：cb反向电流</p>
@@ -368,7 +370,21 @@
 <p>$u_{be}&gt;u_{th}(发射结正偏) , 集电结反偏$：放大区   $i_c&#x3D;βi_{b}$   </p>
 <p><strong>判断区域</strong>：算ib，再算Icmax。比较βib Icmax大小</p>
 <h3 id="主要参数："><a href="#主要参数：" class="headerlink" title="主要参数："></a>主要参数：</h3><p>自己看书。</p>
-<h1 id="二、基本放大电路10-17"><a href="#二、基本放大电路10-17" class="headerlink" title="二、基本放大电路10~17"></a>二、基本放大电路10~17</h1><h1 id="三、集成运算放大电路18-21"><a href="#三、集成运算放大电路18-21" class="headerlink" title="三、集成运算放大电路18~21"></a>三、集成运算放大电路18~21</h1><h1 id="八、功率放大电路22"><a href="#八、功率放大电路22" class="headerlink" title="八、功率放大电路22"></a>八、功率放大电路22</h1><h1 id="四、放大电路的频率响应23-29"><a href="#四、放大电路的频率响应23-29" class="headerlink" title="四、放大电路的频率响应23~29"></a>四、放大电路的频率响应23~29</h1><h1 id="五、放大电路中的反馈29-35"><a href="#五、放大电路中的反馈29-35" class="headerlink" title="五、放大电路中的反馈29~35"></a>五、放大电路中的反馈29~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
+<h2 id="1-4-MOSFET（P8-P9）"><a href="#1-4-MOSFET（P8-P9）" class="headerlink" title="1.4 MOSFET（P8-P9）"></a>1.4 MOSFET（P8-P9）</h2><p>还没学。</p>
+<h1 id="二、基本放大电路10-27-5"><a href="#二、基本放大电路10-27-5" class="headerlink" title="二、基本放大电路10~27.5"></a>二、基本放大电路10~27.5</h1><p>放大：对正弦波信号(小电压、电流)放大，使其不失真(对所有频率的放大倍数几乎一样)</p>
+<h3 id="2-1-构建放大电路"><a href="#2-1-构建放大电路" class="headerlink" title="2.1 构建放大电路"></a>2.1 构建放大电路</h3><blockquote>
+<p>目标：小功率→大功率</p>
+</blockquote>
+<blockquote>
+<p>条件：放大特性器件、电源</p>
+</blockquote>
+<blockquote>
+<p>方法：</p>
+<p>​	放大器件：三极管、MOSFET</p>
+<p>​	小信号输入：$u_{be}$控制$i_{b}$,$i_{b}$控制$i_{c}$</p>
+<p>​	大信号输出：$i_{c}$控制输出</p>
+</blockquote>
+<h1 id="三、集成运算放大电路27-5-29-5"><a href="#三、集成运算放大电路27-5-29-5" class="headerlink" title="三、集成运算放大电路27.5~29.5"></a>三、集成运算放大电路27.5~29.5</h1><h1 id="八、功率放大电路"><a href="#八、功率放大电路" class="headerlink" title="八、功率放大电路"></a>八、功率放大电路</h1><h1 id="四、放大电路的频率响应"><a href="#四、放大电路的频率响应" class="headerlink" title="四、放大电路的频率响应~"></a>四、放大电路的频率响应~</h1><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 
                 
               </div>
