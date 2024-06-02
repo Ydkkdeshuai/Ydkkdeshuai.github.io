@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Modian.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.623Z">
-<meta property="article:modified_time" content="2024-06-01T16:21:19.714Z">
+<meta property="article:modified_time" content="2024-06-02T12:20:55.269Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          3.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          20 分钟
+          26 分钟
         
       </span>
     
@@ -441,7 +441,102 @@
 <p>忽略误差得到简化的h参数等效模型：</p>
 <p> <img src="/../pic/image-20240602001606433.png" srcset="/img/loading.gif" lazyload alt="r_be 推导"></p>
 <p>$\delta u_{ce} &#x3D; i_{be}r_{bb} + I_e(r_{be})&#x3D;i_{be}r_{bb} + (1+β)i_{be}(r_{be})$  $r_e$非常小可忽略，因为e区掺杂浓度高。</p>
-<h1 id="三、集成运算放大电路27-5-29-5"><a href="#三、集成运算放大电路27-5-29-5" class="headerlink" title="三、集成运算放大电路27.5~29.5"></a>三、集成运算放大电路27.5~29.5</h1><h1 id="八、功率放大电路"><a href="#八、功率放大电路" class="headerlink" title="八、功率放大电路"></a>八、功率放大电路</h1><h1 id="四、放大电路的频率响应"><a href="#四、放大电路的频率响应" class="headerlink" title="四、放大电路的频率响应~"></a>四、放大电路的频率响应~</h1><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
+<blockquote>
+<p>一端等效为电阻</p>
+<p>另一端等效为流控电流源</p>
+</blockquote>
+<h3 id="2-3-5-BJT放大电路动态分析方法"><a href="#2-3-5-BJT放大电路动态分析方法" class="headerlink" title="2.3.5 BJT放大电路动态分析方法"></a>2.3.5 BJT放大电路动态分析方法</h3><p>①直流通路，静态工作点(在某点线性化方程)。</p>
+<p>求$I_{EQ}、r_{be}$，判断$βI_b I_{Cmax}$大小，确定BJT工作区间（饱和区，放大区）</p>
+<p>②小信号交流等效模型替代BJT得到交流通路</p>
+<p>③求$A_{u} &#x3D; \frac{R_{i}上的电压}{R_o上的电压}$、$R_i$、$ R_o$、求$A_{s}$、再求$A_{us}$</p>
+<p>que：$R_o$大稳定输出电流、$R_o$小稳定输出电流。（对于不同的负载$R_L$，对电压电流的影响）</p>
+<p>分析：$U &#x3D; \frac{R_L}{R_L + R_o}$ 、$i &#x3D; \frac{U}{R_L + R_o}$</p>
+<h2 id="2-4-稳定静态工作点"><a href="#2-4-稳定静态工作点" class="headerlink" title="2.4 稳定静态工作点"></a>2.4 稳定静态工作点</h2><h3 id="2-4-1-两种失真"><a href="#2-4-1-两种失真" class="headerlink" title="2.4.1 两种失真"></a>2.4.1 两种失真</h3><ul>
+<li>输入$i_b$太大导致$u_{be}&lt;u_{on}$，进入截止区,电阻不能近似成直线斜率（$\frac{d_{u_{be}}}{d_{i_b}}≠K$ ），线性化模型失效</li>
+</ul>
+<p><img src="/../pic/image-20240602103509210.png" srcset="/img/loading.gif" lazyload alt="截止失真"></p>
+<ul>
+<li>输入$i_b$太大导致$βi_b &lt; I_{Cmax}$，进入饱和区，$i_c≠βi_b$，线性化模型失效</li>
+</ul>
+<p><img src="/../pic/image-20240602103624330.png" srcset="/img/loading.gif" lazyload alt="饱和失真"></p>
+<p>影响因素：</p>
+<blockquote>
+<p>温度：需要改进</p>
+<p>电源波动：没办法</p>
+<p>元器件老化：没办法</p>
+</blockquote>
+<p>解决办法：引入负反馈抑制影响</p>
+<p><img src="/../pic/image-20240602105009423.png" srcset="/img/loading.gif" lazyload alt="负反馈电阻Re和RB1 RB2 确定工作点的稳定工作点电路"></p>
+<ul>
+<li><p>$I_{B_2}&gt;&gt;I_B$使β的变化对$u_{b}$的影响非常小。</p>
+</li>
+<li><p>如图右侧</p>
+</li>
+</ul>
+<h3 id="2-4-2"><a href="#2-4-2" class="headerlink" title="2.4.2"></a>2.4.2</h3><p><img src="/../pic/image-20240602110225446.png" srcset="/img/loading.gif" lazyload alt="阻容式耦合静态工作点稳定电路"></p>
+<p>$C_e$在交流通路短路 $R_e$ 去掉$R_e$稳定静态工作点导致放大倍数减小。</p>
+<p>缺点：有大电容($C_e$)，大电感不能集成 </p>
+<p><img src="/../pic/image-20240602110626692.png" srcset="/img/loading.gif" lazyload alt="其他静态工作点稳定电路"></p>
+<p>自己分析</p>
+<h2 id="2-5-共集放大电路"><a href="#2-5-共集放大电路" class="headerlink" title="2.5 共集放大电路"></a>2.5 共集放大电路</h2><p><img src="/../pic/image-20240602111034231.png" srcset="/img/loading.gif" lazyload alt="共集放大电路"></p>
+<p>分析方法同前面。</p>
+<p>特性：</p>
+<blockquote>
+<p>输放大倍数接近一</p>
+</blockquote>
+<blockquote>
+<p>$R_o$很小</p>
+</blockquote>
+<blockquote>
+<p>。。。。。。。。。。。</p>
+</blockquote>
+<h2 id="2-6-共基放大电路"><a href="#2-6-共基放大电路" class="headerlink" title="2.6 共基放大电路"></a>2.6 共基放大电路</h2><p><img src="/../pic/image-20240602113727901.png" srcset="/img/loading.gif" lazyload alt="共基放大电路"></p>
+<p>分析方法同共射放大电路。</p>
+<p>特性：</p>
+<blockquote>
+<p>通频带宽</p>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<blockquote>
+</blockquote>
+<h2 id="2-7-三种放大电路特性对比"><a href="#2-7-三种放大电路特性对比" class="headerlink" title="2.7 三种放大电路特性对比"></a>2.7 三种放大电路特性对比</h2><h2 id="2-8-复合放大电路"><a href="#2-8-复合放大电路" class="headerlink" title="2.8 复合放大电路"></a>2.8 复合放大电路</h2><h3 id="2-8-1-复合管"><a href="#2-8-1-复合管" class="headerlink" title="2.8.1 复合管"></a>2.8.1 复合管</h3><p><img src="/../pic/image-20240602171347769.png" srcset="/img/loading.gif" lazyload alt="复合管"></p>
+<p>作用：形成PNP NPN特性相近的对管</p>
+<h3 id="2-8-2-共射-共基放大电路"><a href="#2-8-2-共射-共基放大电路" class="headerlink" title="2.8.2 共射-共基放大电路"></a>2.8.2 共射-共基放大电路</h3><p><img src="/../pic/image-20240602172857953.png" srcset="/img/loading.gif" lazyload alt="共射-共基放大电路"></p>
+<h3 id="2-8-3-共集-共基放大电路"><a href="#2-8-3-共集-共基放大电路" class="headerlink" title="2.8.3 共集-共基放大电路"></a>2.8.3 共集-共基放大电路</h3><p><img src="/../pic/image-20240602172924676.png" srcset="/img/loading.gif" lazyload alt="共集-共基放大电路"></p>
+<h2 id="2-9-MOSFET放大电路分析"><a href="#2-9-MOSFET放大电路分析" class="headerlink" title="2.9 MOSFET放大电路分析"></a>2.9 MOSFET放大电路分析</h2><p><img src="/../pic/image-20240602173151568.png" srcset="/img/loading.gif" lazyload alt="基本共源放大电路"></p>
+<p><img src="/../pic/image-20240602172948082.png" srcset="/img/loading.gif" lazyload alt="MOSFET放大电路"></p>
+<p><img src="/../pic/image-20240602173951231.png" srcset="/img/loading.gif" lazyload alt="MOS小信号交流等效模型"></p>
+<p><img src="/../pic/image-20240602174302776.png" srcset="/img/loading.gif" lazyload alt="image-20240602174302776"></p>
+<p>que：$R_{g3}作用$</p>
+<p><img src="/../pic/image-20240602174402990.png" srcset="/img/loading.gif" lazyload alt="image-20240602174402990"></p>
+<h1 id="三、集成运算放大电路27-5-29-5"><a href="#三、集成运算放大电路27-5-29-5" class="headerlink" title="三、集成运算放大电路27.5~29.5"></a>三、集成运算放大电路27.5~29.5</h1><p>多级放大电路作用：结合多种优点，$R_i R_o$</p>
+<h2 id="3-1-耦合方式"><a href="#3-1-耦合方式" class="headerlink" title="3.1 耦合方式"></a>3.1 耦合方式</h2><h3 id="3-1-1-直接耦合"><a href="#3-1-1-直接耦合" class="headerlink" title="3.1.1 直接耦合"></a>3.1.1 直接耦合</h3><p><img src="/../pic/image-20240602181313110.png" srcset="/img/loading.gif" lazyload alt="直接耦合"></p>
+<p>a图问题：T2管ube&#x3D;0.7，T1 uce1 &#x3D; ube2 &#x3D;0.7，T1容易进入饱和区</p>
+<p>改进b图：加二极管，但是需要很多二极管串联，所以加稳压二极管，并且加R提供稳定稳压二极管静态工作点的电流。但是需要的VCC更大，所以改进为d图</p>
+<p><strong>优点</strong>：低频特性好(无电容，低频电容容抗高)，容易集成</p>
+<p><strong>缺点</strong>：难调试（确定静态工作点难，静态工作点与很多参数有关系）</p>
+<h3 id="3-1-2-阻容耦合"><a href="#3-1-2-阻容耦合" class="headerlink" title="3.1.2 阻容耦合"></a>3.1.2 阻容耦合</h3><p><img src="/../pic/image-20240602182558716.png" srcset="/img/loading.gif" lazyload alt="阻容耦合"></p>
+<p>优点：调试简单，静态工作点好确定</p>
+<p>缺点：</p>
+<h3 id="3-1-3-变压器耦合"><a href="#3-1-3-变压器耦合" class="headerlink" title="3.1.3 变压器耦合"></a>3.1.3 变压器耦合</h3><p><img src="/../pic/image-20240602182702935.png" srcset="/img/loading.gif" lazyload alt="变压器耦合"></p>
+<p>优点：</p>
+<p>缺点：</p>
+<h3 id="3-1-4-光电耦合"><a href="#3-1-4-光电耦合" class="headerlink" title="3.1.4 光电耦合"></a>3.1.4 光电耦合</h3><p><img src="/../pic/image-20240602182928808.png" srcset="/img/loading.gif" lazyload alt="光电耦合"></p>
+<h2 id="3-2-动态分析"><a href="#3-2-动态分析" class="headerlink" title="3.2 动态分析"></a>3.2 动态分析</h2><p>逐级分析 $R_i R_o A_{uu}$</p>
+<h2 id="3-3-直接耦合放大电路零点漂移"><a href="#3-3-直接耦合放大电路零点漂移" class="headerlink" title="3.3 直接耦合放大电路零点漂移"></a>3.3 直接耦合放大电路零点漂移</h2><p>零点漂移现象：$U_i &#x3D; 0 ,U_o ≠0$</p>
+<p><img src="/../pic/image-20240602201452732.png" srcset="/img/loading.gif" lazyload alt="零点漂移现象"></p>
+<p>产生原因：温漂</p>
+<p>抑制方法：</p>
+<blockquote>
+<p>负反馈  $R_e$，但是放大倍数 $A_{uu}$ 会减小</p>
+</blockquote>
+<blockquote>
+<p>差分放大 温漂同时产生抵消掉</p>
+</blockquote>
+<h3 id="3-3-2-差分放大电路"><a href="#3-3-2-差分放大电路" class="headerlink" title="3.3.2 差分放大电路"></a>3.3.2 差分放大电路</h3><h1 id="四、放大电路的频率响应"><a href="#四、放大电路的频率响应" class="headerlink" title="四、放大电路的频率响应~"></a>四、放大电路的频率响应~</h1><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><h1 id="八、功率放大电路"><a href="#八、功率放大电路" class="headerlink" title="八、功率放大电路"></a>八、功率放大电路</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 
                 
               </div>
