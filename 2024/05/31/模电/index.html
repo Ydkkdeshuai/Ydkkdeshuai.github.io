@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Modian.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.623Z">
-<meta property="article:modified_time" content="2024-06-02T13:39:50.577Z">
+<meta property="article:modified_time" content="2024-06-02T14:27:11.071Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          3.6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          29 分钟
+          31 分钟
         
       </span>
     
@@ -579,7 +579,18 @@
 <p>解决办法：增加一个PN结的偏置。←二极管</p>
 <p><img src="/../pic/image-20240602213420829.png" srcset="/img/loading.gif" lazyload alt="交越失真互补输出级"></p>
 <p>b对a的改进。</p>
-<h1 id="四、放大电路的频率响应"><a href="#四、放大电路的频率响应" class="headerlink" title="四、放大电路的频率响应"></a>四、放大电路的频率响应</h1><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><h1 id="八、功率放大电路"><a href="#八、功率放大电路" class="headerlink" title="八、功率放大电路"></a>八、功率放大电路</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
+<h3 id="3-3-5-直接耦合多级放大电路"><a href="#3-3-5-直接耦合多级放大电路" class="headerlink" title="3.3.5 直接耦合多级放大电路"></a>3.3.5 直接耦合多级放大电路</h3><p><img src="/../pic/image-20240602215054262.png" srcset="/img/loading.gif" lazyload alt="直接耦合多级放大电路"></p>
+<p>输入级：差分放大电路，消除共模干扰，温漂</p>
+<p>中间级：达林顿管得到更大的放大倍数，共射放大电路的负载为电流源，放大倍数更大。</p>
+<p>互补输出级：$R_o$小，功耗小，达林顿管构成NPN PNP。</p>
+<p><strong>交流等效电路：</strong></p>
+<p><img src="/../pic/image-20240602215854974.png" srcset="/img/loading.gif" lazyload alt="交流等效电路"></p>
+<h1 id="四、放大电路的频率响应-P23-P27"><a href="#四、放大电路的频率响应-P23-P27" class="headerlink" title="四、放大电路的频率响应(P23~P27)"></a>四、放大电路的频率响应(P23~P27)</h1><p>高频时PN结结间电容不可忽略！</p>
+<p><img src="/../pic/image-20240602220516238.png" srcset="/img/loading.gif" lazyload alt="放大倍数频率特性"></p>
+<p>低频：耦合电容</p>
+<p>高频：结间电容</p>
+<h2 id="4-1-幅频特性概述"><a href="#4-1-幅频特性概述" class="headerlink" title="4.1 幅频特性概述"></a>4.1 幅频特性概述</h2><p>我是自控大王，不记了。</p>
+<h2 id="4-2-BJT-高频等效模型"><a href="#4-2-BJT-高频等效模型" class="headerlink" title="4.2 BJT 高频等效模型"></a>4.2 BJT 高频等效模型</h2><h2 id="4-3-MOSFET-高频等效模型"><a href="#4-3-MOSFET-高频等效模型" class="headerlink" title="4.3 MOSFET 高频等效模型"></a>4.3 MOSFET 高频等效模型</h2><h2 id="4-4-单级放大电路频率响应"><a href="#4-4-单级放大电路频率响应" class="headerlink" title="4.4 单级放大电路频率响应"></a>4.4 单级放大电路频率响应</h2><h2 id="4-5-多级放大电路频率响应"><a href="#4-5-多级放大电路频率响应" class="headerlink" title="4.5 多级放大电路频率响应"></a>4.5 多级放大电路频率响应</h2><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><h1 id="八、功率放大电路（视频没有，自学）"><a href="#八、功率放大电路（视频没有，自学）" class="headerlink" title="八、功率放大电路（视频没有，自学）"></a>八、功率放大电路（视频没有，自学）</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 
                 
               </div>
