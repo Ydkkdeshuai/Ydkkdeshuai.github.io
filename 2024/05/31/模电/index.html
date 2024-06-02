@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Modian.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.623Z">
-<meta property="article:modified_time" content="2024-06-02T12:20:55.269Z">
+<meta property="article:modified_time" content="2024-06-02T13:39:50.577Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.5k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          26 分钟
+          29 分钟
         
       </span>
     
@@ -536,7 +536,50 @@
 <blockquote>
 <p>差分放大 温漂同时产生抵消掉</p>
 </blockquote>
-<h3 id="3-3-2-差分放大电路"><a href="#3-3-2-差分放大电路" class="headerlink" title="3.3.2 差分放大电路"></a>3.3.2 差分放大电路</h3><h1 id="四、放大电路的频率响应"><a href="#四、放大电路的频率响应" class="headerlink" title="四、放大电路的频率响应~"></a>四、放大电路的频率响应~</h1><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><h1 id="八、功率放大电路"><a href="#八、功率放大电路" class="headerlink" title="八、功率放大电路"></a>八、功率放大电路</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
+<h3 id="3-3-2-差分放大电路"><a href="#3-3-2-差分放大电路" class="headerlink" title="3.3.2 差分放大电路"></a>3.3.2 差分放大电路</h3><p><img src="/../pic/image-20240602203507063.png" srcset="/img/loading.gif" lazyload alt="差分放大电路"></p>
+<p>优点：</p>
+<p>①$R_e$稳定静态工作点相当于两倍$R_e$作用，</p>
+<p>②交流等效模型$R_e$被消除，不影响放大倍数</p>
+<p>③能完全抑制温漂等共模信号，放大倍数为零</p>
+<p>分析：</p>
+<p>最关键的是化简交流等效电路</p>
+<p>求$A_{uu}，R_i，R_o$</p>
+<h3 id="3-3-3-其他接法"><a href="#3-3-3-其他接法" class="headerlink" title="3.3.3 其他接法"></a>3.3.3 其他接法</h3><p>排列组合：双入双出 单入双出 双入单出 单入单出</p>
+<ul>
+<li>双入单出</li>
+</ul>
+<p><img src="/../pic/image-20240602204608723.png" srcset="/img/loading.gif" lazyload alt="双入单出"></p>
+<ul>
+<li>单入双出</li>
+</ul>
+<p><img src="/../pic/image-20240602210311406.png" srcset="/img/loading.gif" lazyload alt="单入双出"></p>
+<p>单端输入分解成 差模信号+共模信号</p>
+<ul>
+<li>单入单出</li>
+</ul>
+<p><img src="/../pic/image-20240602210445865.png" srcset="/img/loading.gif" lazyload alt="单入单出">、</p>
+<p>改进：</p>
+<p>①电流源代替 $R_e$</p>
+<p>②MOSFET代替BJT</p>
+<h3 id="3-3-4-互补输出级"><a href="#3-3-4-互补输出级" class="headerlink" title="3.3.4 互补输出级"></a>3.3.4 互补输出级</h3><p><strong>多级放大电路要求：</strong></p>
+<p>输入级抑制温漂，干扰(差分放大电路)、输入电阻大(mosfet)—差分放大电路、mosfet</p>
+<p>中间级放大电压电流—共射放大电路</p>
+<p>输出级输出电阻小，不失真，输出功率高，效率高 —射级输出器</p>
+<p><strong>甲乙丙功放区分：</strong></p>
+<p><img src="/../pic/image-20240602211544838.png" srcset="/img/loading.gif" lazyload alt="甲乙丙功放区分"></p>
+<p>按照BJT对于交流信号的导通角度确定。</p>
+<p>甲类：静态工作点太高，直流电压高，一直在耗电，但不失真。</p>
+<p>乙类：静态工作点在截止区，只有正半轴信号通过，直流损耗不高但是只有一半的信号，有失真。</p>
+<p>解决办法：两个乙类结合，正半轴  负半轴分开通过。</p>
+<ul>
+<li>互补输出级</li>
+</ul>
+<p><img src="/../pic/image-20240602212946749.png" srcset="/img/loading.gif" lazyload alt="交越失真"></p>
+<p>但是 $U_i$要克服 $U_{th}$死区产生失真。</p>
+<p>解决办法：增加一个PN结的偏置。←二极管</p>
+<p><img src="/../pic/image-20240602213420829.png" srcset="/img/loading.gif" lazyload alt="交越失真互补输出级"></p>
+<p>b对a的改进。</p>
+<h1 id="四、放大电路的频率响应"><a href="#四、放大电路的频率响应" class="headerlink" title="四、放大电路的频率响应"></a>四、放大电路的频率响应</h1><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><h1 id="八、功率放大电路"><a href="#八、功率放大电路" class="headerlink" title="八、功率放大电路"></a>八、功率放大电路</h1><p>参考：视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 
                 
               </div>
