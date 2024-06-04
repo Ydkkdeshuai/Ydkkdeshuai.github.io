@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>如何做科研</title>
+    <link href="/2024/06/04/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0%EF%BC%8C%E5%81%9A%E7%A7%91%E7%A0%94%EF%BC%8C%E5%8F%91%E8%AE%BA%E6%96%87/"/>
+    <url>/2024/06/04/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0%EF%BC%8C%E5%81%9A%E7%A7%91%E7%A0%94%EF%BC%8C%E5%8F%91%E8%AE%BA%E6%96%87/</url>
+    
+    <content type="html"><![CDATA[<p>阅读</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>科研</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>科研</tag>
+      
+      <tag>研究生</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>电路冗杂知识</title>
     <link href="/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E8%AF%86/"/>
     <url>/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E8%AF%86/</url>
@@ -114,24 +141,11 @@
   
   
   <entry>
-    <title>建立博客的初心</title>
-    <link href="/2024/05/31/%E5%88%9D%E5%BF%83/"/>
-    <url>/2024/05/31/%E5%88%9D%E5%BF%83/</url>
-    
-    <content type="html"><![CDATA[<p>①建立自己学习成长的线索，以便自己回顾知识，了解自己学习进度和确定下一步方向。</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>开关电源设计原理</title>
     <link href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/"/>
     <url>/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/</url>
     
-    <content type="html"><![CDATA[<p>简介：对拓扑的知识进行介绍</p><h1 id="损耗计算"><a href="#损耗计算" class="headerlink" title="损耗计算"></a>损耗计算</h1><p>电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗) </p><ul><li>动态损耗</li></ul><p>最好情况：(导通电压先降为零、关断电流先降为零)</p><p>P</p><p>一般情况：(电压电流同时变换开始，结束)</p><p>​     </p><p>最坏情况：(导通电流先升高、关断电流先升高)</p><h1 id="Buck变换器"><a href="#Buck变换器" class="headerlink" title="Buck变换器"></a>Buck变换器</h1><h1 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h1><p>注：软开关(零电压开通、零电流关断)</p><p>优点：能实现、LLC实现的是零电压开通、</p><p>参考文献：<a href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p><h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><p>波形：</p><p>软开关：</p><h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1>]]></content>
+    <content type="html"><![CDATA[<p>简介：对拓扑的知识进行介绍</p><h1 id="损耗计算"><a href="#损耗计算" class="headerlink" title="损耗计算"></a>损耗计算</h1><p>电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗) </p><ul><li>动态损耗</li></ul><p>最好情况：(导通电压先降为零、关断电流先降为零)</p><p>P</p><p>一般情况：(电压电流同时变换开始，结束)</p><p>​     </p><p>最坏情况：(导通电流先升高、关断电流先升高)</p><h1 id="Buck变换器"><a href="#Buck变换器" class="headerlink" title="Buck变换器"></a>Buck变换器</h1><ul><li>大前提</li></ul><p>理想元件：</p><p>二极管没有管压降</p><p>电感无寄生参数，且足够大，使电感电流直流分量&gt;&gt;交流分量</p><p>电容无寄生参数，且足够大，使电感直流分量全部流入 $R$，交流分量全部流入$C$</p><p>开关管瞬间通断，无动态损耗。</p><ul><li>拓扑图</li></ul><p><img src="/../pic/image-20240604121212592.png" alt="Buck拓扑图"></p><ul><li>波形分析过程：</li></ul><p>电路达到稳态时，$V_O$一定</p><p>S导通：$V_L&#x3D;V_i - V_o$ ,电感电流由电压积分上升。电流先负再正，$V_C$由电流积分先放电再充电，电压$V_C$先下降再上升。</p><p>S关断：二极管续流，$V_L&#x3D;- V_o$ ,电感电流由电压积分下降。电流先正再负，$V_C$由电流积分先充电再放电，电压$V_C$先上升再下降。</p><p><img src="/../pic/image-20240604122407442.png" alt="波形图"></p><blockquote><p>$i_S + i_D &#x3D; i_L$</p></blockquote><blockquote><p>$Vs + V_D &#x3D; V_i$</p></blockquote><p><img src="/../pic/image-20240604122420900.png" alt="S、D波形图"></p><p><strong>电压增益：</strong>电感伏秒平衡，单周期内电感电流变化量为0；</p><p>$\frac{1}{L} \int_{0}^{DT}V_i - V_o d_t &#x3D; \frac{1}{L} \int_{DT}^{T} - V_o d_t$</p><p><strong>电流增益：</strong></p><p><strong>电感电流直流分量：</strong></p><p>电感直流分量等于 R上电流</p><p>$I_L &#x3D; I_O$</p><p><strong>电感电流交流分量峰峰值：</strong></p><p>$\frac{1}{L} \int_{0}^{DT}V_i - V_o d_t $</p><p><strong>电容电压直流分量：</strong></p><p>电容电压直流分量等于 R上电压</p><p>$V_C &#x3D; V_O$</p><p><strong>电容电压交流分量(纹波)峰峰值：</strong></p><p>$\frac{1}{C} \int_{\frac{DT}{2}}^{\frac{3DT}{2}}i_L d_t &#x3D; $</p><p><strong>器件选型：</strong></p><h1 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h1><p>注：软开关(零电压开通、零电流关断)</p><p>优点：能实现、LLC实现的是零电压开通、</p><p>参考文献：<a href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p><h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><p>波形：</p><p>软开关：</p><h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1>]]></content>
     
     
     <categories>
@@ -393,19 +407,6 @@
       <tag>Altium designer</tag>
       
     </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2024/05/31/hello-world/"/>
-    <url>/2024/05/31/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
     
   </entry>
   
