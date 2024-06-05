@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Modian.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.623Z">
-<meta property="article:modified_time" content="2024-06-03T15:32:09.919Z">
+<meta property="article:modified_time" content="2024-06-05T09:10:24.674Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k 字
+          5.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          35 分钟
+          43 分钟
         
       </span>
     
@@ -593,7 +593,102 @@
 <h2 id="4-2-BJT-Π型-高频不可忽略等效模型"><a href="#4-2-BJT-Π型-高频不可忽略等效模型" class="headerlink" title="4.2 BJT Π型 高频不可忽略等效模型"></a>4.2 BJT Π型 高频不可忽略等效模型</h2><p><img src="/../pic/image-20240602224112890.png" srcset="/img/loading.gif" lazyload alt="BJT高频不可忽略等效模型"></p>
 <p>简化高频不可忽略等效模型等效模型</p>
 <p><img src="/../pic/image-20240602224215604.png" srcset="/img/loading.gif" lazyload alt="简化高频不可忽略等效模型等效模型"></p>
-<h2 id="4-3-MOSFET-高频不可忽略等效模型"><a href="#4-3-MOSFET-高频不可忽略等效模型" class="headerlink" title="4.3 MOSFET 高频不可忽略等效模型"></a>4.3 MOSFET 高频不可忽略等效模型</h2><h2 id="4-4-单级放大电路频率响应"><a href="#4-4-单级放大电路频率响应" class="headerlink" title="4.4 单级放大电路频率响应"></a>4.4 单级放大电路频率响应</h2><h2 id="4-5-多级放大电路频率响应"><a href="#4-5-多级放大电路频率响应" class="headerlink" title="4.5 多级放大电路频率响应"></a>4.5 多级放大电路频率响应</h2><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><p>运放工作前提：引入负反馈，让运放工作在线性区。</p>
+<h2 id="4-3-MOSFET-高频不可忽略等效模型"><a href="#4-3-MOSFET-高频不可忽略等效模型" class="headerlink" title="4.3 MOSFET 高频不可忽略等效模型"></a>4.3 MOSFET 高频不可忽略等效模型</h2><h2 id="4-4-单级放大电路频率响应"><a href="#4-4-单级放大电路频率响应" class="headerlink" title="4.4 单级放大电路频率响应"></a>4.4 单级放大电路频率响应</h2><h2 id="4-5-多级放大电路频率响应"><a href="#4-5-多级放大电路频率响应" class="headerlink" title="4.5 多级放大电路频率响应"></a>4.5 多级放大电路频率响应</h2><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h2 id="5-1-反馈的判断"><a href="#5-1-反馈的判断" class="headerlink" title="5.1 反馈的判断"></a>5.1 反馈的判断</h2><p>反馈定义：输出量影响净输入量。</p>
+<p>正反馈：输出量增大净输入量</p>
+<p>负反馈：输出量减小净输入量</p>
+<p>正负反馈判断：瞬时极性法，设输入增大，净输入量增大，$U_o$增大，净输入量增大或减小。</p>
+<p>直流反馈：直流通路存在反馈。</p>
+<p>交流反馈：交流通路存在反馈</p>
+<p>直流交流反馈判断：直流通路 or 交流通路 判断反馈。</p>
+<h2 id="5-2-反馈-四种组态"><a href="#5-2-反馈-四种组态" class="headerlink" title="5.2 反馈 四种组态"></a>5.2 反馈 四种组态</h2><p>反馈量取自电压，则为<strong>电压反馈</strong>，稳定电压。</p>
+<p>反馈量取自电流，则为电流反馈，稳定电流。</p>
+<p>反馈量和输入流以电压方式叠加，则为<strong>串联反馈</strong>。</p>
+<p>反馈量和输入流以电流方式叠加，则为<strong>并联反馈</strong>。</p>
+<p><strong>判断方法：</strong></p>
+<p>令输出电压为零，判断是否还有反馈。还有就是电流负反馈，没有反馈就是电压负反馈。</p>
+<p>输入和输出叠加的方式，在不同端口就是串联，同意端口就是并联。</p>
+<h2 id="5-3-负反馈放大电路-方框图-表达式"><a href="#5-3-负反馈放大电路-方框图-表达式" class="headerlink" title="5.3 负反馈放大电路 方框图 表达式"></a>5.3 负反馈放大电路 方框图 表达式</h2><h3 id="5-3-1-负反馈方框图"><a href="#5-3-1-负反馈方框图" class="headerlink" title="5.3.1 负反馈方框图"></a>5.3.1 负反馈方框图</h3><p><img src="/../pic/image-20240605155725030-1717578528831-1.png" srcset="/img/loading.gif" lazyload alt="方框图"></p>
+<blockquote>
+<p>环路放大倍数(开环放大倍数)：$\dot A\dot F&#x3D;\frac{\dot X_f}{\dot X_i^&#96;}$</p>
+</blockquote>
+<blockquote>
+<p>闭环放大倍数：$\dot A_f &#x3D;  \frac{\dot X_o}{\dot X_i}$</p>
+</blockquote>
+<blockquote>
+<p>反馈系数：$\dot A  &#x3D;  \frac{\dot X_o}{\dot X_i^&#96;}$</p>
+</blockquote>
+<blockquote>
+<p>放大倍数：$\dot F &#x3D;  \frac{\dot X_f}{\dot X_o}$</p>
+</blockquote>
+<h3 id="5-3-2-四种组态方框图"><a href="#5-3-2-四种组态方框图" class="headerlink" title="5.3.2 四种组态方框图"></a>5.3.2 四种组态方框图</h3><p><img src="/../pic/image-20240605160332394-1717578528831-2.png" srcset="/img/loading.gif" lazyload alt="四种组态方框图"></p>
+<p>四种组态参数意义比较</p>
+<p><img src="/../pic/image-20240605160430888-1717578528831-3.png" srcset="/img/loading.gif" lazyload alt="四种组态参数意义比较"></p>
+<h3 id="5-3-3-负反馈放大电路-表达式"><a href="#5-3-3-负反馈放大电路-表达式" class="headerlink" title="5.3.3 负反馈放大电路 表达式"></a>5.3.3 负反馈放大电路 表达式</h3><p>$\dot A_f &#x3D;  \frac{\dot X_o}{\dot X_i} &#x3D;  \frac{\dot A}{1+\dot A \dot F} ≈ \frac{1}{\dot F}$</p>
+<p>因为$\dot A \dot F&gt;&gt;1$，所以计算负反馈状态下的放大倍数，只需要算 $\dot F$近似就行了。</p>
+<h2 id="5-4-负反馈放大倍数分析"><a href="#5-4-负反馈放大倍数分析" class="headerlink" title="5.4 负反馈放大倍数分析"></a>5.4 负反馈放大倍数分析</h2><h3 id="5-4-1-深度负反馈实质"><a href="#5-4-1-深度负反馈实质" class="headerlink" title="5.4.1 深度负反馈实质"></a>5.4.1 深度负反馈实质</h3><p>当$\dot A \dot F&gt;&gt;1$，及 $ \dot X_i^<code> \dot A \dot F&gt;&gt;\dot X_i^</code>$，即净输入量 对于放大后的净输入量对输出的影响可忽略不计。</p>
+<p>串联负反馈忽略电压。</p>
+<p>并联负反馈忽略电流。</p>
+<h3 id="5-4-2-5-4-3-反馈网络分析"><a href="#5-4-2-5-4-3-反馈网络分析" class="headerlink" title="5.4.2+5.4.3 反馈网络分析"></a>5.4.2+5.4.3 反馈网络分析</h3><p>求$\dot F $就行了。</p>
+<h3 id="5-4-4-理想运放的放大倍数分析"><a href="#5-4-4-理想运放的放大倍数分析" class="headerlink" title="5.4.4 理想运放的放大倍数分析"></a>5.4.4 理想运放的放大倍数分析</h3><p>理想运放：</p>
+<blockquote>
+<p>差模放大倍数：Ad&#x3D;∞</p>
+</blockquote>
+<blockquote>
+<p>共模放大倍数：Ac&#x3D;0</p>
+</blockquote>
+<blockquote>
+<p>输入电阻：$R_i&#x3D;∞$，输出电阻：$R_o&#x3D;0$</p>
+</blockquote>
+<blockquote>
+<p> 失调电压，失调电流，温漂&#x3D;0</p>
+</blockquote>
+<blockquote>
+<p>上限截止频率：∞</p>
+</blockquote>
+<p>虚短：负反馈下，忽略净输入量，$U_+ &#x3D; U_-$。</p>
+<p>续断：$R_i&#x3D;∞$，输入电流趋于零。</p>
+<p>正因为引入负反馈，运放才工作在线性区，不至于饱和。</p>
+<h2 id="5-5-负反馈对-性能-影响"><a href="#5-5-负反馈对-性能-影响" class="headerlink" title="5.5 负反馈对 性能 影响"></a>5.5 负反馈对 性能 影响</h2><p><strong>稳定放大倍数：</strong></p>
+<p>$A_f &#x3D; \frac{A}{1+AF}$</p>
+<p>$\frac{d_{A_f}}{d_A} &#x3D; \frac{1}{(1+AF)^2}→ \frac{d_{A_f}}{A_f} &#x3D; \frac{1}{1+AF}\frac{d_{A}}{A}$</p>
+<p><strong>改变输入电阻：</strong></p>
+<p>串联增大输入电阻：$R_{i}&#x3D;\frac{U_i^<code>&#125;&#123;I_i&#125;、R_&#123;if&#125;=\frac&#123;U_i&#125;&#123;I_i&#125; = \frac&#123;U_i^</code>AFU_i^&#96;}{I_i}$</p>
+<p>并联减小输入电阻：$R_{if}&#x3D;\frac{U_i}{I_i}$</p>
+<p><strong>改变输出电阻：</strong></p>
+<p>电压负反馈稳定输出电压，减少输出电阻：</p>
+<p>电流负反馈稳定输出电流，增大输出电阻：</p>
+<p><strong>展宽频带：</strong></p>
+<p><strong>减小非线性失真：</strong></p>
+<p><strong>一般原则：</strong></p>
+<blockquote>
+<p> 静态工作点—支流负反馈、动态性能—交流负反馈</p>
+</blockquote>
+<blockquote>
+<p>电压型输入信号源—串联、电流型输入信号源—并联</p>
+</blockquote>
+<blockquote>
+<p> 输出电压—电压负反馈、输出电路—交流负反馈</p>
+</blockquote>
+<h2 id="5-6-负反馈放大电路稳定性"><a href="#5-6-负反馈放大电路稳定性" class="headerlink" title="5.6 负反馈放大电路稳定性"></a>5.6 负反馈放大电路稳定性</h2><p><strong>自激振荡：</strong></p>
+<p>类似自动控制原理的描述函数振荡点；</p>
+<p>AF环节与 某一频率的信号幅值有关，当信号幅值小于某一幅值$|X_0|$，系统不稳定，幅值增大，当信号幅值大于这一幅值$|X_0|$，系统趋于稳定，幅值减小。</p>
+<p>条件：</p>
+<p>$|AF|&#x3D;1$</p>
+<p>$\angle(AF) &#x3D; -180°$</p>
+<p>对于信号的频率$f $幅值$|X_0|$有解。</p>
+<p>且信号幅值减小系统不稳定：即$|\dot A \dot F| &gt;1$，当信号幅值→0时。</p>
+<h3 id="5-6-4-消除自激振荡"><a href="#5-6-4-消除自激振荡" class="headerlink" title="5.6.4 消除自激振荡"></a>5.6.4 消除自激振荡</h3><p><strong>滞后补偿</strong>：</p>
+<blockquote>
+<p>简单滞后补偿</p>
+</blockquote>
+<blockquote>
+<p>RC滞后补偿</p>
+</blockquote>
+<blockquote>
+<p>密勒效应补偿</p>
+</blockquote>
+<p><strong>超前补偿</strong>：</p>
+<h2 id="5-7-其他反馈形式"><a href="#5-7-其他反馈形式" class="headerlink" title="5.7 其他反馈形式"></a>5.7 其他反馈形式</h2><h1 id="六、信号的运算和处理36-39"><a href="#六、信号的运算和处理36-39" class="headerlink" title="六、信号的运算和处理36~39"></a>六、信号的运算和处理36~39</h1><p>运放工作前提：引入负反馈，让运放工作在线性区。</p>
 <p>分析出发点：</p>
 <blockquote>
 <p>虚短：引入负反馈，且运放放大倍数很大。两端电压近似相等。</p>
