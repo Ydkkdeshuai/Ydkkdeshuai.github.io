@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>Matlab_Simulink</title>
+    <link href="/2024/06/06/Matlab_Simulink/"/>
+    <url>/2024/06/06/Matlab_Simulink/</url>
+    
+    <content type="html"><![CDATA[<h1 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h1><p>从Excel表里导入参数到Matlab工作区间，然后在simulink用工作区间的参数跑仿真，把示波器和电压电流有效值输出到工作区间，处理得到峰值写入Excel。</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs matlab">clc<br>clear<br><span class="hljs-comment">% 读文件数据 得到Lp Ls M</span><br>filename = <span class="hljs-string">&#x27;13_20.xlsx&#x27;</span>;<br>num = readmatrix(filename)<br>LpLsM= num(<span class="hljs-number">19</span>,<span class="hljs-number">2</span>:<span class="hljs-number">4</span>)  <span class="hljs-comment">%这里需要改</span><br>Lp =LpLsM(<span class="hljs-number">1</span>)<br>Ls =LpLsM(<span class="hljs-number">2</span>)<br>M =LpLsM(<span class="hljs-number">3</span>)<br><br><span class="hljs-comment">% 跑仿真</span><br>load_system(<span class="hljs-string">&#x27;LCC3V12021a.slx&#x27;</span>)<br>sim(<span class="hljs-string">&#x27;LCC3V12021a.slx&#x27;</span>)<br><span class="hljs-comment">% 提取数据</span><br>I_rms = [ILf1(<span class="hljs-keyword">end</span>) ,  ICpf(<span class="hljs-keyword">end</span>) ,ICp(<span class="hljs-keyword">end</span>) , ILf2(<span class="hljs-keyword">end</span>) , ICsf(<span class="hljs-keyword">end</span>) , ICs(<span class="hljs-keyword">end</span>)]<br>[max_I] = [<span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">1</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">2</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">3</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">4</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">5</span>).values),<span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">6</span>).values)]<br>U_rms = [ULf1(<span class="hljs-keyword">end</span>) , UCpf(<span class="hljs-keyword">end</span>) , UCp(<span class="hljs-keyword">end</span>) , ULf2(<span class="hljs-keyword">end</span>) , UCsf(<span class="hljs-keyword">end</span>) , UCs(<span class="hljs-keyword">end</span>)]<br>[max_U] = [<span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">1</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">2</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">3</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">4</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">5</span>).values),<span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">6</span>).values)]<br><br><span class="hljs-comment">% 写到Excel</span><br>Value_array = [I_rms max_I U_rms max_U];<br>writematrix(Value_array,filename,<span class="hljs-string">&#x27;WriteMode&#x27;</span>,<span class="hljs-string">&#x27;append&#x27;</span>);<br><br></code></pre></td></tr></table></figure><h2 id="simulink保存数据到工作区"><a href="#simulink保存数据到工作区" class="headerlink" title="simulink保存数据到工作区"></a>simulink保存数据到工作区</h2><ul><li>示波器</li></ul><p><img src="/../pic/image-20240606165922876.png" alt="示波器方法"></p><ul><li>数据(to workspace)</li></ul><p><img src="/../pic/image-20240606170003248.png" alt="to workspace方法"></p><p>注：</p><p>F1点函数能查询帮助</p><p>参考：</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>工具</category>
+      
+      <category>仿真工具</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Matlab</tag>
+      
+      <tag>Simulink</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>如何做科研</title>
     <link href="/2024/06/04/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0%EF%BC%8C%E5%81%9A%E7%A7%91%E7%A0%94%EF%BC%8C%E5%8F%91%E8%AE%BA%E6%96%87/"/>
     <url>/2024/06/04/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E6%96%87%E7%AB%A0%EF%BC%8C%E5%81%9A%E7%A7%91%E7%A0%94%EF%BC%8C%E5%8F%91%E8%AE%BA%E6%96%87/</url>
@@ -116,7 +145,7 @@
     <link href="/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
     <url>/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E9%A1%B9%E7%9B%AE/</url>
     
-    <content type="html"><![CDATA[<h1 id="Buck变换器-恒压-横流源"><a href="#Buck变换器-恒压-横流源" class="headerlink" title="Buck变换器(恒压&#x2F;横流源)"></a>Buck变换器(恒压&#x2F;横流源)</h1><p>输入要求：</p><p>输出要求：</p><p>器件选型：</p><p>驱动：IR2104  </p><p>MOSFET：</p><p>扼流圈：</p><p>输出电容：</p><h2 id="模块介绍："><a href="#模块介绍：" class="headerlink" title="模块介绍："></a>模块介绍：</h2><h3 id="主回路"><a href="#主回路" class="headerlink" title="主回路"></a>主回路</h3><h3 id="采样回路"><a href="#采样回路" class="headerlink" title="采样回路"></a>采样回路</h3><h4 id="输入电压采样"><a href="#输入电压采样" class="headerlink" title="输入电压采样"></a>输入电压采样</h4><p>采样电阻取值原则：</p><p>①损耗小→电阻大</p><p>②0.6Uadc_max&lt;保持采样值&lt;Uadc_max，采样误差小且不超量程</p><p>两种方式：</p><p>①直接分压接ADC采样</p><p>②分压后接电压跟随器，接ADC。减小ADC电流的导致的采样误差。再串联可调电阻调节。</p><h3 id="辅助电源部分："><a href="#辅助电源部分：" class="headerlink" title="辅助电源部分："></a>辅助电源部分：</h3><p>单片机3.3V供电：LDO  AMS1117-3.3 </p><p>LM358运放7V供电：LDO AMS1117-ADJ  </p><h2 id="驱动部分-IR2104"><a href="#驱动部分-IR2104" class="headerlink" title="驱动部分 IR2104"></a>驱动部分 IR2104</h2><p><img src="/../pic/image-20240524215612150.png" alt="image-20240524215612150"></p><p><img src="/../pic/image-20240524215412198.png" alt="image-20240524215412198"></p><p>R5防止电位变化产生振铃，R8产生Vgs驱动MOS。</p><h3 id="控制回路"><a href="#控制回路" class="headerlink" title="控制回路"></a>控制回路</h3><p>STM32C8T6最小核心：</p><p><img src="/../pic/image-20240524215019580.png" alt="image-20240524215019580"></p><p>3路ADC：输出电流，输出电压，输入电压</p><p>PWM驱动</p><p>两路IO</p><h3 id="其他部分"><a href="#其他部分" class="headerlink" title="其他部分"></a>其他部分</h3><ul><li>按键</li></ul><p><img src="/../pic/image-20240524214335010.png" alt="image-20240524214335010"></p><p>电容消抖</p><ul><li>显示</li></ul><p>OLED 0.96 IIC 通信，用通用IO就行</p><h2 id="其他典型控制芯片："><a href="#其他典型控制芯片：" class="headerlink" title="其他典型控制芯片："></a>其他典型控制芯片：</h2><p>UC3842</p><p>TLL494</p><p>参考：</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Buck变换器-恒压-横流源"><a href="#Buck变换器-恒压-横流源" class="headerlink" title="Buck变换器(恒压&#x2F;横流源)"></a>Buck变换器(恒压&#x2F;横流源)</h1><p>输入要求：12-15V</p><p>输出要求：9V 2A</p><p>器件选型：</p><h2 id="模块介绍："><a href="#模块介绍：" class="headerlink" title="模块介绍："></a>模块介绍：</h2><h3 id="主回路"><a href="#主回路" class="headerlink" title="主回路"></a>主回路</h3><h3 id="采样回路"><a href="#采样回路" class="headerlink" title="采样回路"></a>采样回路</h3><h4 id="输入电压采样"><a href="#输入电压采样" class="headerlink" title="输入电压采样"></a>输入电压采样</h4><p>采样电阻取值原则：</p><p>①损耗小→电阻大</p><p>②0.6Uadc_max&lt;保持采样值&lt;Uadc_max，采样误差小且不超量程</p><p>两种方式：</p><p>①直接分压接ADC采样</p><p>②分压后接电压跟随器，接ADC。减小ADC电流的导致的采样误差。再串联可调电阻调节。</p><h3 id="辅助电源部分："><a href="#辅助电源部分：" class="headerlink" title="辅助电源部分："></a>辅助电源部分：</h3><p>单片机3.3V供电：LDO  AMS1117-3.3 </p><p>LM358运放7V供电：LDO AMS1117-ADJ  </p><h2 id="驱动部分-IR2104"><a href="#驱动部分-IR2104" class="headerlink" title="驱动部分 IR2104"></a>驱动部分 IR2104</h2><p><img src="/../pic/image-20240524215612150.png" alt="image-20240524215612150"></p><p><img src="/../pic/image-20240524215412198.png" alt="image-20240524215412198"></p><p>R5防止电位变化产生振铃，R8产生Vgs驱动MOS。</p><h3 id="控制回路"><a href="#控制回路" class="headerlink" title="控制回路"></a>控制回路</h3><p>STM32C8T6最小核心：</p><p><img src="/../pic/image-20240524215019580.png" alt="image-20240524215019580"></p><p>3路ADC：输出电流，输出电压，输入电压</p><p>PWM驱动</p><p>两路IO</p><h3 id="其他部分"><a href="#其他部分" class="headerlink" title="其他部分"></a>其他部分</h3><ul><li>按键</li></ul><p><img src="/../pic/image-20240524214335010.png" alt="image-20240524214335010"></p><p>电容消抖</p><ul><li>显示</li></ul><p>OLED 0.96 IIC 通信，用通用IO就行</p><h2 id="其他典型控制芯片："><a href="#其他典型控制芯片：" class="headerlink" title="其他典型控制芯片："></a>其他典型控制芯片：</h2><p>UC3842</p><p>TLL494</p><p>参考：</p>]]></content>
     
     
     <categories>
