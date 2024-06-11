@@ -16,16 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介：介绍基本知识 精密整流电路 理想二极管波形：     对于大电压整流电路，二极管压降可以忽略不计。但对于小信号则会产生严重失真。  解决方式：精密整流电路    传输特性分析：  $V_{in}&gt;0$，二极管导通，$V_o+V_{0.7} &#x3D; A(V_{in} - V_o)$→$V_o &#x3D; \frac{AV_{in} - V_{0.7}}{1+A}≈V_{in}$，">
+    <meta name="description" content="简介：介绍基本知识 运放模块运放等效电路理想运放参数：  输入阻抗：∞    实际MΩ级 输出阻抗：0    实际Ω级 放大系数：∞   实际10e5-10e6 带宽：∞ 压摆率：∞，跟踪输入的速度 共模抑制比：∞，$\frac{A_{差模放大倍数}}{A_{共模放大倍数}}$  输入输出特性：   线性区   饱和区  实际运放参数：   失调电压：   偏置电流：  运放负反馈虚短：当引入负反">
 <meta property="og:type" content="article">
-<meta property="og:title" content="电路冗杂知识">
-<meta property="og:url" content="http://example.com/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E8%AF%86/index.html">
+<meta property="og:title" content="电路常用知识">
+<meta property="og:url" content="http://example.com/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
-<meta property="og:description" content="简介：介绍基本知识 精密整流电路 理想二极管波形：     对于大电压整流电路，二极管压降可以忽略不计。但对于小信号则会产生严重失真。  解决方式：精密整流电路    传输特性分析：  $V_{in}&gt;0$，二极管导通，$V_o+V_{0.7} &#x3D; A(V_{in} - V_o)$→$V_o &#x3D; \frac{AV_{in} - V_{0.7}}{1+A}≈V_{in}$，">
+<meta property="og:description" content="简介：介绍基本知识 运放模块运放等效电路理想运放参数：  输入阻抗：∞    实际MΩ级 输出阻抗：0    实际Ω级 放大系数：∞   实际10e5-10e6 带宽：∞ 压摆率：∞，跟踪输入的速度 共模抑制比：∞，$\frac{A_{差模放大倍数}}{A_{共模放大倍数}}$  输入输出特性：   线性区   饱和区  实际运放参数：   失调电压：   偏置电流：  运放负反馈虚短：当引入负反">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.625Z">
-<meta property="article:modified_time" content="2024-06-11T07:29:43.981Z">
+<meta property="article:modified_time" content="2024-06-11T10:56:23.498Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -33,7 +33,7 @@
   
   
   
-  <title>电路冗杂知识 - 小帅的秘密基地</title>
+  <title>电路常用知识 - 小帅的秘密基地</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="电路冗杂知识"></span>
+            <span id="subtitle" data-typed-text="电路常用知识"></span>
           
         </div>
 
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.9k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          9 分钟
+          16 分钟
         
       </span>
     
@@ -270,13 +270,141 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">电路冗杂知识</h1>
+            <h1 id="seo-header">电路常用知识</h1>
             
             
               <div class="markdown-body">
                 
                 <p>简介：介绍基本知识</p>
-<h1 id="精密整流电路"><a href="#精密整流电路" class="headerlink" title="精密整流电路"></a>精密整流电路</h1><p><img src="/../pic/image-20240611135950075.png" srcset="/img/loading.gif" lazyload alt="半波整流电路"></p>
+<h1 id="运放模块"><a href="#运放模块" class="headerlink" title="运放模块"></a>运放模块</h1><h2 id="运放等效电路"><a href="#运放等效电路" class="headerlink" title="运放等效电路"></a>运放等效电路</h2><p><strong>理想运放参数：</strong></p>
+<blockquote>
+<p>输入阻抗：∞    实际MΩ级</p>
+<p>输出阻抗：0    实际Ω级</p>
+<p>放大系数：∞   实际10e5-10e6</p>
+<p>带宽：∞</p>
+<p>压摆率：∞，跟踪输入的速度</p>
+<p>共模抑制比：∞，$\frac{A_{差模放大倍数}}{A_{共模放大倍数}}$</p>
+</blockquote>
+<p>输入输出特性：</p>
+<p><img src="/../pic/image-20240611161307857.png" srcset="/img/loading.gif" lazyload alt="运放输入输出特性"></p>
+<blockquote>
+<p>线性区</p>
+</blockquote>
+<blockquote>
+<p>饱和区</p>
+</blockquote>
+<p><strong>实际运放参数：</strong></p>
+<p><img src="/../pic/image-20240611160835372.png" srcset="/img/loading.gif" lazyload alt="实际运放参数"></p>
+<blockquote>
+<p>失调电压：</p>
+</blockquote>
+<blockquote>
+<p>偏置电流：</p>
+</blockquote>
+<h2 id="运放负反馈"><a href="#运放负反馈" class="headerlink" title="运放负反馈"></a>运放负反馈</h2><p><strong>虚短</strong>：当引入负反馈，运放两端电压相差很小，可以工作在线性区，同相输入端和反相输入端电位近似相等，就像短路一样所以叫虚短。</p>
+<p><strong>虚断</strong>：运放输入电阻十分大，同相输入端和反相输入端之间的电流很小，就像断开一样，所以叫虚断。</p>
+<p>也能通过理论推导得到，令A→∞，可以得到相同特性。</p>
+<p><img src="/../pic/image-20240611162136487.png" srcset="/img/loading.gif" lazyload alt="反相放大电路"></p>
+<ul>
+<li>理论推导：</li>
+</ul>
+<p>$V_{out} &#x3D;A(V^+ - V^-) 且 \frac{V_{in} - V^-}{R_1} &#x3D; -\frac{V_{out} - V^-}{R_f}$ 当A→∞，则 $V_o ≈ -\frac{R_2V_{in}}{R_1}  且 (V^+ - V^-) &#x3D;\frac{V_{out}}{A}≈0 $</p>
+<h2 id="同相放大电路-电压跟随器"><a href="#同相放大电路-电压跟随器" class="headerlink" title="同相放大电路 电压跟随器"></a>同相放大电路 电压跟随器</h2><p><img src="/../pic/image-20240611162608979.png" srcset="/img/loading.gif" lazyload alt="同相放大电路"></p>
+<p>分析方法同反相放大电路。</p>
+<p>优点：相比反向比例放大电路，输入阻抗更高；同相比例放大电路$R_i &#x3D; 运放输入电阻$ 反相比例放大电路 $R_i≈R_1$</p>
+<ul>
+<li>当 $R_f →0 ，R_1→∞$得到电压跟随器。</li>
+</ul>
+<p><img src="/../pic/image-20240611163631459.png" srcset="/img/loading.gif" lazyload alt="image-20240611163631459"></p>
+<p>优点：</p>
+<blockquote>
+<p>输入阻抗高</p>
+</blockquote>
+<blockquote>
+<p>放大倍数&#x3D;1 ，$V_{out} &#x3D; V_{in}$</p>
+</blockquote>
+<blockquote>
+<p>输出阻抗低</p>
+</blockquote>
+<p><img src="/../pic/image-20240611164044779.png" srcset="/img/loading.gif" lazyload alt="用做前后级缓冲电路"></p>
+<p>做前后级缓冲电路，把前后级分隔开，比如信号调理电路的ADC输入。</p>
+<h2 id="反-同相比例加法器"><a href="#反-同相比例加法器" class="headerlink" title="反&#x2F;同相比例加法器"></a>反&#x2F;同相比例加法器</h2><h3 id="反向比例加法器"><a href="#反向比例加法器" class="headerlink" title="反向比例加法器"></a>反向比例加法器</h3><p><img src="/../pic/image-20240611170245726.png" srcset="/img/loading.gif" lazyload alt="反向比例加法器"></p>
+<p><strong>优点：</strong></p>
+<blockquote>
+<p>各个电源输入电阻为串联的$R_n$，不存在相互干扰。</p>
+</blockquote>
+<blockquote>
+<p>输入电压之间没有耦合</p>
+</blockquote>
+<p><strong>应用：</strong></p>
+<blockquote>
+<p>求和</p>
+</blockquote>
+<blockquote>
+<p>求平均</p>
+</blockquote>
+<blockquote>
+<p>提供直流偏置</p>
+</blockquote>
+<blockquote>
+<p>交流信号叠加</p>
+</blockquote>
+<h3 id="同向比例加法器"><a href="#同向比例加法器" class="headerlink" title="同向比例加法器"></a>同向比例加法器</h3><p><img src="/../pic/image-20240611170215988.png" srcset="/img/loading.gif" lazyload alt="同向比例加法器"></p>
+<p><strong>缺点：</strong></p>
+<blockquote>
+<p>各个电源输入电阻存在相互干扰。</p>
+</blockquote>
+<blockquote>
+<p>输入电压之间存在耦合，不好设计。</p>
+</blockquote>
+<p><strong>应用：</strong></p>
+<blockquote>
+<p>求平均(各个电阻 $R_n$ 取值相同)</p>
+</blockquote>
+<p>所以反相加法器相比同相应用更多。</p>
+<h2 id="差分放大器-减法器"><a href="#差分放大器-减法器" class="headerlink" title="差分放大器(减法器)"></a>差分放大器(减法器)</h2><p><img src="/../pic/image-20240611171224761.png" srcset="/img/loading.gif" lazyload alt="差分放大器(减法器)"></p>
+<p>缺点：</p>
+<blockquote>
+<p>输入电阻小，前级必须要接电压跟随器</p>
+</blockquote>
+<h2 id="积分器-微分器"><a href="#积分器-微分器" class="headerlink" title="积分器 微分器"></a>积分器 微分器</h2><h3 id="积分器"><a href="#积分器" class="headerlink" title="积分器"></a>积分器</h3><p><img src="/../pic/image-20240611174031413.png" srcset="/img/loading.gif" lazyload alt="积分电路"></p>
+<p>缺点：</p>
+<blockquote>
+<p>对于频率越高的信号，增益越低。特别对于直流信号，增益无穷大。</p>
+</blockquote>
+<blockquote>
+<p>输入失调电压($V^-$不完全等于0)会导致进入饱和区</p>
+</blockquote>
+<ul>
+<li>改进：并联电阻，稳定直流通路放大倍数。</li>
+</ul>
+<p><img src="/../pic/image-20240611174631484.png" srcset="/img/loading.gif" lazyload alt="改进积分电路"></p>
+<p>改进后的幅频曲线：</p>
+<p><img src="/../pic/image-20240611175827606.png" srcset="/img/loading.gif" lazyload alt="改进后的幅频曲线(黄色)"></p>
+<p>对于截止频率 $f_L$ 以前，近似反向比例放大电路</p>
+<p>对于$10f_L$后，充当积分电路。但是还要关注相频曲线。  积分器要设置频率为$10f_L$后</p>
+<h3 id="微分器"><a href="#微分器" class="headerlink" title="微分器"></a>微分器</h3><p><img src="/../pic/image-20240611182257629.png" srcset="/img/loading.gif" lazyload alt="微分电路"></p>
+<p>缺点：</p>
+<blockquote>
+<p>输入阻抗随频率增大而减小，且对高频噪声过于敏感</p>
+</blockquote>
+<blockquote>
+<p>幅频曲线如下</p>
+<p><img src="/../pic/image-20240611182727253.png" srcset="/img/loading.gif" lazyload alt="幅频曲线"></p>
+</blockquote>
+<ul>
+<li>改进：输入串联电阻。保证输入阻抗至少为R</li>
+</ul>
+<p><img src="/../pic/image-20240611183134497.png" srcset="/img/loading.gif" lazyload alt="串联输入电阻"></p>
+<ul>
+<li>并联电容$C_F$，进行相位补偿，防止产生自激振荡</li>
+</ul>
+<p><img src="/../pic/image-20240611183339975.png" srcset="/img/loading.gif" lazyload alt="image-20240611183339975"></p>
+<p>幅频曲线：</p>
+<p><img src="/../pic/image-20240611183854163.png" srcset="/img/loading.gif" lazyload alt="改进后的幅频曲线"></p>
+<p>传递函数：$\Phi_{(s)} &#x3D; \frac{R_fCs}{(RCs + 1)(R_f C_fS + 1)}$</p>
+<p>输入频率应在0dB频率和$\frac{f1}{10}$频率处,大于0dB频率确保增益足够，小于$\frac{f1}{10}$使得能忽略$R$和$C_F$</p>
+<h2 id="输入偏置电流"><a href="#输入偏置电流" class="headerlink" title="输入偏置电流"></a>输入偏置电流</h2><h2 id="精密整流电路"><a href="#精密整流电路" class="headerlink" title="精密整流电路"></a>精密整流电路</h2><p><img src="/../pic/image-20240611135950075.png" srcset="/img/loading.gif" lazyload alt="半波整流电路"></p>
 <p>理想二极管波形：</p>
 <p><img src="/../pic/image-20240611140026004.png" srcset="/img/loading.gif" lazyload alt="理想二极管波形"></p>
 <p><img src="/../pic/image-20240611140056061.png" srcset="/img/loading.gif" lazyload alt="理想二极管半波整流电路传输特性"></p>
@@ -318,7 +446,7 @@
 <p><strong>应用：</strong></p>
 <p>峰值采样电路 用整流后的波形 过RC充放电，然后接电压跟随器。</p>
 <p>参考:<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5HweBajP-5g&t=1s">https://www.youtube.com/watch?v=5HweBajP-5g&amp;t=1s</a></p>
-<h1 id="峰值采样电路"><a href="#峰值采样电路" class="headerlink" title="峰值采样电路"></a>峰值采样电路</h1><p><img src="/../pic/image-20240611150712886.png" srcset="/img/loading.gif" lazyload alt="理想二极管峰值检测电路"></p>
+<h2 id="峰值采样电路"><a href="#峰值采样电路" class="headerlink" title="峰值采样电路"></a>峰值采样电路</h2><p><img src="/../pic/image-20240611150712886.png" srcset="/img/loading.gif" lazyload alt="理想二极管峰值检测电路"></p>
 <p>假设二极管为理想二极管，但实际总会有压降</p>
 <p><img src="/../pic/image-20240611150901660.png" srcset="/img/loading.gif" lazyload alt="蓝色为实际输出波形 黄色为理想二极管输出波形"></p>
 <p>用精密整流电路(等效理想二极管)代替二极管</p>
@@ -340,6 +468,7 @@
 <p>二极管应该选用肖特基二极管，寄生电容参数低，高频特性好。</p>
 <p><strong>其他电路：</strong></p>
 <p><img src="/../pic/image-20240611151845659.png" srcset="/img/loading.gif" lazyload alt="通过开关手动控制放电"></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=w4531AVjBYY&t=158s">https://www.youtube.com/watch?v=w4531AVjBYY&amp;t=158s</a></p>
 <h1 id="米勒平台"><a href="#米勒平台" class="headerlink" title="米勒平台"></a>米勒平台</h1><p>原因：Mosfet寄生电容</p>
 <p>影响：延长导通时间，增加开关管动态损耗</p>
 <p><strong>电路模型</strong></p>
@@ -438,8 +567,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>电路冗杂知识</div>
-      <div>http://example.com/2024/05/31/电路常识/</div>
+      <div>电路常用知识</div>
+      <div>http://example.com/2024/05/31/电路常用知识/</div>
     </div>
     <div class="license-meta">
       
