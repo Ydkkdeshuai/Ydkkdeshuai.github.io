@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.625Z">
-<meta property="article:modified_time" content="2024-05-25T03:39:29.945Z">
+<meta property="article:modified_time" content="2024-06-11T07:26:21.191Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          520 字
+          1.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          5 分钟
+          9 分钟
         
       </span>
     
@@ -317,7 +317,71 @@
 <p>参考：</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?p=3&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?p=3&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a>  PN结特性</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CW4y117wz/?spm_id_from=333.337.search-card.all.click&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1CW4y117wz/?spm_id_from=333.337.search-card.all.click&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h1 id="峰值采样电路"><a href="#峰值采样电路" class="headerlink" title="峰值采样电路"></a>峰值采样电路</h1><h1 id="PI型滤波器"><a href="#PI型滤波器" class="headerlink" title="PI型滤波器"></a>PI型滤波器</h1><p>π型<a href="https://link.zhihu.com/?target=https://so.csdn.net/so/search?q=%E6%BB%A4%E6%B3%A2%E5%99%A8&spm=1001.2101.3001.7020">滤波器</a>包括两个<a href="https://link.zhihu.com/?target=http://www.elecfans.com/tags/%E7%94%B5%E5%AE%B9%E5%99%A8/">电容器</a>和一个<a href="https://link.zhihu.com/?target=http://www.elecfans.com/tags/%E7%94%B5%E6%84%9F%E5%99%A8/">电感器</a>，它的输入和输出都呈低阻抗。</p>
+<h1 id="精密整流电路"><a href="#精密整流电路" class="headerlink" title="精密整流电路"></a>精密整流电路</h1><p><img src="/../pic/image-20240611135950075.png" srcset="/img/loading.gif" lazyload alt="半波整流电路"></p>
+<p>理想二极管波形：</p>
+<p><img src="/../pic/image-20240611140026004.png" srcset="/img/loading.gif" lazyload alt="理想二极管波形"></p>
+<p><img src="/../pic/image-20240611140056061.png" srcset="/img/loading.gif" lazyload alt="理想二极管半波整流电路传输特性"></p>
+<p><img src="/../pic/image-20240611140142370.png" srcset="/img/loading.gif" lazyload alt="实际半波整流电路波形"></p>
+<p><img src="/../pic/image-20240611140352535.png" srcset="/img/loading.gif" lazyload alt="实际传输特性"></p>
+<p>对于大电压整流电路，二极管压降可以忽略不计。但对于小信号则会产生严重失真。</p>
+<ul>
+<li>解决方式：精密整流电路</li>
+</ul>
+<p><img src="/../pic/image-20240611140546564.png" srcset="/img/loading.gif" lazyload alt="精密整流电路"></p>
+<p><img src="/../pic/image-20240611140614374.png" srcset="/img/loading.gif" lazyload alt="传输特性"></p>
+<p><strong>传输特性分析：</strong></p>
+<blockquote>
+<p>$V_{in}&gt;0$，二极管导通，$V_o+V_{0.7} &#x3D; A(V_{in} - V_o)$→$V_o &#x3D; \frac{AV_{in} - V_{0.7}}{1+A}≈V_{in}$，相当于一个电压跟随器。</p>
+</blockquote>
+<blockquote>
+<p>$V_{in}&lt;0$，二极管截止</p>
+</blockquote>
+<p>优点：等效为理想二极管</p>
+<p>缺点：二极管截止时，运放工作在饱和区，当反向变为正向时从饱和区进入线性区需要一定时间，当输入信号工作频率过高时，会产生失真，限制了工作频率。</p>
+<ul>
+<li><strong>解决方法</strong>：在二极管截止时也引入负反馈。</li>
+</ul>
+<p><img src="/../pic/image-20240611141752567.png" srcset="/img/loading.gif" lazyload alt="引入反向反馈的精密整流电路"></p>
+<p><strong>模态分析：</strong></p>
+<blockquote>
+<p>$V_{in}&gt;0$，$D_1$ 导通,$D_2$ 截止，$V_{out} &#x3D; 0$。  $R_1 D_1 近似构成电压跟随器$</p>
+</blockquote>
+<blockquote>
+<p>$V_{in}&lt;0$，$D_1$ 截止,$D_2$ 导通 ， $R_1 R_2 D_2近似构成反向比例放大电路$。</p>
+<p>$V_{out} + V_{0.7} &#x3D;-AV^- 且 \frac{V_{in} - V^-}{R_1} &#x3D; -\frac{V_{out} - V^-}{R_2}$ 当A→∞，则 $V_o ≈ -\frac{R_2V_{in}}{R_1} $也可用虚短虚断分析</p>
+</blockquote>
+<p><img src="/../pic/image-20240611150003416.png" srcset="/img/loading.gif" lazyload alt="传输特性"></p>
+<p><img src="/../pic/image-20240611150142991.png" srcset="/img/loading.gif" lazyload alt="输入输出波形 蓝色输入 黄色输出"></p>
+<p><img src="/../pic/image-20240611150104951.png" srcset="/img/loading.gif" lazyload alt="另一种形式"></p>
+<p>全波精密整流电路</p>
+<p><img src="/../pic/image-20240611150339569.png" srcset="/img/loading.gif" lazyload alt="全波精密整流电路"></p>
+<p>-2倍增益与原始信号相加就得到全波整流波形。</p>
+<p><strong>应用：</strong></p>
+<p>峰值采样电路 用整流后的波形 过RC充放电，然后接电压跟随器。</p>
+<p>参考:<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=5HweBajP-5g&t=1s">https://www.youtube.com/watch?v=5HweBajP-5g&amp;t=1s</a></p>
+<h1 id="峰值采样电路"><a href="#峰值采样电路" class="headerlink" title="峰值采样电路"></a>峰值采样电路</h1><p><img src="/../pic/image-20240611150712886.png" srcset="/img/loading.gif" lazyload alt="理想二极管峰值检测电路"></p>
+<p>假设二极管为理想二极管，但实际总会有压降</p>
+<p><img src="/../pic/image-20240611150901660.png" srcset="/img/loading.gif" lazyload alt="蓝色为实际输出波形 黄色为理想二极管输出波形"></p>
+<p>用精密整流电路(等效理想二极管)代替二极管</p>
+<p><img src="/../pic/image-20240611151217329.png" srcset="/img/loading.gif" lazyload alt="image-20240611151217329"></p>
+<p>但是还需要放电，不然尖峰干扰会影响输出特性。 通过负载电阻放电。</p>
+<p><img src="/../pic/image-20240611151308453.png" srcset="/img/loading.gif" lazyload alt="并联电阻放电"></p>
+<p>缺点：</p>
+<p>负载可能会变，因此$RC$时间常数随负载特性改变。需要保持$\tau_{RC}&gt;10倍信号周期$</p>
+<ul>
+<li>接入电压跟随器，电压跟随器输入阻抗大，输出阻抗小。或者放电</li>
+</ul>
+<p><img src="/../pic/image-20240611151734601.png" srcset="/img/loading.gif" lazyload alt="接入电压跟随器稳定放电阻抗"></p>
+<p>缺点：</p>
+<p>$V_{in}&lt;0$，放大器工作在负饱和状态，限制工作频率。 </p>
+<ul>
+<li>改进：引入负输入时的负反馈</li>
+</ul>
+<p><img src="/../pic/image-20240611152206792.png" srcset="/img/loading.gif" lazyload alt="引入负输入时的负反馈"></p>
+<p>二极管应该选用肖特基二极管，寄生电容参数低，高频特性好。</p>
+<p><strong>其他电路：</strong></p>
+<p><img src="/../pic/image-20240611151845659.png" srcset="/img/loading.gif" lazyload alt="通过开关手动控制放电"></p>
+<h1 id="PI型滤波器"><a href="#PI型滤波器" class="headerlink" title="PI型滤波器"></a>PI型滤波器</h1><p>π型<a href="https://link.zhihu.com/?target=https://so.csdn.net/so/search?q=%E6%BB%A4%E6%B3%A2%E5%99%A8&spm=1001.2101.3001.7020">滤波器</a>包括两个<a href="https://link.zhihu.com/?target=http://www.elecfans.com/tags/%E7%94%B5%E5%AE%B9%E5%99%A8/">电容器</a>和一个<a href="https://link.zhihu.com/?target=http://www.elecfans.com/tags/%E7%94%B5%E6%84%9F%E5%99%A8/">电感器</a>，它的输入和输出都呈低阻抗。</p>
 <p>RC：成本低  但 效率低                             </p>
 <p>LC： 效率高 但 体积大，笨重，价格高</p>
 <p>低电流，小体积用RC，大电流大体积用LC</p>
