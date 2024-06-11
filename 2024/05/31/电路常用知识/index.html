@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.625Z">
-<meta property="article:modified_time" content="2024-06-11T10:56:23.498Z">
+<meta property="article:modified_time" content="2024-06-11T16:01:03.533Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2.5k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          16 分钟
+          21 分钟
         
       </span>
     
@@ -404,6 +404,43 @@
 <p><img src="/../pic/image-20240611183854163.png" srcset="/img/loading.gif" lazyload alt="改进后的幅频曲线"></p>
 <p>传递函数：$\Phi_{(s)} &#x3D; \frac{R_fCs}{(RCs + 1)(R_f C_fS + 1)}$</p>
 <p>输入频率应在0dB频率和$\frac{f1}{10}$频率处,大于0dB频率确保增益足够，小于$\frac{f1}{10}$使得能忽略$R$和$C_F$</p>
+<h2 id="频率响应-增益带宽积-闭环带宽-开环带宽-单位增益频率"><a href="#频率响应-增益带宽积-闭环带宽-开环带宽-单位增益频率" class="headerlink" title="频率响应 增益带宽积 闭环带宽 开环带宽 单位增益频率"></a>频率响应 增益带宽积 闭环带宽 开环带宽 单位增益频率</h2><p>运放对于放大倍数和频率的能力不能兼顾,至于为什么还不清楚原因</p>
+<p>运放的放大倍数和频率的传递函数近似于：</p>
+<p><strong>一阶系统</strong>$\Phi_{(s)}&#x3D;\frac{A_0}{1+\frac{w}{w_0}}$</p>
+<p><strong>幅频关系</strong>：</p>
+<p><img src="/../pic/image-20240611231557804.png" srcset="/img/loading.gif" lazyload alt="放大倍数和频率幅频关系"></p>
+<p>其中转折频率$f_c$很小，近似100HZ，所以可以认为频率远大于转折频率，即$f&gt;&gt;f_c$。</p>
+<p>所以 $A(w) &#x3D;|\Phi_{(jw)}|&#x3D;|\frac{A_0}{1+\frac{w}{w_0}}|≈\frac{A_0}{\frac{w}{w_0}}$ → $A(w)w &#x3D; A_0w_0$</p>
+<p>**单位增益频率(GBW)**：当近似模型中$A(w) &#x3D; 1$时的频率。</p>
+<p><strong>UGB</strong>：实际系统模型不一定为一阶系统，所以频率不一定等于<strong>GBW</strong>，实际系统的$A(w) &#x3D; 1$时的频率。</p>
+<ul>
+<li>为什么开环带宽 闭环带宽能混用？</li>
+</ul>
+<p>开环模型：$G{(s)}&#x3D;\frac{A_0}{1+\frac{w}{w_0}}$</p>
+<p>闭环模型$\Phi_{(s)}&#x3D;\frac{G{(s)}}{1+\beta G{(s)}} &#x3D; \frac{A_0}{1+\beta A_0}*\frac{1}{1+\frac{s}{w_0(1+\beta A_0)}}$</p>
+<p>所以开环模型$A(w)w &#x3D; A_0w_0 &#x3D;\frac{A_0}{1+\beta A_0}* w_0(1+\beta A_0)$两者增益带宽积相同，所以闭环系统和开环系统不影响增益带宽积参数。</p>
+<p><strong>应用启示</strong>：</p>
+<p>运放对于放大倍数和频率的能力不能兼顾，在放大倍数确定时，频率范围就能根据手册GBW和放大倍数确定信号工作频率带宽，通常需要留10倍裕量.</p>
+<p>要提高放大和频率的能力,可以接多级放大电路.相当于增大了增益带宽积.</p>
+<p><strong>参考:</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17f421273N/?spm_id_from=333.337.search-card.all.click&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV17f421273N/?spm_id_from=333.337.search-card.all.click&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
+<h2 id="压摆率"><a href="#压摆率" class="headerlink" title="压摆率"></a>压摆率</h2><p>运放一般由三级电路组成:差分输入级+中间放大级+输出级</p>
+<p>中间放大级的电容充放电 $\frac{du}{dt} &#x3D; \frac{i}{C}$速度影响了信号的传递速度,所以输出信号不可能完全跟上变化的输入信号.</p>
+<p><strong>举例:</strong></p>
+<p>压摆率$SR &#x3D; 0.5 V&#x2F;us$,</p>
+<p><img src="/../pic/image-20240611235148619.png" srcset="/img/loading.gif" lazyload alt="输入信号幅值5V 周期40us"></p>
+<p>输入信号变化,需要10us才能到达5V.</p>
+<p><img src="/../pic/image-20240611235232348.png" srcset="/img/loading.gif" lazyload alt="输入信号幅值10V 周期20us"></p>
+<p><img src="/../pic/image-20240611235324238.png" srcset="/img/loading.gif" lazyload alt="输入信号幅值5V 周期20us"></p>
+<p><strong>应用启示:</strong></p>
+<p>对于正弦波,压摆率至少要大于他的导数最大值.才不会出现失真,一般还要取裕量.</p>
+<p><strong>经验:</strong></p>
+<blockquote>
+<p>对于大信号,一般压摆率会限制运放选型.</p>
+</blockquote>
+<blockquote>
+<p>对于小信号,一般增益带宽积会影响运放选型</p>
+</blockquote>
 <h2 id="输入偏置电流"><a href="#输入偏置电流" class="headerlink" title="输入偏置电流"></a>输入偏置电流</h2><h2 id="精密整流电路"><a href="#精密整流电路" class="headerlink" title="精密整流电路"></a>精密整流电路</h2><p><img src="/../pic/image-20240611135950075.png" srcset="/img/loading.gif" lazyload alt="半波整流电路"></p>
 <p>理想二极管波形：</p>
 <p><img src="/../pic/image-20240611140026004.png" srcset="/img/loading.gif" lazyload alt="理想二极管波形"></p>
