@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.625Z">
-<meta property="article:modified_time" content="2024-06-11T16:02:46.518Z">
+<meta property="article:modified_time" content="2024-06-12T01:39:31.461Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          2.8k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          21 分钟
+          24 分钟
         
       </span>
     
@@ -441,6 +441,33 @@
 <blockquote>
 <p>对于小信号,一般增益带宽积会影响运放选型</p>
 </blockquote>
+<h2 id="共模抑制比"><a href="#共模抑制比" class="headerlink" title="共模抑制比"></a>共模抑制比</h2><p>共模信号：一般为电磁干扰共模干扰</p>
+<p>差模信号：输入信号（待放大信号）</p>
+<p><img src="/../pic/image-20240612090924332.png" srcset="/img/loading.gif" lazyload alt="共模信号输入"></p>
+<p><img src="/../pic/image-20240612091052791.png" srcset="/img/loading.gif" lazyload alt="差模信号输入"></p>
+<p>总输出：$v_{out} &#x3D; A_{cm}V_n + A_dV_id$</p>
+<p>共模抑制比定义：$CMRR &#x3D;  \frac{A_d}{A_{cm}}$ 理想运放为∞</p>
+<p><img src="/../pic/image-20240612091319649.png" srcset="/img/loading.gif" lazyload alt="共模抑制比和频率的幅频关系"></p>
+<h2 id="输入失调电压"><a href="#输入失调电压" class="headerlink" title="输入失调电压"></a>输入失调电压</h2><p>原因：运放第一级差分输入级的 两个电路参数不完全对称，如晶体管，转换为电压的电阻。会造成零输入时候差分输入级会有很小的电压差，再通过中间放大级放大后输出到 $V_{out}$。</p>
+<p><img src="/../pic/image-20240612092214251.png" srcset="/img/loading.gif" lazyload alt="差分输入级"></p>
+<p><img src="/../pic/image-20240612092402431.png" srcset="/img/loading.gif" lazyload alt="输入失调电压示意图"></p>
+<p><strong>输入失调电压定义：</strong>在一端上施加相反的电压 $V_d$，使输出为0。 这个 $V_d$就是输入失调电压。</p>
+<p>失调电压参数大概呈正态分布，手册上标的最大值。</p>
+<p><strong>对放大电路的影响：</strong></p>
+<p><img src="/../pic/image-20240612093154934.png" srcset="/img/loading.gif" lazyload alt="输入失调电压对同相放大电路影响"></p>
+<p>$V_{io}$：输入信号</p>
+<p>$V_d$：输入失调电压，难以预测极性，所以叠加可能为正，可能为负</p>
+<p>用叠加定理</p>
+<p>$V_{out} &#x3D; (1+\frac{R_f}{R_1})(V_{io}±V_d)$</p>
+<p><strong>抑制失调电压影响的办法：</strong></p>
+<blockquote>
+<p>选小输入失调电压运放</p>
+</blockquote>
+<blockquote>
+<p>直流失调调零电路</p>
+<p><img src="/../pic/image-20240612093517255.png" srcset="/img/loading.gif" lazyload alt="直流失调调零电路"></p>
+</blockquote>
+<p>失调电压会受温度影响。</p>
 <h2 id="输入偏置电流"><a href="#输入偏置电流" class="headerlink" title="输入偏置电流"></a>输入偏置电流</h2><h2 id="精密整流电路"><a href="#精密整流电路" class="headerlink" title="精密整流电路"></a>精密整流电路</h2><p><img src="/../pic/image-20240611135950075.png" srcset="/img/loading.gif" lazyload alt="半波整流电路"></p>
 <p>理想二极管波形：</p>
 <p><img src="/../pic/image-20240611140026004.png" srcset="/img/loading.gif" lazyload alt="理想二极管波形"></p>
