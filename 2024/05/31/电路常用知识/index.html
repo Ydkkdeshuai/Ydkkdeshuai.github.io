@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.625Z">
-<meta property="article:modified_time" content="2024-06-12T13:57:57.371Z">
+<meta property="article:modified_time" content="2024-06-13T02:36:27.073Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.7k 字
+          4.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          31 分钟
+          34 分钟
         
       </span>
     
@@ -578,7 +578,32 @@
 </blockquote>
 <p>对于共模信号&gt;&gt;差模信号的应用非常友好。</p>
 <p>仪表放大器&#x3D;前级电压跟随器+共模信号相减+差分放大电路+集成特性+R_g调节</p>
-<h2 id="电压电流转换器"><a href="#电压电流转换器" class="headerlink" title="电压电流转换器"></a>电压电流转换器</h2><h2 id="电流电压转换器"><a href="#电流电压转换器" class="headerlink" title="电流电压转换器"></a>电流电压转换器</h2><h2 id="对数指数运算电路"><a href="#对数指数运算电路" class="headerlink" title="对数指数运算电路"></a>对数指数运算电路</h2><h2 id="精密整流电路"><a href="#精密整流电路" class="headerlink" title="精密整流电路"></a>精密整流电路</h2><p><img src="/../pic/image-20240611135950075.png" srcset="/img/loading.gif" lazyload alt="半波整流电路"></p>
+<h2 id="电压电流转换器"><a href="#电压电流转换器" class="headerlink" title="电压电流转换器"></a>电压电流转换器</h2><h2 id="电流电压转换器"><a href="#电流电压转换器" class="headerlink" title="电流电压转换器"></a>电流电压转换器</h2><h2 id="对数指数运算电路"><a href="#对数指数运算电路" class="headerlink" title="对数指数运算电路"></a>对数指数运算电路</h2><p><img src="/../pic/image-20240613092948766.png" srcset="/img/loading.gif" lazyload alt="对数运算电路—二极管"></p>
+<p>分析：</p>
+<p>$I_D &#x3D; I_s(e^{\frac{U}{U_T}}-1)、I_D &#x3D; \frac{V_{in}}{R}$</p>
+<p>当$U&gt;&gt;U_T$→ $V_{out} &#x3D; -U_T \ln \frac{V_{in}}{I_S R}$</p>
+<p><img src="/../pic/image-20240613094122834.png" srcset="/img/loading.gif" lazyload alt="指数运算电路—二极管"></p>
+<p>分析：</p>
+<p>$I_D &#x3D; I_s(e^{\frac{U_{in}}{U_T}}-1)、I_D &#x3D; -\frac{V_{out}}{R}$</p>
+<p>当$U_{in}&gt;&gt;U_T$→ $V_{out} &#x3D; -I_sRe^{\frac{U_{in}}{U_T}}$</p>
+<p><strong>缺点</strong>：反向饱和电流 $I_s$ 受温度影响比较大，U_T 也和温度有关。</p>
+<p><img src="/../pic/image-20240613094616412.png" srcset="/img/loading.gif" lazyload alt="对数运算电路—BJT"></p>
+<p>分析： 当 $V_{in}&gt;0$ 发射结正偏，集电结处于正反偏临界状态，BJT处于饱和区和放大区临界状态。</p>
+<p>$\beta&gt;&gt;1→I_c ≈ I_e$ </p>
+<p>$I_c ≈ I_E &#x3D; I_s(e^{\frac{U_{be}}{U_T}}-1)、I_R&#x3D;\frac{V_{in}}{R}、U_{be} &#x3D; -V_{out}$</p>
+<p>当$U&gt;&gt;U_T$→ $V_{out} &#x3D; -U_T \ln \frac{V_{in}}{I_S R}$</p>
+<p><img src="/../pic/image-20240613095551011.png" srcset="/img/loading.gif" lazyload alt="指数运算电路—BJT"></p>
+<p>分析： 当 $V_{in}&gt;0$ 发射结正偏，集电结处于正反偏临界状态，BJT处于饱和区和放大区临界状态。</p>
+<p>$\beta&gt;&gt;1→I_c ≈ I_e$ </p>
+<p>$I_c ≈ I_E &#x3D; I_s(e^{\frac{-U_{be}}{U_T}}-1)、I_R&#x3D;\frac{-V_{out}}{R}、U_{be} &#x3D; -V_{in}$</p>
+<p>当$U&gt;&gt;U_T$→ $V_{out} &#x3D; -I_sRe^{\frac{U_{in}}{U_T}}$</p>
+<p><img src="/../pic/image-20240613100052530.png" srcset="/img/loading.gif" lazyload alt="消除温度漂移特性 对数放大电路"></p>
+<p>分析：</p>
+<p>$V_{a} &#x3D; -U_T \ln \frac{V_{in}}{I_S R}$</p>
+<p>$V_b &#x3D; -U_T \ln \frac{V_{R}}{I_S R}$</p>
+<p>$V_{out} &#x3D; -\frac{R_5 + R_6}{R_5} \frac{R_4 }{R_3}U_T \ln \frac{V_{in}}{V_R}$ </p>
+<p>用差分来消除 $I_s$的影响，选取 $R_5$的温度系数来减弱$U_T$的影响。</p>
+<h2 id="精密整流电路"><a href="#精密整流电路" class="headerlink" title="精密整流电路"></a>精密整流电路</h2><p><img src="/../pic/image-20240611135950075.png" srcset="/img/loading.gif" lazyload alt="半波整流电路"></p>
 <p>理想二极管波形：</p>
 <p><img src="/../pic/image-20240611140026004.png" srcset="/img/loading.gif" lazyload alt="理想二极管波形"></p>
 <p><img src="/../pic/image-20240611140056061.png" srcset="/img/loading.gif" lazyload alt="理想二极管半波整流电路传输特性"></p>
@@ -642,7 +667,14 @@
 <p>二极管应该选用肖特基二极管，寄生电容参数低，高频特性好。</p>
 <p><strong>其他电路：</strong></p>
 <p><img src="/../pic/image-20240611151845659.png" srcset="/img/loading.gif" lazyload alt="通过开关手动控制放电"></p>
-<h2 id="RC相移振荡器"><a href="#RC相移振荡器" class="headerlink" title="RC相移振荡器"></a>RC相移振荡器</h2><h2 id="维恩桥振荡器"><a href="#维恩桥振荡器" class="headerlink" title="维恩桥振荡器"></a>维恩桥振荡器</h2><h2 id="Astable多谐振荡器"><a href="#Astable多谐振荡器" class="headerlink" title="Astable多谐振荡器"></a>Astable多谐振荡器</h2><h2 id="单稳态多谐振荡器"><a href="#单稳态多谐振荡器" class="headerlink" title="单稳态多谐振荡器"></a>单稳态多谐振荡器</h2><h2 id="有源箝位电路"><a href="#有源箝位电路" class="headerlink" title="有源箝位电路"></a>有源箝位电路</h2><h2 id="有源Clipper电路"><a href="#有源Clipper电路" class="headerlink" title="有源Clipper电路"></a>有源Clipper电路</h2><h2 id="电压调节器"><a href="#电压调节器" class="headerlink" title="电压调节器"></a>电压调节器</h2><h2 id="电源抑制比"><a href="#电源抑制比" class="headerlink" title="电源抑制比"></a>电源抑制比</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=w4531AVjBYY&t=158s">https://www.youtube.com/watch?v=w4531AVjBYY&amp;t=158s</a></p>
+<h2 id="RC相移振荡器"><a href="#RC相移振荡器" class="headerlink" title="RC相移振荡器"></a>RC相移振荡器</h2><p><img src="/../pic/image-20240613102259744.png" srcset="/img/loading.gif" lazyload alt="RC相移振荡器"></p>
+<p><strong>振荡要求：</strong></p>
+<p>开环传函 $|G_{(s)} |&#x3D; 1、\ang G_{(s)} &#x3D; 2n\pi$</p>
+<p>反相比例放大电路提供180度相角，三级RC提供180度。</p>
+<p>调节放大倍数让总增益为1。</p>
+<h2 id="维恩桥振荡器"><a href="#维恩桥振荡器" class="headerlink" title="维恩桥振荡器"></a>维恩桥振荡器</h2><h2 id="Astable多谐振荡器"><a href="#Astable多谐振荡器" class="headerlink" title="Astable多谐振荡器"></a>Astable多谐振荡器</h2><h2 id="单稳态多谐振荡器"><a href="#单稳态多谐振荡器" class="headerlink" title="单稳态多谐振荡器"></a>单稳态多谐振荡器</h2><h2 id="有源箝位电路"><a href="#有源箝位电路" class="headerlink" title="有源箝位电路"></a>有源箝位电路</h2><p>使用精密二极管代替普通二极管</p>
+<h2 id="有源Clipper电路"><a href="#有源Clipper电路" class="headerlink" title="有源Clipper电路"></a>有源Clipper电路</h2><p>使用精密二极管代替普通二极管</p>
+<h2 id="电压调节器"><a href="#电压调节器" class="headerlink" title="电压调节器"></a>电压调节器</h2><h2 id="电源抑制比"><a href="#电源抑制比" class="headerlink" title="电源抑制比"></a>电源抑制比</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=w4531AVjBYY&t=158s">https://www.youtube.com/watch?v=w4531AVjBYY&amp;t=158s</a></p>
 <h1 id="米勒平台"><a href="#米勒平台" class="headerlink" title="米勒平台"></a>米勒平台</h1><p>原因：Mosfet寄生电容</p>
 <p>影响：延长导通时间，增加开关管动态损耗</p>
 <p><strong>电路模型</strong></p>
