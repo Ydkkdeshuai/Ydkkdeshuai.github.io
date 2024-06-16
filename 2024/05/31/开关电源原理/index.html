@@ -16,16 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零) P 一般情况：(电压电流同时变换开始，结束) ​      最坏情况：(导通电流先升高、关断电流先升高) Buck变换器 大前提  理想元件： 二极管没有管压降 电感无寄生参数，且足够大，使电感电流直流分量&gt;">
+    <meta name="description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) Buck变换器 大前提  理想元件： 二极管没有管压降 电感无寄生参数，且足够大，使电感电流直流分量&gt;&gt;交流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开关电源设计原理">
 <meta property="og:url" content="http://example.com/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
-<meta property="og:description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零) P 一般情况：(电压电流同时变换开始，结束) ​      最坏情况：(导通电流先升高、关断电流先升高) Buck变换器 大前提  理想元件： 二极管没有管压降 电感无寄生参数，且足够大，使电感电流直流分量&gt;">
+<meta property="og:description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) Buck变换器 大前提  理想元件： 二极管没有管压降 电感无寄生参数，且足够大，使电感电流直流分量&gt;&gt;交流">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.621Z">
-<meta property="article:modified_time" content="2024-06-04T12:53:29.379Z">
+<meta property="article:modified_time" content="2024-06-13T03:32:07.237Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          732 字
+          815 字
         
       </span>
     
@@ -281,9 +281,10 @@
 <li>动态损耗</li>
 </ul>
 <p>最好情况：(导通电压先降为零、关断电流先降为零)</p>
-<p>P</p>
+<p><img src="/../pic/image-20240613111710326.png" srcset="/img/loading.gif" lazyload alt="导通电压先降为零"></p>
+<p><img src="/../pic/image-20240613111726970.png" srcset="/img/loading.gif" lazyload alt="关断电流先降为零"></p>
 <p>一般情况：(电压电流同时变换开始，结束)</p>
-<p>​     </p>
+<p><img src="/../pic/image-20240613111647700.png" srcset="/img/loading.gif" lazyload alt="电压电流同时变换开始，结束"></p>
 <p>最坏情况：(导通电流先升高、关断电流先升高)</p>
 <h1 id="Buck变换器"><a href="#Buck变换器" class="headerlink" title="Buck变换器"></a>Buck变换器</h1><ul>
 <li>大前提</li>
@@ -343,9 +344,14 @@
 <p>可以多个电容并联减小ESR</p>
 <p><strong>耐压：</strong></p>
 <p>输出电压范围</p>
-<h1 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h1><p>注：软开关(零电压开通、零电流关断)</p>
-<p>优点：能实现、LLC实现的是零电压开通、</p>
-<p>参考文献：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p>
+<h1 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h1><p><strong>软开关：</strong>零电压开通 or 零电流关断</p>
+<p><strong>LLC拓扑优点：</strong>能实现、LLC实现的是零电压开通、</p>
+<p><strong>零电压开关要求：</strong>开关管的电流必须滞后于电压，使谐振槽路工作在感性状态。</p>
+<p><strong>半桥LLC模态分析：</strong></p>
+<p><strong>全桥LLC模态分析：</strong></p>
+<p>参考文献：</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p>
+<p>李光耀.LLC数字电源设计与软启动控制研究[D].杭州电子科技大学,2022.10.27075&#x2F;d.cnki.ghzdc.2022.001097.</p>
 <h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><p>波形：</p>
 <p>软开关：</p>
 <h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1>
@@ -455,8 +461,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/05/31/%E5%85%B1%E6%A8%A1%E5%99%AA%E5%A3%B0/" title="共模噪声">
-                        <span class="hidden-mobile">共模噪声</span>
+                      <a href="/2024/05/31/Windows%E6%89%B9%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E6%95%99%E7%A8%8B/" title="Windows批处理文件教程">
+                        <span class="hidden-mobile">Windows批处理文件教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
