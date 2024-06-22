@@ -16,16 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介：介绍基本知识 运放模块运放等效电路理想运放参数：  输入阻抗：∞    实际MΩ级 输出阻抗：0    实际Ω级 放大系数：∞   实际10e5-10e6 带宽：∞ 压摆率：∞，跟踪输入的速度 共模抑制比：∞，$\frac{A_{差模放大倍数}}{A_{共模放大倍数}}$  输入输出特性：   线性区   饱和区  实际运放参数：   失调电压：   偏置电流：  运放负反馈虚短：当引入负反">
+    <meta name="description" content="简介：介绍基本知识 器件基本知识参数定义电流：单位时间流过单位截面积的电荷量。 电压：两点电势之差。 电场强度的积分。 能量：电荷在两点之间移动需要的能量。 功率：单位时间内电荷在两点之间移动需要的能量。 电容结构：  导电材料+介电材料+导电材料 特性参数：  容值： 与温度 工作电压(陶瓷电容) 频率 使用时间有关   容差：相对于容值的偏差范围   工作温度范围：   温度系数：容值随温度变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="电路常用知识">
 <meta property="og:url" content="http://example.com/2024/05/31/%E7%94%B5%E8%B7%AF%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
-<meta property="og:description" content="简介：介绍基本知识 运放模块运放等效电路理想运放参数：  输入阻抗：∞    实际MΩ级 输出阻抗：0    实际Ω级 放大系数：∞   实际10e5-10e6 带宽：∞ 压摆率：∞，跟踪输入的速度 共模抑制比：∞，$\frac{A_{差模放大倍数}}{A_{共模放大倍数}}$  输入输出特性：   线性区   饱和区  实际运放参数：   失调电压：   偏置电流：  运放负反馈虚短：当引入负反">
+<meta property="og:description" content="简介：介绍基本知识 器件基本知识参数定义电流：单位时间流过单位截面积的电荷量。 电压：两点电势之差。 电场强度的积分。 能量：电荷在两点之间移动需要的能量。 功率：单位时间内电荷在两点之间移动需要的能量。 电容结构：  导电材料+介电材料+导电材料 特性参数：  容值： 与温度 工作电压(陶瓷电容) 频率 使用时间有关   容差：相对于容值的偏差范围   工作温度范围：   温度系数：容值随温度变">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.625Z">
-<meta property="article:modified_time" content="2024-06-16T17:08:54.679Z">
+<meta property="article:modified_time" content="2024-06-22T03:12:22.297Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.1k 字
+          4.6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          35 分钟
+          39 分钟
         
       </span>
     
@@ -276,6 +276,106 @@
               <div class="markdown-body">
                 
                 <p>简介：介绍基本知识</p>
+<h1 id="器件基本知识"><a href="#器件基本知识" class="headerlink" title="器件基本知识"></a>器件基本知识</h1><h2 id="参数定义"><a href="#参数定义" class="headerlink" title="参数定义"></a>参数定义</h2><p>电流：单位时间流过单位截面积的电荷量。</p>
+<p>电压：两点电势之差。 电场强度的积分。</p>
+<p>能量：电荷在两点之间移动需要的能量。</p>
+<p>功率：单位时间内电荷在两点之间移动需要的能量。</p>
+<h2 id="电容"><a href="#电容" class="headerlink" title="电容"></a>电容</h2><p>结构：</p>
+<p><img src="/../pic/image-20240622105457776.png" srcset="/img/loading.gif" lazyload alt="电容结构"></p>
+<p>导电材料+介电材料+导电材料</p>
+<p><strong>特性参数：</strong></p>
+<blockquote>
+<p>容值： 与温度 工作电压(陶瓷电容) 频率 使用时间有关</p>
+</blockquote>
+<blockquote>
+<p>容差：相对于容值的偏差范围</p>
+</blockquote>
+<blockquote>
+<p>工作温度范围：</p>
+</blockquote>
+<blockquote>
+<p>温度系数：容值随温度变化的变化率</p>
+</blockquote>
+<blockquote>
+<p>额定电压：电压峰值，最大值</p>
+</blockquote>
+<blockquote>
+<p>体积效率：单位体积的电容</p>
+</blockquote>
+<blockquote>
+<p>漏电流：电容非理想模型，等效为一个大电阻（$R_p$）并联到电容两端</p>
+</blockquote>
+<p>电容等效模型：</p>
+<p><img src="/../pic/image-20240622102423648.png" srcset="/img/loading.gif" lazyload alt="电容等效模型"></p>
+<blockquote>
+<p>ESR：交流损耗 和 纹波原因</p>
+</blockquote>
+<blockquote>
+<p>ESL：高频电容失效</p>
+</blockquote>
+<p><img src="/../pic/image-20240622102659732.png" srcset="/img/loading.gif" lazyload alt="阻抗-频率特性"></p>
+<h3 id="电容种类"><a href="#电容种类" class="headerlink" title="电容种类"></a>电容种类</h3><ul>
+<li>电解电容</li>
+</ul>
+<blockquote>
+<p>铝电解电容：氧化层薄,容值高。容差大，便宜，电压范围宽，ESR大(功耗高)，漏电流高。极化特性，用于直流。   用于直流滤波，去耦。</p>
+</blockquote>
+<p><img src="/../pic/image-20240622104814299.png" srcset="/img/loading.gif" lazyload alt="铝电解电容"></p>
+<blockquote>
+<p>钽电容：钽相对介电常数高，所以体积效率高。容值小，容差也大。ESR小，能吸收纹波。温度特性稳定。寿命长，因为是固体。对电压尖峰和反极性特别敏感。</p>
+</blockquote>
+<p><img src="/../pic/image-20240622104801026.png" srcset="/img/loading.gif" lazyload alt="钽电容"></p>
+<ul>
+<li>陶瓷电容</li>
+</ul>
+<p>介电材料为陶瓷材料</p>
+<blockquote>
+<p>Ⅰ类</p>
+<p>相比Ⅱ类</p>
+</blockquote>
+<p>稳定，容值与温度 工作电压(陶瓷电容) 频率 使用时间相关性小。</p>
+<p>容差小</p>
+<p>体积效率低</p>
+<p>低ESR，低漏电流。 高频特性好</p>
+<blockquote>
+<p>Ⅱ类</p>
+</blockquote>
+<p>相比Ⅰ类，</p>
+<p>不够稳定，容值与温度 工作电压(陶瓷电容) 频率 使用时间相关性小。</p>
+<p>体积效率高</p>
+<p>用于直流滤波 去耦。</p>
+<p><img src="/../pic/image-20240622110339041.png" srcset="/img/loading.gif" lazyload alt="陶瓷电容"></p>
+<p><img src="/../pic/image-20240622110325454.png" srcset="/img/loading.gif" lazyload alt="MLCC"></p>
+<p><img src="/../pic/image-20240622110354838.png" srcset="/img/loading.gif" lazyload alt="MLCC结构"></p>
+<ul>
+<li>薄膜电容</li>
+</ul>
+<p>塑料薄膜做介电材料（聚丙烯）</p>
+<p><img src="/../pic/image-20240622110546612.png" srcset="/img/loading.gif" lazyload alt="薄膜电容"></p>
+<p>聚丙烯</p>
+<blockquote>
+<p>低ESR ESL </p>
+</blockquote>
+<blockquote>
+<p>漏电流低</p>
+</blockquote>
+<blockquote>
+<p>温度特性高</p>
+</blockquote>
+<blockquote>
+<p>体积效率低</p>
+</blockquote>
+<p>聚酯</p>
+<ul>
+<li>超级电容</li>
+</ul>
+<p><img src="/../pic/image-20240622111109136.png" srcset="/img/loading.gif" lazyload alt="超级电容"></p>
+<ul>
+<li><p>可变电容</p>
+</li>
+<li><p>云母电容</p>
+</li>
+</ul>
 <h1 id="运放模块"><a href="#运放模块" class="headerlink" title="运放模块"></a>运放模块</h1><h2 id="运放等效电路"><a href="#运放等效电路" class="headerlink" title="运放等效电路"></a>运放等效电路</h2><p><strong>理想运放参数：</strong></p>
 <blockquote>
 <p>输入阻抗：∞    实际MΩ级</p>
