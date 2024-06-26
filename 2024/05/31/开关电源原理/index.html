@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.621Z">
-<meta property="article:modified_time" content="2024-06-13T03:32:07.237Z">
+<meta property="article:modified_time" content="2024-06-26T23:38:41.633Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          815 字
+          989 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          7 分钟
+          9 分钟
         
       </span>
     
@@ -352,8 +352,39 @@
 <p>参考文献：</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p>
 <p>李光耀.LLC数字电源设计与软启动控制研究[D].杭州电子科技大学,2022.10.27075&#x2F;d.cnki.ghzdc.2022.001097.</p>
-<h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><p>波形：</p>
-<p>软开关：</p>
+<h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><p>超前桥臂：$S_1、S_2$</p>
+<p>滞后桥臂：$S_3、S_4$</p>
+<p><strong>软开关模态分析：</strong></p>
+<p>前提：</p>
+<blockquote>
+<p>$L_r$非常大，输出电流$I_o$近似不变。</p>
+</blockquote>
+<blockquote>
+<p>二极管为理想二极管</p>
+</blockquote>
+<blockquote>
+<p>理想变压器</p>
+</blockquote>
+<p><img src="/../pic/image-20240626220821510.png" srcset="/img/loading.gif" lazyload alt="移相全桥主电路"></p>
+<p><img src="/../pic/image-20240626221008622.png" srcset="/img/loading.gif" lazyload alt="波形分析"></p>
+<p>总共18个模态</p>
+<p>初始状态：</p>
+<p>$t_0$前，原边$S_1、S_4$导通、副边 $D_{S1}、D_{S4}导通、D_{S2}、D_{S3}关断$。</p>
+<p>所以 $V_{C1} &#x3D;V_{C4}&#x3D; 0$   $V_{C2} &#x3D;V_{C3}&#x3D; U_i$ </p>
+<p><strong>模态1：</strong>$t_0(S_1关断)-t_1()$</p>
+<p>初始状态： $V_{C1} &#x3D;V_{C4}&#x3D; 0$   $V_{C2} &#x3D;V_{C3}&#x3D; U_i$ </p>
+<p>$S_1$关断， </p>
+<p>$i_p$给$C1$充电，$C2$放电。$V_B &#x3D; 0$，$V_{C1} + V_{AB} &#x3D; U_i$，$V_{C1} ↑，V_{AB}↓$。</p>
+<p>因为 $L_f→∞$，$i_{L_f}近似不变$，</p>
+<p><img src="/../pic/image-20240627072427367.png" srcset="/img/loading.gif" lazyload alt="开关模态１"></p>
+<p><strong>模态2：</strong></p>
+<p><strong>模态3：</strong></p>
+<p><strong>模态4：</strong></p>
+<p><strong>模态5：</strong></p>
+<p><strong>模态6：</strong></p>
+<p><strong>模态7：</strong></p>
+<p><strong>模态8：</strong></p>
+<p><strong>模态9：</strong></p>
 <h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1>
                 
               </div>
