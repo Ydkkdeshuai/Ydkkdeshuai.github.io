@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.621Z">
-<meta property="article:modified_time" content="2024-06-27T01:32:45.142Z">
+<meta property="article:modified_time" content="2024-06-27T06:36:07.832Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.8k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          14 分钟
+          15 分钟
         
       </span>
     
@@ -404,8 +404,8 @@
 <p>初始状态： $V_{Ca} &#x3D;V_{Cd}&#x3D; 0$   $V_{Cb} &#x3D;V_{Cc}&#x3D; U_i$ </p>
 <p>$S_1$关断， 此时 $S_d$开通、$D_{rect1}$导通。</p>
 <p><img src="/../pic/image-20240627092407659.png" srcset="/img/loading.gif" lazyload alt="模态1等效电路"></p>
-<p>原边等效电路：</p>
-<p>$i_p$给$C_a$充电，$C_b$放电。$V_B &#x3D; 0$，$V_{C1} + V_{AB} &#x3D; U_i$，$V_{C1} ↑，V_{AB}↓$。</p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p>$i_p$给$C_a$充电，$C_b$放电。$V_B &#x3D; 0$，$V_{Ca} + V_{AB} &#x3D; U_i$，$V_{Ca}↑，V_{A}↓，V_{AB}↓$。</p>
 <p>因为 $L_2→∞$，$负载电流i_{L_2}近似不变$。$V_{Ca} + V_{AB} &#x3D; U_i、V_{Ca} + V_{Cb} &#x3D; U_i$，$V_{Ca} ↑，V_A↓，V_{AB}↓$。</p>
 <p>$U_{ca}(t) &#x3D; \frac{i_p(t-t_0)}{2C_1}$</p>
 <p>$U_{cb}(t) &#x3D; U_i - \frac{i_p(t-t_0)}{2C_1}$</p>
@@ -414,10 +414,25 @@
 <p>所以死区时间需要持续到原边电流把电容电压放完，另一管才能开通。</p>
 <p>$t_{deadzone}&gt;t_放$</p>
 <p><strong>模态2：</strong>$t_0(S_b开通)-t_1(S_d关断)$</p>
-<p><strong>模态3：</strong>$t_0(S_d开通)-t_1(U_{cc}电流下降到0，D_c开通)$</p>
-<p><strong>模态4：</strong>$t_0(S_c开通)-t_1(负载电流下降到零)$</p>
-<p><strong>模态5：</strong>$t_0(负载电流&#x3D;零)-t_1(停止续流)$</p>
-<p><strong>模态6：</strong>$t_0(停止续流)-t_1(S_b关断)$</p>
+<p><img src="/../pic/image-20240627111915905.png" srcset="/img/loading.gif" lazyload alt="模态2"></p>
+<p>$i_p &#x3D; \frac{i_{L2}(t)}{n}$</p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF2.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p><strong>模态3：</strong>$t_0(S_d关断)-t_1(U_{cc}电流下降到0，D_c开通)$</p>
+<p><img src="/../pic/image-20240627111933657.png" srcset="/img/loading.gif" lazyload alt="模态3"></p>
+<p> $C_d充电 ，C_c放电$，关断时刻$i_{L1} &#x3D; I_1$，$U_{Cd} &#x3D; 0$，$U_{Cc} &#x3D; U_i$，副边等效到原边阻抗谐振。 直到$U_{Cc}&#x3D;0$。</p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF3.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p><strong>模态4：</strong>$t_0(S_c开通)-t_1(D_b D_c下降到零、D_b D_c截止)$</p>
+<p><img src="/../pic/image-20240627111941870.png" srcset="/img/loading.gif" lazyload alt="模态4"></p>
+<p>$S_c开通，U_{AB}&lt;0$，原边电压反向，副边电压也反向，副边$D_{rect2}$电流增加，但小于$i_{L2}$，多于电流流过 $D_{rect1}$，$i_{L2}&#x3D;i_{D_{rect1}} ↓+ i_{D_{rect2}} ↑$，此模态直到$i_p$减小到零 $C_b C_c$续流结束。由$S_c S_b$导通。</p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p><strong>模态5：</strong>$t_0(S_c S_b电流从零开始)-t_1(S_c S_b电流增大到负载电流、D_{rect1}电流减到0，完全关断，全由D_{rect2}导电)$</p>
+<p><img src="/../pic/image-20240627111949670.png" srcset="/img/loading.gif" lazyload alt="模态5"></p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4-1719470158836-5.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p>$S_c S_b$导通，同时$i_{L2}&#x3D;i_{D_{rect1}} ↓+ i_{D_{rect2}} ↑$，$i_{D_{rect2}}$继续增大，直到等于$i_{L2}$，二极管$D_{rect1}$截止。</p>
+<p><strong>模态6：</strong>$t_0(D_{rect1}电流减到0，完全关断)-t_1(S_b关断)$</p>
+<p><img src="/../pic/image-20240627111957574.png" srcset="/img/loading.gif" lazyload alt="模态6"></p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4-1719470163686-7.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p>$S_c S_b$导通，电流继续增大，直到 $S_b关断$进入下半个周期。</p>
 <p>参考：周嫔.宽输入恒流&#x2F;恒压全桥变换器研究[D].导师：张东来.哈尔滨工业大学,2022.</p>
 <h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1>
                 
