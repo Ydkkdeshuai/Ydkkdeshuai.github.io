@@ -16,17 +16,25 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="http://example.com/tags/index.html">
+    <meta name="description" content="交互从Excel表里导入参数到Matlab工作区间，然后在simulink用工作区间的参数跑仿真，把示波器和电压电流有效值输出到工作区间，处理得到峰值写入Excel。 1234567891011121314151617181920212223clcclear% 读文件数据 得到Lp Ls Mfilename &#x3D; &#x27;13_20.xlsx&#x27;;num &#x3D; readmatrix(fil">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Matlab_Simulink">
+<meta property="og:url" content="http://example.com/pos/Matlab_Simulink.html">
 <meta property="og:site_name" content="小帅的秘密基地">
+<meta property="og:description" content="交互从Excel表里导入参数到Matlab工作区间，然后在simulink用工作区间的参数跑仿真，把示波器和电压电流有效值输出到工作区间，处理得到峰值写入Excel。 1234567891011121314151617181920212223clcclear% 读文件数据 得到Lp Ls Mfilename &#x3D; &#x27;13_20.xlsx&#x27;;num &#x3D; readmatrix(fil">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Matlab.png">
+<meta property="article:published_time" content="2024-06-28T01:14:34.744Z">
+<meta property="article:modified_time" content="2024-06-08T10:59:34.876Z">
 <meta property="article:author" content="Ydkukudeshuai">
+<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="Simulink">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Matlab.png">
   
   
   
-  <title>标签 - 小帅的秘密基地</title>
+  <title>Matlab_Simulink - 小帅的秘密基地</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -80,7 +88,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 80vh;">
+<div class="header-inner" style="height: 60vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -186,17 +194,13 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="标签"></span>
+            <span id="subtitle" data-typed-text="Matlab_Simulink"></span>
           
         </div>
 
         
       </div>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
       
     </div>
   </div>
@@ -217,9 +221,28 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="text-center tagcloud">
+<article class="page-content">
+  <h1 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h1><p>从Excel表里导入参数到Matlab工作区间，然后在simulink用工作区间的参数跑仿真，把示波器和电压电流有效值输出到工作区间，处理得到峰值写入Excel。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs matlab">clc<br>clear<br><span class="hljs-comment">% 读文件数据 得到Lp Ls M</span><br>filename = <span class="hljs-string">&#x27;13_20.xlsx&#x27;</span>;<br>num = readmatrix(filename)<br>LpLsM= num(<span class="hljs-number">19</span>,<span class="hljs-number">2</span>:<span class="hljs-number">4</span>)  <span class="hljs-comment">%这里需要改</span><br>Lp =LpLsM(<span class="hljs-number">1</span>)<br>Ls =LpLsM(<span class="hljs-number">2</span>)<br>M =LpLsM(<span class="hljs-number">3</span>)<br><br><span class="hljs-comment">% 跑仿真</span><br>load_system(<span class="hljs-string">&#x27;LCC3V12021a.slx&#x27;</span>)<br>sim(<span class="hljs-string">&#x27;LCC3V12021a.slx&#x27;</span>)<br><span class="hljs-comment">% 提取数据</span><br>I_rms = [ILf1(<span class="hljs-keyword">end</span>) ,  ICpf(<span class="hljs-keyword">end</span>) ,ICp(<span class="hljs-keyword">end</span>) , ILf2(<span class="hljs-keyword">end</span>) , ICsf(<span class="hljs-keyword">end</span>) , ICs(<span class="hljs-keyword">end</span>)]<br>[max_I] = [<span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">1</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">2</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">3</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">4</span>).values), <span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">5</span>).values),<span class="hljs-built_in">max</span>(I_ALL.signals(<span class="hljs-number">6</span>).values)]<br>U_rms = [ULf1(<span class="hljs-keyword">end</span>) , UCpf(<span class="hljs-keyword">end</span>) , UCp(<span class="hljs-keyword">end</span>) , ULf2(<span class="hljs-keyword">end</span>) , UCsf(<span class="hljs-keyword">end</span>) , UCs(<span class="hljs-keyword">end</span>)]<br>[max_U] = [<span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">1</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">2</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">3</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">4</span>).values), <span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">5</span>).values),<span class="hljs-built_in">max</span>(U_ALL.signals(<span class="hljs-number">6</span>).values)]<br><br><span class="hljs-comment">% 写到Excel</span><br>Value_array = [I_rms max_I U_rms max_U];<br>writematrix(Value_array,filename,<span class="hljs-string">&#x27;WriteMode&#x27;</span>,<span class="hljs-string">&#x27;append&#x27;</span>);<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="simulink保存数据到工作区"><a href="#simulink保存数据到工作区" class="headerlink" title="simulink保存数据到工作区"></a>simulink保存数据到工作区</h2><ul>
+<li>示波器</li>
+</ul>
+<p><img src="/../pic/image-20240606165922876.png" srcset="/img/loading.gif" lazyload alt="示波器方法"></p>
+<ul>
+<li>数据(to workspace)</li>
+</ul>
+<p><img src="/../pic/image-20240606170003248.png" srcset="/img/loading.gif" lazyload alt="to workspace方法"></p>
+<p>注：</p>
+<p>F1点函数能查询帮助</p>
+<p>参考：</p>
+
+
   
-</div>
+
+</article>
+
+
 
               </div>
             </div>
