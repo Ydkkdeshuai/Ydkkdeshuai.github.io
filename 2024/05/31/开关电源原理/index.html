@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.621Z">
-<meta property="article:modified_time" content="2024-06-27T06:36:07.832Z">
+<meta property="article:modified_time" content="2024-06-28T01:10:22.928Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.4k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          15 分钟
+          12 分钟
         
       </span>
     
@@ -352,46 +352,9 @@
 <p>参考文献：</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p>
 <p>李光耀.LLC数字电源设计与软启动控制研究[D].杭州电子科技大学,2022.10.27075&#x2F;d.cnki.ghzdc.2022.001097.</p>
-<h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><h2 id="副边为全桥整流"><a href="#副边为全桥整流" class="headerlink" title="副边为全桥整流"></a>副边为全桥整流</h2><p>超前桥臂：$S_1、S_2$</p>
-<p>滞后桥臂：$S_3、S_4$</p>
-<p><strong>软开关模态分析：</strong></p>
-<p>前提：</p>
-<blockquote>
-<p>$L_r$非常大，输出电流$I_o$近似不变。</p>
-</blockquote>
-<blockquote>
-<p>二极管为理想二极管</p>
-</blockquote>
-<blockquote>
-<p>理想变压器</p>
-</blockquote>
-<p><img src="/../pic/image-20240626220821510.png" srcset="/img/loading.gif" lazyload alt="移相全桥主电路"></p>
-<p><img src="/../pic/image-20240626221008622.png" srcset="/img/loading.gif" lazyload alt="波形分析"></p>
-<p>总共18个模态</p>
-<p>初始状态：</p>
-<p>$t_0$前，原边$S_1、S_4$导通、副边 $D_{S1}、D_{S4}导通、D_{S2}、D_{S3}关断$。</p>
-<p>所以 $V_{C1} &#x3D;V_{C4}&#x3D; 0$   $V_{C2} &#x3D;V_{C3}&#x3D; U_i$ </p>
-<p><strong>模态1：</strong>$t_0(S_1关断)-t_1()$</p>
-<p><img src="/../pic/image-20240627072427367.png" srcset="/img/loading.gif" lazyload alt="开关模态１"></p>
-<p>初始状态： $V_{C1} &#x3D;V_{C4}&#x3D; 0$   $V_{C2} &#x3D;V_{C3}&#x3D; U_i$ </p>
-<p>$S_1$关断， </p>
-<p>$i_p$给$C1$充电，$C2$放电。$V_B &#x3D; 0$，$V_{C1} + V_{AB} &#x3D; U_i$，$V_{C1} ↑，V_{AB}↓$。</p>
-<p>因为 $L_f→∞$，$i_{L_f}近似不变$，所以 $V_{AC}&#x3D;n(V_o+V_L)≈n(V_o)不变$，$V_{C1} + V_{AC}+ V_{CB} &#x3D; U_i$，$V_{C1} ↑，V_{AC}&#x3D;，V_{CB}↓$，当$V_{CB}&lt;0$，即当$V_{C1} &#x3D; U_i-V_{AC}$，二极管$D_6$导通。此时$V_{C1} + V_{AC}+ V_{CB} &#x3D; U_i，V_{CB}&#x3D;0→V_{C1} + V_{AC} &#x3D; U_i$，$V_{C1} ↑，V_{AC}↓$，所以副边电压$\frac{V_{AC}}{n}$下降， $C_{S2}、C_{S3}$放电。$i_s &#x3D; i_{L}-i_{C_{S2}}-i_{C_{S3}},i_p &#x3D; \frac{i_s}{n}$，原边电流下降。$V_{L_r}&#x3D;0，i_{Lr不变}，多余的电流流入D_6$</p>
-<p>由于Ｃ点电压在$t_0$时刻前接近于零是，因此下降到零的时间忽略不计.</p>
-<p>等效电路如下图</p>
-<p>输出电感电流$i_{lf}$ 部分用于$C_{S2}$ 放电，其余折算到原边给$C_1$充电和给$C_2$放电。</p>
-<p><img src="/../pic/image-20240627075839944.png" srcset="/img/loading.gif" lazyload alt="开关模态1等效电路"></p>
-<p><strong>模态2：</strong></p>
-<p><strong>模态3：</strong></p>
-<p><strong>模态4：</strong></p>
-<p><strong>模态5：</strong></p>
-<p><strong>模态6：</strong></p>
-<p><strong>模态7：</strong></p>
-<p><strong>模态8：</strong></p>
-<p><strong>模态9：</strong></p>
-<h2 id="副边为全波整流"><a href="#副边为全波整流" class="headerlink" title="副边为全波整流"></a>副边为全波整流</h2><p>前提：</p>
+<h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><h2 id="副边为全波整流"><a href="#副边为全波整流" class="headerlink" title="副边为全波整流"></a>副边为全波整流</h2><p><strong>前提：</strong></p>
 <p>①超前桥臂结电容：$C_a &#x3D; C_b &#x3D; C_1$ 滞后桥臂结电容： $C_c &#x3D; C_d &#x3D;C_2$</p>
-<p>②输出滤波电感 $L_2&gt;&gt; \frac{L_1}{n^2}$</p>
+<p>②输出滤波电感 $L_2&gt;&gt; \frac{L_1}{n^2}$，负载电流近似不变。</p>
 <p>③原副边匝比n：1</p>
 <p><img src="/../pic/image-20240627085635166.png" srcset="/img/loading.gif" lazyload alt="全桥拓扑"></p>
 <p>总共12模态</p>
@@ -424,10 +387,10 @@
 <p><strong>模态4：</strong>$t_0(S_c开通)-t_1(D_b D_c下降到零、D_b D_c截止)$</p>
 <p><img src="/../pic/image-20240627111941870.png" srcset="/img/loading.gif" lazyload alt="模态4"></p>
 <p>$S_c开通，U_{AB}&lt;0$，原边电压反向，副边电压也反向，副边$D_{rect2}$电流增加，但小于$i_{L2}$，多于电流流过 $D_{rect1}$，$i_{L2}&#x3D;i_{D_{rect1}} ↓+ i_{D_{rect2}} ↑$，此模态直到$i_p$减小到零 $C_b C_c$续流结束。由$S_c S_b$导通。</p>
-<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4-5.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路4-5"></p>
 <p><strong>模态5：</strong>$t_0(S_c S_b电流从零开始)-t_1(S_c S_b电流增大到负载电流、D_{rect1}电流减到0，完全关断，全由D_{rect2}导电)$</p>
 <p><img src="/../pic/image-20240627111949670.png" srcset="/img/loading.gif" lazyload alt="模态5"></p>
-<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4-1719470158836-5.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
+<p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4-5-1719536978418-3.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路4-5"></p>
 <p>$S_c S_b$导通，同时$i_{L2}&#x3D;i_{D_{rect1}} ↓+ i_{D_{rect2}} ↑$，$i_{D_{rect2}}$继续增大，直到等于$i_{L2}$，二极管$D_{rect1}$截止。</p>
 <p><strong>模态6：</strong>$t_0(D_{rect1}电流减到0，完全关断)-t_1(S_b关断)$</p>
 <p><img src="/../pic/image-20240627111957574.png" srcset="/img/loading.gif" lazyload alt="模态6"></p>
