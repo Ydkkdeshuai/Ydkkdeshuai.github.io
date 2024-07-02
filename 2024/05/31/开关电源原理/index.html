@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.621Z">
-<meta property="article:modified_time" content="2024-06-28T01:10:22.928Z">
+<meta property="article:modified_time" content="2024-07-02T13:54:22.878Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -352,7 +352,10 @@
 <p>参考文献：</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p>
 <p>李光耀.LLC数字电源设计与软启动控制研究[D].杭州电子科技大学,2022.10.27075&#x2F;d.cnki.ghzdc.2022.001097.</p>
-<h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><h2 id="副边为全波整流"><a href="#副边为全波整流" class="headerlink" title="副边为全波整流"></a>副边为全波整流</h2><p><strong>前提：</strong></p>
+<h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><h1 id="软开关模态分析"><a href="#软开关模态分析" class="headerlink" title="软开关模态分析"></a>软开关模态分析</h1><p>软开关：</p>
+<p>ZVS：一般是利用感性工作点，电流之后电压，电流把下一个管子寄生并联电容电放完，然后电流流过体二极管，把MOSFET两端电压钳位到0V，实现零电压开通。</p>
+<p>ZCS：</p>
+<h2 id="副边为全波整流"><a href="#副边为全波整流" class="headerlink" title="副边为全波整流"></a>副边为全波整流</h2><p><strong>前提：</strong></p>
 <p>①超前桥臂结电容：$C_a &#x3D; C_b &#x3D; C_1$ 滞后桥臂结电容： $C_c &#x3D; C_d &#x3D;C_2$</p>
 <p>②输出滤波电感 $L_2&gt;&gt; \frac{L_1}{n^2}$，负载电流近似不变。</p>
 <p>③原副边匝比n：1</p>
@@ -397,6 +400,9 @@
 <p><img src="/../pic/%E5%8E%9F%E8%BE%B9%E7%AD%89%E6%95%88%E7%94%B5%E8%B7%AF4-1719470163686-7.jpg" srcset="/img/loading.gif" lazyload alt="原边等效电路"></p>
 <p>$S_c S_b$导通，电流继续增大，直到 $S_b关断$进入下半个周期。</p>
 <p>参考：周嫔.宽输入恒流&#x2F;恒压全桥变换器研究[D].导师：张东来.哈尔滨工业大学,2022.</p>
+<h2 id="WPT系统软开关分析"><a href="#WPT系统软开关分析" class="headerlink" title="WPT系统软开关分析"></a>WPT系统软开关分析</h2><p>副边整流二极管不会被钳位是，负载反射阻抗抑制都在。</p>
+<p>相当于少了模态4和5。</p>
+<p>续流二极管换流之后就进入模态6。</p>
 <h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1>
                 
               </div>
