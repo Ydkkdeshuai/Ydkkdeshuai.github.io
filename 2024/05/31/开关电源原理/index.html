@@ -16,16 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) Buck变换器 大前提  理想元件： 二极管没有管压降 电感无寄生参数，且足够大，使电感电流直流分量&gt;&gt;交流">
+    <meta name="description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) 开关器件损耗特性（不同器件 开通损耗&#x2F;关断损耗 占主导，实现ZVS&#x2F;ZCS，谐振腔呈感性还是容性）：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开关电源设计原理">
 <meta property="og:url" content="http://example.com/2024/05/31/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
-<meta property="og:description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) Buck变换器 大前提  理想元件： 二极管没有管压降 电感无寄生参数，且足够大，使电感电流直流分量&gt;&gt;交流">
+<meta property="og:description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) 开关器件损耗特性（不同器件 开通损耗&#x2F;关断损耗 占主导，实现ZVS&#x2F;ZCS，谐振腔呈感性还是容性）：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.621Z">
-<meta property="article:modified_time" content="2024-07-02T13:54:22.878Z">
+<meta property="article:modified_time" content="2024-07-03T14:04:29.872Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          2k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 分钟
+          17 分钟
         
       </span>
     
@@ -286,6 +286,11 @@
 <p>一般情况：(电压电流同时变换开始，结束)</p>
 <p><img src="/../pic/image-20240613111647700.png" srcset="/img/loading.gif" lazyload alt="电压电流同时变换开始，结束"></p>
 <p>最坏情况：(导通电流先升高、关断电流先升高)</p>
+<p><strong>开关器件损耗特性（不同器件 开通损耗&#x2F;关断损耗 占主导，实现ZVS&#x2F;ZCS，谐振腔呈感性还是容性）：</strong></p>
+<p>Si MOSFET：开通损耗&gt;&gt;关断损耗。所以需要ZVS。</p>
+<p>PN结二极管：关断损耗&gt;&gt;开通损耗。</p>
+<p>IGBJ BJT：同样是PN结原因，关断损耗很大。但BJT一般用于低频场合。</p>
+<p>GaN MOSTFET：开关损耗很小。但也需要软开关技术。</p>
 <h1 id="Buck变换器"><a href="#Buck变换器" class="headerlink" title="Buck变换器"></a>Buck变换器</h1><ul>
 <li>大前提</li>
 </ul>
@@ -354,7 +359,9 @@
 <p>李光耀.LLC数字电源设计与软启动控制研究[D].杭州电子科技大学,2022.10.27075&#x2F;d.cnki.ghzdc.2022.001097.</p>
 <h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><h1 id="软开关模态分析"><a href="#软开关模态分析" class="headerlink" title="软开关模态分析"></a>软开关模态分析</h1><p>软开关：</p>
 <p>ZVS：一般是利用感性工作点，电流之后电压，电流把下一个管子寄生并联电容电放完，然后电流流过体二极管，把MOSFET两端电压钳位到0V，实现零电压开通。</p>
-<p>ZCS：</p>
+<p>电流对于MOSFET3条支路的流过顺序，电容放电，体二极管，MOSTET。</p>
+<p>ZCS：利用容性工作点，电流降为零后一小段时间，电流反向流过把MOSFET载流子重置时把MOSFET关断。</p>
+<p>软开关意义：减少开关损耗，让频率可以更高，让储能器件的体积可以更小。 </p>
 <h2 id="副边为全波整流"><a href="#副边为全波整流" class="headerlink" title="副边为全波整流"></a>副边为全波整流</h2><p><strong>前提：</strong></p>
 <p>①超前桥臂结电容：$C_a &#x3D; C_b &#x3D; C_1$ 滞后桥臂结电容： $C_c &#x3D; C_d &#x3D;C_2$</p>
 <p>②输出滤波电感 $L_2&gt;&gt; \frac{L_1}{n^2}$，负载电流近似不变。</p>
@@ -403,7 +410,28 @@
 <h2 id="WPT系统软开关分析"><a href="#WPT系统软开关分析" class="headerlink" title="WPT系统软开关分析"></a>WPT系统软开关分析</h2><p>副边整流二极管不会被钳位是，负载反射阻抗抑制都在。</p>
 <p>相当于少了模态4和5。</p>
 <p>续流二极管换流之后就进入模态6。</p>
-<h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1>
+<h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1><h1 id="傅旻帆电力电子课"><a href="#傅旻帆电力电子课" class="headerlink" title="傅旻帆电力电子课"></a>傅旻帆电力电子课</h1><h2 id="串联谐振变换器"><a href="#串联谐振变换器" class="headerlink" title="串联谐振变换器"></a>串联谐振变换器</h2><ul>
+<li><p>软开关</p>
+</li>
+<li><p>图解LC谐振电路</p>
+</li>
+<li><p>负载测不控整流串联谐振波形时域分析（十分关键，有助于分析其他电路波形）</p>
+</li>
+</ul>
+<p>分析模态变化，根据模态变化画根轨迹，把根轨迹连起来就得到根轨迹，即电流电压波形。</p>
+<p>不同的开关频率得到不同的根轨迹，所以无穷个开关频率有无穷个根轨迹。</p>
+<ul>
+<li>整流侧 基波近似 等效内阻计算方法</li>
+</ul>
+<ul>
+<li>LCR谐振增益推导，根据增益图来设计电路特性参数</li>
+</ul>
+<p>分析方法总结：</p>
+<p>时域分析法：根据零初始条件，激励，电路模态建立微分方程，求解方程。</p>
+<p>平衡态电感伏秒平衡   电容安秒平衡</p>
+<p>图解LC谐振电路</p>
+<p>频域分析法：选取感兴趣频率 阻抗等效，折算到原边。 </p>
+
                 
               </div>
             
