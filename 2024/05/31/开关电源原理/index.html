@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.621Z">
-<meta property="article:modified_time" content="2024-07-04T13:35:29.816Z">
+<meta property="article:modified_time" content="2024-07-07T08:17:41.981Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.5k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          17 分钟
+          21 分钟
         
       </span>
     
@@ -356,7 +356,7 @@
 <p><strong>全桥LLC模态分析：</strong></p>
 <p>参考文献：</p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p>
-<p>李光耀.LLC数字电源设计与软启动控制研究[D].杭州电子科技大学,2022.10.27075&#x2F;d.cnki.ghzdc.2022.001097.</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/559726373">https://zhuanlan.zhihu.com/p/559726373</a>   这个很好</p>
 <h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><h1 id="软开关模态分析"><a href="#软开关模态分析" class="headerlink" title="软开关模态分析"></a>软开关模态分析</h1><p>软开关：</p>
 <p>ZVS：一般是利用感性工作点，电流之后电压，电流把下一个管子寄生并联电容电放完，然后电流流过体二极管，把MOSFET两端电压钳位到0V，实现零电压开通。</p>
 <p>电流对于MOSFET3条支路的流过顺序，电容放电，体二极管，MOSTET。</p>
@@ -431,12 +431,74 @@
 <p>平衡态电感伏秒平衡   电容安秒平衡</p>
 <p>图解LC谐振电路</p>
 <p>频域分析法：选取感兴趣频率 阻抗等效，折算到原边。 </p>
+<h3 id="不控整流侧基波分量等效电阻"><a href="#不控整流侧基波分量等效电阻" class="headerlink" title="不控整流侧基波分量等效电阻"></a>不控整流侧基波分量等效电阻</h3><blockquote>
+<p>条件：忽略谐波</p>
+</blockquote>
+<p><img src="/../pic/image-20240707140324077.png" srcset="/img/loading.gif" lazyload alt="不控整流"></p>
+<p><img src="/../pic/image-20240707140359991.png" srcset="/img/loading.gif" lazyload alt="交流侧波形"></p>
+<p><strong>按功率相等推导：</strong></p>
+<p>交流侧基波电压：$V_{ac} &#x3D;\frac{4}{\pi}V_osin(wt)$ </p>
+<p>直流侧基波电压： $V_o$</p>
+<p>$(\frac{2\sqrt2}{\pi})^2 &#x2F;R_{ac}(交流侧功率)  &#x3D; \frac{V^2_o}{R_l}$→ $R_{ac} &#x3D; \frac{8}{\pi^2}R_l(直流侧功率)$</p>
+<h3 id="增益-频率曲线"><a href="#增益-频率曲线" class="headerlink" title="增益-频率曲线"></a>增益-频率曲线</h3><p><img src="/../pic/image-20240707141243757.png" srcset="/img/loading.gif" lazyload alt="原边交流侧等效图"></p>
+<p>输入：$V_{in}$ </p>
+<p>输出：$V_{ac}$</p>
+<p>谐振腔增益：$M &#x3D; \frac{V_{ac}}{V_{in}}&#x3D; \frac{R_{ac}}{R_{ac} + \frac{1}{j w c_s} + j w L}$</p>
+<p><img src="/../pic/image-20240707141651695.png" srcset="/img/loading.gif" lazyload alt="归一化增益曲线"></p>
+<p><strong>无功功率带来的特性：</strong></p>
+<p>损耗升高：有无功分量在寄生电阻上产生热量</p>
+<p>电压电流应力要求更高</p>
+<p>让谐振腔工作在弱感性 就是 用一部分无功 来换取 开关损耗。</p>
+<blockquote>
+<p>导通损耗↑ </p>
+<p>牺牲一点增益</p>
+<p>器件电压电流应力升高</p>
+</blockquote>
+<blockquote>
+<p>MOSFET 开通损耗会更小  这部分收益更高</p>
+</blockquote>
+<p><strong>确定变换器工作区间：</strong></p>
+<p>负载范围→品质因数Q线</p>
+<p>输入范围→增益M线</p>
+<p><strong>已知输入电压范围、输出电压、功率范围求参数</strong></p>
+<p> <img src="/../pic/image-20240707145721488.png" srcset="/img/loading.gif" lazyload alt="参数设计步骤"></p>
 <h2 id="并联谐振变换器"><a href="#并联谐振变换器" class="headerlink" title="并联谐振变换器"></a>并联谐振变换器</h2><p><img src="/../pic/image-20240704204916000.png" srcset="/img/loading.gif" lazyload alt="PRC拓扑"></p>
 <p>电感→∞，电感小纹波近似为电流源。</p>
 <p><img src="/../pic/image-20240704205135735.png" srcset="/img/loading.gif" lazyload alt="后级等效电流源"></p>
 <p> <img src="/../pic/image-20240704205351579.png" srcset="/img/loading.gif" lazyload alt="四个模态 波形"></p>
 <p><img src="/../../../../Paper/%E5%91%A8%E6%8A%A5/image-20240704205851868.png" srcset="/img/loading.gif" lazyload alt="四种模态波形"></p>
-<h2 id="LLC谐振变换器-1"><a href="#LLC谐振变换器-1" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2>
+<h2 id="LLC-谐振变换器"><a href="#LLC-谐振变换器" class="headerlink" title="LLC 谐振变换器"></a>LLC 谐振变换器</h2><p>软开关 死区  同步整流 高阶谐振</p>
+<p>LLC相比一般PWM convertor 特点：</p>
+<p>能适应宽范围输入电压</p>
+<h3 id="串联谐振问题"><a href="#串联谐振问题" class="headerlink" title="串联谐振问题"></a>串联谐振问题</h3><p><img src="/../pic/image-20240707152547439.png" srcset="/img/loading.gif" lazyload alt="串联谐振增益图"></p>
+<blockquote>
+<p>正常输入$V_in$，要保持$V_o$不变，（$R_l小，Q高$）只能工作在比弱感性还要感的区间，导致无功太多，且关断电流太大，损耗过高，把低电压&#x2F;纹波导致低电压（不长工作点）放在理想弱感性点</p>
+</blockquote>
+<blockquote>
+<p>对于轻载，要维持相同的增益，开关管工作频率会很高，器件损耗可能提高</p>
+</blockquote>
+<h3 id="并联谐振问题"><a href="#并联谐振问题" class="headerlink" title="并联谐振问题"></a>并联谐振问题</h3><p><img src="/../pic/image-20240707153231157.png" srcset="/img/loading.gif" lazyload alt="串联谐振增益图"></p>
+<blockquote>
+<p>也存在串联谐振1问题</p>
+</blockquote>
+<blockquote>
+<p>轻载调制问题不存在</p>
+</blockquote>
+<h3 id="串并联LCC谐振"><a href="#串并联LCC谐振" class="headerlink" title="串并联LCC谐振"></a>串并联LCC谐振</h3><p><img src="/../pic/image-20240707153700544.png" srcset="/img/loading.gif" lazyload alt="串并联谐振增益图"></p>
+<h3 id="LLC串并联谐振"><a href="#LLC串并联谐振" class="headerlink" title="LLC串并联谐振"></a>LLC串并联谐振</h3><p><strong>优点：</strong></p>
+<blockquote>
+<p>全负载ZVS，负载与电感电流无关</p>
+</blockquote>
+<blockquote>
+<p> 原边ZVS 副边CS→低开关损耗</p>
+</blockquote>
+<blockquote>
+<p>导通损耗小，宽范围弱感性。</p>
+</blockquote>
+<h3 id="模态分析"><a href="#模态分析" class="headerlink" title="模态分析"></a>模态分析</h3><p><img src="/../pic/image-20240707161054129.png" srcset="/img/loading.gif" lazyload alt="t0-t1"></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.1007.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.1007.top_right_bar_window_history.content.click</a></p>
+<p>从40分钟继续</p>
+
                 
               </div>
             
