@@ -16,14 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="BJT伏安特性曲线  BJT工作区域确定   截止区—$u_{be}&lt;u_{th}： i_b &#x3D; i_c &#x3D; 0$   放大—$u_{be}&gt;u_{th}、u_{ce}&gt;u_{CES}(0.3V，随u_{be}上升而上升)：i_c &#x3D; \beta i_b$   饱和—$u_{be}&gt;u_{th}、u_{ce}&lt;u_{CES}(0.3V，随">
+<meta property="og:type" content="article">
 <meta property="og:title" content="新概念模拟电子电路">
 <meta property="og:url" content="http://example.com/2024/07/21/%E6%96%B0%E6%A6%82%E5%BF%B5%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
+<meta property="og:description" content="BJT伏安特性曲线  BJT工作区域确定   截止区—$u_{be}&lt;u_{th}： i_b &#x3D; i_c &#x3D; 0$   放大—$u_{be}&gt;u_{th}、u_{ce}&gt;u_{CES}(0.3V，随u_{be}上升而上升)：i_c &#x3D; \beta i_b$   饱和—$u_{be}&gt;u_{th}、u_{ce}&lt;u_{CES}(0.3V，随">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Xingainian.png">
 <meta property="article:published_time" content="2024-07-21T13:39:21.452Z">
-<meta property="article:modified_time" content="2024-07-22T00:39:42.208Z">
+<meta property="article:modified_time" content="2024-07-26T07:20:36.183Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.5k 字
         
       </span>
     
@@ -231,7 +233,7 @@
         
         
         
-          1 分钟
+          13 分钟
         
       </span>
     
@@ -273,7 +275,181 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="BJT伏安特性曲线"><a href="#BJT伏安特性曲线" class="headerlink" title="BJT伏安特性曲线"></a>BJT伏安特性曲线</h2><p><img src="/../pic/image-20240722090425823.png" srcset="/img/loading.gif" lazyload alt="ic-Uce"></p>
+<ul>
+<li>BJT工作区域确定</li>
+</ul>
+<blockquote>
+<p>截止区—$u_{be}&lt;u_{th}： i_b &#x3D; i_c &#x3D; 0$</p>
+</blockquote>
+<blockquote>
+<p>放大—$u_{be}&gt;u_{th}、u_{ce}&gt;u_{CES}(0.3V，随u_{be}上升而上升)：i_c &#x3D; \beta i_b$</p>
+</blockquote>
+<blockquote>
+<p>饱和—$u_{be}&gt;u_{th}、u_{ce}&lt;u_{CES}(0.3V，随u_{be}上升而上升)：i_c &lt; \beta i_b$</p>
+</blockquote>
+<p><img src="/../pic/image-20240722092800747.png" srcset="/img/loading.gif" lazyload alt="简化工作特性曲线"></p>
+<ul>
+<li>静态电阻 和 动态电阻</li>
+</ul>
+<p>$u &#x3D;f(i)$</p>
+<p> 静态电阻：$R &#x3D;\frac{u}{f(i)}$</p>
+<p>动态电阻：$r &#x3D; \frac{du}{di}$ </p>
+<p>注：$\beta 也会随着i_{be}变化，但变化率很小，可以忽略$</p>
+<ul>
+<li>最基本NPN放大电路</li>
+</ul>
+<p><img src="/../pic/image-20240722093456620.png" srcset="/img/loading.gif" lazyload alt="最基本NPN放大电路"></p>
+<p><img src="/../pic/image-20240722093441696.png" srcset="/img/loading.gif" lazyload alt="波形分析"></p>
+<ul>
+<li>静态工作点问题</li>
+</ul>
+<p>上图已经出现失真，图4上高下低。</p>
+<p>所以需要选择合适静态工作点，确保信号不产生失真。</p>
+<p><strong>原则：</strong></p>
+<blockquote>
+<p>变化的输入信号在 $i_b-u_{be}$曲线上能近似线性化</p>
+</blockquote>
+<blockquote>
+<p>提供足够大的 $u_{ce}$电压不至于进入饱和区</p>
+</blockquote>
+<p><img src="/../pic/image-20240722095312439.png" srcset="/img/loading.gif" lazyload alt="设置静态工作点"></p>
+<ul>
+<li>直流偏置和小交流输入叠加耦合</li>
+</ul>
+<p><img src="/../pic/image-20240722101626938.png" srcset="/img/loading.gif" lazyload alt="image-20240722101626938"></p>
+<h3 id="求静态工作点"><a href="#求静态工作点" class="headerlink" title="求静态工作点"></a>求静态工作点</h3><p><img src="/../pic/image-20240722111941005.png" srcset="/img/loading.gif" lazyload alt="计算流程"></p>
+<p><strong>具体步骤：</strong></p>
+<blockquote>
+<p>交流信号置零，得到直流等效电路，求解非线性电路。</p>
+</blockquote>
+<blockquote>
+<p>判断$u_{be}$是否导通,be导通压降$U_{BEQ}&#x3D;0.7V$，解 $i_b、i_c &#x3D; \beta i_b$</p>
+</blockquote>
+<blockquote>
+<p>若导通，再判断能否在放大状态( $i_c &#x3D; \beta i_b$)情况下集电结反偏($u_{ce}&gt;u_{th}$)</p>
+</blockquote>
+<p><img src="/../pic/image-20240722111906799.png" srcset="/img/loading.gif" lazyload alt="求解例子"></p>
+<h3 id="图解法求静态工作点"><a href="#图解法求静态工作点" class="headerlink" title="图解法求静态工作点"></a>图解法求静态工作点</h3><p>列方程+解方程</p>
+<p>列方程+图解法</p>
+<h3 id="交流放大求解"><a href="#交流放大求解" class="headerlink" title="交流放大求解"></a>交流放大求解</h3><p>即多输入非线性问题求解</p>
+<p>根据静态工作点得到静态电阻，直流+交流输入→得到直流&#x2F;交流等效电路用叠加定理分别计算。</p>
+<h3 id="BJT微变等效模型"><a href="#BJT微变等效模型" class="headerlink" title="BJT微变等效模型"></a>BJT微变等效模型</h3><p><img src="/../pic/image-20240722134613271.png" srcset="/img/loading.gif" lazyload alt="ib-ube伏安特性曲线"></p>
+<p>$ib &#x3D; Is(e^{\frac{u}{U_T}-1})$</p>
+<p><strong>动态电阻：</strong>$r&#x3D; \frac{du}{di} &#x3D; \frac{1}{\frac{di}{du}} &#x3D; U_T&#x2F;Is(e^{\frac{u}{U_T}-1}) &#x3D; \frac{U_T}{I_{BQ}}$</p>
+<p>再加上be两端体电阻</p>
+<p>$r_{be} &#x3D;r_{bb^1}+r$ </p>
+<p>另一端等效为流控电流源：</p>
+<p><img src="/../pic/image-20240722135129985.png" srcset="/img/loading.gif" lazyload alt="微变等效模型"></p>
+<p><img src="/../pic/image-20240722135203401.png" srcset="/img/loading.gif" lazyload alt="高频微变等效模型"></p>
+<h3 id="BJT放大电路动态分析"><a href="#BJT放大电路动态分析" class="headerlink" title="BJT放大电路动态分析"></a>BJT放大电路动态分析</h3><ul>
+<li><p>电压放大倍数</p>
+</li>
+<li><p>输入电阻 $R_i$</p>
+</li>
+</ul>
+<p>输入端看进去交流动态电阻</p>
+<ul>
+<li>输出电阻 $R_o$</li>
+</ul>
+<p>输出端交流动态电阻</p>
+<p><strong>分析步骤：</strong></p>
+<blockquote>
+<p>求出静态工作点，得到动态电阻</p>
+</blockquote>
+<blockquote>
+<p>得到交流等效模型</p>
+</blockquote>
+<blockquote>
+<p>分别求三参数</p>
+</blockquote>
+<h3 id="三参数实验测量法"><a href="#三参数实验测量法" class="headerlink" title="三参数实验测量法"></a>三参数实验测量法</h3><h3 id="共基-共集-共射-分析与比较-PNP管放大电路"><a href="#共基-共集-共射-分析与比较-PNP管放大电路" class="headerlink" title="共基 共集 共射 分析与比较 PNP管放大电路"></a>共基 共集 共射 分析与比较 PNP管放大电路</h3><h3 id="14大信号情况下失真分析"><a href="#14大信号情况下失真分析" class="headerlink" title="14大信号情况下失真分析"></a>14大信号情况下失真分析</h3><h3 id="放大电路综合分析"><a href="#放大电路综合分析" class="headerlink" title="放大电路综合分析"></a>放大电路综合分析</h3><h3 id="24-场效应管分类、管脚定义"><a href="#24-场效应管分类、管脚定义" class="headerlink" title="24 场效应管分类、管脚定义"></a>24 场效应管分类、管脚定义</h3><p>压控型器件</p>
+<p>分类：</p>
+<blockquote>
+<p>JFET</p>
+</blockquote>
+<blockquote>
+<p>MOSFET：增强型  耗尽型(应用十分少)</p>
+</blockquote>
+<p><img src="/../pic/image-20240726100642000.png" srcset="/img/loading.gif" lazyload alt="FET表示图"></p>
+<h3 id="JFET"><a href="#JFET" class="headerlink" title="JFET"></a>JFET</h3><p>转移特性 $i_D &#x3D; f(u_{GS})$</p>
+<p>输出特性 $i_D &#x3D; f(u_{DS})$</p>
+<p><img src="/../pic/image-20240726101632162.png" srcset="/img/loading.gif" lazyload alt="JFET输入输出特性"></p>
+<p><strong>三大区域：</strong></p>
+<blockquote>
+<p>截止区：$U_{GS}&lt;U_{GSOFF}$</p>
+</blockquote>
+<blockquote>
+<p>可变电阻区：工作特性像一个纯电阻，但是电阻值是可变的(随$U_{GS}$变化)</p>
+</blockquote>
+<blockquote>
+<p>横流区：电流不随$U_{DS}$变化而变化。但是还是有轻微变化</p>
+</blockquote>
+<p><img src="/../pic/image-20240726103322714.png" srcset="/img/loading.gif" lazyload alt="JFET工作区域判断"></p>
+<p>夹断电压：电压0V是导通的，需要负电压彻底关断。</p>
+<p>零偏漏极电流：$U_{GS}&#x3D;0$，最大$i_{DS}$，U_{GS}不能大于0，否则GS导通。</p>
+<p>转移特性数学表达：</p>
+<p><img src="/../pic/image-20240726102646077.png" srcset="/img/loading.gif" lazyload alt="转移特性数学表达"></p>
+<h3 id="26-MOSFET"><a href="#26-MOSFET" class="headerlink" title="26 MOSFET"></a>26 MOSFET</h3><p><img src="/../pic/image-20240726103433743.png" srcset="/img/loading.gif" lazyload alt="增强型MOSFET输入输出特性"></p>
+<p>主要参数：</p>
+<p>开启电压$U_{GSTH}$</p>
+<p>转移特性曲线：$𝑖<em>𝐷 &#x3D;𝐾(𝑢</em>{GS}−𝑈_{GSTH})^2$</p>
+<p>恒流区分界线：$𝑈_{DS_dv}&#x3D;𝑈_{GS}−𝑈_{GSTH}$</p>
+<p><img src="/../pic/image-20240726110132612.png" srcset="/img/loading.gif" lazyload alt="MOSFET判断工作区间"></p>
+<h3 id="27-FET放大电路的静态电路和信号耦合"><a href="#27-FET放大电路的静态电路和信号耦合" class="headerlink" title="27 FET放大电路的静态电路和信号耦合"></a>27 FET放大电路的静态电路和信号耦合</h3><p><img src="/../pic/image-20240726111043355.png" srcset="/img/loading.gif" lazyload alt="三电阻MOSFET共源极放大电路"></p>
+<p><img src="/../pic/image-20240726110919956.png" srcset="/img/loading.gif" lazyload alt="四电阻MOSFET共源极放大电路"></p>
+<p>对比：四电阻稳态特性更好，存在负反馈，C3旁路掉交流通路的R5，提高放大倍数。</p>
+<p>具体分析：</p>
+<h3 id="28-FET微变等效模型"><a href="#28-FET微变等效模型" class="headerlink" title="28 FET微变等效模型"></a>28 FET微变等效模型</h3><p>压控电流源跨导：$𝑔_{m}&#x3D;\frac{d i_D}{dU_{GS}}$</p>
+<p>对于增强型MOSFET：$𝑖_{𝐷} &#x3D;𝐾(𝑢_{GS}−𝑈_{GSTH})$ </p>
+<p>$𝑔_{m}&#x3D;\frac{𝑑𝑖_{𝐷}}{du_{GS}} &#x3D;2𝐾(U_{GSQ}−𝑈_{GSTH})&#x3D;2\sqrt{K*I_{DQ}}$</p>
+<p><img src="/../pic/image-20240726111324534.png" srcset="/img/loading.gif" lazyload alt="FET微变等效模型"></p>
+<h3 id="29-FET三种放大电路-动态分析"><a href="#29-FET三种放大电路-动态分析" class="headerlink" title="29 FET三种放大电路 动态分析"></a>29 FET三种放大电路 动态分析</h3><p>共源</p>
+<p>共漏</p>
+<p><img src="/../pic/image-20240726112433495.png" srcset="/img/loading.gif" lazyload alt="共漏极放大电路"></p>
+<p>共栅</p>
+<p><img src="/../pic/image-20240726112527453.png" srcset="/img/loading.gif" lazyload alt="共栅极放大电路"></p>
+<p><strong>特性对比：</strong></p>
+<p>共源：放大倍数高，反向放大，输入阻抗大。</p>
+<p>共漏：放大倍数为1，同向放大，输入阻抗大，输出阻抗低（一般做阻抗变换用）。</p>
+<p>共栅：放大倍数高，同向放大，输入阻抗小。</p>
+<h3 id="29-恒流源"><a href="#29-恒流源" class="headerlink" title="29 恒流源"></a>29 恒流源</h3><p>一般放大电路问题</p>
+<p><img src="/../pic/image-20240726143813907.png" srcset="/img/loading.gif" lazyload alt="共射放大电路"></p>
+<p>放大倍数： $A_u &#x3D; \frac{\beta R_c&#x2F;&#x2F;R_L}{r_{be}}$</p>
+<p>当负载电阻很大: $A_u &#x3D; \frac{\beta R_c}{r_{be}}$</p>
+<p>存在问题：增大$R_c$，需要减小 $U_{CEQ}$，为代价，这样会导致静态工作曲线左移，偏向饱和区， 并不能保证 $U_{CEQ}$不变(不动静态工作点)的同时变大增益，因为存在负反馈。</p>
+<p>$R_c↑，U_{CEQ}&#x3D;&#x3D;，I_{CQ}↓，I_{BQ}↓，r_{be}↑$</p>
+<p><strong>解决办法：</strong></p>
+<p>用恒流源代替R_c，恒流源的都动态电阻&gt;静态电阻。</p>
+<h3 id="31-差模信号-共模信号"><a href="#31-差模信号-共模信号" class="headerlink" title="31 差模信号 共模信号"></a>31 差模信号 共模信号</h3><p>一般干扰信号会对两端信号同时产生干扰，如</p>
+<p>$V &#x3D; V_0 + V_{干扰}$</p>
+<p>这样传输末端得到的电位就存在干扰，解决方法，把一个信号分成两根线传输。分别传输差模信号。</p>
+<p>$V_1 &#x3D; -\frac{V_0}{2} + V_{干扰}$</p>
+<p>$V_2 &#x3D; +\frac{V_0}{2} + V_{干扰}$</p>
+<p>在传输末端相减，这样干扰就消除了。</p>
+<p>$V&#x3D;V_2 - V_1$</p>
+<h3 id="32-差动放大器"><a href="#32-差动放大器" class="headerlink" title="32 差动放大器"></a>32 差动放大器</h3><p>再放大信号中，因为做不到电路的完全对称，所以信号相减后还是会存在一部分共模信号导致的误差，所以希望 放大过程不放大 放大差模信号，衰减共模信号，这样即便存在不对称信号也不会产生太大的畸变。</p>
+<h3 id="33-差动放大器3：标准差动放大器"><a href="#33-差动放大器3：标准差动放大器" class="headerlink" title="33 差动放大器3：标准差动放大器"></a>33 差动放大器3：标准差动放大器</h3><p><img src="/../pic/image-20240726150708710.png" srcset="/img/loading.gif" lazyload alt="差动放大器"></p>
+<p><strong>关键所在：</strong>$R_E$对于共模信号为2R_E，对于差模信号为0。</p>
+<p><strong>分析：</strong></p>
+<p>静态分析</p>
+<p>放大倍数分析：</p>
+<blockquote>
+<p>单端输入 单端输出</p>
+</blockquote>
+<blockquote>
+<p>单端输入 双端输出</p>
+</blockquote>
+<blockquote>
+<p>双端输入 单端输出</p>
+</blockquote>
+<blockquote>
+<p>双端输入 双端输出</p>
+</blockquote>
+<h3 id="34-差动放大器4：共模抑制比及其提高方法"><a href="#34-差动放大器4：共模抑制比及其提高方法" class="headerlink" title="34 差动放大器4：共模抑制比及其提高方法"></a>34 差动放大器4：共模抑制比及其提高方法</h3><p>$CMRR &#x3D; \frac{A_D}{A_C} &#x3D; \frac{差模增益}{共模增益}$</p>
+<p><strong>用恒流源电路提高CMRR</strong>：$R_E$越大，越能抑制共模信号，却不影响差模信号，但是R_E会影响静态工作点。所以像之前$R_C$一样，用恒流源取代$R_E$非常好，既不会影响静态工作点，也会提供非常大的$R_E$。</p>
+<h3 id="35-电流镜-Current-Mirror-基本原理"><a href="#35-电流镜-Current-Mirror-基本原理" class="headerlink" title="35 电流镜(Current Mirror)基本原理"></a>35 电流镜(Current Mirror)基本原理</h3><p><img src="/../pic/image-20240726152022033.png" srcset="/img/loading.gif" lazyload alt="电流镜"></p>
+
                 
               </div>
             
@@ -369,6 +545,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/07/22/QT/" title="QT">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">QT</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
