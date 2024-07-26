@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Xingainian.png">
 <meta property="article:published_time" content="2024-07-21T13:39:21.452Z">
-<meta property="article:modified_time" content="2024-07-26T07:20:36.183Z">
+<meta property="article:modified_time" content="2024-07-26T08:08:38.922Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          1.8k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 分钟
+          15 分钟
         
       </span>
     
@@ -449,6 +449,38 @@
 <h3 id="34-差动放大器4：共模抑制比及其提高方法"><a href="#34-差动放大器4：共模抑制比及其提高方法" class="headerlink" title="34 差动放大器4：共模抑制比及其提高方法"></a>34 差动放大器4：共模抑制比及其提高方法</h3><p>$CMRR &#x3D; \frac{A_D}{A_C} &#x3D; \frac{差模增益}{共模增益}$</p>
 <p><strong>用恒流源电路提高CMRR</strong>：$R_E$越大，越能抑制共模信号，却不影响差模信号，但是R_E会影响静态工作点。所以像之前$R_C$一样，用恒流源取代$R_E$非常好，既不会影响静态工作点，也会提供非常大的$R_E$。</p>
 <h3 id="35-电流镜-Current-Mirror-基本原理"><a href="#35-电流镜-Current-Mirror-基本原理" class="headerlink" title="35 电流镜(Current Mirror)基本原理"></a>35 电流镜(Current Mirror)基本原理</h3><p><img src="/../pic/image-20240726152022033.png" srcset="/img/loading.gif" lazyload alt="电流镜"></p>
+<p>分析：</p>
+<p>$𝑖_{IN}&#x3D;𝑖_{C1}+2𝑖_{B1}&#x3D;(𝛽+2)𝑖_{B1}$</p>
+<p> $𝑖_{OUT}&#x3D;𝛽𝑖_{B2}&#x3D;𝛽𝑖_{B1}&#x3D;\frac{𝛽}{(\beta+ 2)𝑖_{IN}}$</p>
+<p><strong>电流镜的不稳定性根源——Early Voltage（厄利电压）</strong></p>
+<p>负载的变化会引起电流镜输出电流的变化。</p>
+<p>$i_{B2}$不变，$E_c$一定，$R_L$增大，BJT工作点左移，第一阶段在放大区左移电流减少的比较小，当进入饱和区，电流迅速变小。</p>
+<p>简言之：工作在放大区的BJT不是理想的(平的直线)，而是斜的。$U_{ce}$减小会导致$i_c$减小。</p>
+<p><strong>厄利电压</strong>就是交点延长线与$u_{ce}$负半轴交点。</p>
+<p><img src="/../pic/image-20240726153729513.png" srcset="/img/loading.gif" lazyload alt="MOSFET组成的电流镜"></p>
+<p>$i_{OUT}&#x3D;𝐾(u_{GS} − 𝑈_{𝐺STH})^2(1+𝜆𝑢_{𝐷S})$</p>
+<p>MOSFET厄利电压就是$𝜆≠0$。</p>
+<h3 id="36-比例电流镜和Widlar微电流源"><a href="#36-比例电流镜和Widlar微电流源" class="headerlink" title="36 比例电流镜和Widlar微电流源"></a>36 比例电流镜和Widlar微电流源</h3><p><img src="/../pic/image-20240726155332802.png" srcset="/img/loading.gif" lazyload alt="比例电流镜"></p>
+<p>分析：</p>
+<p>$u_{GS1} + I_1R_1 &#x3D;u_{GS3} + I_3R_3$</p>
+<p>$I_1&#x3D;K(u_{GS1}-u_{GSTH})^2$→$u_{GS1}$ 很小可以约掉近似。</p>
+<p><strong>微电流源</strong></p>
+<p><img src="/../pic/image-20240726155710307.png" srcset="/img/loading.gif" lazyload alt="MOSFET微电流源"></p>
+<p>分析：</p>
+<p>$u_{GS1} &#x3D; u_{GS2}+I_2R_s$</p>
+<p>$I_1&#x3D;K(u_{GS1}-u_{GSTH})^2$</p>
+<p>$I_2&#x3D;K(u_{GS2}-u_{GSTH})^2$</p>
+<p>已知$I_1、R_L、i_{out}求R_S$</p>
+<h3 id="37-威尔逊电流镜—Wilson-Current-Mirror"><a href="#37-威尔逊电流镜—Wilson-Current-Mirror" class="headerlink" title="37 威尔逊电流镜—Wilson Current Mirror"></a>37 威尔逊电流镜—Wilson Current Mirror</h3><p>35节电流镜缺点：</p>
+<blockquote>
+<p>比例系数： $\frac{\beta}{\beta+2}$不等于1</p>
+</blockquote>
+<blockquote>
+<p>受厄利电压影响 </p>
+</blockquote>
+<p><img src="/../pic/image-20240726160604274.png" srcset="/img/loading.gif" lazyload alt="三管威尔逊电流镜"></p>
+<p><img src="/../pic/image-20240726160811773.png" srcset="/img/loading.gif" lazyload alt="四管威尔逊电流镜"></p>
+<p>缺点：</p>
 
                 
               </div>
