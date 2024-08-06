@@ -116,7 +116,7 @@
     <link href="/2024/06/18/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/"/>
     <url>/2024/06/18/%E8%87%AA%E5%8A%A8%E6%8E%A7%E5%88%B6%E5%8E%9F%E7%90%86/</url>
     
-    <content type="html"><![CDATA[<h1 id="拉氏变换："><a href="#拉氏变换：" class="headerlink" title="拉氏变换："></a>拉氏变换：</h1><p>意义：求解微分方程、分频分析</p><p>$L[f(t)] &#x3D; \int_0^{+∞}f(t)e^{-st}dt$</p><h1 id="常见拉氏变换："><a href="#常见拉氏变换：" class="headerlink" title="常见拉氏变换："></a>常见拉氏变换：</h1><p>$sin(wt) → \frac{w}{s^2 + w^2}$</p><p>$cos(wt) → \frac{s}{s^2 + w^2}$</p><blockquote><p>$sinwt &#x3D; \frac{e^{jwt} - e^{-jwt} }{2j}$→$\int_0^{+∞}{sinwt}{e^{-st}}dt &#x3D; \int_0^{+∞}{\frac{e^{jwt} - e^{-jwt} }{2j}}{e^{-st}}dt &#x3D; \frac{w}{s^2 + w^2}$</p></blockquote><blockquote><p>$coswt &#x3D; \frac{e^{jwt} + e^{-jwt}}{2}$→$\int_0^{+∞}{coswt}{e^{-st}}dt &#x3D; \int_0^{+∞}{\frac{e^{jwt} + e^{-jwt} }{2}}{e^{-st}}dt &#x3D; \frac{s}{s^2 + w^2}$</p></blockquote><p>$A →  \frac{A}{s}$</p><blockquote><p>$\int_0^{+∞}{A}{e^{-st}}dt  &#x3D; \frac{A}{s}$</p></blockquote><h1 id="拉氏变换性质："><a href="#拉氏变换性质：" class="headerlink" title="拉氏变换性质："></a>拉氏变换性质：</h1><p>线性可加性：$L[K_1f_1(t) + K_2f_2(t) ] &#x3D; K_1F_1(S) + K_2F_2(s)$</p><p>微分定理：$L[\frac{df(t)}{dt}  ] &#x3D; sF(s) - f(0)$、$L[\frac{d^2f(t)}{dt^2}  ] &#x3D; s^2F(s) - \dot{f(0)}-sf(0)$</p><p>位移定理：$L[f(t-a)] &#x3D; e^{-at}F(s)$</p><p>复数域位移定理：</p><p>初值定理</p><p>终值定理</p><p>卷积定理</p><h1 id="二阶系统单位阶跃响应时域推导"><a href="#二阶系统单位阶跃响应时域推导" class="headerlink" title="二阶系统单位阶跃响应时域推导"></a>二阶系统单位阶跃响应时域推导</h1><p><strong>传递函数：</strong></p><p>$\Phi_{(s)} &#x3D; \frac{1}{s^2 + 2 \epsilon w_ns + w_n^2}$</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="拉氏变换："><a href="#拉氏变换：" class="headerlink" title="拉氏变换："></a>拉氏变换：</h1><p>意义：求解微分方程、分频分析</p><p>$L[f(t)] &#x3D; \int_0^{+∞}f(t)e^{-st}dt$</p><h1 id="常见拉氏变换："><a href="#常见拉氏变换：" class="headerlink" title="常见拉氏变换："></a>常见拉氏变换：</h1><p>$sin(wt) → \frac{w}{s^2 + w^2}$</p><p>$cos(wt) → \frac{s}{s^2 + w^2}$</p><blockquote><p>$sinwt &#x3D; \frac{e^{jwt} - e^{-jwt} }{2j}$→$\int_0^{+∞}{sinwt}{e^{-st}}dt &#x3D; \int_0^{+∞}{\frac{e^{jwt} - e^{-jwt} }{2j}}{e^{-st}}dt &#x3D; \frac{w}{s^2 + w^2}$</p></blockquote><blockquote><p>$coswt &#x3D; \frac{e^{jwt} + e^{-jwt}}{2}$→$\int_0^{+∞}{coswt}{e^{-st}}dt &#x3D; \int_0^{+∞}{\frac{e^{jwt} + e^{-jwt} }{2}}{e^{-st}}dt &#x3D; \frac{s}{s^2 + w^2}$</p></blockquote><p>$A →  \frac{A}{s}$</p><blockquote><p>$\int_0^{+∞}{A}{e^{-st}}dt  &#x3D; \frac{A}{s}$</p></blockquote><h1 id="拉氏变换性质："><a href="#拉氏变换性质：" class="headerlink" title="拉氏变换性质："></a>拉氏变换性质：</h1><p>线性可加性：$L[K_1f_1(t) + K_2f_2(t) ] &#x3D; K_1F_1(S) + K_2F_2(s)$</p><p>微分定理：$L[\frac{df(t)}{dt}  ] &#x3D; sF(s) - f(0)$、$L[\frac{d^2f(t)}{dt^2}  ] &#x3D; s^2F(s) - \dot{f(0)}-sf(0)$</p><p>位移定理：$L[f(t-a)] &#x3D; e^{-at}F(s)$</p><p>复数域位移定理：</p><p><strong>初值定理：</strong>$L[\frac{df(t)}{dt}  ] &#x3D; sF(s) - f(0)&#x3D;\int_0^∞f(t)e^{-st}dt $、当s→无穷$sF(s) - f(0)&#x3D;0→f(0)&#x3D;\lim_{s \to \infty}sF(s)$ </p><p><strong>终值定理：</strong>$L[\frac{df(t)}{dt}  ] &#x3D; sF(s) - f(0)&#x3D;\int_0^∞f(t)e^{-st}dt $、当s→0$sF(s) - f(0)&#x3D; f(\infty)- f(0)→f(\infty)&#x3D;\lim_{s \to 0}sF(s)$ 求稳态误差</p><p>卷积定理：</p><h1 id="二阶系统单位阶跃响应时域推导"><a href="#二阶系统单位阶跃响应时域推导" class="headerlink" title="二阶系统单位阶跃响应时域推导"></a>二阶系统单位阶跃响应时域推导</h1><p><strong>传递函数：</strong></p><p>$\Phi_{(s)} &#x3D; \frac{1}{s^2 + 2 \epsilon w_ns + w_n^2}$</p>]]></content>
     
     
     <categories>
@@ -130,7 +130,7 @@
     
     <tags>
       
-      <tag>自动控制原</tag>
+      <tag>自动控制原理</tag>
       
     </tags>
     
