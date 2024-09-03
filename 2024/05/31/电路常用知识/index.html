@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2024-05-31T12:47:33.625Z">
-<meta property="article:modified_time" content="2024-08-03T04:28:01.302Z">
+<meta property="article:modified_time" content="2024-08-30T14:04:51.463Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k 字
+          5.8k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          46 分钟
+          49 分钟
         
       </span>
     
@@ -902,31 +902,44 @@
 <h2 id="维恩桥振荡器"><a href="#维恩桥振荡器" class="headerlink" title="维恩桥振荡器"></a>维恩桥振荡器</h2><h2 id="Astable多谐振荡器"><a href="#Astable多谐振荡器" class="headerlink" title="Astable多谐振荡器"></a>Astable多谐振荡器</h2><h2 id="单稳态多谐振荡器"><a href="#单稳态多谐振荡器" class="headerlink" title="单稳态多谐振荡器"></a>单稳态多谐振荡器</h2><h2 id="有源箝位电路"><a href="#有源箝位电路" class="headerlink" title="有源箝位电路"></a>有源箝位电路</h2><p>使用精密二极管代替普通二极管</p>
 <h2 id="有源Clipper电路"><a href="#有源Clipper电路" class="headerlink" title="有源Clipper电路"></a>有源Clipper电路</h2><p>使用精密二极管代替普通二极管</p>
 <h2 id="电压调节器"><a href="#电压调节器" class="headerlink" title="电压调节器"></a>电压调节器</h2><h2 id="电源抑制比"><a href="#电源抑制比" class="headerlink" title="电源抑制比"></a>电源抑制比</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=w4531AVjBYY&t=158s">https://www.youtube.com/watch?v=w4531AVjBYY&amp;t=158s</a></p>
-<h1 id="米勒平台"><a href="#米勒平台" class="headerlink" title="米勒平台"></a>米勒平台</h1><p>原因：Mosfet寄生电容</p>
-<p>影响：延长导通时间，增加开关管动态损耗</p>
-<p><strong>电路模型</strong></p>
-<p><img src="/../pic/image-20240509183455627.png" srcset="/img/loading.gif" lazyload alt="image-20240509183455627"></p>
+<h1 id="米勒平台"><a href="#米勒平台" class="headerlink" title="米勒平台"></a>米勒平台</h1><p>原因：在开关管完全导通时候，Mosfet 寄生电容$C_{gd}$把$C_{gs}$短路掉，阻止$C_{gs}$继续充电，直到$V_{gd}&#x3D;V_{gs}(这时等于米勒电压)$，$V_{gs}$才继续上升到$V_G$。</p>
+<p>影响：延长导通时间，增加开关管动态损耗。</p>
+<p><img src="/../pic/image-20240830201053100.png" srcset="/img/loading.gif" lazyload alt="电路等效模型"></p>
 <p><strong>模态分析：</strong></p>
 <p>四个阶段近似波形图</p>
-<p><img src="/../pic/image-20240509120435244.png" srcset="/img/loading.gif" lazyload alt="image-20240509120435244"></p>
 <p><strong>MOSFET工作状态</strong>：①截止区②Vgs上升横流区(工作曲线上移)③Vgs不变，Vds下降，横流区(工作曲线左移)④Vgs上升饱和区(工作曲线左移)</p>
-<img src="../pic/image-20240509120443324.png" srcset="/img/loading.gif" lazyload alt="image-20240509120443324"  />
-
-<p><img src="/../pic/image-20240509120450103.png" srcset="/img/loading.gif" lazyload alt="image-20240509120450103"></p>
-<p><strong>具体波形图</strong></p>
-<p><img src="/../pic/image-20240509120543713.png" srcset="/img/loading.gif" lazyload alt="image-20240509120543713"></p>
-<p>驱动波形、栅极电流、栅极源极电压、MOS 漏源极电压&#x2F;电流</p>
-<p>①t1—t2  Vgs&lt;Vth(开通电压)   MOS工作在截止区</p>
-<p><img src="/../pic/image-20240509183552116.png" srcset="/img/loading.gif" lazyload alt="image-20240509183552116"></p>
-<p><img src="/../pic/image-20240509183607168.png" srcset="/img/loading.gif" lazyload alt="image-20240509183607168"></p>
-<p>②t2—t3  Vgs控制导通程度直到负载电流不增加(Rds&lt;&lt;RL、电压几乎全部施加到Rl上) </p>
-<p><img src="/../pic/image-20240509183631056.png" srcset="/img/loading.gif" lazyload alt="image-20240509183631056"></p>
-<p><img src="/../pic/image-20240509183639254.png" srcset="/img/loading.gif" lazyload alt="image-20240509183639254"></p>
-<p>电流峰值：二极管反向回复电流峰值   </p>
-<p>Vds下降：线路寄生电感因为Id变化造成漏源电压下降</p>
-<p>③t3(Vgs&#x3D;Vmi)-t4(Vds下降到零)</p>
+<p><img src="/../pic/image-20240830100235236.png" srcset="/img/loading.gif" lazyload alt="MOSFET工作区间特性"></p>
+<p><img src="/../pic/image-20240509120435244.png" srcset="/img/loading.gif" lazyload alt="理想波形近似图"></p>
+<p>理想波形：</p>
+<blockquote>
+<p>实际为一阶RC电路，电压指数上升，因为开通时间相对于时间常数比较小，所以在该点近似为直线。</p>
+</blockquote>
+<blockquote>
+<p>$t2-t3，V_{ds}$ 下降是因为漏极存在寄生电感。 $I_L$上升，电感会分掉一部分$V_{ds}$压降。</p>
+</blockquote>
+<blockquote>
+<p>$t3-t4，I_d$ 有 尖峰是因为$t2-t3$MOS关断，电感通过二极管续流，给二极管PN结电容充电，但是开通时结电容放电产生尖峰。</p>
+</blockquote>
+<p><img src="/../pic/image-20240509120543713.png" srcset="/img/loading.gif" lazyload alt="考虑寄生参数波形图"></p>
+<p>分别为：驱动波形、栅极电流$(I_g)$、栅极源极电压$(V_{gs})$、MOS 漏源极电压&#x2F;电流$(V_{ds})$、负载电流&#x2F;漏源电流$(I_L)$</p>
+<p><strong>模态分析：</strong></p>
+<p>模态①$(t1—t2)$开通延时阶段  $V_{gs}≤V_{th}$(MOS开通电压)   MOS工作在截止区</p>
+<p><img src="/../pic/image-20240830201107857.png" srcset="/img/loading.gif" lazyload alt="模态①等效电路"></p>
+<p>$V_G从V_{G_{OFF}}→V_{G_{ON}}$，$V_G$给$C_{gs}，C_{gd}$充电。</p>
+<p>$I_g&#x3D;I_{gs}+I_{gd}&#x3D;C_{gs}\frac{dV_{gs}}{dt}+C_{gd}\frac{d(V_{gs}-V_{ds})}{dt}&#x3D;\frac{V_G-V_{gs}}{R_g}$</p>
+<p>$V_{ds}&#x3D;&#x3D;→(C_{gs}+C_{gd})\frac{dV_{gs}}{dt}&#x3D;\frac{V_G-V_{gs}}{R_g}$解微分方程，$V_{gs}$初值为$V_{gsoff}$</p>
+<p>→</p>
+<p>直到$V_{gs}&#x3D;V_{th}$，该模态结束。</p>
+<p>模态②$(t2—t3)$电流上升阶段  $V_{gs}&#x3D;V_{th}→V_{ds}+V_{gd}&#x3D;V_{gs}$(负载电流)   MOS工作在恒流区 Vgs控制导通程度直到负载电流不增加(Rds&lt;&lt;RL、电压几乎全部施加到Rl上) </p>
+<p><img src="/../pic/image-20240830201053100.png" srcset="/img/loading.gif" lazyload alt="模态②等效模型"></p>
+<p>$V_{gs}&#x3D;V_{GON}(1-e^{-\frac{t}{\tau}})$</p>
+<p>$(V_{gs}-V_{th})g_m&#x3D;I_d$</p>
+<p>当$I_d$上升到负载电流，该模态结束。</p>
+<p>模态③米勒平台阶段  $V_{gd}≤V_{gs}$(负载电流)   MOS工作在恒流区向左移动   $V_{gd}≤V_{gs}$，电容$C_{gd}$把$C_{gs}$短路，$C_{gs}$不充电，形成米勒平台。</p>
+<p><img src="/../pic/image-20240830220405272.png" srcset="/img/loading.gif" lazyload alt="模态③等效电路"></p>
 <p><img src="/../pic/image-20240509183650288.png" srcset="/img/loading.gif" lazyload alt="image-20240509183650288"></p>
-<p>④t4(Vds下降到零)-t5   Vgs继续上升</p>
+<p>模态④ $V_{gd}≤V_{gs}&#x2F;V_{ds}&#x3D;0开始，V_{gs}$继续充电到驱动电压。</p>
+<p><img src="/../pic/image-20240830215818444.png" srcset="/img/loading.gif" lazyload alt="模态④等效电路"></p>
 <p><img src="/../pic/image-20240509183704001.png" srcset="/img/loading.gif" lazyload alt="image-20240509183704001"></p>
 <p>参考：</p>
 <p>感性：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17U4y1Z73c/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV17U4y1Z73c/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
@@ -942,6 +955,11 @@
 <p><img src="/../pic/image-20240707171905699.png" srcset="/img/loading.gif" lazyload alt="M模型"></p>
 <p><img src="/../pic/image-20240707171852595.png" srcset="/img/loading.gif" lazyload alt="T模型"></p>
 <h1 id="二极管反向恢复时间"><a href="#二极管反向恢复时间" class="headerlink" title="二极管反向恢复时间"></a>二极管反向恢复时间</h1><p>原因：势垒电容+扩散电容</p>
+<h2 id="肖特基二极管"><a href="#肖特基二极管" class="headerlink" title="肖特基二极管"></a>肖特基二极管</h2><p><strong>结构：</strong>P区：少量金属掺杂                      N区：掺杂五价元素P</p>
+<p>因为金属掺杂浓度少，所以金属半区不会形成耗尽层，结电容大大减小。</p>
+<p><img src="/../pic/image-20240829123001225.png" srcset="/img/loading.gif" lazyload alt="肖特基二极管结电容"></p>
+<p>优点：结电容小，工作频率高</p>
+<p>缺点：击穿电压低</p>
 <h2 id="旁路电容-去耦电容"><a href="#旁路电容-去耦电容" class="headerlink" title="旁路电容 去耦电容"></a>旁路电容 去耦电容</h2><p>旁路电容：减小电源干扰对IC的影响</p>
 <p>去耦电容：减小上电启动IC对电源的影响</p>
 <p>因为第二个频率高于第一个频率，又因为线路寄生电感，电阻，所以大电容靠近电源，小电容靠近IC。</p>
@@ -949,11 +967,6 @@
 <p>参考：</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?p=3&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?p=3&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a>  PN结特性</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1CW4y117wz/?spm_id_from=333.337.search-card.all.click&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1CW4y117wz/?spm_id_from=333.337.search-card.all.click&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
-<h1 id="PI型滤波器"><a href="#PI型滤波器" class="headerlink" title="PI型滤波器"></a>PI型滤波器</h1><p>π型<a href="https://link.zhihu.com/?target=https://so.csdn.net/so/search?q=%E6%BB%A4%E6%B3%A2%E5%99%A8&spm=1001.2101.3001.7020">滤波器</a>包括两个<a href="https://link.zhihu.com/?target=http://www.elecfans.com/tags/%E7%94%B5%E5%AE%B9%E5%99%A8/">电容器</a>和一个<a href="https://link.zhihu.com/?target=http://www.elecfans.com/tags/%E7%94%B5%E6%84%9F%E5%99%A8/">电感器</a>，它的输入和输出都呈低阻抗。</p>
-<p>RC：成本低  但 效率低                             </p>
-<p>LC： 效率高 但 体积大，笨重，价格高</p>
-<p>低电流，小体积用RC，大电流大体积用LC</p>
-<p><img src="/../pic/image-20240524211957501.png" srcset="/img/loading.gif" lazyload alt="image-20240524211957501"></p>
 <h1 id="自举升压电路"><a href="#自举升压电路" class="headerlink" title="自举升压电路"></a>自举升压电路</h1><h1 id="MOSFET驱动"><a href="#MOSFET驱动" class="headerlink" title="MOSFET驱动"></a>MOSFET驱动</h1><p>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1By411B7j7/?spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1By411B7j7/?spm_id_from=333.1007.top_right_bar_window_history.content.click&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 <h1 id="RLC谐振电路公式推导"><a href="#RLC谐振电路公式推导" class="headerlink" title="RLC谐振电路公式推导"></a>RLC谐振电路公式推导</h1><p><img src="/../pic/image-20240706085849527.png" srcset="/img/loading.gif" lazyload alt="LCR谐振拓扑"></p>
 <p>电压源 左+右-</p>
