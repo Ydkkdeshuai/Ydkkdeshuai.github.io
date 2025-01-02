@@ -1,0 +1,1137 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ydkukudeshuai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="建模与控制：PWM变换器 and 谐振变换器 书分为三部分： 建模：  CCM变换器建模—基本建模、状态空间平均、开关元件平均法、开关网络平均法   DCM变换器建模—状态空间平均、开关元件平均法、开关网络平均法  控制：  开关调节系统基本知识—瞬态响应 频域分析   电压控制型设计   平均电流控制型设计   峰值电流控制型设计  仿真：  用PSpice仿真  简单介绍谐振变换器建模与控制：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开关变换器的建模与控制">
+<meta property="og:url" content="http://example.com/2025/01/02/%E5%BC%80%E5%85%B3%E5%8F%98%E6%8D%A2%E5%99%A8%E7%9A%84%E5%BB%BA%E6%A8%A1%E4%B8%8E%E6%8E%A7%E5%88%B6/index.html">
+<meta property="og:site_name" content="小帅的秘密基地">
+<meta property="og:description" content="建模与控制：PWM变换器 and 谐振变换器 书分为三部分： 建模：  CCM变换器建模—基本建模、状态空间平均、开关元件平均法、开关网络平均法   DCM变换器建模—状态空间平均、开关元件平均法、开关网络平均法  控制：  开关调节系统基本知识—瞬态响应 频域分析   电压控制型设计   平均电流控制型设计   峰值电流控制型设计  仿真：  用PSpice仿真  简单介绍谐振变换器建模与控制：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/Jianmo.png">
+<meta property="article:published_time" content="2025-01-02T02:39:20.042Z">
+<meta property="article:modified_time" content="2024-08-28T04:15:09.845Z">
+<meta property="article:author" content="Ydkukudeshuai">
+<meta property="article:tag" content="开关变换器建模与控制(读书笔记)">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/Jianmo.png">
+  
+  
+  
+  <title>开关变换器的建模与控制 - 小帅的秘密基地</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":8128732132,"measurement_id":"G-RS98DN4LLB","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Shuai</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="开关变换器的建模与控制"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-01-02 10:39" pubdate>
+          2025年1月2日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          45 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">开关变换器的建模与控制</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>建模与控制：PWM变换器 and 谐振变换器</p>
+<p>书分为三部分：</p>
+<p><strong>建模：</strong></p>
+<blockquote>
+<p>CCM变换器建模—基本建模、状态空间平均、开关元件平均法、开关网络平均法</p>
+</blockquote>
+<blockquote>
+<p>DCM变换器建模—状态空间平均、开关元件平均法、开关网络平均法</p>
+</blockquote>
+<p><strong>控制：</strong></p>
+<blockquote>
+<p>开关调节系统基本知识—瞬态响应 频域分析</p>
+</blockquote>
+<blockquote>
+<p>电压控制型设计</p>
+</blockquote>
+<blockquote>
+<p>平均电流控制型设计</p>
+</blockquote>
+<blockquote>
+<p>峰值电流控制型设计</p>
+</blockquote>
+<p><strong>仿真：</strong></p>
+<blockquote>
+<p>用PSpice仿真</p>
+</blockquote>
+<p><strong>简单介绍谐振变换器建模与控制：</strong></p>
+<h1 id="一、CCM变换器建模"><a href="#一、CCM变换器建模" class="headerlink" title="一、CCM变换器建模"></a>一、CCM变换器建模</h1><p><img src="/../pic/image-20240819083611592.png" srcset="/img/loading.gif" lazyload alt="DC-DC系统结构图"></p>
+<p>$v(t)输出电压→V_{ref}→ \delta(t)（PWM方波信号） →d(t)（驱动方波信号）→v(t)输出电压$</p>
+<p>输出信号：$v(t)$</p>
+<p>输入信号：$d(t)、v_g(t)$</p>
+<p><img src="/../pic/image-20240819083851731.png" srcset="/img/loading.gif" lazyload alt="在Buck上具体实现"></p>
+<p><img src="/../pic/image-20240819083937394.png" srcset="/img/loading.gif" lazyload alt="PWM实现方式">、</p>
+<p>锯齿波+比较器：大于电压输出0、小于电压输出1。</p>
+<p><img src="/../pic/image-20240819084325041.png" srcset="/img/loading.gif" lazyload alt="理想/实际波形图"></p>
+<p>整流后电压存在低频谐波(工频交流电整流引起&#x2F;工频交流电扰动)：频率远小于开关频率，所以后面可以认为系统一直是稳态的。</p>
+<p>这个低频谐波会给输出引入交流分量。</p>
+<p><strong>忽略开关频率及谐波原因：</strong></p>
+<p>系统转折频率 $f_0&lt;&lt;f_s$，开关分量被衰减。</p>
+<p>按照传输信号种类分类：</p>
+<blockquote>
+<p>稳态模型</p>
+</blockquote>
+<blockquote>
+<p>小信号模型：本章要讨论的</p>
+</blockquote>
+<blockquote>
+<p>大信号模型</p>
+</blockquote>
+<p><strong>建模主要思路：</strong></p>
+<blockquote>
+<p>开关文纹波的忽略：对各变量在开关周期内求平均。</p>
+</blockquote>
+<blockquote>
+<p>把平均变量表示为 直流信号+小交流信号</p>
+</blockquote>
+<blockquote>
+<p>在直流工作点附近线性化系统</p>
+</blockquote>
+<h2 id="1-2-DC-DC小信号模型概述"><a href="#1-2-DC-DC小信号模型概述" class="headerlink" title="1.2 DC-DC小信号模型概述"></a>1.2 DC-DC小信号模型概述</h2><p>分析变换器低频动态特性</p>
+<h3 id="1-2-1-基本建模法"><a href="#1-2-1-基本建模法" class="headerlink" title="1.2.1 基本建模法"></a>1.2.1 基本建模法</h3><p>以Boost为例。</p>
+<p><img src="/../pic/image-20240819091333557.png" srcset="/img/loading.gif" lazyload alt="Boost原理图"></p>
+<p><strong>一、求平均变量</strong></p>
+<p>因为$f_g(低频信号频率)&lt;&lt;f_s(开关频率)$ 相当于香农采样定理用$f_s$对系统取近似、$f_0(转折频率)&lt;&lt;f_s(开关频率)$ 开关频率分量纹波被衰减，且可以在一个开关周期内求平均变量、以忽略开关纹波。</p>
+<p><img src="/../pic/image-20240819091620143.png" srcset="/img/loading.gif" lazyload alt="理想Boost两种模态"></p>
+<p><strong>模态a</strong><br>$$<br>v_g(t)&#x3D;L\frac{d_i(t)}{dt}\<br>C\frac{d_(t)}{dt}&#x3D;-\frac{v(t)}{R}<br>$$<br><strong>模态b</strong><br>$$<br>L\frac{d_i(t)}{dt}&#x3D;v_g(t)-v(t)\<br>C\frac{d_(t)}{dt}&#x3D;i(t)-\frac{v(t)}{R}<br>$$<br>每个周期变化率：</p>
+<p>电感电流：$L\frac{d_i(t)}{dt}&#x3D;v_g(t)d(t)+(v_g(t)-v(t))(1-d(t))&#x3D;v_g(t)-(1-d(t))v(t)$</p>
+<p>电容电压：$C\frac{d_(t)}{dt}&#x3D;-\frac{v(t)}{R}d(t)+(1-d(t))(\frac{v(t)}{R}-i(t))&#x3D;-\frac{v(t)}{R}+(1-d(t))i(t)$</p>
+<p><strong>二、分离直流+小交流信号量</strong></p>
+<p>前提：交流信号足够小，使线性化误差很小。<br>$$<br>v_g(t) &#x3D; V_g+dv_g(t)\<br>i(t) &#x3D; I+d{i}(t)\<br>v(t)&#x3D;V+d{v}(t)\<br>d(t) &#x3D; D+d_{d}(t)<br>$$<br><strong>三、线性化</strong></p>
+<p>对电感电流、电容电压取微分。</p>
+<p>$d(L\frac{d_i(t)}{dt})&#x3D;dv_g(t)-(1-D)d{v}(t)+Vd_{d}(t)$</p>
+<p>$d(C\frac{d_(t)}{dt})&#x3D;-\frac{1}{R}d{v}(t)+(1-D)d{i}(t)-Id_{d}(t)$</p>
+<h3 id="1-2-2-小信号等效电路"><a href="#1-2-2-小信号等效电路" class="headerlink" title="1.2.2 小信号等效电路"></a>1.2.2 小信号等效电路</h3><p><img src="/../pic/image-20240819102832152.png" srcset="/img/loading.gif" lazyload alt="线性化后得到的交流小信号等效电路"></p>
+<p><img src="/../pic/image-20240819103124422.png" srcset="/img/loading.gif" lazyload alt="电感电容回路组合后得到的总交流小信号等效电路"></p>
+<h3 id="1-2-3-小信号等效电路的分析"><a href="#1-2-3-小信号等效电路的分析" class="headerlink" title="1.2.3 小信号等效电路的分析"></a>1.2.3 小信号等效电路的分析</h3><p>传递函数：</p>
+<blockquote>
+<p>对输入电压：$G_{vg}(s)&#x3D;\frac{1}{D^\prime}\frac{1}{1+s\frac{L}{D^{\prime2}R}+s^2\frac{LC}{D^{\prime2}}}$</p>
+</blockquote>
+<blockquote>
+<p>对占空比：$G_{vd}(s)&#x3D;\frac{V_g}{D^{\prime2}}\frac{1-\frac{L}{D^{\prime2}}s}{1+s\frac{L}{D^{\prime2}R}+s^2\frac{LC}{D^{\prime2}}}$</p>
+</blockquote>
+<blockquote>
+<p>开环输入阻抗：$Z_{in}(s)&#x3D;D^{\prime2}R\frac{1+s\frac{L}{D^{\prime2}R}+s^2\frac{LC}{D^{\prime2}}}{1+sCR  }$</p>
+</blockquote>
+<blockquote>
+<p>开环输出阻抗：$Z_{out}(s)&#x3D;\frac{L}{D^{\prime2}}\frac{s}{1+s\frac{L}{D^{\prime2}R}+s^2\frac{LC}{D^{\prime2}}}$</p>
+</blockquote>
+<p><strong>总结：</strong></p>
+<p>三个假设：</p>
+<blockquote>
+<p>低频干扰： $f_g &lt;&lt; f_s$、香农采样定理</p>
+</blockquote>
+<blockquote>
+<p>小纹波： $f_0&lt;&lt;f_s$、开关频率纹波被衰减</p>
+</blockquote>
+<blockquote>
+<p>小信号：$交流分量&lt;&lt;直流分量$ 线性化误差足够小</p>
+</blockquote>
+<h2 id="1-3-状态空间平均法"><a href="#1-3-状态空间平均法" class="headerlink" title="1.3 状态空间平均法"></a>1.3 状态空间平均法</h2><p>用状态方程形式得到线性化后的方程。</p>
+<p>一、求平均变量</p>
+<p>根据基本建模法的两个模态，选取状态变量电感电流 $i_L$、 $v_c$、输入 $v_g$、输出 $v$。</p>
+<p><strong>模态a</strong><br>$$<br>L\frac{d_i(t)}{dt}&#x3D;v_g(t)\<br>C\frac{d_(t)}{dt}&#x3D;-\frac{v(t)}{R}\</p>
+<p>\dot{x} &#x3D; A_1 x+B_1 u\</p>
+<p>\begin{bmatrix}<br>    \frac{d_i(t)}{dt}  \<br>    \frac{d_(t)}{dt}<br>\end{bmatrix}&#x3D;</p>
+<p>\begin{bmatrix}<br>    0 &amp; 0 \<br>    0 &amp; -\frac{1}{RC}<br>\end{bmatrix}</p>
+<p>\begin{bmatrix}<br>    \frac{d_i(t)}{dt}  \<br>    \frac{d_(t)}{dt}<br>\end{bmatrix}</p>
+<ul>
+<li></li>
+</ul>
+<p>\begin{bmatrix}<br>    \frac{1}{L}  \<br>    0<br>\end{bmatrix}</p>
+<p>v_g<br>$$</p>
+<p><strong>模态b</strong><br>$$<br>L\frac{d_i(t)}{dt}&#x3D;v_g(t)-v(t)\<br>C\frac{d_(t)}{dt}&#x3D;i(t)-\frac{v(t)}{R}\</p>
+<p>\dot{x} &#x3D; A_2 x+B_2 u\</p>
+<p>\begin{bmatrix}<br>    \frac{d_i(t)}{dt}  \<br>    \frac{d_(t)}{dt}<br>\end{bmatrix}&#x3D;</p>
+<p>\begin{bmatrix}<br>    0 &amp; -\frac{1}{L} \<br>    -\frac{1}{C} &amp; -\frac{1}{RC}<br>\end{bmatrix}</p>
+<p>\begin{bmatrix}<br>    \frac{d_i(t)}{dt}  \<br>    \frac{d_(t)}{dt}<br>\end{bmatrix}</p>
+<ul>
+<li></li>
+</ul>
+<p>\begin{bmatrix}<br>    \frac{1}{L}  \<br>    0<br>\end{bmatrix}</p>
+<p>v_g<br>$$<br><strong>求平均变量</strong></p>
+<p>$$<br>&lt;\dot{x}&gt; &#x3D; d(t)(A_1 d x+B_1 u)+(d^\prime)(t)(A_2 d x+B_2 u)\<br>→<br>\begin{bmatrix}<br>    \frac{d_i(t)}{dt}  \<br>    \frac{d_(t)}{dt}<br>\end{bmatrix}&#x3D;</p>
+<p>\begin{bmatrix}<br>    0 &amp; -d^\prime\frac{1}{L} \<br>    -d^\prime\frac{1}{C} &amp; -\frac{1}{RC}<br>\end{bmatrix}</p>
+<p>\begin{bmatrix}<br>    \frac{d_i(t)}{dt}  \<br>    \frac{d_(t)}{dt}<br>\end{bmatrix}</p>
+<ul>
+<li></li>
+</ul>
+<p>\begin{bmatrix}<br>    \frac{1}{L}  \<br>    0<br>\end{bmatrix}</p>
+<p>v_g<br>$$<br><strong>二、分离直流+小交流信号量</strong></p>
+<p><img src="/../pic/image-20240819164848241.png" srcset="/img/loading.gif" lazyload alt="分离过程"></p>
+<p><strong>三、线性化</strong></p>
+<p>忽略二阶微分量得到交流变化量关系。</p>
+<p><img src="/../pic/image-20240819164930534.png" srcset="/img/loading.gif" lazyload alt="变化量方程"></p>
+<p>直流变化量关系</p>
+<p>$\dot{\bar{x}} &#x3D; D(A_1 d x+B_1 u)+(1-D)(t)(A_2 d x+B_2 u)&#x3D;\bar{A}  x+\bar{B} u$</p>
+<p>令 $\dot{X}&#x3D;0$，求静态工作点。</p>
+<p>$\bar{X} &#x3D;-\bar{A}^-\bar{B_1} u$</p>
+<h3 id="1-3-2-用状态平均法对Buck建模"><a href="#1-3-2-用状态平均法对Buck建模" class="headerlink" title="1.3.2 用状态平均法对Buck建模"></a>1.3.2 用状态平均法对Buck建模</h3><h3 id="1-3-3-状态空间平均法基本步骤"><a href="#1-3-3-状态空间平均法基本步骤" class="headerlink" title="1.3.3 状态空间平均法基本步骤"></a>1.3.3 状态空间平均法基本步骤</h3><p><strong>基本步骤：</strong></p>
+<blockquote>
+<p>分模态列些方程，在一个开关周期内求平均量。</p>
+</blockquote>
+<blockquote>
+<p>取直流分量部分令 $\dot{X}&#x3D;0$，求静态工作点。</p>
+</blockquote>
+<blockquote>
+<p>取交流部分构建交流信号等效电路</p>
+</blockquote>
+<h3 id="1-3-4-小信号状态方程分析"><a href="#1-3-4-小信号状态方程分析" class="headerlink" title="1.3.4 小信号状态方程分析"></a>1.3.4 小信号状态方程分析</h3><p>由状态方程求传递函数<br>$$<br>\dot{\hat{x}}&#x3D;A\hat{x}+B\hat{u}\<br>\hat{y} &#x3D; C\hat{x}+E\hat{u}\<br>→s\hat{x}&#x3D;A\hat{x}(s)+B\hat{u}(s)\<br>→\hat{x}(s)&#x3D;(sI-A)^-B\hat{u}(s)\<br>\hat{y}(s) &#x3D; [C(sI-A)^-B+E] \hat{u}(s)<br>$$<br><strong>传递函数量：</strong></p>
+<blockquote>
+<p>输出对输入电压：</p>
+</blockquote>
+<blockquote>
+<p>输出对控制量：</p>
+</blockquote>
+<blockquote>
+<p>状态变量对输入电压：</p>
+</blockquote>
+<blockquote>
+<p>状态变量对控制量：</p>
+</blockquote>
+<p>略………………</p>
+<h2 id="1-4-开关元件-开关网络平均法"><a href="#1-4-开关元件-开关网络平均法" class="headerlink" title="1.4 开关元件 开关网络平均法"></a>1.4 开关元件 开关网络平均法</h2><p>​	前面的 基本建模法 和 状态空间平均法 都是得到不同模态总体方程，再对单开关周期内求平均，用表达式在已知静态工作点上进行线性化。根据交流小信号方程得到 交流小信号等效电路 和 传递函数。</p>
+<p>开关元件 开关网络平均法 ：先得到元件&#x2F;网络平均变量模型，用平均变量模型得到等效电路  和 传递函数。</p>
+<p>开关元件平均法：对 开关元件 变量 求平均。</p>
+<p>开关网络平均法：对 开关网络 端口变量 求平均。 通用性很高，很多拓扑开关网络都一样。</p>
+<h3 id="1-4-1-开关元件平均模型法"><a href="#1-4-1-开关元件平均模型法" class="headerlink" title="1.4.1 开关元件平均模型法"></a>1.4.1 开关元件平均模型法</h3><p>大信号等效电路：同时包含幅值大的直流信号，也包含幅值较小的交流信号。</p>
+<p><strong>基本步骤：</strong></p>
+<blockquote>
+<p>时变因素由开关元件导致，所以只需要把开关元件求平均，替换掉就得到大信号等效电路。（求平均变量）</p>
+</blockquote>
+<blockquote>
+<p>大信号等效电路 分为 直流等效电路，交流等效电路。 （分离扰动）</p>
+</blockquote>
+<blockquote>
+<p>直流等效电路用来求静态工作点，交流等效电路 求 传递函数。（直流电路线性化得到交流等效电路）</p>
+</blockquote>
+<p><strong>以Boost为例</strong></p>
+<p><img src="/../pic/image-20240820083819024.png" srcset="/img/loading.gif" lazyload alt="Boost变换器开关元件模型"></p>
+<p>①列写 开关元件 不同模态方程</p>
+<p><strong>模态a</strong><br>$$<br>i_{Q1} &amp; &#x3D; i_1(t)\<br>v_{Q1} &amp; &#x3D; 0 \<br>i_{D1} &amp; &#x3D; 0\<br>v_{D1} &amp; &#x3D; -v_2 \<br>$$<br><strong>模态b</strong><br>$$<br>i_{Q1} &amp; &#x3D; 0\<br>v_{Q1} &amp; &#x3D; v_2 \<br>i_{D1} &amp; &#x3D; i_2\<br>v_{D1} &amp; &#x3D; 0 \<br>$$<br><strong>求平均</strong><br>$$<br>i_{Q1} &amp; &#x3D; d i_1(t)\<br>v_{Q1} &amp; &#x3D; (1-d)v_2 \<br>i_{D1} &amp; &#x3D; (1-d)i_2\<br>v_{D1} &amp; &#x3D; -dv_2 \<br>$$<br><strong>用替代定理替代：</strong></p>
+<p>$i_2$是电容和电阻电流的合并，不好表示，所以把二极管替代为电压源。</p>
+<p>$v_2$是输入电压和电感电压的并联，不好表示，所以把MOSFET替代为电流源。</p>
+<p>L C R 平均电压和平均电流和瞬时值关系相同。我们的目的就是用平均模型替代瞬时模型，他们平均和瞬时关系相同，所以不需要管。</p>
+<p>电压源用单开关周期内的平均电压替换。</p>
+<p>替代后得到上面的（b）图。</p>
+<p>②<strong>分离扰动</strong>—用直流分量+交流分量 表示其变量。</p>
+<p>③静态工作点确定 和 线性化</p>
+<blockquote>
+<p>消除二阶微分量得到等效电路，电感短路，电容开路分离得到直流通路。  </p>
+</blockquote>
+<blockquote>
+<p>分离交流分量得到交流通路。分析 传递函数。</p>
+</blockquote>
+<h3 id="1-4-2-开关元件平均模型法-在-含寄生参数-电路的应用"><a href="#1-4-2-开关元件平均模型法-在-含寄生参数-电路的应用" class="headerlink" title="1.4.2 开关元件平均模型法 在 含寄生参数 电路的应用"></a>1.4.2 开关元件平均模型法 在 含寄生参数 电路的应用</h3><p>和前面理想电路一样。</p>
+<h3 id="1-4-3-开关网络平均法"><a href="#1-4-3-开关网络平均法" class="headerlink" title="1.4.3 开关网络平均法"></a>1.4.3 开关网络平均法</h3><p>和 开关元件平均法 思路一样，只不过对象是对 二端口网络 (包含时变元件—开关管) 取平均。</p>
+<p><strong>以Buck为例</strong></p>
+<p><img src="/../pic/image-20240820091331710.png" srcset="/img/loading.gif" lazyload alt="Buck型开关网络等效"></p>
+<p>①列写 开关元件 不同模态方程</p>
+<p><strong>模态a</strong><br>$$<br>i_1(t) &#x3D; i_2(t)\<br>v_1(t)  &#x3D; v_2(t) \<br>$$<br><strong>模态b</strong><br>$$<br>i_1(t) &amp; &#x3D; 0\<br>v_1(t) &amp; &#x3D; 外部电路决定 \<br>i_2(t) &amp; &#x3D; 外部电路决定\<br>v_2(t) &amp; &#x3D; 0 \<br>$$<br><strong>求平均</strong><br>$$<br>i_1(t) &amp; &#x3D; d i_2(t)\<br>v_1(t) &amp; &#x3D; 受外部电路影响 \<br>i_2(t) &amp; &#x3D; 受外部电路影响\<br>v_2(t) &amp; &#x3D; d v_1(t) \<br>$$<br><strong>用替代定理替代：</strong></p>
+<p><img src="/../pic/image-20240820094925362.png" srcset="/img/loading.gif" lazyload alt="替代后等效电路"></p>
+<p>$i_2、V_1$受外部电路影响，不好表示，所以把原边替代为受控电流源，副边替代为受控电压源。</p>
+<p>L C R 平均电压和平均电流和瞬时值关系相同。我们的目的就是用平均模型替代瞬时模型，他们平均和瞬时关系相同，所以不需要管。</p>
+<p>电压源用单开关周期内的平均电压替换。</p>
+<p>替代后得到上面的（b）图。</p>
+<p>②<strong>分离扰动</strong>—用直流分量+交流分量 表示其变量。</p>
+<p>③静态工作点确定 和 线性化</p>
+<blockquote>
+<p>消除二阶微分量得到等效电路，电感短路，电容开路分离得到直流通路。  </p>
+</blockquote>
+<blockquote>
+<p>分离交流分量得到交流通路。分析 传递函数。</p>
+</blockquote>
+<h3 id="1-4-4-一般开关网络-等效"><a href="#1-4-4-一般开关网络-等效" class="headerlink" title="1.4.4 一般开关网络 等效"></a>1.4.4 一般开关网络 等效</h3><p><strong>以SEPIC为例</strong></p>
+<p><img src="/../pic/image-20240821100002922.png" srcset="/img/loading.gif" lazyload alt="SEPIC等效图"></p>
+<h3 id="1-4-5-非理想-Flyback-变换器分析"><a href="#1-4-5-非理想-Flyback-变换器分析" class="headerlink" title="1.4.5 非理想 Flyback 变换器分析"></a>1.4.5 非理想 Flyback 变换器分析</h3><h1 id="二、-DCM-变换器建模"><a href="#二、-DCM-变换器建模" class="headerlink" title="二、 DCM 变换器建模"></a>二、 DCM 变换器建模</h1><p>和 CCM 变换器相比，就是多了一个模态，求平均变量前多分析一个模态的步骤。</p>
+<p><strong>三个假设</strong>同样需要成立：</p>
+<blockquote>
+<p>低频干扰： $f_g &lt;&lt; f_s$、香农采样定理</p>
+</blockquote>
+<blockquote>
+<p>小纹波： $f_0&lt;&lt;f_s$、开关频率纹波被衰减</p>
+</blockquote>
+<blockquote>
+<p>小信号：$交流分量&lt;&lt;直流分量$ 线性化误差足够小</p>
+</blockquote>
+<h2 id="2-1-状态空间平均法-在DCM变换器-应用"><a href="#2-1-状态空间平均法-在DCM变换器-应用" class="headerlink" title="2.1 状态空间平均法 在DCM变换器 应用"></a>2.1 状态空间平均法 在DCM变换器 应用</h2><h3 id="2-1-1-状态空间平均法-对-DCM-变换器-建模"><a href="#2-1-1-状态空间平均法-对-DCM-变换器-建模" class="headerlink" title="2.1.1  状态空间平均法 对 DCM 变换器 建模"></a>2.1.1  状态空间平均法 对 DCM 变换器 建模</h3><p><strong>一、求平均变量</strong></p>
+<p>模态①($0-d_1T_s$)：<br>$$<br>\dot{x}(t) &#x3D; A_1x(t)+B_1u(t)\<br>y(t) &#x3D; C_1x(t)+E_1u(t)<br>$$<br>模态②($d_1T_s-d_2T_s$)：<br>$$<br>\dot{x}(t) &#x3D; A_2x(t)+B_2u(t)\<br>y(t) &#x3D; C_2x(t)+E_2u(t)<br>$$<br>模态③($d_2T_s-d_3T_s$)：<br>$$<br>\dot{x}(t) &#x3D; A_3x(t)+B_3u(t)\<br>y(t) &#x3D; C_3x(t)+E_3u(t)<br>$$<br><strong>求平均：</strong><br>$$<br>&lt;\dot{x}(t)&gt;_{T_s} &#x3D; d_1(t)[A_1x(t)+B_1u(t)] + d_2(t)[A_2x(t)+B_2u(t)] +d_3(t)[A_3x(t)+B_3u(t)]\<br>&#x3D;A^\prime x(t)+B\prime u(t)<br>$$</p>
+<p><strong>二、分离 直流+小交流信号量</strong></p>
+<p>$d_1(t) &#x3D; D_1 + \hat{d_1}(t)$</p>
+<p>$d_2(t) &#x3D; D_2 + \hat{d_2}(t)$</p>
+<p>$d_3(t) &#x3D; D_3 + \hat{d_3}(t)&#x3D;1-d_1(t) - d_2(t)$</p>
+<p><img src="/../pic/image-20240821094249772.png" srcset="/img/loading.gif" lazyload alt="分离扰动"></p>
+<p>令 $\dot{X}&#x3D;0$，求静态工作点。</p>
+<p>$\bar{X} &#x3D;-\bar{A}^-\bar{B_1} u$</p>
+<p><strong>三、线性化</strong></p>
+<p>忽略二阶微分量得到交流变化量关系。</p>
+<p><strong>直流变化量关系</strong></p>
+<p>$\dot{\bar{x}} &#x3D; D(A_1 d x+B_1 u)+(1-D)(t)(A_2 d x+B_2 u)&#x3D;\bar{A}  x+\bar{B} u$</p>
+<p>四、得到 直流&#x2F;交流等效电路 分析交流传递函数</p>
+<h3 id="2-1-3-DCM-等效电路"><a href="#2-1-3-DCM-等效电路" class="headerlink" title="2.1.3 DCM 等效电路"></a>2.1.3 DCM 等效电路</h3><h3 id="2-1-5-理想-Buck-DCM模式分析"><a href="#2-1-5-理想-Buck-DCM模式分析" class="headerlink" title="2.1.5 理想 Buck DCM模式分析"></a>2.1.5 理想 Buck DCM模式分析</h3><p>不好用，但是需要掌握理解。</p>
+<h2 id="2-3-开关网络-平均模型法-DCM-应用"><a href="#2-3-开关网络-平均模型法-DCM-应用" class="headerlink" title="2.3 开关网络 平均模型法 DCM 应用"></a>2.3 开关网络 平均模型法 DCM 应用</h2><h3 id="2-3-1-无损电阻-模型推导"><a href="#2-3-1-无损电阻-模型推导" class="headerlink" title="2.3.1 无损电阻 模型推导"></a>2.3.1 无损电阻 模型推导</h3><p><img src="/../pic/image-20240821200733790.png" srcset="/img/loading.gif" lazyload alt="Buck-Boost 原理图"></p>
+<p><img src="/../pic/image-20240821200625899.png" srcset="/img/loading.gif" lazyload alt="DCM 模式 Buck-Boost 波形"></p>
+<p>峰值电流： $i_{pk} &#x3D; \frac{v_gd_1T_s}{L}$</p>
+<p><strong>一、求平均变量：</strong></p>
+<p>$i_1(t) &#x3D; \frac{1}{2}i_{pk}d_1T_s&#x3D;\frac{d_1^2T_sv_g}{2L}$</p>
+<p>$v_1(t)&#x3D;d_2(v_g-v_o)+(1-d_1-d_2)v_g$</p>
+<p>$i_2(t) &#x3D; \frac{d_1d_2T_sv_g}{2L}$</p>
+<p>$v_2(t) &#x3D; d_1(v_g-v_o)-(1-d_1-d_2)v_o$</p>
+<p><strong>电感 DCM 条件：</strong> $d_1v_g+d_2v_o&#x3D;0→d_2&#x3D;-\frac{d_1v_g}{v_o}$</p>
+<p>代入后得</p>
+<p>$v_1(t)&#x3D;v_g$ 端口电压就是电源电压</p>
+<p>$v_2(t)&#x3D;-v_o$端口电压就是输出电压</p>
+<p>$i_1(t) &#x3D;\frac{d_1^2T_sv_g}{2L}&#x3D; \frac{d_1^2T_s}{2L}v_1(t)$→端口电压电流呈线性关系、可以等效为电阻。</p>
+<p>$i_2(t) &#x3D; -\frac{d_1T_sv_g^2}{2Lv_o}→v_2(t)i_2(t)&#x3D;\frac{d_1T_sv_g^2}{2L}$→表现出端口的功率正好等于一次侧吸收的功率</p>
+<p>所以等效为下面的模型：</p>
+<p><img src="/../pic/image-20240821223529127.png" srcset="/img/loading.gif" lazyload alt="等效模型"></p>
+<p><img src="/../pic/image-20240821223552975.png" srcset="/img/loading.gif" lazyload alt="Buck-Boost 等效模型"></p>
+<p>相当于该等效电阻吸收的功率全部用来给二次侧输出。</p>
+<p>$R_e(d_1) &#x3D; \frac{2L}{d_1^2T_s}$</p>
+<h3 id="2-3-2-用-无损电阻模型-建立-直流等效电路-求解静态工作点"><a href="#2-3-2-用-无损电阻模型-建立-直流等效电路-求解静态工作点" class="headerlink" title="2.3.2 用 无损电阻模型 建立 直流等效电路 求解静态工作点"></a>2.3.2 用 无损电阻模型 建立 直流等效电路 求解静态工作点</h3><p><img src="/../pic/image-20240821223552975.png" srcset="/img/loading.gif" lazyload alt="Buck-Boost 等效模型"></p>
+<p>对于直流分量，电感短路、电容开路。</p>
+<p><img src="/../pic/image-20240821223820541.png" srcset="/img/loading.gif" lazyload alt="直流等效电路"></p>
+<p>功率守恒：</p>
+<p>$v_g^2&#x2F;R_e(D_1) &#x3D; V^2&#x2F;R$</p>
+<h1 id="三、开关调节系统基础"><a href="#三、开关调节系统基础" class="headerlink" title="三、开关调节系统基础"></a>三、开关调节系统基础</h1><h2 id="3-1-开关调节系统"><a href="#3-1-开关调节系统" class="headerlink" title="3.1 开关调节系统"></a>3.1 开关调节系统</h2><p><img src="/../pic/image-20240824100718324.png" srcset="/img/loading.gif" lazyload alt="开关调节系统"></p>
+<h3 id="3-1-1-开关调压系统特点"><a href="#3-1-1-开关调压系统特点" class="headerlink" title="3.1.1 开关调压系统特点"></a>3.1.1 开关调压系统特点</h3><p><strong>系统特点：</strong></p>
+<blockquote>
+<p>主电路时间常数&gt;&gt;控制电路时间常数</p>
+</blockquote>
+<blockquote>
+<p>高阶非线性系统：主电路是二阶系统，控制电路PI是一阶，PID是二阶。 占空比：0&lt;d&lt;1 即非线性</p>
+</blockquote>
+<blockquote>
+<p>离散系统：PWM调制器</p>
+</blockquote>
+<h3 id="3-1-2-分析方法"><a href="#3-1-2-分析方法" class="headerlink" title="3.1.2 分析方法"></a>3.1.2 分析方法</h3><p>状态空间平均法：</p>
+<p>离散时域法：</p>
+<h3 id="3-1-3-开关调节系统-瞬态特性"><a href="#3-1-3-开关调节系统-瞬态特性" class="headerlink" title="3.1.3 开关调节系统 瞬态特性"></a>3.1.3 开关调节系统 瞬态特性</h3><p><img src="/../pic/image-20240824101605091.png" srcset="/img/loading.gif" lazyload alt="阶跃输入对应输出特性"></p>
+<p>阶跃输入对系统是最严峻的状态，如果阶跃输入动态性能比较好，其他输入也不会差。</p>
+<h3 id="3-1-4-开关调压系统设计方法"><a href="#3-1-4-开关调压系统设计方法" class="headerlink" title="3.1.4 开关调压系统设计方法"></a>3.1.4 开关调压系统设计方法</h3><p>①确定技术指标、设计要求。 —输入电压，输出电压，输出电流，电压纹波。</p>
+<p>②主电路设计。选择开关管，LC滤波器，磁芯种类。</p>
+<p>③建立主电路小信号交流模型。得到稳态工作点，分析该工作点下传递函数，频率特性，输入输出阻抗。</p>
+<p>④根据主电路频率特性设计控制器。</p>
+<p><strong>控制器设计方法：</strong></p>
+<blockquote>
+<p>根据时域指标 转化→ 开环传递函数频域参数。</p>
+</blockquote>
+<blockquote>
+<p>分析目前传递函数。根据伯德图得到控制器参数。</p>
+</blockquote>
+<blockquote>
+<p>设计相应控制器。</p>
+</blockquote>
+<h2 id="3-2-时域-频域-性能指标"><a href="#3-2-时域-频域-性能指标" class="headerlink" title="3.2  时域  频域  性能指标"></a>3.2  时域  频域  性能指标</h2><p><strong>时域法特点：</strong></p>
+<blockquote>
+<p>只能应用于低阶系统，高阶系统求时域解太困难。</p>
+</blockquote>
+<p><strong>用时域法设计 补偿器(控制器)方法：</strong>试凑法</p>
+<blockquote>
+<p>给定控制器参数初值。</p>
+</blockquote>
+<blockquote>
+<p>加节约输入，看系统瞬态响应。</p>
+</blockquote>
+<blockquote>
+<p>不满足再修改直到满意为止。</p>
+</blockquote>
+<h3 id="3-2-1-时域-性能指标"><a href="#3-2-1-时域-性能指标" class="headerlink" title="3.2.1 时域 性能指标"></a>3.2.1 时域 性能指标</h3><p><img src="/../pic/image-20240824102946898.png" srcset="/img/loading.gif" lazyload alt="阶跃响应图"></p>
+<p><strong>时域 性能指标：</strong></p>
+<blockquote>
+<p>稳态误差$e_{ss}$：</p>
+<p>​	求法：得到闭环传递函数，终值定理。</p>
+</blockquote>
+<blockquote>
+<p>延迟时间 $t_d$：0→0.5</p>
+</blockquote>
+<blockquote>
+<p>上升时间：0.1→0.9</p>
+</blockquote>
+<blockquote>
+<p>峰值时间 $t_p$：</p>
+</blockquote>
+<blockquote>
+<p>调节时间 $t_p$：±5％、±2％</p>
+</blockquote>
+<blockquote>
+<p>超调量 $\delta %$：</p>
+</blockquote>
+<p>其他性能指标：</p>
+<blockquote>
+<p>动态跌落： $\Delta V &#x3D; \frac{A}{V_{O1}}×100%$</p>
+</blockquote>
+<p><img src="/../pic/image-20240824103507464.png" srcset="/img/loading.gif" lazyload alt="动态跌落特性"></p>
+<p>跌落后由于干扰还存在会到达新的稳态 $V_{o2}$。</p>
+<h3 id="3-2-2-频域-性能指标："><a href="#3-2-2-频域-性能指标：" class="headerlink" title="3.2.2 频域 性能指标："></a>3.2.2 频域 性能指标：</h3><p><strong>开环 频域 性能指标：</strong></p>
+<p>穿越频率 $\omega_c$： $|\Phi_(\omega_c)| &#x3D; 1$</p>
+<p>相位裕量 $\varphi_m$：$|\Phi_(\omega_c)| &#x3D; 1、\varphi_m &#x3D; 180°+\angle \Phi_(\omega_c)$</p>
+<p>增益裕量 $K_g$： $\angle \Phi_(\omega_g)&#x3D;-180°、K_g &#x3D; \frac{1}{|\Phi_(\omega_c)|}$</p>
+<p>谐振频率 $\omega_r$：$\frac{d|\Phi_(\omega)|_{w&#x3D;w_r}}{d\omega}&#x3D;0$</p>
+<p>谐振峰值 $M_r$：$\frac{d|\Phi_(\omega)|<em>{w&#x3D;w_r}}{d\omega}&#x3D;0、M_r&#x3D;|\Phi</em>(\omega)|_{w&#x3D;w_r}$</p>
+<p>中频宽度$h$：幅频特性，斜率为-20dBs&#x2F;dec穿过0dB的宽度。 $h&#x3D;\frac{\omega_2}{\omega_1}$、 $h$越大，系统相角裕量越大，但是高频噪声也越大。</p>
+<p><strong>闭环 频域 性能指标：</strong></p>
+<p>零频赋值 $M(0)$：直流增益，反应稳态控制精度。</p>
+<p>​		开环传递函数： $G(s)&#x3D;\frac{K}{s^v(1+Ts)}$→闭环传递函数： $\Phi(s)&#x3D;\frac{G(s)}{1+G(s)}&#x3D;\frac{K}{s^v(1+Ts)+K}$</p>
+<p>​		当系统为零型系统$v&#x3D;0,M(0)&lt;1$，当为Ⅰ，Ⅱ型系统， $v&gt;0,M(0)&#x3D;1$</p>
+<p>谐振峰值 $M_r$：$\frac{d|\Phi_(\omega)|<em>{w&#x3D;w_r}}{d\omega}&#x3D;0、M_r&#x3D;|\Phi</em>(\omega)|_{w&#x3D;w_r}$</p>
+<p>​		对于典型二阶系统： $\phi(s) &#x3D; \frac{w_n^2}{s^2+2\xi w_n+w_n^2}$</p>
+<p>​		$M_r&#x3D;\frac{1}{2\xi\sqrt{1-\xi^2}}$，当 $\omega _r≈ \omega_c$， $M_r ≈ \frac{1}{sin\varphi_m}$，相位裕量增加，谐振峰值减小。当 $\varphi_m&lt;45°$，误差较小。</p>
+<p>谐振频率 $\omega_r$：$\frac{d|\Phi_(\omega)|_{w&#x3D;w_r}}{d\omega}&#x3D;0$</p>
+<p>​		对于典型二阶系统： $\phi(s) &#x3D; \frac{w_n^2}{s^2+2\xi w_n+w_n^2}$， $t_s≈\frac{3}{\xi\omega_n}&#x3D;\frac{3\sqrt{1-2\xi^2}}{\xi\omega_r}$,谐振频率↑，调节时间 $t_s$↓。</p>
+<p>闭环频带宽度：$|\Phi_(\omega_b)| &#x3D; 0.707M(0)$，$\omega_b$↑，调节时间↓。</p>
+<p><img src="/../pic/image-20240824112033354.png" srcset="/img/loading.gif" lazyload alt="闭环频带宽度"></p>
+<h3 id="3-2-3-频域指标-和-时域指标-关系"><a href="#3-2-3-频域指标-和-时域指标-关系" class="headerlink" title="3.2.3 频域指标 和 时域指标 关系"></a>3.2.3 频域指标 和 时域指标 关系</h3><p><img src="/../pic/image-20240824112401814.png" srcset="/img/loading.gif" lazyload alt="频域指标 和 时域指标 关系"></p>
+<p><img src="/../pic/image-20240824112411434.png" srcset="/img/loading.gif" lazyload alt="频域指标 和 时域指标 关系"></p>
+<h2 id="3-3-开关变换器-传递函数-分析"><a href="#3-3-开关变换器-传递函数-分析" class="headerlink" title="3.3 开关变换器 传递函数 分析"></a>3.3 开关变换器 传递函数 分析</h2><h3 id="3-3-1-传递函数"><a href="#3-3-1-传递函数" class="headerlink" title="3.3.1 传递函数"></a>3.3.1 传递函数</h3><p>一、二章求的。</p>
+<h3 id="3-3-2-求传函举例"><a href="#3-3-2-求传函举例" class="headerlink" title="3.3.2 求传函举例"></a>3.3.2 求传函举例</h3><h3 id="3-3-3-右半平面零点-物理意义"><a href="#3-3-3-右半平面零点-物理意义" class="headerlink" title="3.3.3 右半平面零点 物理意义"></a>3.3.3 右半平面零点 物理意义</h3><p>传递函数：$G(s) &#x3D; 1-Ts$</p>
+<p>低频时$G(s)&#x3D;1$，输出等于输入。</p>
+<p>高频时 $G(s)&#x3D;-Ts$，输出反相于输入。</p>
+<p><img src="/../pic/image-20240824113012949.png" srcset="/img/loading.gif" lazyload alt="右半平面零点举例d由0.4→0.6"></p>
+<h3 id="3-3-4-闭环系统-传递函数"><a href="#3-3-4-闭环系统-传递函数" class="headerlink" title="3.3.4 闭环系统 传递函数"></a>3.3.4 闭环系统 传递函数</h3><p>怎么求闭环传函。</p>
+<h2 id="3-4-开关调节系统-瞬态分析"><a href="#3-4-开关调节系统-瞬态分析" class="headerlink" title="3.4 开关调节系统 瞬态分析"></a>3.4 开关调节系统 瞬态分析</h2><h3 id="3-4-1-启动过程分析"><a href="#3-4-1-启动过程分析" class="headerlink" title="3.4.1 启动过程分析"></a>3.4.1 启动过程分析</h3><p>开环Buck为例，根据第一、二章求出大信号等效电路。</p>
+<p><img src="/../pic/image-20240824190558797.png" srcset="/img/loading.gif" lazyload alt="Buck大信号等效电路"></p>
+<p>传递函数：$\Phi_(s)&#x3D;\frac{v_o(s)}{v_g(s)}&#x3D;\frac{D\omega_n^2}{s^2+2\xi\omega s+\omega^2}$→ $v_o(s)&#x3D;&#x3D;\frac{D\omega_n^2}{s^2+2\xi\omega s+\omega^2}\frac{V_g}{s}$</p>
+<p>解时域响应，求性能指标：</p>
+<p>略。</p>
+<p><strong>分析结论：</strong></p>
+<p>①电压过冲太高，占空比是固定的值导致，需要增加软起。</p>
+<p>②电感电流峰值guogao.</p>
+<p><strong>模型缺点：</strong></p>
+<p>忽略主电路开关非线性。</p>
+<p>忽略PWM占空比非线性。</p>
+<p>该模型占空比固定，实际是可变的。</p>
+<h3 id="3-4-2-过冲幅度-实验"><a href="#3-4-2-过冲幅度-实验" class="headerlink" title="3.4.2 过冲幅度 实验"></a>3.4.2 过冲幅度 实验</h3><h3 id="3-4-3-负载电流大幅变化实验"><a href="#3-4-3-负载电流大幅变化实验" class="headerlink" title="3.4.3 负载电流大幅变化实验"></a>3.4.3 负载电流大幅变化实验</h3><h3 id="3-4-4-大信号瞬态特性"><a href="#3-4-4-大信号瞬态特性" class="headerlink" title="3.4.4 大信号瞬态特性"></a>3.4.4 大信号瞬态特性</h3><p>一、Buck 大信号瞬态特性</p>
+<blockquote>
+<p>负载突然开路，滤波电感能量流入输出电容，电容两端电压骤然上升。可能损坏后级电路。</p>
+<p>​		解决方法：输出端与输入端接能量回馈二极管，让电感能量回馈输入源，限制输出电压。②增加输出过压保护电路和假负载，过压使开关管截止，停止传输能量，假负载维持电路正常工作。</p>
+</blockquote>
+<blockquote>
+<p>输出端突然短路，电感电流单调上升，使电感磁芯饱和，烧坏主电路</p>
+<p>​		解决办法：增加电流保护电路，关断开关管。</p>
+</blockquote>
+<blockquote>
+<p>启动时输出电压振荡过大，损坏后级电路。输入电流（浪涌电流）过大，给电容充电，烧坏保险丝，产生过大电磁干扰。</p>
+<p>​		解决办法：①提占空比软启动。②主电路增加启动限流电路。③启动流程，先软起，主电路达到稳态再开启控制电路。④轻载启动。</p>
+</blockquote>
+<blockquote>
+<p>下电顺序，先关闭主电路，再关闭控制电路，让主电路储能先被负载消耗。控制电路 or 主电路 增加软关断。</p>
+</blockquote>
+<p>二、Boost </p>
+<p>略。</p>
+<h2 id="3-5-开关调节系统-频域设计-与-分析"><a href="#3-5-开关调节系统-频域设计-与-分析" class="headerlink" title="3.5 开关调节系统 频域设计 与 分析"></a>3.5 开关调节系统 频域设计 与 分析</h2><p>三频段理论：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/684765688">https://zhuanlan.zhihu.com/p/684765688</a></p>
+<blockquote>
+<p>低频：稳态性能</p>
+</blockquote>
+<blockquote>
+<p>中频：动态性能</p>
+</blockquote>
+<blockquote>
+<p>高频：抗干扰能力</p>
+</blockquote>
+<h3 id="3-5-1-DCM-Buck开关调节系统-开环传递函数"><a href="#3-5-1-DCM-Buck开关调节系统-开环传递函数" class="headerlink" title="3.5.1 DCM Buck开关调节系统  开环传递函数"></a>3.5.1 DCM Buck开关调节系统  开环传递函数</h3><p>主电路传递函数： $G_{vd}(s)&#x3D;\frac{G_{d0}}{1+\frac{s}{\omega_p}}$</p>
+<p>假设补偿网络为积分环节： $G_c(s)&#x3D;\frac{K_1}{s}$</p>
+<p>PWM传递函数：$G_M(s)&#x3D;\frac{1}{V_M}$</p>
+<p>采样网络传递函数：$H(s)&#x3D;K_2$</p>
+<p>系统开环传递函数： $G(s)&#x3D;G_{vd}(s)H(s)G_c(s)G_M(s)&#x3D;K_2\frac{1}{V_M}\frac{K_1}{s}\frac{G_{d0}}{1+\frac{s}{\omega_p}}&#x3D;\frac{K}{1+\frac{s}{\omega_p}}$</p>
+<h3 id="3-5-2-典型Ⅰ型系统-跟随性能指标-和-参数-关系"><a href="#3-5-2-典型Ⅰ型系统-跟随性能指标-和-参数-关系" class="headerlink" title="3.5.2 典型Ⅰ型系统 跟随性能指标 和 参数 关系"></a>3.5.2 典型Ⅰ型系统 跟随性能指标 和 参数 关系</h3><p>后面设计的时候再看。</p>
+<h3 id="3-5-3-典型Ⅰ型系统-抗扰动分析"><a href="#3-5-3-典型Ⅰ型系统-抗扰动分析" class="headerlink" title="3.5.3 典型Ⅰ型系统 抗扰动分析"></a>3.5.3 典型Ⅰ型系统 抗扰动分析</h3><h3 id="3-5-4-CCM-Buck开关调节系统-开环传递函数近似"><a href="#3-5-4-CCM-Buck开关调节系统-开环传递函数近似" class="headerlink" title="3.5.4 	CCM Buck开关调节系统  开环传递函数近似"></a>3.5.4 	CCM Buck开关调节系统  开环传递函数近似</h3><h3 id="3-5-5-典型Ⅱ型系统-跟随性能指标-和-参数-关系"><a href="#3-5-5-典型Ⅱ型系统-跟随性能指标-和-参数-关系" class="headerlink" title="3.5.5 典型Ⅱ型系统 跟随性能指标 和 参数 关系"></a>3.5.5 典型Ⅱ型系统 跟随性能指标 和 参数 关系</h3><h3 id="3-5-6-典型Ⅱ型系统-抗扰动分析"><a href="#3-5-6-典型Ⅱ型系统-抗扰动分析" class="headerlink" title="3.5.6 典型Ⅱ型系统 抗扰动分析"></a>3.5.6 典型Ⅱ型系统 抗扰动分析</h3><h2 id="3-6-系统频率特性测量"><a href="#3-6-系统频率特性测量" class="headerlink" title="3.6 系统频率特性测量"></a>3.6 系统频率特性测量</h2><h1 id="后面的内容和-控制环路设计-比较重合"><a href="#后面的内容和-控制环路设计-比较重合" class="headerlink" title="后面的内容和 控制环路设计 比较重合"></a>后面的内容和 控制环路设计 比较重合</h1><h1 id="4-电压控制型-开关调节系统设计"><a href="#4-电压控制型-开关调节系统设计" class="headerlink" title="4 电压控制型 开关调节系统设计"></a>4 电压控制型 开关调节系统设计</h1><h2 id="4-1-电压控制型-开关调节系统-基本问题"><a href="#4-1-电压控制型-开关调节系统-基本问题" class="headerlink" title="4.1 电压控制型 开关调节系统 基本问题"></a>4.1 电压控制型 开关调节系统 基本问题</h2><p><img src="/../pic/image-20240824203803905.png" srcset="/img/loading.gif" lazyload alt="电压控制型Buck系统"></p>
+<h3 id="4-1-1-PWM-数学模型"><a href="#4-1-1-PWM-数学模型" class="headerlink" title="4.1.1 PWM 数学模型"></a>4.1.1 PWM 数学模型</h3><p>$d(nT) &#x3D; u_c(nT)&#x2F;V_M$</p>
+<p>近似成连续</p>
+<p>$H(s)&#x3D;1&#x2F;V_M$</p>
+<p><strong>PD(补偿器)校正：</strong></p>
+<p>设补偿器 $G_c(s) &#x3D; K_c(\frac{1+\tau s}{1-\tau s})$</p>
+<p>$该补偿器特性：$</p>
+<p>$\angle G_c(s) &#x3D; arctan(\tau s)-arctan(a\tau s) &#x3D;arctan(\frac{(1-a)\tau \omega}{1+a\tau^2\omega^2})$</p>
+<p>$令\frac{d(\frac{(1-a)\tau \omega}{1+a\tau^2\omega^2})}{dt}&#x3D;0，得到当 \omega&#x3D;\frac{1}{\sqrt{a}\tau}，补偿角最大。但|G_c(j\frac{1}{\sqrt{a}\tau})|&#x3D;20log^{\frac{1}{\sqrt{a}}}<em>{10}，幅值增大20log^{\frac{1}{\sqrt{a}}}</em>{10}$</p>
+<p>当 $\omega&#x3D;\frac{1}{\sqrt{a}\tau}$，$\angle G_c(s)&#x3D;arcsin(\frac{1-a}{1+a})$，$|G_c(j\frac{1}{\sqrt{a}\tau})|&#x3D;20log^{\frac{1}{\sqrt{a}}}_{10}$。</p>
+<p><strong>矫正步骤：</strong></p>
+<blockquote>
+<p>确定校正后期望剪切频率 $\omega_p$，一般为开关频率的 $\frac{1}{20}-\frac{1}{10}$，</p>
+</blockquote>
+<blockquote>
+<p>求原系统$\omega_p$处相角，根据校正后期望相位裕度确定补偿器提供超前角度。根据 <strong>补偿器超前角度</strong> 和 **期望剪切频率$\omega_p$**得到补偿器，计算补偿器提供 幅值。</p>
+</blockquote>
+<blockquote>
+<p>根据原系统$\omega_p$处幅值 和 补偿器增大的幅值确定 $K_c$。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/" class="category-chain-item">开关电源</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%8E%9F%E7%90%86/" class="category-chain-item">原理</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90/%E5%8E%9F%E7%90%86/%E5%BB%BA%E6%A8%A1%E4%B8%8E%E6%8E%A7%E5%88%B6/" class="category-chain-item">建模与控制</a>
+  
+  
+
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%BC%80%E5%85%B3%E5%8F%98%E6%8D%A2%E5%99%A8%E5%BB%BA%E6%A8%A1%E4%B8%8E%E6%8E%A7%E5%88%B6-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="print-no-link">#开关变换器建模与控制(读书笔记)</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>开关变换器的建模与控制</div>
+      <div>http://example.com/2025/01/02/开关变换器的建模与控制/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ydkukudeshuai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年1月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/01/02/WPT/" title="WPT">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WPT</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/01/02/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E6%8E%A7%E5%88%B6%E7%8E%AF%E8%B7%AF%E8%AE%BE%E8%AE%A1/" title="开关电源控制环路设计">
+                        <span class="hidden-mobile">开关电源控制环路设计</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
