@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.058Z">
-<meta property="article:modified_time" content="2025-01-07T03:43:16.756Z">
+<meta property="article:modified_time" content="2025-03-08T03:19:33.704Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          2.7k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          22 分钟
+          23 分钟
         
       </span>
     
@@ -410,7 +410,12 @@
 <h2 id="WPT系统软开关分析"><a href="#WPT系统软开关分析" class="headerlink" title="WPT系统软开关分析"></a>WPT系统软开关分析</h2><p>副边整流二极管不会被钳位是，负载反射阻抗抑制都在。</p>
 <p>相当于少了模态4和5。</p>
 <p>续流二极管换流之后就进入模态6。</p>
-<h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1><h1 id="傅旻帆电力电子课"><a href="#傅旻帆电力电子课" class="headerlink" title="傅旻帆电力电子课"></a>傅旻帆电力电子课</h1><h2 id="串联谐振变换器"><a href="#串联谐振变换器" class="headerlink" title="串联谐振变换器"></a>串联谐振变换器</h2><ul>
+<h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1><h1 id="傅旻帆电力电子课"><a href="#傅旻帆电力电子课" class="headerlink" title="傅旻帆电力电子课"></a>傅旻帆电力电子课</h1><h2 id="串联谐振变换器"><a href="#串联谐振变换器" class="headerlink" title="串联谐振变换器"></a>串联谐振变换器</h2><p><strong>软开关 + SRC谐振电路</strong></p>
+<p>二阶系统响应</p>
+<p>组合得到时域响应</p>
+<p>不同器件 开关损耗主要是 ZVS 还是ZCS作用好？</p>
+<p>调频技术（等效）</p>
+<ul>
 <li><p>软开关</p>
 </li>
 <li><p>图解LC谐振电路</p>
@@ -498,6 +503,11 @@
 <h3 id="模态分析"><a href="#模态分析" class="headerlink" title="模态分析"></a>模态分析</h3><p><img src="/../pic/image-20240707161054129.png" srcset="/img/loading.gif" lazyload alt="t0-t1"></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.1007.top_right_bar_window_history.content.click">https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.1007.top_right_bar_window_history.content.click</a></p>
 <p>从40分钟继续</p>
+<h2 id="LLC-谐振变换器-1"><a href="#LLC-谐振变换器-1" class="headerlink" title="LLC 谐振变换器"></a>LLC 谐振变换器</h2><p><img src="/../pic/image-20250308111623481.png" srcset="/img/loading.gif" lazyload alt="供电结构"></p>
+<p>PFC：减小电网输出无功功率。</p>
+<p><img src="/../pic/image-20250305113043567.png" srcset="/img/loading.gif" lazyload alt="掉电情况，维持供电时间，存储数据"></p>
+<p>$P_{out}*t_{维持时间} &#x3D; \frac{1}{2}C(V_{out}^2-V_{min}^2)$ </p>
+<p>为了减小电容体积→减小电容→同等功率下维持相同时间$V_{min}$更小（ 更宽输入电压范围 ）</p>
 <h1 id="EMI-滤波器-设计"><a href="#EMI-滤波器-设计" class="headerlink" title="EMI 滤波器 设计"></a>EMI 滤波器 设计</h1><h2 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h2><p>插入损耗： $IL &#x3D; 20log^{\frac{v_1}{v_2}}$</p>
 <p><img src="/../pic/image-20241017155354404.png" srcset="/img/loading.gif" lazyload alt="设计步骤"></p>
 <h2 id="确定插入损耗："><a href="#确定插入损耗：" class="headerlink" title="确定插入损耗："></a>确定插入损耗：</h2><h2 id="确定滤波器拓扑结构："><a href="#确定滤波器拓扑结构：" class="headerlink" title="确定滤波器拓扑结构："></a>确定滤波器拓扑结构：</h2><p><img src="/../pic/image-20241017160005592.png" srcset="/img/loading.gif" lazyload alt="阻抗失配"></p>
