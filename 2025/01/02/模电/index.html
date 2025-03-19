@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Modian.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.058Z">
-<meta property="article:modified_time" content="2025-03-12T05:06:01.063Z">
+<meta property="article:modified_time" content="2025-03-13T06:52:49.461Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k 字
+          5.4k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          45 分钟
+          46 分钟
         
       </span>
     
@@ -373,8 +373,19 @@
 <p>此时用来做开关管，uce电压比较小，损耗低。</p>
 <p>$u_{be}&gt;u_{th}(发射结正偏) , 集电结反偏$：放大区   $i_c&#x3D;βi_{b}$   </p>
 <p><strong>判断区域</strong>：算ib，再算Icmax。比较βib Icmax大小</p>
-<h3 id="主要参数："><a href="#主要参数：" class="headerlink" title="主要参数："></a>主要参数：</h3><p>自己看书。</p>
-<h2 id="1-4-MOSFET（P8-P9）"><a href="#1-4-MOSFET（P8-P9）" class="headerlink" title="1.4 MOSFET（P8-P9）"></a>1.4 MOSFET（P8-P9）</h2><p>还没学。</p>
+<h3 id="主要参数："><a href="#主要参数：" class="headerlink" title="主要参数："></a>主要参数：</h3><p>决定器件选型。书上。</p>
+<p><strong>温度特性：</strong></p>
+<ul>
+<li>导通压降 $u_{th}$</li>
+<li>反向电流$I_{CBO}$</li>
+<li>Bib</li>
+<li></li>
+</ul>
+<h2 id="1-4-MOSFET（P8-P9）"><a href="#1-4-MOSFET（P8-P9）" class="headerlink" title="1.4 MOSFET（P8-P9）"></a>1.4 MOSFET（P8-P9）</h2><h3 id="1-4-1-结型EFT"><a href="#1-4-1-结型EFT" class="headerlink" title="1.4.1 结型EFT"></a>1.4.1 结型EFT</h3><p>用的少 暂时不看。</p>
+<h3 id="1-4-2-绝缘栅型FET-MOSFET"><a href="#1-4-2-绝缘栅型FET-MOSFET" class="headerlink" title="1.4.2 绝缘栅型FET(MOSFET)"></a>1.4.2 绝缘栅型FET(MOSFET)</h3><h4 id="N沟道增强型MOSFET"><a href="#N沟道增强型MOSFET" class="headerlink" title="N沟道增强型MOSFET"></a>N沟道增强型MOSFET</h4><p><img src="/../pic/image-20250312185958917.png" srcset="/img/loading.gif" lazyload alt="N沟道增强型MOSFET"></p>
+<p> <img src="/../pic/image-20250312190523842.png" srcset="/img/loading.gif" lazyload alt="NMOS导通原理"></p>
+<p><img src="/../pic/image-20250312190934291.png" srcset="/img/loading.gif" lazyload alt="Uds产生预夹断"></p>
+<h4 id="N沟道耗尽型MOSFET"><a href="#N沟道耗尽型MOSFET" class="headerlink" title="N沟道耗尽型MOSFET"></a>N沟道耗尽型MOSFET</h4><p>在绝缘层加入正电荷，让N沟道天生形成。</p>
 <h1 id="二、基本放大电路10-27-5"><a href="#二、基本放大电路10-27-5" class="headerlink" title="二、基本放大电路10~27.5"></a>二、基本放大电路10~27.5</h1><p>放大：对正弦波信号(小电压、电流)放大，使其不失真(对所有频率的放大倍数几乎一样)</p>
 <h2 id="2-1-构建放大电路"><a href="#2-1-构建放大电路" class="headerlink" title="2.1 构建放大电路"></a>2.1 构建放大电路</h2><blockquote>
 <p>目标：小功率→大功率</p>
@@ -390,6 +401,7 @@
 </blockquote>
 <h2 id="2-2-共射放大电路"><a href="#2-2-共射放大电路" class="headerlink" title="2.2 共射放大电路"></a>2.2 共射放大电路</h2><h4 id="基本共射"><a href="#基本共射" class="headerlink" title="基本共射"></a>基本共射</h4><p><img src="/../pic/image-20240601111619191.png" srcset="/img/loading.gif" lazyload alt="共射放大电路"></p>
 <p><img src="/../pic/image-20240601111826275.png" srcset="/img/loading.gif" lazyload alt="共射波形分析"></p>
+<p>$R_c$把变化的电流转化为变化的电压</p>
 <h4 id="直接耦合共射放大电路"><a href="#直接耦合共射放大电路" class="headerlink" title="直接耦合共射放大电路"></a>直接耦合共射放大电路</h4><p><img src="/../pic/image-20240601112248686.png" srcset="/img/loading.gif" lazyload alt="直接耦合共射放大电路"></p>
 <h4 id="阻容耦合放大电路"><a href="#阻容耦合放大电路" class="headerlink" title="阻容耦合放大电路"></a>阻容耦合放大电路</h4><p><img src="/../pic/image-20240601112655038.png" srcset="/img/loading.gif" lazyload alt="阻容耦合放大电路"></p>
 <h4 id="电路分析"><a href="#电路分析" class="headerlink" title="电路分析"></a>电路分析</h4><p>直流分析：电容断路，交流电压源短路。</p>
@@ -399,6 +411,7 @@
 <p><strong>输出电阻</strong>：对于输出信号，电压源的等效内阻。             输出电阻小好，输出分压大，有利于放大。</p>
 <p><strong>放大倍数</strong>：$A_{uu},A_{ui},A_{iu},A_{ii}$</p>
 <p><strong>通频带：</strong>电容阻抗特性原因</p>
+<p><img src="/../pic/image-20250313003113176.png" srcset="/img/loading.gif" lazyload alt="放大电路通频带"></p>
 <p>其他特性</p>
 <blockquote>
 <p><strong>非线性失真：</strong></p>
@@ -424,9 +437,7 @@
 <p>图解法：横坐标，纵坐标两个未知数，在图上找交点。</p>
 </blockquote>
 <blockquote>
-<p>解非线性方程：两个非线性方程，解两个未知数。</p>
-</blockquote>
-<blockquote>
+<p>解非线性方程：两个非线性方程，解两个未知数。  </p>
 </blockquote>
 <h3 id="2-3-4-BJT-交流信号等效模型"><a href="#2-3-4-BJT-交流信号等效模型" class="headerlink" title="2.3.4 BJT 交流信号等效模型"></a>2.3.4 BJT 交流信号等效模型</h3><blockquote>
 <p>$I_B$:电流直流分量</p>
@@ -441,7 +452,8 @@
 <p>用全微分形式推导，忽略Uce的影响，因为Uce对端口的影响小。</p>
 <p>。。。。。。。。。。。。。。。。。。。。</p>
 <p>。。。。。。。。。。。。。。。。。。。。</p>
-<p>忽略误差得到简化的h参数等效模型：</p>
+<p>忽略误差(Uce对Ib影响，Uce对Ic影响忽略不计)得到 简化的h参数等效模型：</p>
+<p><img src="/../pic/image-20250313110804746.png" srcset="/img/loading.gif" lazyload alt="简化的h参数等效模型"></p>
 <p> <img src="/../pic/image-20240602001606433.png" srcset="/img/loading.gif" lazyload alt="r_be 推导"></p>
 <p>$\delta u_{ce} &#x3D; i_{be}r_{bb} + I_e(r_{be})&#x3D;i_{be}r_{bb} + (1+β)i_{be}(r_{be})$  $r_e$非常小可忽略，因为e区掺杂浓度高。</p>
 <blockquote>
@@ -455,7 +467,7 @@
 <p>que：$R_o$大稳定输出电流、$R_o$小稳定输出电流。（对于不同的负载$R_L$，对电压电流的影响）</p>
 <p>分析：$U &#x3D; \frac{R_L}{R_L + R_o}$ 、$i &#x3D; \frac{U}{R_L + R_o}$</p>
 <h2 id="2-4-稳定静态工作点"><a href="#2-4-稳定静态工作点" class="headerlink" title="2.4 稳定静态工作点"></a>2.4 稳定静态工作点</h2><h3 id="2-4-1-两种失真"><a href="#2-4-1-两种失真" class="headerlink" title="2.4.1 两种失真"></a>2.4.1 两种失真</h3><ul>
-<li>输入$i_b$太大导致$u_{be}&lt;u_{on}$，进入截止区,电阻不能近似成直线斜率（$\frac{d_{u_{be}}}{d_{i_b}}≠K$ ），线性化模型失效</li>
+<li>输入$i_b$太小导致$u_{be}&lt;u_{on}$，进入截止区,电阻不能近似成直线斜率（$\frac{d_{u_{be}}}{d_{i_b}}≠K$ ），线性化模型失效</li>
 </ul>
 <p><img src="/../pic/image-20240602103509210.png" srcset="/img/loading.gif" lazyload alt="截止失真"></p>
 <ul>
@@ -476,8 +488,8 @@
 <li><p>如图右侧</p>
 </li>
 </ul>
-<h3 id="2-4-2"><a href="#2-4-2" class="headerlink" title="2.4.2"></a>2.4.2</h3><p><img src="/../pic/image-20240602110225446.png" srcset="/img/loading.gif" lazyload alt="阻容式耦合静态工作点稳定电路"></p>
-<p>$C_e$在交流通路短路 $R_e$ 去掉$R_e$稳定静态工作点导致放大倍数减小。</p>
+<h3 id="2-4-2-静态工作点稳定电路"><a href="#2-4-2-静态工作点稳定电路" class="headerlink" title="2.4.2 静态工作点稳定电路"></a>2.4.2 静态工作点稳定电路</h3><p><img src="/../pic/image-20240602110225446.png" srcset="/img/loading.gif" lazyload alt="阻容式耦合静态工作点稳定电路"></p>
+<p>$C_e$在交流通路短路 $R_e$ 进而不影响放大倍数，直流通路中$R_e$稳定静态工作点。</p>
 <p>缺点：有大电容($C_e$)，大电感不能集成 </p>
 <p><img src="/../pic/image-20240602110626692.png" srcset="/img/loading.gif" lazyload alt="其他静态工作点稳定电路"></p>
 <p>自己分析</p>
@@ -491,7 +503,7 @@
 <p>$R_o$很小</p>
 </blockquote>
 <blockquote>
-<p>。。。。。。。。。。。</p>
+<p>$R_i$很大</p>
 </blockquote>
 <h2 id="2-6-共基放大电路"><a href="#2-6-共基放大电路" class="headerlink" title="2.6 共基放大电路"></a>2.6 共基放大电路</h2><p><img src="/../pic/image-20240602113727901.png" srcset="/img/loading.gif" lazyload alt="共基放大电路"></p>
 <p>分析方法同共射放大电路。</p>
@@ -720,7 +732,7 @@
 <h4 id="指数运算电路"><a href="#指数运算电路" class="headerlink" title="指数运算电路"></a>指数运算电路</h4><p><img src="/../pic/image-20240603231629360.png" srcset="/img/loading.gif" lazyload alt="指数运算电路"></p>
 <h2 id="6-2-模拟乘法器应用"><a href="#6-2-模拟乘法器应用" class="headerlink" title="6.2 模拟乘法器应用"></a>6.2 模拟乘法器应用</h2><h2 id="6-3-运放有源滤波电路"><a href="#6-3-运放有源滤波电路" class="headerlink" title="6.3 运放有源滤波电路"></a>6.3 运放有源滤波电路</h2><h2 id="6-4-预处理放大电路"><a href="#6-4-预处理放大电路" class="headerlink" title="6.4 预处理放大电路"></a>6.4 预处理放大电路</h2><h3 id="6-4-1-仪表放大器"><a href="#6-4-1-仪表放大器" class="headerlink" title="6.4.1 仪表放大器"></a>6.4.1 仪表放大器</h3><p><img src="/../pic/image-20240603233102656.png" srcset="/img/loading.gif" lazyload alt="三运放仪表放大器"></p>
 <h1 id="七、波形的发生和信号的转换40-45"><a href="#七、波形的发生和信号的转换40-45" class="headerlink" title="七、波形的发生和信号的转换40~45"></a>七、波形的发生和信号的转换40~45</h1><h1 id="八、功率放大电路（视频没有，自学）"><a href="#八、功率放大电路（视频没有，自学）" class="headerlink" title="八、功率放大电路（视频没有，自学）"></a>八、功率放大电路（视频没有，自学）</h1><p>参考：</p>
-<p>视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Gt411b7Zq/?spm_id_from=333.999.0.0&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
+<p>视频-郑益慧 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Gt411b7Zq?spm_id_from=333.788.videopod.episodes&vd_source=a22df97d952bf6fe9e5ff104f2f90e57">https://www.bilibili.com/video/BV1Gt411b7Zq?spm_id_from=333.788.videopod.episodes&amp;vd_source=a22df97d952bf6fe9e5ff104f2f90e57</a></p>
 <p>电子教材：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1UUJqst5gtyuQtx45O6Yexg?pwd=1234">https://pan.baidu.com/s/1UUJqst5gtyuQtx45O6Yexg?pwd=1234</a></p>
 
                 
