@@ -16,16 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) 开关器件损耗特性（不同器件 开通损耗&#x2F;关断损耗 占主导，实现ZVS&#x2F;ZCS，谐振腔呈感性还是容性）：">
+    <meta name="description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零  偶or  关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) 开关器件损耗特性（不同器件 开通损耗&#x2F;关断损耗 占主导，实现ZVS&#x2F;ZCS，谐振腔呈感性">
 <meta property="og:type" content="article">
 <meta property="og:title" content="开关电源设计原理">
 <meta property="og:url" content="http://example.com/2025/01/02/%E5%BC%80%E5%85%B3%E7%94%B5%E6%BA%90%E5%8E%9F%E7%90%86/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
-<meta property="og:description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零、关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) 开关器件损耗特性（不同器件 开通损耗&#x2F;关断损耗 占主导，实现ZVS&#x2F;ZCS，谐振腔呈感性还是容性）：">
+<meta property="og:description" content="简介：对拓扑的知识进行介绍 损耗计算电路总损耗 &#x3D; 线路寄生电阻损耗 + 开关管损耗(通态损耗+ 动态损耗)   动态损耗  最好情况：(导通电压先降为零  偶or  关断电流先降为零)   一般情况：(电压电流同时变换开始，结束)  最坏情况：(导通电流先升高、关断电流先升高) 开关器件损耗特性（不同器件 开通损耗&#x2F;关断损耗 占主导，实现ZVS&#x2F;ZCS，谐振腔呈感性">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.058Z">
-<meta property="article:modified_time" content="2025-03-08T03:19:33.704Z">
+<meta property="article:modified_time" content="2025-03-24T03:17:36.493Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          2.9k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          23 分钟
+          25 分钟
         
       </span>
     
@@ -280,7 +280,7 @@
 <ul>
 <li>动态损耗</li>
 </ul>
-<p>最好情况：(导通电压先降为零、关断电流先降为零)</p>
+<p>最好情况：(导通电压先降为零  偶or  关断电流先降为零)</p>
 <p><img src="/../pic/image-20240613111710326.png" srcset="/img/loading.gif" lazyload alt="导通电压先降为零"></p>
 <p><img src="/../pic/image-20240613111726970.png" srcset="/img/loading.gif" lazyload alt="关断电流先降为零"></p>
 <p>一般情况：(电压电流同时变换开始，结束)</p>
@@ -291,65 +291,6 @@
 <p>PN结二极管：关断损耗&gt;&gt;开通损耗。</p>
 <p>IGBJ BJT：同样是PN结原因，关断损耗很大。但BJT一般用于低频场合。</p>
 <p>GaN MOSTFET：开关损耗很小。但也需要软开关技术。</p>
-<h1 id="Buck变换器"><a href="#Buck变换器" class="headerlink" title="Buck变换器"></a>Buck变换器</h1><ul>
-<li>大前提</li>
-</ul>
-<p>理想元件：</p>
-<p>二极管没有管压降</p>
-<p>电感无寄生参数，且足够大，使电感电流直流分量&gt;&gt;交流分量</p>
-<p>电容无寄生参数，且足够大，使电感直流分量全部流入 $R$，交流分量全部流入$C$</p>
-<p>开关管瞬间通断，无动态损耗。</p>
-<ul>
-<li>拓扑图</li>
-</ul>
-<p><img src="/../pic/image-20240604121212592.png" srcset="/img/loading.gif" lazyload alt="Buck拓扑图"></p>
-<ul>
-<li>波形分析过程：</li>
-</ul>
-<p>电路达到稳态时，$V_O$一定</p>
-<p>S导通：$V_L&#x3D;V_i - V_o$ ,电感电流由电压积分上升。电流先负再正，$V_C$由电流积分先放电再充电，电压$V_C$先下降再上升。</p>
-<p>S关断：二极管续流，$V_L&#x3D;- V_o$ ,电感电流由电压积分下降。电流先正再负，$V_C$由电流积分先充电再放电，电压$V_C$先上升再下降。</p>
-<p><img src="/../pic/image-20240604122407442.png" srcset="/img/loading.gif" lazyload alt="波形图"></p>
-<blockquote>
-<p>$i_S + i_D &#x3D; i_L$</p>
-</blockquote>
-<blockquote>
-<p>$Vs + V_D &#x3D; V_i$</p>
-</blockquote>
-<p><img src="/../pic/image-20240604122420900.png" srcset="/img/loading.gif" lazyload alt="S、D波形图"></p>
-<p><strong>电压增益：</strong>电感伏秒平衡，单周期内电感电流变化量为0；</p>
-<p>$\frac{1}{L} \int_{0}^{DT}V_i - V_o d_t &#x3D; \frac{1}{L} \int_{DT}^{T} - V_o d_t$</p>
-<p><strong>电流增益：</strong></p>
-<p><strong>电感电流直流分量：</strong></p>
-<p>电感直流分量等于 R上电流</p>
-<p>$I_L &#x3D; I_O$</p>
-<p><strong>电感电流交流分量峰峰值：</strong></p>
-<p>$\frac{1}{L} \int_{0}^{DT}V_i - V_o d_t $</p>
-<p><strong>电容电压直流分量：</strong></p>
-<p>电容电压直流分量等于 R上电压</p>
-<p>$V_C &#x3D; V_O$</p>
-<p><strong>电容电压交流分量(纹波)峰峰值：</strong></p>
-<p>$\frac{1}{C} \int_{\frac{DT}{2}}^{\frac{3DT}{2}}i_L d_t &#x3D; $</p>
-<h2 id="器件选型："><a href="#器件选型：" class="headerlink" title="器件选型："></a><strong>器件选型：</strong></h2><h3 id="MOSFET："><a href="#MOSFET：" class="headerlink" title="MOSFET："></a>MOSFET：</h3><p>$U_{max}&#x3D;U_{in}$</p>
-<p>$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2}$</p>
-<p>$I_{rms}&#x3D;\sqrt{\int_{0}^{T} (I_L + \frac{\Delta I_L}{2})^2d_t}$</p>
-<p>取1.5倍裕量。</p>
-<h3 id="二极管"><a href="#二极管" class="headerlink" title="二极管"></a>二极管</h3><p>用同步整流方案效率更高，二极管导通压降0.7V，损耗太大。</p>
-<p>$U_{max}&#x3D;U_{in}$</p>
-<p>$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2} &#x3D; \frac{V_i D T}{R_L} + \frac{(1-D)V_i}{2L}$   </p>
-<p>$I_{rms}&#x3D;\sqrt{\int_{0}^{T} (I_L + \frac{\Delta I_L}{2})^2d_t}$</p>
-<p>取1.5倍裕量。</p>
-<h3 id="输出电感"><a href="#输出电感" class="headerlink" title="输出电感"></a>输出电感</h3><p>根据纹波电流和直流电流的相对值（电感电流纹波率）确定，一般r取0.4电感效益(体积和纹波)最高</p>
-<p>纹波电流：$r*I_L&#x3D; \frac{U_O(1-D)T}{L} $</p>
-<p>饱和电流：$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2}$</p>
-<p>电流有效值：$I_{rms}&#x3D;\sqrt{\int_{0}^{T} (i_l)^2d_t}$</p>
-<p>电流最大值：$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2}$</p>
-<h3 id="输出电容"><a href="#输出电容" class="headerlink" title="输出电容"></a>输出电容</h3><p><strong>容量选取：</strong></p>
-<p>纹波电压和ESR确定：</p>
-<p>可以多个电容并联减小ESR</p>
-<p><strong>耐压：</strong></p>
-<p>输出电压范围</p>
-<p><img src="/../pic/Buck.jpg" srcset="/img/loading.gif" lazyload alt="Buck"></p>
 <h1 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h1><p><strong>软开关：</strong>零电压开通 or 零电流关断</p>
 <p><strong>LLC拓扑优点：</strong>能实现、LLC实现的是零电压开通。适应宽输入电压范围，负载变化</p>
 <p><strong>零电压开关要求：</strong>负载对于桥口呈感性，桥口电流滞后于电压，使谐振槽路工作在感性状态。</p>
@@ -357,7 +298,7 @@
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/146692511">https://zhuanlan.zhihu.com/p/146692511</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/559726373">https://zhuanlan.zhihu.com/p/559726373</a>   这个很好</p>
 <p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&filename=1024427766.nh">https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CMFD&amp;filename=1024427766.nh</a> 这个最详细</p>
-<h1 id="移相全桥"><a href="#移相全桥" class="headerlink" title="移相全桥"></a>移相全桥</h1><h1 id="软开关模态分析"><a href="#软开关模态分析" class="headerlink" title="软开关模态分析"></a>软开关模态分析</h1><p>软开关：</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="软开关模态分析-移相全桥"><a href="#软开关模态分析-移相全桥" class="headerlink" title="软开关模态分析(移相全桥)"></a>软开关模态分析(移相全桥)</h1><p>软开关：</p>
 <p>ZVS：一般是利用感性工作点，电流之后电压，电流把下一个管子寄生并联电容电放完，然后电流流过体二极管，把MOSFET两端电压钳位到0V，实现零电压开通。</p>
 <p>电流对于MOSFET3条支路的流过顺序，电容放电，体二极管，MOSTET。</p>
 <p>ZCS：利用容性工作点，电流降为零后一小段时间，电流反向流过把MOSFET载流子重置时把MOSFET关断。</p>
@@ -410,7 +351,7 @@
 <h2 id="WPT系统软开关分析"><a href="#WPT系统软开关分析" class="headerlink" title="WPT系统软开关分析"></a>WPT系统软开关分析</h2><p>副边整流二极管不会被钳位是，负载反射阻抗抑制都在。</p>
 <p>相当于少了模态4和5。</p>
 <p>续流二极管换流之后就进入模态6。</p>
-<h1 id="Flyback"><a href="#Flyback" class="headerlink" title="Flyback"></a>Flyback</h1><h1 id="傅旻帆电力电子课"><a href="#傅旻帆电力电子课" class="headerlink" title="傅旻帆电力电子课"></a>傅旻帆电力电子课</h1><h2 id="串联谐振变换器"><a href="#串联谐振变换器" class="headerlink" title="串联谐振变换器"></a>串联谐振变换器</h2><p><strong>软开关 + SRC谐振电路</strong></p>
+<h1 id="傅旻帆电力电子课"><a href="#傅旻帆电力电子课" class="headerlink" title="傅旻帆电力电子课"></a>傅旻帆电力电子课</h1><h2 id="串联谐振变换器"><a href="#串联谐振变换器" class="headerlink" title="串联谐振变换器"></a>串联谐振变换器</h2><p><strong>软开关 + SRC谐振电路</strong></p>
 <p>二阶系统响应</p>
 <p>组合得到时域响应</p>
 <p>不同器件 开关损耗主要是 ZVS 还是ZCS作用好？</p>
@@ -517,7 +458,79 @@
 <p>Y电容：</p>
 <p>共模电感：</p>
 <p>差模电感：</p>
-<h2 id="考虑寄生参数的插入损耗："><a href="#考虑寄生参数的插入损耗：" class="headerlink" title="考虑寄生参数的插入损耗："></a>考虑寄生参数的插入损耗：</h2>
+<h2 id="考虑寄生参数的插入损耗："><a href="#考虑寄生参数的插入损耗：" class="headerlink" title="考虑寄生参数的插入损耗："></a>考虑寄生参数的插入损耗：</h2><h1 id="DC—DC变换器"><a href="#DC—DC变换器" class="headerlink" title="DC—DC变换器"></a>DC—DC变换器</h1><h2 id="Buck"><a href="#Buck" class="headerlink" title="Buck"></a>Buck</h2><ul>
+<li>大前提</li>
+</ul>
+<p>理想元件：</p>
+<p>二极管没有管压降</p>
+<p>电感无寄生参数，且足够大，使电感电流直流分量&gt;&gt;交流分量</p>
+<p>电容无寄生参数，且足够大，使电感直流分量全部流入 $R$，交流分量全部流入$C$，稳定输出电压能力强。</p>
+<p>开关管瞬间通断，无动态损耗。</p>
+<ul>
+<li>拓扑图</li>
+</ul>
+<p><img src="/../pic/image-20250324104938279.png" srcset="/img/loading.gif" lazyload alt="Buck拓扑图"></p>
+<h3 id="模态分析："><a href="#模态分析：" class="headerlink" title="模态分析："></a>模态分析：</h3><h4 id="电感电流连续"><a href="#电感电流连续" class="headerlink" title="电感电流连续"></a>电感电流连续</h4><p>模态①：</p>
+<p><img src="/../pic/image-20250324105118741.png" srcset="/img/loading.gif" lazyload alt="模态①"></p>
+<p>S导通：$V_L&#x3D;V_i - V_o$ ,电感电流由电压积分上升。电流先负再正，$V_C$由电流积分先放电再充电，电压$V_C$先下降再上升。</p>
+<p><img src="/../pic/image-20250324105207377.png" srcset="/img/loading.gif" lazyload alt="模态②"></p>
+<p>S关断：二极管续流，$V_L&#x3D;- V_o$ ,电感电流由电压积分下降。电流先正再负，$V_C$由电流积分先充电再放电，电压$V_C$先上升再下降。</p>
+<p><img src="/../pic/image-20250324105402281.png" srcset="/img/loading.gif" lazyload alt="波形图"></p>
+<blockquote>
+<p>$i_S + i_D &#x3D; i_L$</p>
+</blockquote>
+<blockquote>
+<p>$Vs + V_D &#x3D; V_i$</p>
+</blockquote>
+<p><img src="/../pic/image-20240604122420900.png" srcset="/img/loading.gif" lazyload alt="S、D波形图"></p>
+<p><strong>电压增益：</strong>电感伏秒平衡，单周期内电感电流变化量为0；</p>
+<p>$\frac{1}{L} \int_{0}^{DT}V_i - V_o d_t &#x3D; \frac{1}{L} \int_{DT}^{T}  V_o d_t→V_o &#x3D; DV_i$</p>
+<p><strong>电流增益：</strong></p>
+<p>能量守恒：$I_o &#x3D; \frac{I_i}{D}$</p>
+<p><strong>电感电流直流分量：</strong></p>
+<p>电感直流分量等于 R上电流</p>
+<p>$I_L &#x3D; I_O &#x3D; \frac{U_o}{R}$</p>
+<p><strong>电感电流交流分量峰峰值：</strong></p>
+<p>$\frac{1}{L} \int_{0}^{DT}V_i - V_o d_t $</p>
+<p><strong>电容电压直流分量：</strong></p>
+<p>电容电压直流分量等于 R上电压</p>
+<p>$V_C &#x3D; V_O$</p>
+<p><strong>电容电压交流分量(纹波)峰峰值：</strong></p>
+<p>$\frac{1}{C} \int_{\frac{DT}{2}}^{\frac{3DT}{2}}i_L d_t &#x3D; $</p>
+<h4 id="器件选型："><a href="#器件选型：" class="headerlink" title="器件选型："></a><strong>器件选型：</strong></h4><h5 id="MOSFET："><a href="#MOSFET：" class="headerlink" title="MOSFET："></a>MOSFET：</h5><p>$U_{max}&#x3D;U_{in}$</p>
+<p>$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2}$</p>
+<p>$I_{rms}&#x3D;\sqrt{\int_{0}^{T} (I_L + \frac{\Delta I_L}{2})^2d_t}$</p>
+<p>取1.5倍裕量。</p>
+<h5 id="二极管"><a href="#二极管" class="headerlink" title="二极管"></a>二极管</h5><p>用同步整流方案效率更高，二极管导通压降0.7V，损耗太大。</p>
+<p>$U_{max}&#x3D;U_{in}$</p>
+<p>$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2} &#x3D; \frac{V_i D T}{R_L} + \frac{(1-D)V_i}{2L}$   </p>
+<p>$I_{rms}&#x3D;\sqrt{\int_{0}^{T} (I_L + \frac{\Delta I_L}{2})^2d_t}$</p>
+<p>取1.5倍裕量。</p>
+<h5 id="输出电感"><a href="#输出电感" class="headerlink" title="输出电感"></a>输出电感</h5><p>根据纹波电流和直流电流的相对值（电感电流纹波率）确定，一般r取0.4电感效益(体积和纹波)最高</p>
+<p>纹波电流：$r*I_L&#x3D; \frac{U_O(1-D)T}{L} $</p>
+<p>饱和电流：$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2}$</p>
+<p>电流有效值：$I_{rms}&#x3D;\sqrt{\int_{0}^{T} (i_l)^2d_t}$</p>
+<p>电流最大值：$I_{max}&#x3D;I_L + \frac{\Delta I_L}{2}$</p>
+<p>感值：$r &#x3D; \frac{\frac{U_O(1-D)T}{L}}{I_L}&lt;0.4$确定感值，当负载电流最小时，纹波率最大。</p>
+<h5 id="输出电容"><a href="#输出电容" class="headerlink" title="输出电容"></a>输出电容</h5><p><strong>容量选取：</strong></p>
+<p>纹波电压和输出电压确定：</p>
+<p>ESR大会增大纹波电压，可以多个电容并联减小ESR</p>
+<p>直流偏置特性好</p>
+<p>耐压：输出电压范围</p>
+<h5 id="母线电容："><a href="#母线电容：" class="headerlink" title="母线电容："></a>母线电容：</h5><p>理想电压源：</p>
+<blockquote>
+<p>输出电流无限</p>
+</blockquote>
+<blockquote>
+<p>输出电压不受负载影响→输入电压纹波率$r$比较小</p>
+</blockquote>
+<p>纹波率$r$：</p>
+<p>耐压：$\bar{U}<em>{in} + \Delta{U</em>{in}}$</p>
+<p>直流偏置特性好</p>
+<p>低ESR</p>
+<h3 id="电感电流断续"><a href="#电感电流断续" class="headerlink" title="电感电流断续"></a>电感电流断续</h3><p>电感交流电流变化一半大于直流分量：$ \frac{\Delta I_L}{2}&gt;I_L $</p>
+<p>伏秒平衡：$V_o &#x3D; $</p>
+
                 
               </div>
             

@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.042Z">
-<meta property="article:modified_time" content="2025-01-06T07:31:26.905Z">
+<meta property="article:modified_time" content="2025-04-23T15:40:36.811Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.3k 字
+          6.5k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          53 分钟
+          54 分钟
         
       </span>
     
@@ -631,7 +631,7 @@
 <p><img src="/../pic/image-20240611183854163.png" srcset="/img/loading.gif" lazyload alt="改进后的幅频曲线"></p>
 <p>传递函数：$\Phi_{(s)} &#x3D; \frac{R_fCs}{(RCs + 1)(R_f C_fS + 1)}$</p>
 <p>输入频率应在0dB频率和$\frac{f1}{10}$频率之间,大于0dB频率确保增益足够，小于$\frac{f1}{10}$使得能忽略$R$和$C_F$</p>
-<h2 id="频率响应-增益带宽积-闭环带宽-开环带宽-单位增益频率"><a href="#频率响应-增益带宽积-闭环带宽-开环带宽-单位增益频率" class="headerlink" title="频率响应 增益带宽积 闭环带宽 开环带宽 单位增益频率"></a>频率响应 增益带宽积 闭环带宽 开环带宽 单位增益频率</h2><p>运放对于放大倍数和频率的能力不能兼顾,至于为什么还不清楚原因</p>
+<h2 id="频率响应-增益带宽积-闭环带宽-开环带宽-单位增益频率"><a href="#频率响应-增益带宽积-闭环带宽-开环带宽-单位增益频率" class="headerlink" title="频率响应 增益带宽积 闭环带宽 开环带宽 单位增益频率"></a>频率响应 增益带宽积 闭环带宽 开环带宽 单位增益频率</h2><p>运放对于放大倍数和频率的能力不能兼顾,因为晶体管存在 结间电容 运放布局存在分布电容</p>
 <p>运放的放大倍数和频率的传递函数近似于：</p>
 <p><strong>一阶系统</strong>$\Phi_{(s)}&#x3D;\frac{A_0}{1+\frac{w}{w_0}}$</p>
 <p><strong>幅频关系</strong>：</p>
@@ -643,7 +643,7 @@
 <ul>
 <li>为什么开环带宽 闭环带宽能混用？</li>
 </ul>
-<p>开环模型：$G{(s)}&#x3D;\frac{A_0}{1+\frac{w}{w_0}}$</p>
+<p>开环模型：$G{(s)}&#x3D;\frac{A_0}{1+\frac{s}{w_0}}$</p>
 <p>闭环模型$\Phi_{(s)}&#x3D;\frac{G{(s)}}{1+\beta G{(s)}} &#x3D; \frac{A_0}{1+\beta A_0}*\frac{1}{1+\frac{s}{w_0(1+\beta A_0)}}$</p>
 <p>所以开环模型$A(w)w &#x3D; A_0w_0 &#x3D;\frac{A_0}{1+\beta A_0}* w_0(1+\beta A_0)$两者增益带宽积相同，所以闭环系统和开环系统 增益带宽积 参数 相同。</p>
 <p><strong>应用启示</strong>：</p>
@@ -694,7 +694,7 @@
 <p>直流失调调零电路</p>
 <p><img src="/../pic/image-20240612093517255.png" srcset="/img/loading.gif" lazyload alt="直流失调调零电路"></p>
 </blockquote>
-<p>失调电压会受温度影响。</p>
+<p>输入失调电压会受随温度变化近似线性变化。</p>
 <h2 id="输入偏置电流"><a href="#输入偏置电流" class="headerlink" title="输入偏置电流"></a>输入偏置电流</h2><p>理想运放：流入运放两端的电流为零。</p>
 <p>实际运放：会有电流流入运放差分输入级 BJT的基级电流 or MOSFET的栅极电流。这个电流为运放提供合适的静态工作点。</p>
 <p>输入偏置电流：差分输入级的共模信号提供静态工作点 差模信号为放大信号</p>
@@ -715,7 +715,7 @@
 <p><img src="/../pic/image-20240612143602680.png" srcset="/img/loading.gif" lazyload alt="消除偏置电流的影响"></p>
 <p>$V_{out} &#x3D; I_B^+R_c(\frac{R_1+R_f}{R_1})-I_B^-R_f$</p>
 <p>当$R_c &#x3D; R_1&#x2F;&#x2F;R_f、I_B^+ &#x3D; I_B^-$偏置电流影响消除。</p>
-<p>但是因为失调电流$I_B^+ ≠ I_B^-$，会产生 $V_ios &#x3D; |I_B^+ - I_B^-|R_f$偏差。</p>
+<p>但是因为差分输入级两端不完全对称，存在失调电流$I_B^+ ≠ I_B^-$，会产生 $V_{ios} &#x3D; |I_B^+ - I_B^-|R_f$偏差。</p>
 <p>和失调电压产生的偏差叠加产生最后的误差。</p>
 <p><img src="/../pic/image-20240612144117899.png" srcset="/img/loading.gif" lazyload alt="失调电压 失调电流叠加"></p>
 <p>$V_{oo} &#x3D; V_{io} + V_{ios} &#x3D; (\frac{R_1+R_f}{R_1})V_{io} +|I_B^+ - I_B^-|R_f $</p>
@@ -1033,6 +1033,13 @@
 <p>参考：<a target="_blank" rel="noopener" href="https://www.elecfans.com/d/2050938.html">https://www.elecfans.com/d/2050938.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gg411X7cE?spm_id_from=333.788.videopod.sections&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1gg411X7cE?spm_id_from=333.788.videopod.sections&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kf4y1f7zY?spm_id_from=333.788.player.switch&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Kf4y1f7zY?spm_id_from=333.788.player.switch&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
+<h1 id="滤波器基础"><a href="#滤波器基础" class="headerlink" title="滤波器基础"></a>滤波器基础</h1><h2 id="二阶带通滤波器通用"><a href="#二阶带通滤波器通用" class="headerlink" title="二阶带通滤波器通用"></a>二阶带通滤波器通用</h2><p><strong>传递函数表达式：</strong>$\Phi(s) &#x3D;  \frac{K<em>w_n</em>s}{s^2 +\frac{1}{Q} w_n+w_n^2} &#x3D; \frac{K<em>w_n</em>s}{s^2 +2\epsilon w_n+w_n^2}$</p>
+<p><strong>中心频率：</strong>令$|\Phi(jw_m)|$最大的频率，$w_m^2 &#x3D; w_n^2$</p>
+<p><strong>两个截止频率：</strong>$|\Phi(jw_c)|*\sqrt{2} &#x3D; |\Phi(jw_m)|$</p>
+<p><strong>带宽：</strong>$Bw&#x3D;w_{c1}-w_{c2}$</p>
+<p><strong>运放选型：</strong></p>
+<p>增益带宽积</p>
+<p>压摆率</p>
 <h1 id="如何阅读芯片手册"><a href="#如何阅读芯片手册" class="headerlink" title="如何阅读芯片手册"></a>如何阅读芯片手册</h1><p><img src="/../pic/%E5%A6%82%E4%BD%95%E9%98%85%E8%AF%BB%E8%8A%AF%E7%89%87%E6%89%8B%E5%86%8C.png" srcset="/img/loading.gif" lazyload alt="如何阅读芯片手册"></p>
 <h1 id="书籍阅读笔记"><a href="#书籍阅读笔记" class="headerlink" title="书籍阅读笔记"></a>书籍阅读笔记</h1><h2 id="硬件十万个为什么—无源器件"><a href="#硬件十万个为什么—无源器件" class="headerlink" title="硬件十万个为什么—无源器件"></a>硬件十万个为什么—无源器件</h2><h3 id="电容-1"><a href="#电容-1" class="headerlink" title="电容"></a>电容</h3><h4 id="大电容并联小电容并联滤波问题"><a href="#大电容并联小电容并联滤波问题" class="headerlink" title="大电容并联小电容并联滤波问题"></a>大电容并联小电容并联滤波问题</h4><p><strong>两电容并联</strong>是因为电容自身存在寄生电感，两电容并联的阻抗特性曲线比单个电容曲线好。</p>
 <p><strong>大电容并联小电容</strong> 比 两个想同大电容并联曲线好。</p>

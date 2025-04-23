@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Modian.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.058Z">
-<meta property="article:modified_time" content="2025-03-13T06:52:49.461Z">
+<meta property="article:modified_time" content="2025-03-22T05:59:17.621Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k 字
+          6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          46 分钟
+          51 分钟
         
       </span>
     
@@ -403,7 +403,9 @@
 <p><img src="/../pic/image-20240601111826275.png" srcset="/img/loading.gif" lazyload alt="共射波形分析"></p>
 <p>$R_c$把变化的电流转化为变化的电压</p>
 <h4 id="直接耦合共射放大电路"><a href="#直接耦合共射放大电路" class="headerlink" title="直接耦合共射放大电路"></a>直接耦合共射放大电路</h4><p><img src="/../pic/image-20240601112248686.png" srcset="/img/loading.gif" lazyload alt="直接耦合共射放大电路"></p>
+<p>直流通路→交流通路→放大倍数RiRo</p>
 <h4 id="阻容耦合放大电路"><a href="#阻容耦合放大电路" class="headerlink" title="阻容耦合放大电路"></a>阻容耦合放大电路</h4><p><img src="/../pic/image-20240601112655038.png" srcset="/img/loading.gif" lazyload alt="阻容耦合放大电路"></p>
+<p> <img src="/../pic/30c34c6860928bf8ad059671bfd43b00_720.png" srcset="/img/loading.gif" lazyload alt="分析过程"></p>
 <h4 id="电路分析"><a href="#电路分析" class="headerlink" title="电路分析"></a>电路分析</h4><p>直流分析：电容断路，交流电压源短路。</p>
 <p>交流分析：电容短路，直流电压源短路。</p>
 <h4 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h4><p><img src="/../pic/image-20240601114809443.png" srcset="/img/loading.gif" lazyload alt="输入输出等效电阻"></p>
@@ -476,16 +478,16 @@
 <p><img src="/../pic/image-20240602103624330.png" srcset="/img/loading.gif" lazyload alt="饱和失真"></p>
 <p>影响因素：</p>
 <blockquote>
-<p>温度：需要改进</p>
-<p>电源波动：没办法</p>
-<p>元器件老化：没办法</p>
+<p>温度：温度升高，放大倍数变大，需要电路改进</p>
+<p>电源波动：外部改进，电路没办法</p>
+<p>元器件老化：外部改进，电路没办法</p>
 </blockquote>
 <p>解决办法：引入负反馈抑制影响</p>
 <p><img src="/../pic/image-20240602105009423.png" srcset="/img/loading.gif" lazyload alt="负反馈电阻Re和RB1 RB2 确定工作点的稳定工作点电路"></p>
 <ul>
 <li><p>$I_{B_2}&gt;&gt;I_B$使β的变化对$u_{b}$的影响非常小。</p>
 </li>
-<li><p>如图右侧</p>
+<li><p>$R_E$负反馈电阻，温度↑，$I_B$↑，$I_E$↑，$U_{BE}$↓，$I_B$↓</p>
 </li>
 </ul>
 <h3 id="2-4-2-静态工作点稳定电路"><a href="#2-4-2-静态工作点稳定电路" class="headerlink" title="2.4.2 静态工作点稳定电路"></a>2.4.2 静态工作点稳定电路</h3><p><img src="/../pic/image-20240602110225446.png" srcset="/img/loading.gif" lazyload alt="阻容式耦合静态工作点稳定电路"></p>
@@ -493,11 +495,11 @@
 <p>缺点：有大电容($C_e$)，大电感不能集成 </p>
 <p><img src="/../pic/image-20240602110626692.png" srcset="/img/loading.gif" lazyload alt="其他静态工作点稳定电路"></p>
 <p>自己分析</p>
-<h2 id="2-5-共集放大电路"><a href="#2-5-共集放大电路" class="headerlink" title="2.5 共集放大电路"></a>2.5 共集放大电路</h2><p><img src="/../pic/image-20240602111034231.png" srcset="/img/loading.gif" lazyload alt="共集放大电路"></p>
+<h2 id="2-5-共集放大电路（射级输出-跟随器）"><a href="#2-5-共集放大电路（射级输出-跟随器）" class="headerlink" title="2.5 共集放大电路（射级输出&#x2F;跟随器）"></a>2.5 共集放大电路（射级输出&#x2F;跟随器）</h2><p><img src="/../pic/image-20240602111034231.png" srcset="/img/loading.gif" lazyload alt="共集放大电路"></p>
 <p>分析方法同前面。</p>
 <p>特性：</p>
 <blockquote>
-<p>输放大倍数接近一</p>
+<p>电压放大倍数接近一,但放大电流</p>
 </blockquote>
 <blockquote>
 <p>$R_o$很小</p>
@@ -512,36 +514,50 @@
 <p>通频带宽</p>
 </blockquote>
 <blockquote>
+<p>$A_u &#x3D; \frac{\beta i_b R_C&#x2F;&#x2F;R_L}{i_b R_{be}+(1+\beta)i_bR_E}$，$R_E$一般很小→放大倍数接近共射</p>
 </blockquote>
 <blockquote>
+<p>$R_i&#x3D;R_e+\frac{r_{be}}{1+\beta}$</p>
 </blockquote>
 <blockquote>
+<p>$R_o &#x3D; R_C$</p>
 </blockquote>
 <h2 id="2-7-三种放大电路特性对比"><a href="#2-7-三种放大电路特性对比" class="headerlink" title="2.7 三种放大电路特性对比"></a>2.7 三种放大电路特性对比</h2><h2 id="2-8-复合放大电路"><a href="#2-8-复合放大电路" class="headerlink" title="2.8 复合放大电路"></a>2.8 复合放大电路</h2><h3 id="2-8-1-复合管"><a href="#2-8-1-复合管" class="headerlink" title="2.8.1 复合管"></a>2.8.1 复合管</h3><p><img src="/../pic/image-20240602171347769.png" srcset="/img/loading.gif" lazyload alt="复合管"></p>
-<p>作用：形成PNP NPN特性相近的对管</p>
+<p>背景：很难做到两个特性相近的NPN  和 PNP，只能做到两个特性相近的NPN&#x2F;PNP</p>
+<p>作用：形成PNP NPN特性相近的对管，增大放大倍数</p>
 <h3 id="2-8-2-共射-共基放大电路"><a href="#2-8-2-共射-共基放大电路" class="headerlink" title="2.8.2 共射-共基放大电路"></a>2.8.2 共射-共基放大电路</h3><p><img src="/../pic/image-20240602172857953.png" srcset="/img/loading.gif" lazyload alt="共射-共基放大电路"></p>
+<p>作用：</p>
 <h3 id="2-8-3-共集-共基放大电路"><a href="#2-8-3-共集-共基放大电路" class="headerlink" title="2.8.3 共集-共基放大电路"></a>2.8.3 共集-共基放大电路</h3><p><img src="/../pic/image-20240602172924676.png" srcset="/img/loading.gif" lazyload alt="共集-共基放大电路"></p>
+<p>作用：</p>
 <h2 id="2-9-MOSFET放大电路分析"><a href="#2-9-MOSFET放大电路分析" class="headerlink" title="2.9 MOSFET放大电路分析"></a>2.9 MOSFET放大电路分析</h2><p><img src="/../pic/image-20240602173151568.png" srcset="/img/loading.gif" lazyload alt="基本共源放大电路"></p>
 <p><img src="/../pic/image-20240602172948082.png" srcset="/img/loading.gif" lazyload alt="MOSFET放大电路"></p>
 <p><img src="/../pic/image-20240602173951231.png" srcset="/img/loading.gif" lazyload alt="MOS小信号交流等效模型"></p>
 <p><img src="/../pic/image-20240602174302776.png" srcset="/img/loading.gif" lazyload alt="image-20240602174302776"></p>
-<p>que：$R_{g3}作用$</p>
+<p>que：</p>
+<blockquote>
+<p>$R_{g3}$  作用—</p>
+<p>$R_{s}$  作用—</p>
+</blockquote>
 <p><img src="/../pic/image-20240602174402990.png" srcset="/img/loading.gif" lazyload alt="image-20240602174402990"></p>
-<h1 id="三、集成运算放大电路27-5-29-5"><a href="#三、集成运算放大电路27-5-29-5" class="headerlink" title="三、集成运算放大电路27.5~29.5"></a>三、集成运算放大电路27.5~29.5</h1><p>多级放大电路作用：结合多种优点，$R_i R_o$</p>
+<h1 id="三、集成运算放大电路27-5-29-5"><a href="#三、集成运算放大电路27-5-29-5" class="headerlink" title="三、集成运算放大电路27.5~29.5"></a>三、集成运算放大电路27.5~29.5</h1><p>多级放大电路作用：结合多种放大电路优点，$R_i R_o A_{uu}$</p>
 <h2 id="3-1-耦合方式"><a href="#3-1-耦合方式" class="headerlink" title="3.1 耦合方式"></a>3.1 耦合方式</h2><h3 id="3-1-1-直接耦合"><a href="#3-1-1-直接耦合" class="headerlink" title="3.1.1 直接耦合"></a>3.1.1 直接耦合</h3><p><img src="/../pic/image-20240602181313110.png" srcset="/img/loading.gif" lazyload alt="直接耦合"></p>
-<p>a图问题：T2管ube&#x3D;0.7，T1 uce1 &#x3D; ube2 &#x3D;0.7，T1容易进入饱和区</p>
-<p>改进b图：加二极管，但是需要很多二极管串联，所以加稳压二极管，并且加R提供稳定稳压二极管静态工作点的电流。但是需要的VCC更大，所以改进为d图</p>
+<p>a图问题：T2管$u_{be}&#x3D;0.7$，T1 $u_{ce1} &#x3D; u_{be2} &#x3D;0.7$，T1容易进入饱和区</p>
+<p>改进b图：加电阻$R_{e2}$抬电压</p>
+<p>改进c图：加二极管，但是需要很多二极管串联，所以加稳压二极管，并且加R提供稳定稳压二极管进入稳压区的电流。但是需要的VCC更大，所以改进为d图</p>
 <p><strong>优点</strong>：低频特性好(无电容，低频电容容抗高)，容易集成</p>
-<p><strong>缺点</strong>：难调试（确定静态工作点难，静态工作点与很多参数有关系）</p>
+<p><strong>缺点</strong>：难调试，前后静态工作点有耦合（确定静态工作点难，静态工作点与很多参数有关系）</p>
 <h3 id="3-1-2-阻容耦合"><a href="#3-1-2-阻容耦合" class="headerlink" title="3.1.2 阻容耦合"></a>3.1.2 阻容耦合</h3><p><img src="/../pic/image-20240602182558716.png" srcset="/img/loading.gif" lazyload alt="阻容耦合"></p>
 <p>优点：调试简单，静态工作点好确定</p>
-<p>缺点：</p>
+<p>缺点：大电容集成不了。低频电容阻抗高，不适合低频</p>
 <h3 id="3-1-3-变压器耦合"><a href="#3-1-3-变压器耦合" class="headerlink" title="3.1.3 变压器耦合"></a>3.1.3 变压器耦合</h3><p><img src="/../pic/image-20240602182702935.png" srcset="/img/loading.gif" lazyload alt="变压器耦合"></p>
-<p>优点：</p>
+<p>优点：变压器阻抗变换，调整功率</p>
 <p>缺点：</p>
 <h3 id="3-1-4-光电耦合"><a href="#3-1-4-光电耦合" class="headerlink" title="3.1.4 光电耦合"></a>3.1.4 光电耦合</h3><p><img src="/../pic/image-20240602182928808.png" srcset="/img/loading.gif" lazyload alt="光电耦合"></p>
 <h2 id="3-2-动态分析"><a href="#3-2-动态分析" class="headerlink" title="3.2 动态分析"></a>3.2 动态分析</h2><p>逐级分析 $R_i R_o A_{uu}$</p>
-<h2 id="3-3-直接耦合放大电路零点漂移"><a href="#3-3-直接耦合放大电路零点漂移" class="headerlink" title="3.3 直接耦合放大电路零点漂移"></a>3.3 直接耦合放大电路零点漂移</h2><p>零点漂移现象：$U_i &#x3D; 0 ,U_o ≠0$</p>
+<p> $R_i$：后级的$R_i$是前级的$R_L$</p>
+<p> $R_O$：前级的$R_O$是后级的$R_s$</p>
+<h2 id="3-3-多级放大电路"><a href="#3-3-多级放大电路" class="headerlink" title="3.3 多级放大电路"></a>3.3 多级放大电路</h2><h3 id="3-3-1直接耦合放大电路零点漂移"><a href="#3-3-1直接耦合放大电路零点漂移" class="headerlink" title="3.3.1直接耦合放大电路零点漂移"></a>3.3.1直接耦合放大电路零点漂移</h3><p><strong>直接耦合放大电路的好处</strong>：容易集成，对低频信号能够放大 但 前后级工作点存在耦合，容易受温度影响</p>
+<p>零点漂移现象：$U_i &#x3D; 0 ,U_o ≠0$</p>
 <p><img src="/../pic/image-20240602201452732.png" srcset="/img/loading.gif" lazyload alt="零点漂移现象"></p>
 <p>产生原因：温漂</p>
 <p>抑制方法：</p>
@@ -553,10 +569,10 @@
 </blockquote>
 <h3 id="3-3-2-差分放大电路"><a href="#3-3-2-差分放大电路" class="headerlink" title="3.3.2 差分放大电路"></a>3.3.2 差分放大电路</h3><p><img src="/../pic/image-20240602203507063.png" srcset="/img/loading.gif" lazyload alt="差分放大电路"></p>
 <p>优点：</p>
-<p>①$R_e$稳定静态工作点相当于两倍$R_e$作用，</p>
+<p>①$R_e$稳定单个管子静态工作点相当于两倍$R_e$作用，</p>
 <p>②交流等效模型$R_e$被消除，不影响放大倍数</p>
-<p>③能完全抑制温漂等共模信号，放大倍数为零</p>
-<p>分析：</p>
+<p>③能完全抑制温漂等共模信号，对共模信号放大倍数为零。</p>
+<p>交流分析：</p>
 <p>最关键的是化简交流等效电路</p>
 <p>求$A_{uu}，R_i，R_o$</p>
 <h3 id="3-3-3-其他接法"><a href="#3-3-3-其他接法" class="headerlink" title="3.3.3 其他接法"></a>3.3.3 其他接法</h3><p>排列组合：双入双出 单入双出 双入单出 单入单出</p>
@@ -579,12 +595,12 @@
 <h3 id="3-3-4-互补输出级"><a href="#3-3-4-互补输出级" class="headerlink" title="3.3.4 互补输出级"></a>3.3.4 互补输出级</h3><p><strong>多级放大电路要求：</strong></p>
 <p>输入级抑制温漂，干扰(差分放大电路)、输入电阻大(mosfet)—差分放大电路、mosfet</p>
 <p>中间级放大电压电流—共射放大电路</p>
-<p>输出级输出电阻小，不失真，输出功率高，效率高 —射级输出器</p>
+<p>输出级输出电阻小(射级输出器)，不失真，输出功率高，效率高</p>
 <p><strong>甲乙丙功放区分：</strong></p>
 <p><img src="/../pic/image-20240602211544838.png" srcset="/img/loading.gif" lazyload alt="甲乙丙功放区分"></p>
 <p>按照BJT对于交流信号的导通角度确定。</p>
-<p>甲类：静态工作点太高，直流电压高，一直在耗电，但不失真。</p>
-<p>乙类：静态工作点在截止区，只有正半轴信号通过，直流损耗不高但是只有一半的信号，有失真。</p>
+<p>甲类：静态工作点太高，直流电压高，一直在耗电，效率低，但不失真。</p>
+<p>乙类：静态工作点在截止区，只有正半轴信号通过，没有直流损耗不高但是只有一半不到的信号，有失真。</p>
 <p>解决办法：两个乙类结合，正半轴  负半轴分开通过。</p>
 <ul>
 <li>互补输出级</li>
@@ -600,12 +616,42 @@
 <p>互补输出级：$R_o$小，功耗小，达林顿管构成NPN PNP。</p>
 <p><strong>交流等效电路：</strong></p>
 <p><img src="/../pic/image-20240602215854974.png" srcset="/img/loading.gif" lazyload alt="交流等效电路"></p>
-<h3 id="3-3-6-电流源电路"><a href="#3-3-6-电流源电路" class="headerlink" title="3.3.6 电流源电路"></a>3.3.6 电流源电路</h3><h1 id="四、放大电路的频率响应-P23-P27"><a href="#四、放大电路的频率响应-P23-P27" class="headerlink" title="四、放大电路的频率响应(P23~P27)"></a>四、放大电路的频率响应(P23~P27)</h1><p>高频时PN结结间电容不可忽略！</p>
+<h3 id="3-3-6-电流源电路"><a href="#3-3-6-电流源电路" class="headerlink" title="3.3.6 电流源电路"></a>3.3.6 电流源电路</h3><p>作用：提供静态稳定电路，$R_E足够大$，且不需要很大电压。 </p>
+<h4 id="镜像电流源"><a href="#镜像电流源" class="headerlink" title="镜像电流源"></a>镜像电流源</h4><p><img src="/../pic/image-20250322104055028.png" srcset="/img/loading.gif" lazyload alt="镜像电流源"></p>
+<p>$U_{CE0} &#x3D;U_{BE0}→T_0工作在放大状态$ </p>
+<p>$V_{B0} &#x3D; V_{B1} → I_{B0} &#x3D; I_{B1} →  I_{C0} &#x3D; I_{C1} → \frac{V_{CC}-0.7}{R}\frac{\beta}{(2+\beta)} &#x3D; I_{C0}&#x3D;I_{C1} $</p>
+<p>缺点：</p>
+<p>输出电流大→电阻R小，$I^2R$消耗过大功率，发热严重，损耗高</p>
+<h4 id="比例电流源"><a href="#比例电流源" class="headerlink" title="比例电流源"></a>比例电流源</h4><p><img src="/../pic/image-20250322105426536.png" srcset="/img/loading.gif" lazyload alt="比例电流源"></p>
+<p>$I_{E0}R_{e0}+u_{be0} &#x3D; I_{E1}R_{e1}+u_{be1}  PN结特性→u_{be1}≈u_{be0}→ I_{E0}R_{e0} &#x3D; I_{E1}R_{e1}→I_{C1} &#x3D; \frac{I_{E0}R_{e0}}{R_{e1}}\frac{\beta}{1+\beta}$</p>
+<h4 id="微电流源"><a href="#微电流源" class="headerlink" title="微电流源"></a>微电流源</h4><p><img src="/../pic/image-20250322110041576.png" srcset="/img/loading.gif" lazyload alt="微电流源"></p>
+<h4 id="射级输出器-电流源"><a href="#射级输出器-电流源" class="headerlink" title="射级输出器 电流源"></a>射级输出器 电流源</h4><p><img src="/../pic/image-20250322110429506.png" srcset="/img/loading.gif" lazyload alt="射级输出器 电流源"></p>
+<p>进一步减小R上电流。</p>
+<p>$R_{e2}$稳定射级输出器电流。</p>
+<p>威尔逊电流源</p>
+<p><img src="/../pic/image-20250322110732248.png" srcset="/img/loading.gif" lazyload alt="威尔逊电流源"></p>
+<p>优点：</p>
+<p>$I_{C2} ≈I_R$更相近</p>
+<p>上面电流源做负载稳定$T_2$静态工作点</p>
+<h4 id="多比例电流源"><a href="#多比例电流源" class="headerlink" title="多比例电流源"></a>多比例电流源</h4><p><img src="/../pic/image-20250322111321990.png" srcset="/img/loading.gif" lazyload alt="多比例电流源"></p>
+<h4 id="多集电极多路电流源"><a href="#多集电极多路电流源" class="headerlink" title="多集电极多路电流源"></a>多集电极多路电流源</h4><p><img src="/../pic/image-20250322111331157.png" srcset="/img/loading.gif" lazyload alt="多集电极多路电流源"></p>
+<p>MOS多路电流源</p>
+<p><img src="/../pic/image-20250322111420024.png" srcset="/img/loading.gif" lazyload alt="image-20250322111420024"></p>
+<h3 id="3-3-7-电流源-作-有源负载"><a href="#3-3-7-电流源-作-有源负载" class="headerlink" title="3.3.7 电流源 作 有源负载"></a>3.3.7 电流源 作 有源负载</h3><p>电流源特性：</p>
+<blockquote>
+<p>电源固定</p>
+<p>电压由负载电阻和电流源大小决定</p>
+<p>输出电阻无穷大—用这一特性做负载</p>
+</blockquote>
+<h4 id="有源负载差分放大电路"><a href="#有源负载差分放大电路" class="headerlink" title="有源负载差分放大电路"></a>有源负载差分放大电路</h4><p><img src="/../pic/image-20250322132549936.png" srcset="/img/loading.gif" lazyload alt="有源负载差分放大电路"></p>
+<h3 id="F007内部电路"><a href="#F007内部电路" class="headerlink" title="F007内部电路"></a>F007内部电路</h3><p><img src="/../pic/image-20250322132906659.png" srcset="/img/loading.gif" lazyload alt="F007内部电路"></p>
+<p>UA741运放内部电路：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_55255438/article/details/142438170">https://blog.csdn.net/weixin_55255438/article/details/142438170</a></p>
+<h1 id="四、放大电路的频率响应-P23-P27"><a href="#四、放大电路的频率响应-P23-P27" class="headerlink" title="四、放大电路的频率响应(P23~P27)"></a>四、放大电路的频率响应(P23~P27)</h1><p>高频时PN结结间电容不可忽略！</p>
 <p><img src="/../pic/image-20240602220516238.png" srcset="/img/loading.gif" lazyload alt="放大倍数频率特性"></p>
 <p>低频：耦合电容</p>
 <p>高频：结间电容</p>
 <h2 id="4-1-幅频特性概述"><a href="#4-1-幅频特性概述" class="headerlink" title="4.1 幅频特性概述"></a>4.1 幅频特性概述</h2><p>我是自控大王，不记了。</p>
-<h2 id="4-2-BJT-Π型-高频不可忽略等效模型"><a href="#4-2-BJT-Π型-高频不可忽略等效模型" class="headerlink" title="4.2 BJT Π型 高频不可忽略等效模型"></a>4.2 BJT Π型 高频不可忽略等效模型</h2><p><img src="/../pic/image-20240602224112890.png" srcset="/img/loading.gif" lazyload alt="BJT高频不可忽略等效模型"></p>
+<h2 id="4-2-BJT-Π型-高频不可忽略等效模型-23-27后面在看"><a href="#4-2-BJT-Π型-高频不可忽略等效模型-23-27后面在看" class="headerlink" title="4.2 BJT Π型 高频不可忽略等效模型(23-27后面在看)"></a>4.2 BJT Π型 高频不可忽略等效模型(23-27后面在看)</h2><p><img src="/../pic/image-20240602224112890.png" srcset="/img/loading.gif" lazyload alt="BJT高频不可忽略等效模型"></p>
 <p>简化高频不可忽略等效模型等效模型</p>
 <p><img src="/../pic/image-20240602224215604.png" srcset="/img/loading.gif" lazyload alt="简化高频不可忽略等效模型等效模型"></p>
 <h2 id="4-3-MOSFET-高频不可忽略等效模型"><a href="#4-3-MOSFET-高频不可忽略等效模型" class="headerlink" title="4.3 MOSFET 高频不可忽略等效模型"></a>4.3 MOSFET 高频不可忽略等效模型</h2><h2 id="4-4-单级放大电路频率响应"><a href="#4-4-单级放大电路频率响应" class="headerlink" title="4.4 单级放大电路频率响应"></a>4.4 单级放大电路频率响应</h2><h2 id="4-5-多级放大电路频率响应"><a href="#4-5-多级放大电路频率响应" class="headerlink" title="4.5 多级放大电路频率响应"></a>4.5 多级放大电路频率响应</h2><h1 id="五、放大电路中的反馈29-5-35"><a href="#五、放大电路中的反馈29-5-35" class="headerlink" title="五、放大电路中的反馈29.5~35"></a>五、放大电路中的反馈29.5~35</h1><h2 id="5-1-反馈的判断"><a href="#5-1-反馈的判断" class="headerlink" title="5.1 反馈的判断"></a>5.1 反馈的判断</h2><p>反馈定义：输出量影响净输入量。</p>
