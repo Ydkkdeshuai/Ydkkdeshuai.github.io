@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.042Z">
-<meta property="article:modified_time" content="2025-04-23T15:40:36.811Z">
+<meta property="article:modified_time" content="2025-05-15T06:57:40.340Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="电路">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.5k 字
+          6.6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          54 分钟
+          55 分钟
         
       </span>
     
@@ -636,7 +636,7 @@
 <p><strong>一阶系统</strong>$\Phi_{(s)}&#x3D;\frac{A_0}{1+\frac{w}{w_0}}$</p>
 <p><strong>幅频关系</strong>：</p>
 <p><img src="/../pic/image-20240611231557804.png" srcset="/img/loading.gif" lazyload alt="放大倍数和频率幅频关系"></p>
-<p>其中转折频率$f_c$很小，近似100HZ，所以可以认为频率远大于转折频率，即$f&gt;&gt;f_c$。</p>
+<p>其中放大倍数很大，$A_0&gt;&gt;1$，当$|\Phi_{(jw)} | &#x3D; 1$，频率远大于转折频率，即$f&gt;&gt;f_c$，$\frac{w}{w_0}&gt;&gt;1$。</p>
 <p>所以 $A(w) &#x3D;|\Phi_{(jw)}|&#x3D;|\frac{A_0}{1+\frac{w}{w_0}}|≈\frac{A_0}{\frac{w}{w_0}}$ → $A(w)w（增益带宽积） &#x3D; A_0w_0$</p>
 <p>**单位增益频率(GBW)**：当近似模型中$A(w) &#x3D; 1$时的频率。</p>
 <p><strong>UGB</strong>：实际系统模型不一定为一阶系统，所以频率不一定等于<strong>GBW</strong>，实际系统的$A(w) &#x3D; 1$时的频率。</p>
@@ -644,8 +644,8 @@
 <li>为什么开环带宽 闭环带宽能混用？</li>
 </ul>
 <p>开环模型：$G{(s)}&#x3D;\frac{A_0}{1+\frac{s}{w_0}}$</p>
-<p>闭环模型$\Phi_{(s)}&#x3D;\frac{G{(s)}}{1+\beta G{(s)}} &#x3D; \frac{A_0}{1+\beta A_0}*\frac{1}{1+\frac{s}{w_0(1+\beta A_0)}}$</p>
-<p>所以开环模型$A(w)w &#x3D; A_0w_0 &#x3D;\frac{A_0}{1+\beta A_0}* w_0(1+\beta A_0)$两者增益带宽积相同，所以闭环系统和开环系统 增益带宽积 参数 相同。</p>
+<p>闭环模型：$\Phi(s)&#x3D;\frac{G{(s)}}{1+\beta G{(s)}} &#x3D; \frac{A_0}{1+\beta A_0}*\frac{1}{1+\frac{s}{w_0(1+\beta A_0)}}$</p>
+<p>所以开环模型$A(w)w &#x3D; A_0w_0 &#x3D;\frac{A_0}{1+\beta A_0}* w_0(1+\beta A_0)$两者增益带宽积相同，所以闭环系统和开环系统 增益带宽积 参数 几乎相等。</p>
 <p><strong>应用启示</strong>：</p>
 <p>运放对于放大倍数和频率的能力不能兼顾，在放大倍数确定时，频率范围就能根据手册GBW和放大倍数确定信号工作频率带宽，通常需要留10倍裕量.</p>
 <p>要提高放大和频率的能力,可以接多级放大电路.相当于增大了增益带宽积.</p>
@@ -903,6 +903,10 @@
 <h2 id="维恩桥振荡器"><a href="#维恩桥振荡器" class="headerlink" title="维恩桥振荡器"></a>维恩桥振荡器</h2><h2 id="Astable多谐振荡器"><a href="#Astable多谐振荡器" class="headerlink" title="Astable多谐振荡器"></a>Astable多谐振荡器</h2><h2 id="单稳态多谐振荡器"><a href="#单稳态多谐振荡器" class="headerlink" title="单稳态多谐振荡器"></a>单稳态多谐振荡器</h2><h2 id="有源箝位电路"><a href="#有源箝位电路" class="headerlink" title="有源箝位电路"></a>有源箝位电路</h2><p>使用精密二极管代替普通二极管</p>
 <h2 id="有源Clipper电路"><a href="#有源Clipper电路" class="headerlink" title="有源Clipper电路"></a>有源Clipper电路</h2><p>使用精密二极管代替普通二极管</p>
 <h2 id="电压调节器"><a href="#电压调节器" class="headerlink" title="电压调节器"></a>电压调节器</h2><h2 id="电源抑制比"><a href="#电源抑制比" class="headerlink" title="电源抑制比"></a>电源抑制比</h2><p>参考：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=w4531AVjBYY&t=158s">https://www.youtube.com/watch?v=w4531AVjBYY&amp;t=158s</a></p>
+<h2 id="运放选型"><a href="#运放选型" class="headerlink" title="运放选型"></a>运放选型</h2><p>GBW：运放的幅频特性曲线的穿越频率。</p>
+<p>​	闭环增益带宽 闭环放大倍数 GBW 关系$f_{closed-loop} &#x3D; \frac{GBW}{A_{CL}}$</p>
+<p>UGBW：当闭环增益为1时的 $f_{closed-loop}$</p>
+<p>压摆率（Slew Rate）：对于频率为f的正弦信号，$U_{in} &#x3D;U_Asin(2\pi ft)→\frac{dU_{in}}{dt} &#x3D; U_A2\pi fcos(2\pi ft)&lt;U_A2\pi f$ ，压摆率至少为：$U_A2\pi f$</p>
 <h1 id="米勒平台"><a href="#米勒平台" class="headerlink" title="米勒平台"></a>米勒平台</h1><p>原因：在开关管完全导通时候，Mosfet 寄生电容$C_{gd}$把$C_{gs}$短路掉，阻止$C_{gs}$继续充电，直到$V_{gd}&#x3D;V_{gs}(这时等于米勒电压)$，$V_{gs}$才继续上升到$V_G$。</p>
 <p>影响：延长导通时间，增加开关管动态损耗。</p>
 <p><img src="/../pic/image-20240830201053100.png" srcset="/img/loading.gif" lazyload alt="电路等效模型"></p>
@@ -1033,7 +1037,7 @@
 <p>参考：<a target="_blank" rel="noopener" href="https://www.elecfans.com/d/2050938.html">https://www.elecfans.com/d/2050938.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gg411X7cE?spm_id_from=333.788.videopod.sections&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1gg411X7cE?spm_id_from=333.788.videopod.sections&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kf4y1f7zY?spm_id_from=333.788.player.switch&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV1Kf4y1f7zY?spm_id_from=333.788.player.switch&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
-<h1 id="滤波器基础"><a href="#滤波器基础" class="headerlink" title="滤波器基础"></a>滤波器基础</h1><h2 id="二阶带通滤波器通用"><a href="#二阶带通滤波器通用" class="headerlink" title="二阶带通滤波器通用"></a>二阶带通滤波器通用</h2><p><strong>传递函数表达式：</strong>$\Phi(s) &#x3D;  \frac{K<em>w_n</em>s}{s^2 +\frac{1}{Q} w_n+w_n^2} &#x3D; \frac{K<em>w_n</em>s}{s^2 +2\epsilon w_n+w_n^2}$</p>
+<h1 id="滤波器基础"><a href="#滤波器基础" class="headerlink" title="滤波器基础"></a>滤波器基础</h1><h2 id="传递函数"><a href="#传递函数" class="headerlink" title="传递函数"></a>传递函数</h2><h2 id="二阶带通滤波器通用"><a href="#二阶带通滤波器通用" class="headerlink" title="二阶带通滤波器通用"></a>二阶带通滤波器通用</h2><p><strong>传递函数表达式：</strong>$\Phi(s) &#x3D;  \frac{K<em>w_n</em>s}{s^2 +\frac{1}{Q} w_n+w_n^2} &#x3D; \frac{K<em>w_n</em>s}{s^2 +2\epsilon w_n+w_n^2}$</p>
 <p><strong>中心频率：</strong>令$|\Phi(jw_m)|$最大的频率，$w_m^2 &#x3D; w_n^2$</p>
 <p><strong>两个截止频率：</strong>$|\Phi(jw_c)|*\sqrt{2} &#x3D; |\Phi(jw_m)|$</p>
 <p><strong>带宽：</strong>$Bw&#x3D;w_{c1}-w_{c2}$</p>
