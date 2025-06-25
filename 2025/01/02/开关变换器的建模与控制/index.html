@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Jianmo.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.042Z">
-<meta property="article:modified_time" content="2024-08-28T04:15:09.845Z">
+<meta property="article:modified_time" content="2025-06-23T06:53:12.058Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关变换器建模与控制(读书笔记)">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k 字
+          5.4k 字
         
       </span>
     
@@ -302,27 +302,33 @@
 <p>用PSpice仿真</p>
 </blockquote>
 <p><strong>简单介绍谐振变换器建模与控制：</strong></p>
-<h1 id="一、CCM变换器建模"><a href="#一、CCM变换器建模" class="headerlink" title="一、CCM变换器建模"></a>一、CCM变换器建模</h1><p><img src="/../pic/image-20240819083611592.png" srcset="/img/loading.gif" lazyload alt="DC-DC系统结构图"></p>
+<h1 id="一、CCM变换器建模"><a href="#一、CCM变换器建模" class="headerlink" title="一、CCM变换器建模"></a>一、CCM变换器建模</h1><p><img src="/../pic/image-20250620174740471.png" srcset="/img/loading.gif" lazyload alt="DC-DC系统控制结构图"></p>
 <p>$v(t)输出电压→V_{ref}→ \delta(t)（PWM方波信号） →d(t)（驱动方波信号）→v(t)输出电压$</p>
 <p>输出信号：$v(t)$</p>
 <p>输入信号：$d(t)、v_g(t)$</p>
-<p><img src="/../pic/image-20240819083851731.png" srcset="/img/loading.gif" lazyload alt="在Buck上具体实现"></p>
+<p><img src="/../pic/image-20240819083851731.png" srcset="/img/loading.gif" lazyload alt="Buck调压系统原理图"></p>
 <p><img src="/../pic/image-20240819083937394.png" srcset="/img/loading.gif" lazyload alt="PWM实现方式">、</p>
 <p>锯齿波+比较器：大于电压输出0、小于电压输出1。</p>
 <p><img src="/../pic/image-20240819084325041.png" srcset="/img/loading.gif" lazyload alt="理想/实际波形图"></p>
-<p>整流后电压存在低频谐波(工频交流电整流引起&#x2F;工频交流电扰动)：频率远小于开关频率，所以后面可以认为系统一直是稳态的。</p>
-<p>这个低频谐波会给输出引入交流分量。</p>
+<p>前提：开关频率比较高，导致的纹波非常小，可以忽略。用一个周期的平均值替代这一时刻的值。所以可以一个开关周期为最小时间单位分析系统状态。</p>
 <p><strong>忽略开关频率及谐波原因：</strong></p>
-<p>系统转折频率 $f_0&lt;&lt;f_s$，开关分量被衰减。</p>
+<p>系统存在低通滤波特性，$f_g(采样控制频率)&lt;&lt;f_0(转折频率)&lt;&lt;f_s(开关频率)$，开关频率高次谐波分量被衰减， 但系统采样控制的控制量未被衰减。</p>
+<p>即</p>
+<blockquote>
+<p>低频假设：$f_g(采样控制频率)&lt;&lt;f_s(开关频率)$</p>
+</blockquote>
+<blockquote>
+<p>小纹波假设：$f_0(转折频率)&lt;&lt;f_s(开关频率)$</p>
+</blockquote>
 <p>按照传输信号种类分类：</p>
 <blockquote>
-<p>稳态模型</p>
+<p>稳态模型：静态工作点</p>
 </blockquote>
 <blockquote>
-<p>小信号模型：本章要讨论的</p>
+<p>小信号模型：小信号扰动输入</p>
 </blockquote>
 <blockquote>
-<p>大信号模型</p>
+<p>大信号模型：静态工作点+小信号扰动输入</p>
 </blockquote>
 <p><strong>建模主要思路：</strong></p>
 <blockquote>
@@ -338,16 +344,16 @@
 <h3 id="1-2-1-基本建模法"><a href="#1-2-1-基本建模法" class="headerlink" title="1.2.1 基本建模法"></a>1.2.1 基本建模法</h3><p>以Boost为例。</p>
 <p><img src="/../pic/image-20240819091333557.png" srcset="/img/loading.gif" lazyload alt="Boost原理图"></p>
 <p><strong>一、求平均变量</strong></p>
-<p>因为$f_g(低频信号频率)&lt;&lt;f_s(开关频率)$ 相当于香农采样定理用$f_s$对系统取近似、$f_0(转折频率)&lt;&lt;f_s(开关频率)$ 开关频率分量纹波被衰减，且可以在一个开关周期内求平均变量、以忽略开关纹波。</p>
+<p>因为$f_g(低频信号频率)&lt;&lt;f_s(开关频率)$ 相当于在每个$控制周期f_s$系统的其他扰动不变，开关频率分量高次纹波被衰减，且可以在一个开关周期内求平均变量、以忽略开关纹波。</p>
 <p><img src="/../pic/image-20240819091620143.png" srcset="/img/loading.gif" lazyload alt="理想Boost两种模态"></p>
 <p><strong>模态a</strong><br>$$<br>v_g(t)&#x3D;L\frac{d_i(t)}{dt}\<br>C\frac{d_(t)}{dt}&#x3D;-\frac{v(t)}{R}<br>$$<br><strong>模态b</strong><br>$$<br>L\frac{d_i(t)}{dt}&#x3D;v_g(t)-v(t)\<br>C\frac{d_(t)}{dt}&#x3D;i(t)-\frac{v(t)}{R}<br>$$<br>每个周期变化率：</p>
-<p>电感电流：$L\frac{d_i(t)}{dt}&#x3D;v_g(t)d(t)+(v_g(t)-v(t))(1-d(t))&#x3D;v_g(t)-(1-d(t))v(t)$</p>
-<p>电容电压：$C\frac{d_(t)}{dt}&#x3D;-\frac{v(t)}{R}d(t)+(1-d(t))(\frac{v(t)}{R}-i(t))&#x3D;-\frac{v(t)}{R}+(1-d(t))i(t)$</p>
+<p>电感电流：$\int_0^T{L\frac{d_i(t)}{dt}}{dt}&#x3D;v_g(t)d(t)+(v_g(t)-v(t))(1-d(t))&#x3D;v_g(t)-(1-d(t))v(t)$</p>
+<p>电容电压：$\int_0^T{C\frac{d_(t)}{dt}}dt&#x3D;-\frac{v(t)}{R}d(t)+(1-d(t))(\frac{v(t)}{R}-i(t))&#x3D;-\frac{v(t)}{R}+(1-d(t))i(t)$</p>
 <p><strong>二、分离直流+小交流信号量</strong></p>
 <p>前提：交流信号足够小，使线性化误差很小。<br>$$<br>v_g(t) &#x3D; V_g+dv_g(t)\<br>i(t) &#x3D; I+d{i}(t)\<br>v(t)&#x3D;V+d{v}(t)\<br>d(t) &#x3D; D+d_{d}(t)<br>$$<br><strong>三、线性化</strong></p>
 <p>对电感电流、电容电压取微分。</p>
-<p>$d(L\frac{d_i(t)}{dt})&#x3D;dv_g(t)-(1-D)d{v}(t)+Vd_{d}(t)$</p>
-<p>$d(C\frac{d_(t)}{dt})&#x3D;-\frac{1}{R}d{v}(t)+(1-D)d{i}(t)-Id_{d}(t)$</p>
+<p>$d(\int_0^T{L\frac{d_i(t)}{dt}}{dt})&#x3D;dv_g(t)-(1-D)d{v}(t)+Vd_{d}(t)$</p>
+<p>$d(\int_0^T{C\frac{d_(t)}{dt}}dt)&#x3D;-\frac{1}{R}d{v}(t)+(1-D)d{i}(t)-Id_{d}(t)$</p>
 <h3 id="1-2-2-小信号等效电路"><a href="#1-2-2-小信号等效电路" class="headerlink" title="1.2.2 小信号等效电路"></a>1.2.2 小信号等效电路</h3><p><img src="/../pic/image-20240819102832152.png" srcset="/img/loading.gif" lazyload alt="线性化后得到的交流小信号等效电路"></p>
 <p><img src="/../pic/image-20240819103124422.png" srcset="/img/loading.gif" lazyload alt="电感电容回路组合后得到的总交流小信号等效电路"></p>
 <h3 id="1-2-3-小信号等效电路的分析"><a href="#1-2-3-小信号等效电路的分析" class="headerlink" title="1.2.3 小信号等效电路的分析"></a>1.2.3 小信号等效电路的分析</h3><p>传递函数：</p>
@@ -366,7 +372,7 @@
 <p><strong>总结：</strong></p>
 <p>三个假设：</p>
 <blockquote>
-<p>低频干扰： $f_g &lt;&lt; f_s$、香农采样定理</p>
+<p>低频干扰： $f_g &lt;&lt; f_s$  其他变量很慢，在每个开关周期近似不变</p>
 </blockquote>
 <blockquote>
 <p>小纹波： $f_0&lt;&lt;f_s$、开关频率纹波被衰减</p>
