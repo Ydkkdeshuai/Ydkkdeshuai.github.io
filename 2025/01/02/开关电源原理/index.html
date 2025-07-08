@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/Tuopu.png">
 <meta property="article:published_time" content="2025-01-02T02:39:20.058Z">
-<meta property="article:modified_time" content="2025-03-24T03:17:36.493Z">
+<meta property="article:modified_time" content="2025-07-08T03:16:43.055Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta property="article:tag" content="开关电源">
 <meta name="twitter:card" content="summary_large_image">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.9k 字
+          3.2k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          25 分钟
+          27 分钟
         
       </span>
     
@@ -487,7 +487,7 @@
 <p>$\frac{1}{L} \int_{0}^{DT}V_i - V_o d_t &#x3D; \frac{1}{L} \int_{DT}^{T}  V_o d_t→V_o &#x3D; DV_i$</p>
 <p><strong>电流增益：</strong></p>
 <p>能量守恒：$I_o &#x3D; \frac{I_i}{D}$</p>
-<p><strong>电感电流直流分量：</strong></p>
+<p><strong>电感电流直流分量(电容容值比较大、交流分量近似全部流入电容、直流分量全部流入电阻)：</strong></p>
 <p>电感直流分量等于 R上电流</p>
 <p>$I_L &#x3D; I_O &#x3D; \frac{U_o}{R}$</p>
 <p><strong>电感电流交流分量峰峰值：</strong></p>
@@ -528,9 +528,47 @@
 <p>耐压：$\bar{U}<em>{in} + \Delta{U</em>{in}}$</p>
 <p>直流偏置特性好</p>
 <p>低ESR</p>
-<h3 id="电感电流断续"><a href="#电感电流断续" class="headerlink" title="电感电流断续"></a>电感电流断续</h3><p>电感交流电流变化一半大于直流分量：$ \frac{\Delta I_L}{2}&gt;I_L $</p>
+<h4 id="电感电流断续-模态分析"><a href="#电感电流断续-模态分析" class="headerlink" title="电感电流断续 模态分析"></a>电感电流断续 模态分析</h4><p>电感交流电流变化一半大于直流分量：$ \frac{\Delta I_L}{2}&gt;I_L $</p>
 <p>伏秒平衡：$V_o &#x3D; $</p>
-
+<h2 id="Boost"><a href="#Boost" class="headerlink" title="Boost"></a>Boost</h2><p>设计理念：输入输出功率相同、设计升压电路&#x3D;设计降流电路，</p>
+<p><img src="/../pic/image-20250708101204346.png" srcset="/img/loading.gif" lazyload alt="设计理念"></p>
+<p><img src="/../pic/image-20250708101444644.png" srcset="/img/loading.gif" lazyload alt="设计理念"></p>
+<p>电流源用戴维南定理，电压源串电感代替。</p>
+<p>并联电容稳定负载电压。</p>
+<p>输出加开关防止电容短路。</p>
+<h3 id="原理图"><a href="#原理图" class="headerlink" title="原理图"></a>原理图</h3><p><img src="/../pic/image-20250708101455894.png" srcset="/img/loading.gif" lazyload alt="原理图"></p>
+<h3 id="电流连续-模态分析"><a href="#电流连续-模态分析" class="headerlink" title="电流连续 模态分析"></a>电流连续 模态分析</h3><p><strong>①S导通(0-DT)</strong></p>
+<p>电感电压：$V_i$</p>
+<p><strong>②S关断(DT-T)</strong></p>
+<p>电感电压：$V_i-V_o$</p>
+<p>伏秒平衡： $V_iDT + (V_i-V_o)(1-D)T &#x3D; 0→ V_o &#x3D; \frac{V_i}{1-D}$</p>
+<h3 id="电流断续-模态分析"><a href="#电流断续-模态分析" class="headerlink" title="电流断续 模态分析"></a>电流断续 模态分析</h3><h2 id="Buck-Boost"><a href="#Buck-Boost" class="headerlink" title="Buck-Boost"></a>Buck-Boost</h2><h3 id="原理图-1"><a href="#原理图-1" class="headerlink" title="原理图"></a>原理图</h3><p><img src="/../pic/image-20250708102842478.png" srcset="/img/loading.gif" lazyload alt="原理图"></p>
+<h3 id="电流连续-模态分析-1"><a href="#电流连续-模态分析-1" class="headerlink" title="电流连续 模态分析"></a>电流连续 模态分析</h3><p><strong>①S导通</strong></p>
+<p>电感电压：$V_i$</p>
+<p><strong>②S关断</strong></p>
+<p>电感电压：$V_o$</p>
+<p>伏秒平衡：$V_iDT + V_o(1-D)T&#x3D;0→V_o &#x3D; -\frac{D}{1-D}V_i$</p>
+<p><strong>波形分析：</strong></p>
+<p><img src="/../pic/image-20250708103152429.png" srcset="/img/loading.gif" lazyload alt="波形分析1"></p>
+<p><strong>电感</strong>：L</p>
+<p>电流平均值$I_{ave} &#x3D; \frac{V_o}{R}$</p>
+<p>电流峰峰值：$\Delta I_{ave} &#x3D; \frac{V_o(1-D)T_s}{L}$</p>
+<p>电流$I_{Lmax} &#x3D; I_{ave} + \frac{\Delta I_{ave}}{2}$</p>
+<p>电流$I_{Lmin} &#x3D; I_{ave} - \frac{\Delta I_{ave}}{2}$</p>
+<p><strong>电容</strong>：C</p>
+<p><img src="/../pic/image-20250708103221333.png" srcset="/img/loading.gif" lazyload alt="波形分析2"></p>
+<p><strong>开关S</strong>：</p>
+<p><strong>二极管D</strong>：</p>
+<h3 id="电流断续-模态分析-1"><a href="#电流断续-模态分析-1" class="headerlink" title="电流断续 模态分析"></a>电流断续 模态分析</h3><h2 id="Flayback"><a href="#Flayback" class="headerlink" title="Flayback"></a>Flayback</h2><p>Buck-boost缺点：</p>
+<blockquote>
+<p>负电源</p>
+</blockquote>
+<blockquote>
+<p>电气隔离</p>
+</blockquote>
+<h3 id="原理图-2"><a href="#原理图-2" class="headerlink" title="原理图"></a>原理图</h3><p><img src="/../pic/image-20250708111505243.png" srcset="/img/loading.gif" lazyload alt="Boost演化Flayback原理图"></p>
+<p>电感换变压器，极性反转，MOS管换下管。</p>
+<h3 id="电感连续-模态分析"><a href="#电感连续-模态分析" class="headerlink" title="电感连续 模态分析"></a>电感连续 模态分析</h3><h3 id="电感断续模态分析"><a href="#电感断续模态分析" class="headerlink" title="电感断续模态分析"></a>电感断续模态分析</h3>
                 
               </div>
             
