@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-07-13T16:55:40.593Z">
+<meta property="article:modified_time" content="2026-08-06T16:53:41.249Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          3.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          18 分钟
+          26 分钟
         
       </span>
     
@@ -341,12 +341,61 @@
 <p>⑤根据死区时间和电流大小，结电容，开关周期→确定Lm，Lm越大，铁损铜损越低，有利于提高效率，但也要留有一定裕量，保证电流偏移时能实现ZVS时，死区时间百分比也不能太大，不然传输能量少了，效率又会降低。</p>
 <p>⑥Ln越大，越接近串联谐振特性，更平缓，所以需要Ln更小。Ln越小，管子电流，电容电压应力变大→平衡确定Ln(Q)</p>
 <p>功率密度和效率之间也需要平衡</p>
-<h2 id="PFC"><a href="#PFC" class="headerlink" title="PFC"></a>PFC</h2><h3 id="单相整流器"><a href="#单相整流器" class="headerlink" title="单相整流器"></a>单相整流器</h3><p>单极性调制：上半个周期，Uin和0。下半个周期0和-Uin</p>
+<h2 id="DCM反激变换器设计"><a href="#DCM反激变换器设计" class="headerlink" title="DCM反激变换器设计"></a>DCM反激变换器设计</h2><h3 id="BCM波形图"><a href="#BCM波形图" class="headerlink" title="BCM波形图"></a>BCM波形图</h3><p>系统器件参数：</p>
+<p>输入功率：$P_{in}&#x3D;\frac{1}{T}\int_{0}^{DT}{U_{in}\frac{U_{in}}{L_m}t}dt&#x3D;\frac{U_{in}^2D^2T}{2L_m}$</p>
+<p>输出电压：$\frac{U_{in}}{L_m}DT &#x3D; \frac{nU_{o}}{L_m}(1-D)T→U_o &#x3D; \frac{D}{n(1-D)}U_{in}$</p>
+<p>变压器原边输入电流平均值：$\frac{1}{T}\int_{0}^{DT}{\frac{U_{in}}{L_m}t}dt&#x3D;\frac{U_{in}D^2T}{2L_m}$</p>
+<p>电感电流有效值：$I_{L_m_rms}^2T &#x3D; \int_{0}^{DT}[\frac{U_{in}}{L_m}t]^2dt+\int_{DT}^{T}[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{L_m_rms} &#x3D; \frac{U_{in}DT}{L_m}\sqrt{\frac{1}{3}}$</p>
+<p>二极管峰值电压：$U_{D_max}&#x3D; \frac{U_{in}}{n}+U_o$ </p>
+<p>二极管电流有效值：$I_{D_rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D_rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
+<p>MOS峰值电压：$U_{mos_max}&#x3D; U_{in}+nU_o$ </p>
+<p>MOS电流有效值：$I_{mos_rms}^2T &#x3D; \int_{0}^{DT}[\frac{U_{in}}{L_m}t]^2dt→I_{mos_rms} &#x3D; \frac{U_{in}DT}{L_m}\sqrt{\frac{D}{3}}$</p>
+<h3 id="CCM波形图"><a href="#CCM波形图" class="headerlink" title="CCM波形图"></a>CCM波形图</h3><h3 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h3><p>AC输入电压范围：$$VAC_Low &lt;Vin_AC&lt;VAC_High$$</p>
+<p>电网频率：f</p>
+<p>输出功率：Po</p>
+<p>系统效率：\eta&gt;0.7</p>
+<h3 id="输入电容-C-in-计算"><a href="#输入电容-C-in-计算" class="headerlink" title="输入电容$C_{in}$计算"></a>输入电容$C_{in}$计算</h3><p>含义：在交流输入电压低于母线电容电压时由电容放电提供能量，高于母线电容电压时给母线电容充电。</p>
+<p> 充电时间为$\frac{D}{2f}$，放电时间为$\frac{1-D}{2f}$</p>
+<p>要求：让放电后的电容母线电压不小于最小直流电压VDC_Low。即从sqrt{2}VAC_Low放到VDC_Low的能量大于(1-D)0.01ms(100Hz)系统输入功率能量。<br>$$<br>\frac{1}{2}C_{in}(\sqrt{2}V_{AC_Low})^2-\frac{1}{2}C_{in}V_{DC_Low}^2 &#x3D; P_{in}*(1-D)\frac{1}{2f}\<br>→C_{in} &#x3D; \frac{P_{in}(1-D)}{[(\sqrt{2}V_{AC_Low})^2-V_{DC_Low}^2]f}<br>$$</p>
+<p><strong>例：</strong></p>
+<p><strong>得到经验取值：</strong></p>
+<p>宽输入电压：85-265V—2uF&#x2F;W</p>
+<p>窄输入电压：176-265V—1uF&#x2F;W</p>
+<h3 id="确定最大占空比"><a href="#确定最大占空比" class="headerlink" title="确定最大占空比"></a>确定最大占空比</h3><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">开关特性</th>
+<th align="center">存储能量(平均值)，有效值</th>
+<th align="center">适用场合</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CCM</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">低压大电流</td>
+</tr>
+<tr>
+<td align="center">DCM</td>
+<td align="center">关断电流为零，副边整流二极管ZCS，不存在反向恢复问题</td>
+<td align="center">存储能量更少(平均值更小)，但需要更高的电流峰值，所以有效值更大，MOS导通损耗更大， 且副边输出电容应力更大</td>
+<td align="center">高压小电流</td>
+</tr>
+</tbody></table>
+<p>公式推导解释：</p>
+<p>设计简化，因为DCM电压增益受占空比和负载条件同时决定，当负载变化时，系统参数计算更加复杂，不好设计。而CCM模式电压增益不受负载电阻影响，只由占空比决定，系统最恶劣的条件为低压输入满负载，此时系统其他器件的电压电流应力最大，所以只要得到低压满负载条件下的系统应力参数，其他输入电压，负载条件则也满足设计极限值。而为了更简单得到低压满负载条件下的系统应力参数，让低压满负载工作在BCM条件，此时能使用CCM的计算公式。而当输入电压升高，负载变小，都会进入DCM模式。</p>
+<p>公式推导解释：</p>
+<p><strong>MOSFET电压应力：</strong>$$V_D &#x3D; nV_o+V_o&#x3D;(n+1)\frac{D_{max}}{1-D_{max}}V_{in} $$</p>
+<p><strong>副边整流二极管电压应力</strong>：$$V_D &#x3D;V_{dc_high} +nV_o $$(不存在漏感条件下)</p>
+<h3 id="确定变压器原边电感Lm"><a href="#确定变压器原边电感Lm" class="headerlink" title="确定变压器原边电感Lm"></a>确定变压器原边电感Lm</h3><p>输入功率&#x3D;电感单周期存储能量</p>
+<h3 id="整流二极管"><a href="#整流二极管" class="headerlink" title="整流二极管"></a>整流二极管</h3><p>最大反向电压：$U_{D_max}&#x3D; \frac{U_{in}}{n}+U_o$ </p>
+<p>电流有效值：$I_{D_rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D_rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
+<h3 id="输出电容-C-out"><a href="#输出电容-C-out" class="headerlink" title="输出电容$$C_{out}$$"></a>输出电容$$C_{out}$$</h3><h3 id="RCD尖峰吸收电路设计"><a href="#RCD尖峰吸收电路设计" class="headerlink" title="RCD尖峰吸收电路设计"></a>RCD尖峰吸收电路设计</h3><p>RCD尖峰吸收电路原理：<br>模态①：漏感$$L_{lk}$$和$$C_{oss}$$谐振，直到$$Vds(V_{Coss})$$大于$$V_{in}$$<br>模态②：漏感$$L_{lk}$$给$$C_{clamp}$$充电<br>模态③：$$C_{clamp}$$并联R放电，要求单周期内R消耗能量不少于漏感存储能量。</p>
+<h3 id="补偿电路设计"><a href="#补偿电路设计" class="headerlink" title="补偿电路设计"></a>补偿电路设计</h3><h2 id="PFC"><a href="#PFC" class="headerlink" title="PFC"></a>PFC</h2><h3 id="PWM调制技术"><a href="#PWM调制技术" class="headerlink" title="PWM调制技术"></a>PWM调制技术</h3><h4 id="SPWM"><a href="#SPWM" class="headerlink" title="SPWM"></a>SPWM</h4><h4 id="SVPWM"><a href="#SVPWM" class="headerlink" title="SVPWM"></a>SVPWM</h4><h3 id="单相整流器"><a href="#单相整流器" class="headerlink" title="单相整流器"></a>单相整流器</h3><p>单极性调制：上半个周期，Uin和0。下半个周期0和-Uin</p>
 <p>双极性调制：周期内要么Uin要么-Uin</p>
 <p>单极性倍频调制：最终的结果和单极性调制一样，但是调制波频率可以更低。</p>
-<h3 id="三相整流器"><a href="#三相整流器" class="headerlink" title="三相整流器"></a>三相整流器</h3><p>Clark变换：</p>
-<p>Park变换：</p>
-<h1 id="电能质量PQ"><a href="#电能质量PQ" class="headerlink" title="电能质量PQ"></a>电能质量PQ</h1><h1 id="储能微网"><a href="#储能微网" class="headerlink" title="储能微网"></a>储能微网</h1>
+<h3 id="三相整流器"><a href="#三相整流器" class="headerlink" title="三相整流器"></a>三相整流器</h3><h4 id="Clark变换"><a href="#Clark变换" class="headerlink" title="Clark变换"></a>Clark变换</h4><h4 id="Park变换"><a href="#Park变换" class="headerlink" title="Park变换"></a>Park变换</h4><h4 id="三相六开关PFC"><a href="#三相六开关PFC" class="headerlink" title="三相六开关PFC"></a>三相六开关PFC</h4><h4 id="三相维也纳PFC"><a href="#三相维也纳PFC" class="headerlink" title="三相维也纳PFC"></a>三相维也纳PFC</h4>
                 
               </div>
             
