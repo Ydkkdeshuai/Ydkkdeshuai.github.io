@@ -16,16 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="充电桩LLC谐振变换器二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_{t&amp;#x">
+    <meta name="description" content="充电桩LLC谐振变换器全桥不控LLC二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right">
 <meta property="og:type" content="article">
 <meta property="og:title" content="充换电学习笔记">
 <meta property="og:url" content="http://example.com/%E4%B8%93%E4%B8%9A%E6%8A%80%E8%83%BD/%E5%85%85%E6%8D%A2%E7%94%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
-<meta property="og:description" content="充电桩LLC谐振变换器二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_{t&amp;#x">
+<meta property="og:description" content="充电桩LLC谐振变换器全桥不控LLC二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-06T16:53:41.249Z">
+<meta property="article:modified_time" content="2026-08-06T17:07:17.569Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.2k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          26 分钟
+          27 分钟
         
       </span>
     
@@ -275,13 +275,13 @@
             
               <div class="markdown-body">
                 
-                <h1 id="充电桩"><a href="#充电桩" class="headerlink" title="充电桩"></a>充电桩</h1><h2 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2><h3 id="二阶谐振系统时域分析"><a href="#二阶谐振系统时域分析" class="headerlink" title="二阶谐振系统时域分析"></a>二阶谐振系统时域分析</h3><p>RLC谐振<strong>回路微分方程</strong>：<br>$$<br>LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}<br>$$</p>
+                <h1 id="充电桩"><a href="#充电桩" class="headerlink" title="充电桩"></a>充电桩</h1><h2 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2><h3 id="全桥不控LLC"><a href="#全桥不控LLC" class="headerlink" title="全桥不控LLC"></a>全桥不控LLC</h3><h4 id="二阶谐振系统时域分析"><a href="#二阶谐振系统时域分析" class="headerlink" title="二阶谐振系统时域分析"></a>二阶谐振系统时域分析</h4><p>RLC谐振<strong>回路微分方程</strong>：<br>$$<br>LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}<br>$$</p>
 <p>当<strong>零初始条件</strong>时<br>$$<br>i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_{t&#x3D;0}&#x3D;0\right)<br>$$</p>
 <p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\其中Q &#x3D; \frac{1}{2\epsilon}<br>$$<br>随着R不断增大，衰减速度越快，当R&#x3D;0时不衰减。</p>
 <p><strong>无阻尼(R&#x3D;0)</strong>： $ \epsilon&#x3D;0$  or $Q→\infty$<br>$$<br>u_C(t) &#x3D; U_{ab}\bigl(1 - \cos\omega_0 t\bigr)<br>$$<br><strong>欠阻尼($R&lt;2\sqrt{\frac{L}{C}}$)</strong>： $ \epsilon&lt;1$  or $Q&gt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(\cos\omega_dt + \frac{\epsilon \omega_n}{\omega_d}\sin\omega_dt]<br>$$<br><strong>临界阻尼($R&#x3D;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&#x3D;1$  or $Q&#x3D;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(1+\cos\omega_nt)]<br>$$<br><strong>过阻尼($R&gt;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&lt;1$  or $Q&lt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}\left[1 - \frac{e^{-\epsilon \omega_n t}}{\sqrt{1-\epsilon^2}}\left(\sin\omega_d t+\theta\right)\right]<br>$$<br><strong>特征总结</strong>：</p>
 <p>①振荡角频率：$\omega_d &#x3D; \omega_n\sqrt{1-\epsilon^2}$   在LC谐振角频率基础上，R越大，震荡角频率越小</p>
 <p>②随着R增大，震荡角频率减小，且震荡衰减速度越来越快。 直到过阻尼，系统不衰减。  换言之R会削弱谐振现象，R越低，系统Q值越高，谐振越明显。</p>
-<h3 id="ZVS-软开关技术"><a href="#ZVS-软开关技术" class="headerlink" title="ZVS 软开关技术"></a>ZVS 软开关技术</h3><h3 id="状态轨迹"><a href="#状态轨迹" class="headerlink" title="状态轨迹"></a>状态轨迹</h3><p><strong>LLC应用背景：服务器掉电场景</strong>：当服务器断电，电容维持供电时，电压下降，在这段时间就需要DC-DC变换器对输入电压具有宽范围适应能力。宽范围能力越强，所需存电电容就可以越小。</p>
+<h4 id="ZVS-软开关技术"><a href="#ZVS-软开关技术" class="headerlink" title="ZVS 软开关技术"></a>ZVS 软开关技术</h4><h4 id="状态轨迹"><a href="#状态轨迹" class="headerlink" title="状态轨迹"></a>状态轨迹</h4><p><strong>LLC应用背景：服务器掉电场景</strong>：当服务器断电，电容维持供电时，电压下降，在这段时间就需要DC-DC变换器对输入电压具有宽范围适应能力。宽范围能力越强，所需存电电容就可以越小。</p>
 <p><strong>PWM变换器问题</strong>：当要求所需输入电压范围变宽时，工作效率会降低。即PWM变换器为了适应宽范围输出电压不得不降低效率。</p>
 <p><strong>串联谐振变换器问题</strong>：①类似PWM变换器，异常电压（低电压\高增益）工作点效率更高，正常工作点（高电压\低增益）工作点效率更低。因为正常工作点感性更大，无功多，关断电流大，关断损耗高。②轻载(输出功率更低的情况，对于恒压输出，阻值更大)调制问题，当负载增加，Q减小，增益曲线更凭，需要更大的开关频率维持其增益，进一步增大无功功率。</p>
 <p><strong>并联谐振变换器问题</strong>：能解决轻载调制问题，但是解决不了更优增益点。</p>
@@ -292,7 +292,7 @@
 <p>②副边ZCS能力</p>
 <p>③有效降低无功功率，不存在串联谐振变换器由于负载和掉电压为了调增益提高无功特性。  </p>
 <p>④结合 ZVS  ZCS  降低无功来减小关断电流并降低导通损耗，能提高系统效率。</p>
-<h3 id="LLC分析"><a href="#LLC分析" class="headerlink" title="LLC分析"></a>LLC分析</h3><p><strong>拓扑：</strong></p>
+<h4 id="LLC分析"><a href="#LLC分析" class="headerlink" title="LLC分析"></a>LLC分析</h4><p><strong>拓扑：</strong></p>
 <p><img src="/pic/image-20260712140416264.png" srcset="/img/loading.gif" lazyload alt="LLC拓扑"></p>
 <p><strong>增益表达式：</strong><br>$$<br>H(s) &#x3D; \frac{sL_m \parallel R_{ac}}{\frac{1}{sC_r} + sL_r + (sL_m \parallel R_{ac})}<br>     &#x3D; \frac{sL_m R_{ac}}{(sL_r + \frac{1}{sC_r})(sL_m + R_{ac}) + sL_m R_{ac}}\</p>
 <p>$$</p>
@@ -315,14 +315,14 @@
 <p>同样通过降低开关频率提高增益，会减小一部分无功功率，降低续流二极管电流，设计合理的话反而理论上削弱硬关断。</p>
 <p><strong>工作点：</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
-<h3 id="模态分析："><a href="#模态分析：" class="headerlink" title="模态分析："></a>模态分析：</h3><p>fm&lt;fsw&lt;fr：欠谐振下。</p>
+<h4 id="模态分析："><a href="#模态分析：" class="headerlink" title="模态分析："></a>模态分析：</h4><p>fm&lt;fsw&lt;fr：欠谐振下。</p>
 <p><img src="/pic/image-20260712183331293.png" srcset="/img/loading.gif" lazyload alt="LLC状态①(t0-t1)"></p>
 <p><img src="/pic/image-20260712201115316.png" srcset="/img/loading.gif" lazyload alt="LLC状态②(t1-t2)"></p>
 <p><img src="/pic/image-20260712201155358.png" srcset="/img/loading.gif" lazyload alt="LLC状态③(t2-t3)"></p>
 <p>由于系统大部分时间工作在LmLrCr谐振状态，所以在欠谐振状态下，回路呈感性，电流滞后电压。在管子开通时，谐振腔电流反向。施加正向电压后，由于Vin&gt;nVo，谐振回路CrLr输入Vin-nVo阶跃电压，谐振。励磁回路nVo&#x2F;L斜率缓慢上升。直到励磁电感电流大于谐振腔电流，需要像负载流过，但是由于续流二极管在负载电压的反压下，无法吸收电流。副边断路。nVo为零，Lm非常大，谐振频率很低，励磁电感电流近似斜率很低的直线。然后进入死区软开关部分。模态④ 给寄生电容放电直至完成。模态⑤在寄生电容放电后反并联二极管续流，此时开关打开实现软开关。</p>
 <p><strong>三频率段工作波形</strong></p>
 <p><img src="/pic/image-20260712201552905.png" srcset="/img/loading.gif" lazyload alt="三频率段工作波形"></p>
-<h3 id="状态轨迹分析"><a href="#状态轨迹分析" class="headerlink" title="状态轨迹分析"></a>状态轨迹分析</h3><h3 id="LLC设计"><a href="#LLC设计" class="headerlink" title="LLC设计"></a>LLC设计</h3><p>LLC拓扑优点：</p>
+<h4 id="状态轨迹分析"><a href="#状态轨迹分析" class="headerlink" title="状态轨迹分析"></a>状态轨迹分析</h4><h4 id="LLC设计"><a href="#LLC设计" class="headerlink" title="LLC设计"></a>LLC设计</h4><p>LLC拓扑优点：</p>
 <p>变压器不用于储能功能，还利用了原边漏感。</p>
 <p>实现原副边软开关。</p>
 <p>拓扑简单，元器件简单。</p>
@@ -341,19 +341,22 @@
 <p>⑤根据死区时间和电流大小，结电容，开关周期→确定Lm，Lm越大，铁损铜损越低，有利于提高效率，但也要留有一定裕量，保证电流偏移时能实现ZVS时，死区时间百分比也不能太大，不然传输能量少了，效率又会降低。</p>
 <p>⑥Ln越大，越接近串联谐振特性，更平缓，所以需要Ln更小。Ln越小，管子电流，电容电压应力变大→平衡确定Ln(Q)</p>
 <p>功率密度和效率之间也需要平衡</p>
-<h2 id="DCM反激变换器设计"><a href="#DCM反激变换器设计" class="headerlink" title="DCM反激变换器设计"></a>DCM反激变换器设计</h2><h3 id="BCM波形图"><a href="#BCM波形图" class="headerlink" title="BCM波形图"></a>BCM波形图</h3><p>系统器件参数：</p>
+<h3 id="DAB-LLC谐振变换器"><a href="#DAB-LLC谐振变换器" class="headerlink" title="DAB LLC谐振变换器"></a>DAB LLC谐振变换器</h3><h2 id="DCM反激变换器设计"><a href="#DCM反激变换器设计" class="headerlink" title="DCM反激变换器设计"></a>DCM反激变换器设计</h2><h3 id="BCM波形图"><a href="#BCM波形图" class="headerlink" title="BCM波形图"></a>BCM波形图</h3><p><strong>波形图待补充</strong></p>
+<p><strong>系统器件参数：</strong></p>
 <p>输入功率：$P_{in}&#x3D;\frac{1}{T}\int_{0}^{DT}{U_{in}\frac{U_{in}}{L_m}t}dt&#x3D;\frac{U_{in}^2D^2T}{2L_m}$</p>
 <p>输出电压：$\frac{U_{in}}{L_m}DT &#x3D; \frac{nU_{o}}{L_m}(1-D)T→U_o &#x3D; \frac{D}{n(1-D)}U_{in}$</p>
 <p>变压器原边输入电流平均值：$\frac{1}{T}\int_{0}^{DT}{\frac{U_{in}}{L_m}t}dt&#x3D;\frac{U_{in}D^2T}{2L_m}$</p>
-<p>电感电流有效值：$I_{L_m_rms}^2T &#x3D; \int_{0}^{DT}[\frac{U_{in}}{L_m}t]^2dt+\int_{DT}^{T}[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{L_m_rms} &#x3D; \frac{U_{in}DT}{L_m}\sqrt{\frac{1}{3}}$</p>
-<p>二极管峰值电压：$U_{D_max}&#x3D; \frac{U_{in}}{n}+U_o$ </p>
-<p>二极管电流有效值：$I_{D_rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D_rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
-<p>MOS峰值电压：$U_{mos_max}&#x3D; U_{in}+nU_o$ </p>
-<p>MOS电流有效值：$I_{mos_rms}^2T &#x3D; \int_{0}^{DT}[\frac{U_{in}}{L_m}t]^2dt→I_{mos_rms} &#x3D; \frac{U_{in}DT}{L_m}\sqrt{\frac{D}{3}}$</p>
-<h3 id="CCM波形图"><a href="#CCM波形图" class="headerlink" title="CCM波形图"></a>CCM波形图</h3><h3 id="系统需求"><a href="#系统需求" class="headerlink" title="系统需求"></a>系统需求</h3><p>AC输入电压范围：$$VAC_Low &lt;Vin_AC&lt;VAC_High$$</p>
-<p>电网频率：f</p>
-<p>输出功率：Po</p>
-<p>系统效率：\eta&gt;0.7</p>
+<p>电感电流有效值：$I_{Lm,rms}^2T &#x3D; \int_{0}^{DT}[\frac{U_{in}}{L_m}t]^2dt+\int_{DT}^{T}[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{Lm,rms} &#x3D; \frac{U_{in}DT}{L_m}\sqrt{\frac{1}{3}}$</p>
+<p>二极管峰值电压：$U_{D,max}&#x3D; \frac{U_{in}}{n}+U_o$ </p>
+<p>二极管电流有效值：$I_{D,rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D,rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
+<p>MOS峰值电压：$U_{mos,max}&#x3D; U_{in}+nU_o$ </p>
+<p>MOS电流有效值：$I_{mos,rms}^2T &#x3D; \int_{0}^{DT}[\frac{U_{in}}{L_m}t]^2dt→I_{mos,rms} &#x3D; \frac{U_{in}DT}{L_m}\sqrt{\frac{D}{3}}$</p>
+<h3 id="CCM波形图"><a href="#CCM波形图" class="headerlink" title="CCM波形图"></a>CCM波形图</h3><p><strong>波形图待补充</strong></p>
+<p><strong>系统器件参数待补充：</strong></p>
+<h3 id="系统设计需求"><a href="#系统设计需求" class="headerlink" title="系统设计需求"></a>系统设计需求</h3><p>AC输入电压范围：$U_{ac,low} &lt;V_{in,ac}&lt;U_{ac,high}$</p>
+<p>电网频率：$f$</p>
+<p>输出功率：$P_o$</p>
+<p>系统效率：$\eta&gt;0.7$</p>
 <h3 id="输入电容-C-in-计算"><a href="#输入电容-C-in-计算" class="headerlink" title="输入电容$C_{in}$计算"></a>输入电容$C_{in}$计算</h3><p>含义：在交流输入电压低于母线电容电压时由电容放电提供能量，高于母线电容电压时给母线电容充电。</p>
 <p> 充电时间为$\frac{D}{2f}$，放电时间为$\frac{1-D}{2f}$</p>
 <p>要求：让放电后的电容母线电压不小于最小直流电压VDC_Low。即从sqrt{2}VAC_Low放到VDC_Low的能量大于(1-D)0.01ms(100Hz)系统输入功率能量。<br>$$<br>\frac{1}{2}C_{in}(\sqrt{2}V_{AC_Low})^2-\frac{1}{2}C_{in}V_{DC_Low}^2 &#x3D; P_{in}*(1-D)\frac{1}{2f}\<br>→C_{in} &#x3D; \frac{P_{in}(1-D)}{[(\sqrt{2}V_{AC_Low})^2-V_{DC_Low}^2]f}<br>$$</p>
@@ -387,11 +390,12 @@
 <p>设计简化，因为DCM电压增益受占空比和负载条件同时决定，当负载变化时，系统参数计算更加复杂，不好设计。而CCM模式电压增益不受负载电阻影响，只由占空比决定，系统最恶劣的条件为低压输入满负载，此时系统其他器件的电压电流应力最大，所以只要得到低压满负载条件下的系统应力参数，其他输入电压，负载条件则也满足设计极限值。而为了更简单得到低压满负载条件下的系统应力参数，让低压满负载工作在BCM条件，此时能使用CCM的计算公式。而当输入电压升高，负载变小，都会进入DCM模式。</p>
 <p>公式推导解释：</p>
 <p><strong>MOSFET电压应力：</strong>$$V_D &#x3D; nV_o+V_o&#x3D;(n+1)\frac{D_{max}}{1-D_{max}}V_{in} $$</p>
-<p><strong>副边整流二极管电压应力</strong>：$$V_D &#x3D;V_{dc_high} +nV_o $$(不存在漏感条件下)</p>
+<p><strong>副边整流二极管电压应力</strong>：$$V_D &#x3D;V_{dc,high} +nV_o $$(不存在漏感条件下)</p>
 <h3 id="确定变压器原边电感Lm"><a href="#确定变压器原边电感Lm" class="headerlink" title="确定变压器原边电感Lm"></a>确定变压器原边电感Lm</h3><p>输入功率&#x3D;电感单周期存储能量</p>
-<h3 id="整流二极管"><a href="#整流二极管" class="headerlink" title="整流二极管"></a>整流二极管</h3><p>最大反向电压：$U_{D_max}&#x3D; \frac{U_{in}}{n}+U_o$ </p>
-<p>电流有效值：$I_{D_rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D_rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
-<h3 id="输出电容-C-out"><a href="#输出电容-C-out" class="headerlink" title="输出电容$$C_{out}$$"></a>输出电容$$C_{out}$$</h3><h3 id="RCD尖峰吸收电路设计"><a href="#RCD尖峰吸收电路设计" class="headerlink" title="RCD尖峰吸收电路设计"></a>RCD尖峰吸收电路设计</h3><p>RCD尖峰吸收电路原理：<br>模态①：漏感$$L_{lk}$$和$$C_{oss}$$谐振，直到$$Vds(V_{Coss})$$大于$$V_{in}$$<br>模态②：漏感$$L_{lk}$$给$$C_{clamp}$$充电<br>模态③：$$C_{clamp}$$并联R放电，要求单周期内R消耗能量不少于漏感存储能量。</p>
+<p>输入功率：$P_{in}&#x3D;\frac{1}{T}\int_{0}^{DT}{U_{in}\frac{U_{in}}{L_m}t}dt&#x3D;\frac{U_{in}^2D^2T}{2L_m}→L_m &#x3D;\frac{U_{in}^2D^2T}{2P_{in}} $</p>
+<h3 id="整流二极管"><a href="#整流二极管" class="headerlink" title="整流二极管"></a>整流二极管</h3><p>最大反向电压：$U_{D,max}&#x3D; \frac{U_{in}}{n}+U_o$ </p>
+<p>电流有效值：$I_{D,rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D,rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
+<h3 id="输出电容-C-out"><a href="#输出电容-C-out" class="headerlink" title="输出电容$C_{out}$"></a>输出电容$C_{out}$</h3><h3 id="RCD尖峰吸收电路设计"><a href="#RCD尖峰吸收电路设计" class="headerlink" title="RCD尖峰吸收电路设计"></a>RCD尖峰吸收电路设计</h3><p>RCD尖峰吸收电路原理：<br>模态①：漏感$L_{lk}$$和$$C_{oss}$$谐振，直到$$U_{ds}(U_{Coss})$$大于$$U_{in}$<br>模态②：漏感$L_{lk}$给$C_{clamp}$充电<br>模态③：并联$R$放电，要求单周期内R消耗能量不少于漏感存储能量。</p>
 <h3 id="补偿电路设计"><a href="#补偿电路设计" class="headerlink" title="补偿电路设计"></a>补偿电路设计</h3><h2 id="PFC"><a href="#PFC" class="headerlink" title="PFC"></a>PFC</h2><h3 id="PWM调制技术"><a href="#PWM调制技术" class="headerlink" title="PWM调制技术"></a>PWM调制技术</h3><h4 id="SPWM"><a href="#SPWM" class="headerlink" title="SPWM"></a>SPWM</h4><h4 id="SVPWM"><a href="#SVPWM" class="headerlink" title="SVPWM"></a>SVPWM</h4><h3 id="单相整流器"><a href="#单相整流器" class="headerlink" title="单相整流器"></a>单相整流器</h3><p>单极性调制：上半个周期，Uin和0。下半个周期0和-Uin</p>
 <p>双极性调制：周期内要么Uin要么-Uin</p>
 <p>单极性倍频调制：最终的结果和单极性调制一样，但是调制波频率可以更低。</p>
