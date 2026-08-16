@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-12T15:54:36.591Z">
+<meta property="article:modified_time" content="2026-08-16T16:51:07.191Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -294,11 +294,11 @@
 <p>③有效降低无功功率，不存在串联谐振变换器由于负载和掉电压为了调增益提高无功特性。  </p>
 <p>④结合 ZVS  ZCS  降低无功来减小关断电流并降低导通损耗，能提高系统效率。</p>
 <h4 id="LLC分析"><a href="#LLC分析" class="headerlink" title="LLC分析"></a>LLC分析</h4><p><strong>拓扑：</strong></p>
-<p><img src="/pic/image-20260712140416264.png" srcset="/img/loading.gif" lazyload alt="LLC拓扑"></p>
+<p><img src="/../pic/image-20260712140416264.png" srcset="/img/loading.gif" lazyload alt="LLC拓扑"></p>
 <p><strong>增益表达式：</strong><br>$$<br>H(s) &#x3D; \frac{sL_m \parallel R_{ac}}{\frac{1}{sC_r} + sL_r + (sL_m \parallel R_{ac})}<br>     &#x3D; \frac{sL_m R_{ac}}{(sL_r + \frac{1}{sC_r})(sL_m + R_{ac}) + sL_m R_{ac}}\</p>
 <p>$$</p>
 <p>$$<br>其中f_n &#x3D; \frac{f}{f_r} &#x3D; \frac{\omega}{\omega_r}, \quad s &#x3D; j\omega &#x3D; j\omega_r f_n\<br>L_n &#x3D; \frac{L_m}{L_r}\<br>Q &#x3D; \frac{Z_r}{R_{ac}} &#x3D; \frac{\sqrt{L_r&#x2F;C_r}}{R_{ac}}<br>$$<br>代入后<br>$$<br>H(f_n) &#x3D; \frac{1}{ \left(1 + \frac{f_n^2 - 1}{f_n^2 L_n}\right) + j, Q \left(f_n - \frac{1}{f_n}\right) }\<br>→M_{ac}(f_n) &#x3D; \frac{1}{\sqrt{ \left(1 + \frac{1}{L_n} - \frac{1}{L_n f_n^2}\right)^2 + Q^2 \left(f_n - \frac{1}{f_n}\right)^2 } }<br>$$<br><strong>Matlab增益曲线绘制：</strong></p>
-<p><img src="/pic/LLC-1783834142389-5.png" srcset="/img/loading.gif" lazyload alt="LLC增益-频率曲线"></p>
+<p><img src="/../pic/LLC-1783834142389-5.png" srcset="/img/loading.gif" lazyload alt="LLC增益-频率曲线"></p>
 <p>​        曲线由两个自由度定义，Ln(励磁电感 和 谐振电感比值)  Q(谐振电感和负载比值)。</p>
 <p>原边ZCS和ZVS区域只是近似范围，具体范围的后面模态分析再给出。</p>
 <p>理论上由于Lm非常大，开关频率只要大于LmLrCr谐振频率就能呈现感性，有利于软开关实现。</p>
