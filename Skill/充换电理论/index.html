@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-16T17:10:07.245Z">
+<meta property="article:modified_time" content="2026-08-16T17:38:45.621Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          3.5k 字
         
       </span>
     
@@ -317,12 +317,12 @@
 <p><strong>工作点：</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 <h4 id="模态分析："><a href="#模态分析：" class="headerlink" title="模态分析："></a>模态分析：</h4><p>fm&lt;fsw&lt;fr：欠谐振下。</p>
-<p><img src="/pic/image-20260712183331293.png" srcset="/img/loading.gif" lazyload alt="LLC状态①(t0-t1)"></p>
-<p><img src="/pic/image-20260712201115316.png" srcset="/img/loading.gif" lazyload alt="LLC状态②(t1-t2)"></p>
-<p><img src="/pic/image-20260712201155358.png" srcset="/img/loading.gif" lazyload alt="LLC状态③(t2-t3)"></p>
+<p><img src="/../pic/image-20260712183331293.png" srcset="/img/loading.gif" lazyload alt="LLC状态①(t0-t1)"></p>
+<p><img src="/../pic/image-20260712201115316.png" srcset="/img/loading.gif" lazyload alt="LLC状态②(t1-t2)"></p>
+<p><img src="/../pic/image-20260712201155358.png" srcset="/img/loading.gif" lazyload alt="LLC状态③(t2-t3)"></p>
 <p>由于系统大部分时间工作在LmLrCr谐振状态，所以在欠谐振状态下，回路呈感性，电流滞后电压。在管子开通时，谐振腔电流反向。施加正向电压后，由于Vin&gt;nVo，谐振回路CrLr输入Vin-nVo阶跃电压，谐振。励磁回路nVo&#x2F;L斜率缓慢上升。直到励磁电感电流大于谐振腔电流，需要像负载流过，但是由于续流二极管在负载电压的反压下，无法吸收电流。副边断路。nVo为零，Lm非常大，谐振频率很低，励磁电感电流近似斜率很低的直线。然后进入死区软开关部分。模态④ 给寄生电容放电直至完成。模态⑤在寄生电容放电后反并联二极管续流，此时开关打开实现软开关。</p>
 <p><strong>三频率段工作波形</strong></p>
-<p><img src="/pic/image-20260712201552905.png" srcset="/img/loading.gif" lazyload alt="三频率段工作波形"></p>
+<p><img src="/../pic/image-20260712201552905.png" srcset="/img/loading.gif" lazyload alt="三频率段工作波形"></p>
 <h4 id="状态轨迹分析"><a href="#状态轨迹分析" class="headerlink" title="状态轨迹分析"></a>状态轨迹分析</h4><h4 id="LLC设计优化"><a href="#LLC设计优化" class="headerlink" title="LLC设计优化"></a>LLC设计优化</h4><p><strong>LLC拓扑优点：</strong></p>
 <p>变压器不用于储能功能(反激)，还利用了原边漏感(谐振)。</p>
 <p>易于实现原边软开通，副边二极管零电流关断。</p>
@@ -333,7 +333,7 @@
 <p>原边输出电流 &#x3D; 负载有效值</p>
 <p>励磁电感峰值 值电流等于交汇点</p>
 <p><strong>参数设计问题：</strong></p>
-<p><img src="/pic/image-20260712212140271.png" srcset="/img/loading.gif" lazyload alt="给定要求"></p>
+<p><img src="/../pic/image-20260712212140271.png" srcset="/img/loading.gif" lazyload alt="给定要求"></p>
 <p>频率确定：一般由管子特性决定，此参数根据器件成本，变压器大小，磁芯特性，MOS管开关特性综合确定，偏经验值。</p>
 <p>①增益设置为1附近(为什么需要设置成1附近？)。→确定原副边匝数比n</p>
 <p>②结合电容得到掉电电压范围→再结合维持时间确定输入电压范围得到最大增益点。</p>
@@ -406,7 +406,8 @@
 <h3 id="补偿电路设计"><a href="#补偿电路设计" class="headerlink" title="补偿电路设计"></a>补偿电路设计</h3><h3 id="QR反激变换器"><a href="#QR反激变换器" class="headerlink" title="QR反激变换器"></a>QR反激变换器</h3><h2 id="PFC"><a href="#PFC" class="headerlink" title="PFC"></a>PFC</h2><h3 id="PWM调制技术"><a href="#PWM调制技术" class="headerlink" title="PWM调制技术"></a>PWM调制技术</h3><h4 id="SPWM"><a href="#SPWM" class="headerlink" title="SPWM"></a>SPWM</h4><h4 id="SVPWM"><a href="#SVPWM" class="headerlink" title="SVPWM"></a>SVPWM</h4><h3 id="单相整流器"><a href="#单相整流器" class="headerlink" title="单相整流器"></a>单相整流器</h3><p>单极性调制：上半个周期，Uin和0。下半个周期0和-Uin</p>
 <p>双极性调制：周期内要么Uin要么-Uin</p>
 <p>单极性倍频调制：最终的结果和单极性调制一样，但是调制波频率可以更低。</p>
-<h3 id="三相整流器"><a href="#三相整流器" class="headerlink" title="三相整流器"></a>三相整流器</h3><h4 id="Clark变换"><a href="#Clark变换" class="headerlink" title="Clark变换"></a>Clark变换</h4><h4 id="Park变换"><a href="#Park变换" class="headerlink" title="Park变换"></a>Park变换</h4><p>意义</p>
+<h3 id="三相整流器"><a href="#三相整流器" class="headerlink" title="三相整流器"></a>三相整流器</h3><h4 id="Clark变换"><a href="#Clark变换" class="headerlink" title="Clark变换"></a>Clark变换</h4><p>物理意义：</p>
+<h4 id="Park变换"><a href="#Park变换" class="headerlink" title="Park变换"></a>Park变换</h4><p>物理意义：</p>
 <h4 id="三相六开关PFC"><a href="#三相六开关PFC" class="headerlink" title="三相六开关PFC"></a>三相六开关PFC</h4><h5 id="电路"><a href="#电路" class="headerlink" title="电路"></a>电路</h5><h5 id="模态分析"><a href="#模态分析" class="headerlink" title="模态分析"></a>模态分析</h5><h5 id="器件参数设计"><a href="#器件参数设计" class="headerlink" title="器件参数设计"></a>器件参数设计</h5><h5 id="控制环路设计"><a href="#控制环路设计" class="headerlink" title="控制环路设计"></a>控制环路设计</h5><h4 id="三相维也纳PFC"><a href="#三相维也纳PFC" class="headerlink" title="三相维也纳PFC"></a>三相维也纳PFC</h4><h5 id="电路-1"><a href="#电路-1" class="headerlink" title="电路"></a>电路</h5><h5 id="模态分析-1"><a href="#模态分析-1" class="headerlink" title="模态分析"></a>模态分析</h5><h5 id="器件参数设计-1"><a href="#器件参数设计-1" class="headerlink" title="器件参数设计"></a>器件参数设计</h5><h5 id="控制环路设计-1"><a href="#控制环路设计-1" class="headerlink" title="控制环路设计"></a>控制环路设计</h5><h1 id="磁性元件设计"><a href="#磁性元件设计" class="headerlink" title="磁性元件设计"></a>磁性元件设计</h1><p>变压器</p>
 
                 
@@ -498,21 +499,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Skill/%E5%85%85%E6%8D%A2%E7%94%B5%E9%A1%B9%E7%9B%AE/" title="充换电项目">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">充换电项目</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/Personal_Record/%E7%90%86%E8%B4%A2%E5%B0%8FTips/" title="Money">
-                        <span class="hidden-mobile">Money</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
