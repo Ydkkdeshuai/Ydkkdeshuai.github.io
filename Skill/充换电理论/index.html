@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-16T17:38:45.621Z">
+<meta property="article:modified_time" content="2026-08-16T17:48:28.851Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -233,7 +233,7 @@
         
         
         
-          29 分钟
+          30 分钟
         
       </span>
     
@@ -277,9 +277,9 @@
                 
                 <h1 id="充电桩"><a href="#充电桩" class="headerlink" title="充电桩"></a>充电桩</h1><h2 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2><h3 id="不控LLC"><a href="#不控LLC" class="headerlink" title="不控LLC"></a>不控LLC</h3><h4 id="二阶谐振系统时域分析"><a href="#二阶谐振系统时域分析" class="headerlink" title="二阶谐振系统时域分析"></a>二阶谐振系统时域分析</h4><p>RLC谐振<strong>回路微分方程</strong>：<br>$$<br>LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}<br>$$</p>
 <p>当<strong>零初始条件</strong>时<br>$$<br>i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_{t&#x3D;0}&#x3D;0\right)<br>$$</p>
-<p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\其中Q &#x3D; \frac{1}{2\epsilon}<br>$$<br>随着R不断增大，衰减速度越快，当R&#x3D;0时不衰减。</p>
+<p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\其中Q &#x3D; \frac{1}{2\epsilon}&#x3D;\frac{1}{R}\sqrt{\frac{L}{C}}、\epsilon&#x3D;\frac{R}{2}\sqrt{\frac{C}{L}}<br>$$<br>随着R不断增大，衰减速度越快，当R&#x3D;0时不衰减。</p>
 <p><strong>无阻尼(R&#x3D;0)</strong>： $ \epsilon&#x3D;0$  or $Q→\infty$<br>$$<br>u_C(t) &#x3D; U_{ab}\bigl(1 - \cos\omega_0 t\bigr)<br>$$<br><strong>欠阻尼($R&lt;2\sqrt{\frac{L}{C}}$)</strong>： $ \epsilon&lt;1$  or $Q&gt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(\cos\omega_dt + \frac{\epsilon \omega_n}{\omega_d}\sin\omega_dt]<br>$$<br><strong>临界阻尼($R&#x3D;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&#x3D;1$  or $Q&#x3D;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(1+\cos\omega_nt)]<br>$$<br><strong>过阻尼($R&gt;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&lt;1$  or $Q&lt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}\left[1 - \frac{e^{-\epsilon \omega_n t}}{\sqrt{1-\epsilon^2}}\left(\sin\omega_d t+\theta\right)\right]<br>$$<br><strong>特征总结</strong>：</p>
-<p>①振荡角频率：$\omega_d &#x3D; \omega_n\sqrt{1-\epsilon^2}$   在LC谐振角频率基础上，R越大，震荡角频率越小</p>
+<p>①振荡角频率：$\omega_d &#x3D; \omega_n\sqrt{1-\epsilon^2}&#x3D;\omega_n\sqrt{1-\frac{R}{2\omega_nL}^2}$   在LC谐振角频率基础上，R越大，震荡角频率越小</p>
 <p>②随着R增大，震荡角频率减小，且震荡衰减速度越来越快。 直到过阻尼，系统不衰减。  换言之R会削弱谐振现象，R越低，系统Q值越高，谐振越明显。</p>
 <h4 id="谐振状态轨迹"><a href="#谐振状态轨迹" class="headerlink" title="谐振状态轨迹"></a>谐振状态轨迹</h4><p>用来衔接每个等效电路的时域连接点，求解时域表达式。</p>
 <h4 id="ZVS-软开关技术"><a href="#ZVS-软开关技术" class="headerlink" title="ZVS 软开关技术"></a>ZVS 软开关技术</h4><p><strong>LLC应用背景：服务器掉电场景</strong>：当服务器断电，电容维持供电时，电压下降，在这段时间就需要DC-DC变换器对输入电压具有宽范围适应能力。宽范围能力越强，所需存电电容就可以越小。</p>
