@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-16T17:48:28.851Z">
+<meta property="article:modified_time" content="2026-08-17T15:13:29.732Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -277,7 +277,7 @@
                 
                 <h1 id="充电桩"><a href="#充电桩" class="headerlink" title="充电桩"></a>充电桩</h1><h2 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2><h3 id="不控LLC"><a href="#不控LLC" class="headerlink" title="不控LLC"></a>不控LLC</h3><h4 id="二阶谐振系统时域分析"><a href="#二阶谐振系统时域分析" class="headerlink" title="二阶谐振系统时域分析"></a>二阶谐振系统时域分析</h4><p>RLC谐振<strong>回路微分方程</strong>：<br>$$<br>LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}<br>$$</p>
 <p>当<strong>零初始条件</strong>时<br>$$<br>i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_{t&#x3D;0}&#x3D;0\right)<br>$$</p>
-<p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\其中Q &#x3D; \frac{1}{2\epsilon}&#x3D;\frac{1}{R}\sqrt{\frac{L}{C}}、\epsilon&#x3D;\frac{R}{2}\sqrt{\frac{C}{L}}<br>$$<br>随着R不断增大，衰减速度越快，当R&#x3D;0时不衰减。</p>
+<p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\<br>其中<br>Q &#x3D; \frac{1}{2\epsilon}&#x3D;\frac{1}{R}\sqrt{\frac{L}{C}}、\epsilon&#x3D;\frac{R}{2}\sqrt{\frac{C}{L}}<br>$$<br>随着R不断增大，衰减速度越快，当R&#x3D;0时不衰减。</p>
 <p><strong>无阻尼(R&#x3D;0)</strong>： $ \epsilon&#x3D;0$  or $Q→\infty$<br>$$<br>u_C(t) &#x3D; U_{ab}\bigl(1 - \cos\omega_0 t\bigr)<br>$$<br><strong>欠阻尼($R&lt;2\sqrt{\frac{L}{C}}$)</strong>： $ \epsilon&lt;1$  or $Q&gt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(\cos\omega_dt + \frac{\epsilon \omega_n}{\omega_d}\sin\omega_dt]<br>$$<br><strong>临界阻尼($R&#x3D;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&#x3D;1$  or $Q&#x3D;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(1+\cos\omega_nt)]<br>$$<br><strong>过阻尼($R&gt;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&lt;1$  or $Q&lt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}\left[1 - \frac{e^{-\epsilon \omega_n t}}{\sqrt{1-\epsilon^2}}\left(\sin\omega_d t+\theta\right)\right]<br>$$<br><strong>特征总结</strong>：</p>
 <p>①振荡角频率：$\omega_d &#x3D; \omega_n\sqrt{1-\epsilon^2}&#x3D;\omega_n\sqrt{1-\frac{R}{2\omega_nL}^2}$   在LC谐振角频率基础上，R越大，震荡角频率越小</p>
 <p>②随着R增大，震荡角频率减小，且震荡衰减速度越来越快。 直到过阻尼，系统不衰减。  换言之R会削弱谐振现象，R越低，系统Q值越高，谐振越明显。</p>
@@ -316,11 +316,11 @@
 <p>同样通过降低开关频率提高增益，会减小一部分无功功率，降低续流二极管电流，设计合理的话反而理论上削弱硬关断。</p>
 <p><strong>工作点：</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
-<h4 id="模态分析："><a href="#模态分析：" class="headerlink" title="模态分析："></a>模态分析：</h4><p>fm&lt;fsw&lt;fr：欠谐振下。</p>
+<h4 id="模态分析"><a href="#模态分析" class="headerlink" title="模态分析"></a>模态分析</h4><p>$fm&lt;fsw&lt;fr$：欠谐振下。</p>
 <p><img src="/../pic/image-20260712183331293.png" srcset="/img/loading.gif" lazyload alt="LLC状态①(t0-t1)"></p>
 <p><img src="/../pic/image-20260712201115316.png" srcset="/img/loading.gif" lazyload alt="LLC状态②(t1-t2)"></p>
 <p><img src="/../pic/image-20260712201155358.png" srcset="/img/loading.gif" lazyload alt="LLC状态③(t2-t3)"></p>
-<p>由于系统大部分时间工作在LmLrCr谐振状态，所以在欠谐振状态下，回路呈感性，电流滞后电压。在管子开通时，谐振腔电流反向。施加正向电压后，由于Vin&gt;nVo，谐振回路CrLr输入Vin-nVo阶跃电压，谐振。励磁回路nVo&#x2F;L斜率缓慢上升。直到励磁电感电流大于谐振腔电流，需要像负载流过，但是由于续流二极管在负载电压的反压下，无法吸收电流。副边断路。nVo为零，Lm非常大，谐振频率很低，励磁电感电流近似斜率很低的直线。然后进入死区软开关部分。模态④ 给寄生电容放电直至完成。模态⑤在寄生电容放电后反并联二极管续流，此时开关打开实现软开关。</p>
+<p>由于系统大部分时间工作在LmLrCr谐振状态，所以在欠谐振状态下，回路呈感性，电流滞后电压。在管子开通时，谐振腔电流反向。施加正向电压后，由于$V_{in}&gt;nV_o$，谐振回路$C_rL_r$输入Vin-nVo阶跃电压，谐振。励磁回路nVo&#x2F;L斜率缓慢上升。直到励磁电感电流大于谐振腔电流，需要像负载流过，但是由于续流二极管在负载电压的反压下，无法吸收电流。副边断路。nVo为零，Lm非常大，谐振频率很低，励磁电感电流近似斜率很低的直线。然后进入死区软开关部分。模态④ 给寄生电容放电直至完成。模态⑤在寄生电容放电后反并联二极管续流，此时开关打开实现软开关。</p>
 <p><strong>三频率段工作波形</strong></p>
 <p><img src="/../pic/image-20260712201552905.png" srcset="/img/loading.gif" lazyload alt="三频率段工作波形"></p>
 <h4 id="状态轨迹分析"><a href="#状态轨迹分析" class="headerlink" title="状态轨迹分析"></a>状态轨迹分析</h4><h4 id="LLC设计优化"><a href="#LLC设计优化" class="headerlink" title="LLC设计优化"></a>LLC设计优化</h4><p><strong>LLC拓扑优点：</strong></p>
@@ -408,7 +408,7 @@
 <p>单极性倍频调制：最终的结果和单极性调制一样，但是调制波频率可以更低。</p>
 <h3 id="三相整流器"><a href="#三相整流器" class="headerlink" title="三相整流器"></a>三相整流器</h3><h4 id="Clark变换"><a href="#Clark变换" class="headerlink" title="Clark变换"></a>Clark变换</h4><p>物理意义：</p>
 <h4 id="Park变换"><a href="#Park变换" class="headerlink" title="Park变换"></a>Park变换</h4><p>物理意义：</p>
-<h4 id="三相六开关PFC"><a href="#三相六开关PFC" class="headerlink" title="三相六开关PFC"></a>三相六开关PFC</h4><h5 id="电路"><a href="#电路" class="headerlink" title="电路"></a>电路</h5><h5 id="模态分析"><a href="#模态分析" class="headerlink" title="模态分析"></a>模态分析</h5><h5 id="器件参数设计"><a href="#器件参数设计" class="headerlink" title="器件参数设计"></a>器件参数设计</h5><h5 id="控制环路设计"><a href="#控制环路设计" class="headerlink" title="控制环路设计"></a>控制环路设计</h5><h4 id="三相维也纳PFC"><a href="#三相维也纳PFC" class="headerlink" title="三相维也纳PFC"></a>三相维也纳PFC</h4><h5 id="电路-1"><a href="#电路-1" class="headerlink" title="电路"></a>电路</h5><h5 id="模态分析-1"><a href="#模态分析-1" class="headerlink" title="模态分析"></a>模态分析</h5><h5 id="器件参数设计-1"><a href="#器件参数设计-1" class="headerlink" title="器件参数设计"></a>器件参数设计</h5><h5 id="控制环路设计-1"><a href="#控制环路设计-1" class="headerlink" title="控制环路设计"></a>控制环路设计</h5><h1 id="磁性元件设计"><a href="#磁性元件设计" class="headerlink" title="磁性元件设计"></a>磁性元件设计</h1><p>变压器</p>
+<h4 id="三相六开关PFC"><a href="#三相六开关PFC" class="headerlink" title="三相六开关PFC"></a>三相六开关PFC</h4><h5 id="电路"><a href="#电路" class="headerlink" title="电路"></a>电路</h5><h5 id="模态分析-1"><a href="#模态分析-1" class="headerlink" title="模态分析"></a>模态分析</h5><h5 id="器件参数设计"><a href="#器件参数设计" class="headerlink" title="器件参数设计"></a>器件参数设计</h5><h5 id="控制环路设计"><a href="#控制环路设计" class="headerlink" title="控制环路设计"></a>控制环路设计</h5><h4 id="三相维也纳PFC"><a href="#三相维也纳PFC" class="headerlink" title="三相维也纳PFC"></a>三相维也纳PFC</h4><h5 id="电路-1"><a href="#电路-1" class="headerlink" title="电路"></a>电路</h5><h5 id="模态分析-2"><a href="#模态分析-2" class="headerlink" title="模态分析"></a>模态分析</h5><h5 id="器件参数设计-1"><a href="#器件参数设计-1" class="headerlink" title="器件参数设计"></a>器件参数设计</h5><h5 id="控制环路设计-1"><a href="#控制环路设计-1" class="headerlink" title="控制环路设计"></a>控制环路设计</h5><h1 id="磁性元件设计"><a href="#磁性元件设计" class="headerlink" title="磁性元件设计"></a>磁性元件设计</h1><p>变压器</p>
 
                 
               </div>
@@ -502,6 +502,12 @@
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/Personal_Record/%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E4%BB%80%E4%B9%88%E6%A0%B7%E7%9A%84%E4%BA%BA/" title="你想成为什么样的小帅">
+                        <span class="hidden-mobile">你想成为什么样的小帅</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
