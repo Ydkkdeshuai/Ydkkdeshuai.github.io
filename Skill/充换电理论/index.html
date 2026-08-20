@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-17T15:13:29.732Z">
+<meta property="article:modified_time" content="2026-08-20T16:51:01.092Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          3.8k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          30 分钟
+          32 分钟
         
       </span>
     
@@ -277,12 +277,12 @@
                 
                 <h1 id="充电桩"><a href="#充电桩" class="headerlink" title="充电桩"></a>充电桩</h1><h2 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2><h3 id="不控LLC"><a href="#不控LLC" class="headerlink" title="不控LLC"></a>不控LLC</h3><h4 id="二阶谐振系统时域分析"><a href="#二阶谐振系统时域分析" class="headerlink" title="二阶谐振系统时域分析"></a>二阶谐振系统时域分析</h4><p>RLC谐振<strong>回路微分方程</strong>：<br>$$<br>LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}<br>$$</p>
 <p>当<strong>零初始条件</strong>时<br>$$<br>i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_{t&#x3D;0}&#x3D;0\right)<br>$$</p>
-<p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\<br>其中<br>Q &#x3D; \frac{1}{2\epsilon}&#x3D;\frac{1}{R}\sqrt{\frac{L}{C}}、\epsilon&#x3D;\frac{R}{2}\sqrt{\frac{C}{L}}<br>$$<br>随着R不断增大，衰减速度越快，当R&#x3D;0时不衰减。</p>
-<p><strong>无阻尼(R&#x3D;0)</strong>： $ \epsilon&#x3D;0$  or $Q→\infty$<br>$$<br>u_C(t) &#x3D; U_{ab}\bigl(1 - \cos\omega_0 t\bigr)<br>$$<br><strong>欠阻尼($R&lt;2\sqrt{\frac{L}{C}}$)</strong>： $ \epsilon&lt;1$  or $Q&gt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(\cos\omega_dt + \frac{\epsilon \omega_n}{\omega_d}\sin\omega_dt]<br>$$<br><strong>临界阻尼($R&#x3D;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&#x3D;1$  or $Q&#x3D;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(1+\cos\omega_nt)]<br>$$<br><strong>过阻尼($R&gt;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&lt;1$  or $Q&lt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}\left[1 - \frac{e^{-\epsilon \omega_n t}}{\sqrt{1-\epsilon^2}}\left(\sin\omega_d t+\theta\right)\right]<br>$$<br><strong>特征总结</strong>：</p>
-<p>①振荡角频率：$\omega_d &#x3D; \omega_n\sqrt{1-\epsilon^2}&#x3D;\omega_n\sqrt{1-\frac{R}{2\omega_nL}^2}$   在LC谐振角频率基础上，R越大，震荡角频率越小</p>
-<p>②随着R增大，震荡角频率减小，且震荡衰减速度越来越快。 直到过阻尼，系统不衰减。  换言之R会削弱谐振现象，R越低，系统Q值越高，谐振越明显。</p>
+<p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\<br>其中<br>\<br>\omega_n &#x3D; \sqrt{\frac{1}{LC}}、<br>Q &#x3D; \frac{1}{2\epsilon}&#x3D;\frac{1}{R}\sqrt{\frac{L}{C}}、<br>\epsilon&#x3D;\frac{R}{2}\sqrt{\frac{C}{L}}<br>$$<br><strong>无阻尼(R&#x3D;0)</strong>： $ \epsilon&#x3D;0$  or $Q→\infty$<br>$$<br>u_C(t) &#x3D; U_{ab}\bigl(1 - \cos\omega_0 t\bigr)<br>$$<br><strong>欠阻尼($R&lt;2\sqrt{\frac{L}{C}}$)</strong>： $ \epsilon&lt;1$  or $Q&gt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(\cos\omega_dt + \frac{\epsilon \omega_n}{\omega_d}\sin\omega_dt]<br>$$<br>随着$R$不断增大，阻尼比$\epsilon$增大衰减速度越快，当$R&#x3D;0$时不衰减。</p>
+<p><strong>临界阻尼($R&#x3D;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&#x3D;1$  or $Q&#x3D;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(1+\cos\omega_nt)]<br>$$<br><strong>过阻尼($R&gt;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&lt;1$  or $Q&lt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}\left[1 - \frac{e^{-\epsilon \omega_n t}}{\sqrt{1-\epsilon^2}}\left(\sin\omega_d t+\theta\right)\right]<br>$$<br><strong>特征总结</strong>：</p>
+<p>①振荡角频率：$\omega_d &#x3D; \omega_n\sqrt{1-\epsilon^2}&#x3D;\omega_n\sqrt{1-\frac{R}{2\omega_nL}^2}$   在$LC$谐振角频率基础上，$R$越大，震荡角频率$\omega_d$越小</p>
+<p>②随着$R$增大，震荡角频率减小，且震荡衰减速度越来越快。 直到过阻尼，系统不衰减。  换言之$R$会削弱谐振现象，$R$越低，系统$Q$值越高，谐振越明显(谐振角频率接近于谐振频率，衰减速度变慢)。</p>
 <h4 id="谐振状态轨迹"><a href="#谐振状态轨迹" class="headerlink" title="谐振状态轨迹"></a>谐振状态轨迹</h4><p>用来衔接每个等效电路的时域连接点，求解时域表达式。</p>
-<h4 id="ZVS-软开关技术"><a href="#ZVS-软开关技术" class="headerlink" title="ZVS 软开关技术"></a>ZVS 软开关技术</h4><p><strong>LLC应用背景：服务器掉电场景</strong>：当服务器断电，电容维持供电时，电压下降，在这段时间就需要DC-DC变换器对输入电压具有宽范围适应能力。宽范围能力越强，所需存电电容就可以越小。</p>
+<h4 id="ZVS-软开关技术"><a href="#ZVS-软开关技术" class="headerlink" title="ZVS 软开关技术"></a>ZVS 软开关技术</h4><p><strong>LLC应用背景：服务器掉电场景</strong>：当服务器断电，电容维持供电时，电压下降，在这段时间就需要DC-DC变换器对输入电压具有宽范围适应能力。宽输入电压范围能力越强，所需存电电容就可以越小。</p>
 <p><strong>PWM变换器问题</strong>：当要求所需输入电压范围变宽时，工作效率会降低。即PWM变换器为了适应宽范围输出电压不得不降低效率。</p>
 <p><strong>串联谐振变换器问题</strong>：①类似PWM变换器，异常电压（低电压\高增益）工作点效率更高，正常工作点（高电压\低增益）工作点效率更低。因为正常工作点感性更大，无功多，关断电流大，关断损耗高。②轻载(输出功率更低的情况，对于恒压输出，阻值更大)调制问题，当负载增加，Q减小，增益曲线更凭，需要更大的开关频率维持其增益，进一步增大无功功率。</p>
 <p><strong>并联谐振变换器问题</strong>：能解决轻载调制问题，但是解决不了更优增益点。</p>
@@ -300,20 +300,20 @@
 <p>$$<br>其中f_n &#x3D; \frac{f}{f_r} &#x3D; \frac{\omega}{\omega_r}, \quad s &#x3D; j\omega &#x3D; j\omega_r f_n\<br>L_n &#x3D; \frac{L_m}{L_r}\<br>Q &#x3D; \frac{Z_r}{R_{ac}} &#x3D; \frac{\sqrt{L_r&#x2F;C_r}}{R_{ac}}<br>$$<br>代入后<br>$$<br>H(f_n) &#x3D; \frac{1}{ \left(1 + \frac{f_n^2 - 1}{f_n^2 L_n}\right) + j, Q \left(f_n - \frac{1}{f_n}\right) }\<br>→M_{ac}(f_n) &#x3D; \frac{1}{\sqrt{ \left(1 + \frac{1}{L_n} - \frac{1}{L_n f_n^2}\right)^2 + Q^2 \left(f_n - \frac{1}{f_n}\right)^2 } }<br>$$<br><strong>Matlab增益曲线绘制：</strong></p>
 <p><img src="/../pic/LLC-1783834142389-5.png" srcset="/img/loading.gif" lazyload alt="LLC增益-频率曲线"></p>
 <p>​        曲线由两个自由度定义，Ln(励磁电感 和 谐振电感比值)  Q(谐振电感和负载比值)。</p>
-<p>原边ZCS和ZVS区域只是近似范围，具体范围的后面模态分析再给出。</p>
-<p>理论上由于Lm非常大，开关频率只要大于LmLrCr谐振频率就能呈现感性，有利于软开关实现。</p>
-<p>只要小于LrCr谐振频率就能让谐振电流和励磁电流提前交汇副边二极管被钳位。</p>
+<p>原边ZCS和ZVS区域由原边阻抗传递函数特性确定。</p>
+<p>开关频率只要满足$H(f_n) &#x3D; \frac{1}{ \left(1 + \frac{f_n^2 - 1}{f_n^2 L_n}\right) + j, Q \left(f_n - \frac{1}{f_n}\right) }$呈现感性，电流方向就有利于软开关实现(还需要幅值条件)。</p>
+<p>开关频率$f_{sw}$只要小于$L_rC_r$谐振频率就能让谐振电流$I_{Lr}$和励磁电感$L_m$电流提前交汇副边二极管被钳位，实现副边整流二极管电流自然归零，实现ZCS。</p>
 <p><strong>谐振频率定义：</strong></p>
-<p>(Lm+Lr)Cr谐振fm：Lm非常大，谐振频率非常小。</p>
-<p>Lr Cr谐振fr：LrCr谐振</p>
+<p>$(L_m+L_r)C_r$谐振$f_m$：$L_m$非常大，谐振频率$f_m$非常小。</p>
+<p>$L_r C_r$谐振$fr$：$L_rC_r$谐振</p>
 <p><strong>工作区间：</strong></p>
-<p>①fsw&lt;fm一般不存在因为这个频率非常小。</p>
-<p>②fm&lt;fsw&lt;fr：欠谐振，期望工作区间，原边ZVS 副边ZCS。</p>
-<p>③fr&lt;fsw：副边二极管强制换流无法实现ZCS。</p>
+<p>①$f_{sw}&lt;f_m$不允许工作在这个区间，频率控制变为正反馈，而且系统无功功率非常大，开关管应力大，系统传输效率低。</p>
+<p>②$f_m&lt;f_{sw}&lt;f_r$：欠谐振，期望工作区间，原边ZVS 副边ZCS。</p>
+<p>③$f_r&lt;f_{sw}$：副边二极管强制换流无法实现ZCS，且原边关断电流有一些大。</p>
 <p><strong>是否存在轻载调制</strong>问题：</p>
 <p>当负载变小，R变大时，Q减小，曲线切换到另一条曲线，增益减小，通过降低频率提高增益，会更接近LrLmCr谐振频率点，减小感性，降低续流二极管电流。并不会存在当Q减小时，频率无限制的增大或减小。</p>
 <p><strong>掉电后是否存在调制频率使工作点变差</strong>问题：</p>
-<p>同样通过降低开关频率提高增益，会减小一部分无功功率，降低续流二极管电流，设计合理的话反而理论上削弱硬关断。</p>
+<p>同样通过降低开关频率提高增益，会减小一部分无功功率，降低续流二极管电流，设计合理的话反而理论上削弱MOSFET硬关断。</p>
 <p><strong>工作点：</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&vd_source=b9b657465c6a8feca7c2a3699702b4c7">https://www.bilibili.com/video/BV14e4y1E7PW/?spm_id_from=333.788.videopod.sections&amp;vd_source=b9b657465c6a8feca7c2a3699702b4c7</a></p>
 <h4 id="模态分析"><a href="#模态分析" class="headerlink" title="模态分析"></a>模态分析</h4><p>$fm&lt;fsw&lt;fr$：欠谐振下。</p>
@@ -323,12 +323,13 @@
 <p>由于系统大部分时间工作在LmLrCr谐振状态，所以在欠谐振状态下，回路呈感性，电流滞后电压。在管子开通时，谐振腔电流反向。施加正向电压后，由于$V_{in}&gt;nV_o$，谐振回路$C_rL_r$输入Vin-nVo阶跃电压，谐振。励磁回路nVo&#x2F;L斜率缓慢上升。直到励磁电感电流大于谐振腔电流，需要像负载流过，但是由于续流二极管在负载电压的反压下，无法吸收电流。副边断路。nVo为零，Lm非常大，谐振频率很低，励磁电感电流近似斜率很低的直线。然后进入死区软开关部分。模态④ 给寄生电容放电直至完成。模态⑤在寄生电容放电后反并联二极管续流，此时开关打开实现软开关。</p>
 <p><strong>三频率段工作波形</strong></p>
 <p><img src="/../pic/image-20260712201552905.png" srcset="/img/loading.gif" lazyload alt="三频率段工作波形"></p>
-<h4 id="状态轨迹分析"><a href="#状态轨迹分析" class="headerlink" title="状态轨迹分析"></a>状态轨迹分析</h4><h4 id="LLC设计优化"><a href="#LLC设计优化" class="headerlink" title="LLC设计优化"></a>LLC设计优化</h4><p><strong>LLC拓扑优点：</strong></p>
+<h4 id="状态轨迹分析"><a href="#状态轨迹分析" class="headerlink" title="状态轨迹分析"></a>状态轨迹分析</h4><p>图解法：结合前面的谐振状态轨迹绘制把每个模态衔接起来。</p>
+<h4 id="LLC设计优化"><a href="#LLC设计优化" class="headerlink" title="LLC设计优化"></a>LLC设计优化</h4><p><strong>LLC拓扑优点：</strong></p>
 <p>变压器不用于储能功能(反激)，还利用了原边漏感(谐振)。</p>
 <p>易于实现原边软开通，副边二极管零电流关断。</p>
 <p>拓扑简单，元器件简单。</p>
 <p><strong>设计思想：</strong></p>
-<p>工作频率略小于fr频率点，离fr频率点存在一小段距离，防止系统小纹波(高输入电压时，调高频率降低增益)进入副边ZCS区间。</p>
+<p>工作频率略小于fr频率点，离fr频率点存在一小段距离，防止直流输出存在小纹波(输入电压高于额定输入时，调高频率降低增益)进入副边非ZCS区间。</p>
 <p><strong>系统关键参数定量计算：</strong></p>
 <p>原边输出电流 &#x3D; 负载有效值</p>
 <p>励磁电感峰值 值电流等于交汇点</p>
@@ -336,19 +337,28 @@
 <p><img src="/../pic/image-20260712212140271.png" srcset="/img/loading.gif" lazyload alt="给定要求"></p>
 <p>频率确定：一般由管子特性决定，此参数根据器件成本，变压器大小，磁芯特性，MOS管开关特性综合确定，偏经验值。</p>
 <p>①增益设置为1附近(为什么需要设置成1附近？)。→确定原副边匝数比n</p>
-<p>②结合电容得到掉电电压范围→再结合维持时间确定输入电压范围得到最大增益点。</p>
-<p>③额定工况下满载原副边导通损耗or关断损耗or总损耗确定死区时间(死区时间越小，所需电流峰值越大，有效值越大，导通损耗越大，但传输能量比率越大，两者权衡)。</p>
-<p>td</p>
-<p>④根据死区时间和电流大小，结电容，开关周期(死区时间内电流能够实现软开通，Lm越大，斜率越小，电流越小，得到最大Lm)→确定Lm，Lm越大，铁损铜损越低，有利于提高效率，但也要留有一定裕量，保证电流偏移时能实现ZVS时，死区时间百分比也不能太大，不然传输能量少了，效率又会降低。</p>
-<p>⑤ Ln越大，越接近串联谐振特性，更平缓，所以需要Ln更小。Ln越小，管子电流，电容电压应力更小。但是Ln越小，相同Q下最大增益越小。→确定Ln(Q)</p>
-<p>功率密度和效率之间也需要平衡</p>
+<ul>
+<li>增益特性恒定为1，与负载无关，便于控制。</li>
+<li>效率最高，开关损耗，导通损耗最小。→原边实现ZVS，副边实现ZCS，且系统无功损耗小。</li>
+<li>频率调节范围对称，设计余量合理。→可以通过调频升压和降压。</li>
+<li>能直接得到变压器匝比关系。→不然根据不同的负载，考虑不同的匝比时的频率范围是否能满足条件，更复杂。</li>
+</ul>
+<p>②结合电容得到掉电电压范围(输入电压最小值，最大值范围)→再结合维持时间确定输入电压范围得到最大增益点。</p>
+<p>$M_{max}$</p>
+<p>$M_{min}$</p>
+<p>③保证实现ZVS下  优化 死区时间td 和 励磁电感Lm，使总损耗&#x3D;导通损耗(大部分)+开关损耗(极小部分)达到最低。</p>
+<p>Lm越小，斜率越小，电流峰值越小，导通损耗(铜损)，磁芯损耗(铁损)越小。</p>
+<p>死区时间td越小，所需电流峰值越大，所需要Lm越大，但电流有效值越大，导通损耗越大降低效率，但传输能量比率越大提高效率，两者权衡。</p>
+<p>两个约束：在满足ZVS下，优化损耗→两个等式，两个变量。</p>
+<p>⑤确定Ln(Q) 。Lm确定情况下，Ln↑，Q↓。</p>
+<p>Ln越大，越接近串联谐振特性，更平缓(控制频率平缓，但增益范围变小)，所以需要Ln更小。但Ln越小，管子电流，电容电压应力更小。且Ln越小，相同Lm下最大增益越小。→确定Ln(Q)</p>
+<p>一句话：Ln越大，控制特性变好，但是增益范围变窄，所以在满足增益范围下，Ln越小越好。</p>
 <p><strong>器件参数计算：</strong></p>
 <p><strong>fs &#x3D; fr：</strong></p>
 <p>等式：输入功率&#x3D;输出功率  时域电流大小</p>
 <p>变压器原边电流有效值：</p>
 <p>变压器副边电流有效值：</p>
-<p> 3.22设计实例</p>
-<h3 id="SR-LLC谐振变换器"><a href="#SR-LLC谐振变换器" class="headerlink" title="SR-LLC谐振变换器"></a>SR-LLC谐振变换器</h3><h5 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h5><h5 id="参数设计"><a href="#参数设计" class="headerlink" title="参数设计"></a>参数设计</h5><h5 id="控制设计"><a href="#控制设计" class="headerlink" title="控制设计"></a>控制设计</h5><h2 id="DCM反激变换器设计"><a href="#DCM反激变换器设计" class="headerlink" title="DCM反激变换器设计"></a>DCM反激变换器设计</h2><h3 id="BCM波形图"><a href="#BCM波形图" class="headerlink" title="BCM波形图"></a>BCM波形图</h3><p><strong>波形图待补充</strong></p>
+<h4 id="设计实例"><a href="#设计实例" class="headerlink" title="设计实例"></a>设计实例</h4><h3 id="SR-LLC谐振变换器"><a href="#SR-LLC谐振变换器" class="headerlink" title="SR-LLC谐振变换器"></a>SR-LLC谐振变换器</h3><h5 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h5><h5 id="参数设计"><a href="#参数设计" class="headerlink" title="参数设计"></a>参数设计</h5><h5 id="控制设计"><a href="#控制设计" class="headerlink" title="控制设计"></a>控制设计</h5><h2 id="DCM反激变换器设计"><a href="#DCM反激变换器设计" class="headerlink" title="DCM反激变换器设计"></a>DCM反激变换器设计</h2><h3 id="BCM波形图"><a href="#BCM波形图" class="headerlink" title="BCM波形图"></a>BCM波形图</h3><p><strong>波形图待补充</strong></p>
 <p><strong>系统器件参数：</strong></p>
 <p>输入功率：$P_{in}&#x3D;\frac{1}{T}\int_{0}^{DT}{U_{in}\frac{U_{in}}{L_m}t}dt&#x3D;\frac{U_{in}^2D^2T}{2L_m}$</p>
 <p>输出电压：$\frac{U_{in}}{L_m}DT &#x3D; \frac{nU_{o}}{L_m}(1-D)T→U_o &#x3D; \frac{D}{n(1-D)}U_{in}$</p>
