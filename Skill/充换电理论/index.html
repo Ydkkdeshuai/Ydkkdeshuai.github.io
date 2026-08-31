@@ -16,16 +16,16 @@
   <meta name="author" content="Ydkukudeshuai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="充电桩LLC谐振变换器不控LLC二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_">
+    <meta name="description" content="充电桩LLC谐振变换器半桥不控LLC二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right">
 <meta property="og:type" content="article">
 <meta property="og:title" content="充换电理论">
 <meta property="og:url" content="http://example.com/Skill/%E5%85%85%E6%8D%A2%E7%94%B5%E7%90%86%E8%AE%BA/index.html">
 <meta property="og:site_name" content="小帅的秘密基地">
-<meta property="og:description" content="充电桩LLC谐振变换器不控LLC二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_">
+<meta property="og:description" content="充电桩LLC谐振变换器半桥不控LLC二阶谐振系统时域分析RLC谐振回路微分方程：$$LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}$$ 当零初始条件时$$i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-20T16:51:01.092Z">
+<meta property="article:modified_time" content="2026-08-26T12:24:23.991Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          4.6k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          32 分钟
+          39 分钟
         
       </span>
     
@@ -275,7 +275,7 @@
             
               <div class="markdown-body">
                 
-                <h1 id="充电桩"><a href="#充电桩" class="headerlink" title="充电桩"></a>充电桩</h1><h2 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2><h3 id="不控LLC"><a href="#不控LLC" class="headerlink" title="不控LLC"></a>不控LLC</h3><h4 id="二阶谐振系统时域分析"><a href="#二阶谐振系统时域分析" class="headerlink" title="二阶谐振系统时域分析"></a>二阶谐振系统时域分析</h4><p>RLC谐振<strong>回路微分方程</strong>：<br>$$<br>LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}<br>$$</p>
+                <h1 id="充电桩"><a href="#充电桩" class="headerlink" title="充电桩"></a>充电桩</h1><h2 id="LLC谐振变换器"><a href="#LLC谐振变换器" class="headerlink" title="LLC谐振变换器"></a>LLC谐振变换器</h2><h3 id="半桥不控LLC"><a href="#半桥不控LLC" class="headerlink" title="半桥不控LLC"></a>半桥不控LLC</h3><h4 id="二阶谐振系统时域分析"><a href="#二阶谐振系统时域分析" class="headerlink" title="二阶谐振系统时域分析"></a>二阶谐振系统时域分析</h4><p>RLC谐振<strong>回路微分方程</strong>：<br>$$<br>LC\frac{d^2u_C}{dt^2} + RC\frac{du_C}{dt} + u_C &#x3D; u_{ab}<br>$$</p>
 <p>当<strong>零初始条件</strong>时<br>$$<br>i(0) &#x3D; 0,\quad u_C(0) &#x3D; 0 \quad \left(\text{或 } \left.\frac{du_C}{dt}\right|_{t&#x3D;0}&#x3D;0\right)<br>$$</p>
 <p>对微分方程作<strong>拉氏变换</strong><br>$$<br>LC s^2 U_C(s) + RC s U_C(s) + U_C(s) &#x3D; \frac{U_{ab}}{s}<br>$$<br><strong>电容电压拉氏变换表达式</strong><br>$$<br>U_C(s) &#x3D; \frac{1}{LC}\frac{U_{ab}}{s( s^2 + \frac{R}{L} s + \frac{1}{LC})}<br>$$<br>根据自控<strong>二阶系统</strong>求解：<br>$$<br>令s^2 + \frac{R}{L} s + \frac{1}{LC}&#x3D;s^2 + 2\epsilon \omega_n s + \omega_n^2&#x3D;s^2 + \frac{\omega_n }{Q}s + \omega_n^2<br>\<br>其中<br>\<br>\omega_n &#x3D; \sqrt{\frac{1}{LC}}、<br>Q &#x3D; \frac{1}{2\epsilon}&#x3D;\frac{1}{R}\sqrt{\frac{L}{C}}、<br>\epsilon&#x3D;\frac{R}{2}\sqrt{\frac{C}{L}}<br>$$<br><strong>无阻尼(R&#x3D;0)</strong>： $ \epsilon&#x3D;0$  or $Q→\infty$<br>$$<br>u_C(t) &#x3D; U_{ab}\bigl(1 - \cos\omega_0 t\bigr)<br>$$<br><strong>欠阻尼($R&lt;2\sqrt{\frac{L}{C}}$)</strong>： $ \epsilon&lt;1$  or $Q&gt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(\cos\omega_dt + \frac{\epsilon \omega_n}{\omega_d}\sin\omega_dt]<br>$$<br>随着$R$不断增大，阻尼比$\epsilon$增大衰减速度越快，当$R&#x3D;0$时不衰减。</p>
 <p><strong>临界阻尼($R&#x3D;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&#x3D;1$  or $Q&#x3D;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}[1 - e^{-\epsilon \omega_n t}(1+\cos\omega_nt)]<br>$$<br><strong>过阻尼($R&gt;2\sqrt{\frac{L}{C}}$)</strong>：$ \epsilon&lt;1$  or $Q&lt;0.5$<br>$$<br>u_C(t) &#x3D; U_{ab}\left[1 - \frac{e^{-\epsilon \omega_n t}}{\sqrt{1-\epsilon^2}}\left(\sin\omega_d t+\theta\right)\right]<br>$$<br><strong>特征总结</strong>：</p>
@@ -295,9 +295,8 @@
 <p>④结合 ZVS  ZCS  降低无功来减小关断电流并降低导通损耗，能提高系统效率。</p>
 <h4 id="LLC分析"><a href="#LLC分析" class="headerlink" title="LLC分析"></a>LLC分析</h4><p><strong>拓扑：</strong></p>
 <p><img src="/../pic/image-20260712140416264.png" srcset="/img/loading.gif" lazyload alt="LLC拓扑"></p>
-<p><strong>增益表达式：</strong><br>$$<br>H(s) &#x3D; \frac{sL_m \parallel R_{ac}}{\frac{1}{sC_r} + sL_r + (sL_m \parallel R_{ac})}<br>     &#x3D; \frac{sL_m R_{ac}}{(sL_r + \frac{1}{sC_r})(sL_m + R_{ac}) + sL_m R_{ac}}\</p>
-<p>$$</p>
-<p>$$<br>其中f_n &#x3D; \frac{f}{f_r} &#x3D; \frac{\omega}{\omega_r}, \quad s &#x3D; j\omega &#x3D; j\omega_r f_n\<br>L_n &#x3D; \frac{L_m}{L_r}\<br>Q &#x3D; \frac{Z_r}{R_{ac}} &#x3D; \frac{\sqrt{L_r&#x2F;C_r}}{R_{ac}}<br>$$<br>代入后<br>$$<br>H(f_n) &#x3D; \frac{1}{ \left(1 + \frac{f_n^2 - 1}{f_n^2 L_n}\right) + j, Q \left(f_n - \frac{1}{f_n}\right) }\<br>→M_{ac}(f_n) &#x3D; \frac{1}{\sqrt{ \left(1 + \frac{1}{L_n} - \frac{1}{L_n f_n^2}\right)^2 + Q^2 \left(f_n - \frac{1}{f_n}\right)^2 } }<br>$$<br><strong>Matlab增益曲线绘制：</strong></p>
+<p><strong>增益表达式：</strong><br>$$<br>H(s) &#x3D; \frac{sL_m \parallel R_{ac}}{\frac{1}{sC_r} + sL_r + (sL_m \parallel R_{ac})}<br>     &#x3D; \frac{sL_m R_{ac}}{(sL_r + \frac{1}{sC_r})(sL_m + R_{ac}) + sL_m R_{ac}}\<br>$$</p>
+<p>$$<br>其中f_n &#x3D; \frac{f}{f_r} &#x3D; \frac{\omega}{\omega_r}, \quad s &#x3D; j\omega &#x3D; j\omega_r f_n\<br>L_n &#x3D; \frac{L_m}{L_r}\<br>Q &#x3D; \frac{Z_r}{R_{ac}} &#x3D; \frac{\sqrt{L_r&#x2F;C_r}}{R_{ac}}<br>$$<br>代入后<br>$$<br>H(f_n) &#x3D; \frac{1}{ \left(1 + \frac{1}{ L_n}-\frac{1}{f_n^2 L_n}\right) + j, Q \left(f_n - \frac{1}{f_n}\right) }\<br>→M_{ac}(f_n) &#x3D; \frac{1}{\sqrt{ \left(1 + \frac{1}{L_n} - \frac{1}{L_n f_n^2}\right)^2 + Q^2 \left(f_n - \frac{1}{f_n}\right)^2 } }<br>$$<br><strong>Matlab增益曲线绘制：</strong></p>
 <p><img src="/../pic/LLC-1783834142389-5.png" srcset="/img/loading.gif" lazyload alt="LLC增益-频率曲线"></p>
 <p>​        曲线由两个自由度定义，Ln(励磁电感 和 谐振电感比值)  Q(谐振电感和负载比值)。</p>
 <p>原边ZCS和ZVS区域由原边阻抗传递函数特性确定。</p>
@@ -344,21 +343,59 @@
 <li>能直接得到变压器匝比关系。→不然根据不同的负载，考虑不同的匝比时的频率范围是否能满足条件，更复杂。</li>
 </ul>
 <p>②结合电容得到掉电电压范围(输入电压最小值，最大值范围)→再结合维持时间确定输入电压范围得到最大增益点。</p>
-<p>$M_{max}$</p>
-<p>$M_{min}$</p>
+<p>$M_{max}$(输入电压最小值)：$M_{max}&#x3D;\frac{Vo}{U_{in_min}}$</p>
+<p>$M_{min}$(输入电压最大值)：$M_{min}&#x3D;\frac{Vo}{U_{in_max}}$</p>
+<p><strong>Ln、Q对于增益曲线特性影响：</strong></p>
+<p><img src="/../pic/M_Ln.png" srcset="/img/loading.gif" lazyload alt="Q恒定 增益曲线随Ln变化特性"></p>
+<p>Q不变，随着Ln增大(即Lm增大)，极值点频率先减小再趋于1，最大增益减小。</p>
+<p>对于相同负载，相同增益下<strong>电流应力变化分析</strong>：Lm两端电压不变，Q不变，Ln增加，Lm增加，Lm电流减小。<strong>所以Ln越大，电流应力越小。</strong></p>
+<p><img src="/../pic/M_Q.png" srcset="/img/loading.gif" lazyload alt="Ln恒定 增益曲线随Q变化特性"></p>
+<p>Ln不变，随着Q增大(Lr，Lm同步增大)，极值点频率趋于1，最大增益减小。</p>
+<p>对于相同负载，相同增益下<strong>电流应力变化分析</strong>：Lm两端电压不变，Q增加，Lm，Lr同步增加，Lm电流减小。<strong>所以Q越大，电流应力越小。</strong></p>
+<p><img src="/../pic/M_LnQ.png" srcset="/img/loading.gif" lazyload alt="Lm确定不变 Ln(Q)变化的影响"></p>
+<p>**曲线特性定性分析：**Q增加，Lr增加，Lr串联Cr等效C减小，总阻抗虚部减小，总阻抗减小，同频率下增益更大，<strong>蓝色曲线在谐振频率左侧上面</strong>。</p>
+<p>Ln增加(Q减小)，极大值频率减小，增益增大，但总阻抗减小，电流应力增大。</p>
 <p>③保证实现ZVS下  优化 死区时间td 和 励磁电感Lm，使总损耗&#x3D;导通损耗(大部分)+开关损耗(极小部分)达到最低。</p>
 <p>Lm越小，斜率越小，电流峰值越小，导通损耗(铜损)，磁芯损耗(铁损)越小。</p>
 <p>死区时间td越小，所需电流峰值越大，所需要Lm越大，但电流有效值越大，导通损耗越大降低效率，但传输能量比率越大提高效率，两者权衡。</p>
 <p>两个约束：在满足ZVS下，优化损耗→两个等式，两个变量。</p>
+<p><strong>ZVS条件计算：</strong></p>
+<p><img src="/../pic/image-20260822104341594.png" srcset="/img/loading.gif" lazyload alt="ZVS 条件"></p>
+<p>$I_M t_d ≥ 2C_{oss}V_{in}$</p>
+<p>$I_M &#x3D; \frac{nV_o}{L_m}\frac{T_0}{4}、\frac{V_{in}}{2} &#x3D; nV_o$</p>
+<p>→$L_m ≤\frac{T_0t_d}{16C_{oss}}$</p>
+<p><strong>损耗优化条件：</strong></p>
+<p><img src="/../pic/image-20260822105034334-1787454451951-1.png" srcset="/img/loading.gif" lazyload alt="考虑死区时间损耗优化建模"></p>
+<p><strong>两个等式：</strong></p>
+<p>①原边电流输入功率&#x3D;负载输出功率</p>
+<p> ②半周期电流相等</p>
+<p>→谐振腔电流<strong>峰值</strong>、<strong>相位</strong></p>
+<p>谐振腔电流-励磁电感电流积分算原边电流有效值</p>
+<p>原边谐振腔电流：$i_{Lr}(t)&#x3D;\sqrt{2}I_{\text{RMS_P}} \sin(\omega_0 t+\Phi)$</p>
+<p>励磁电感电流：$i_{Lm}(t) &#x3D; -i_{Lm_m}+\frac{nV_0}{L_m}\left(t-NT_0\right)$</p>
+<p>死区时间谐振腔(励磁电感)电流：$i_{Lm}(t) &#x3D; i_{Lm_m}$</p>
+<p>$\frac{\int_{0}^{\frac{T_0}{2}}\left[\sqrt{2}I_{RMS_P}\sin(\omega_0 t+\Phi)+\frac{nV_0}{L_m}\cdot\frac{T_0}{4}-\frac{nV_0}{L_m}t\right]dt}{T_S&#x2F;2}&#x3D;\frac{V_0}{nR_L}$</p>
+<p>→$\begin{equation*}<br>I_{\mathrm{RMS}_P}&#x3D;<br>\frac{1}{4\sqrt{2},nR_L}<br>\sqrt{\frac{n^4R_L^2T_S^2}{L_m^2}+4\pi^2+\frac{16\pi^2\left(T_0t_d+t_d^2\right)}{T_0^2}}<br>\xrightarrow{L_m&#x3D;\frac{T_0\cdot t_d}{16C_j}}<br>I_{\mathrm{RMS}_P}&#x3D;<br>\frac{1}{4\sqrt{2},nR_L}<br>\sqrt{\frac{256C_j^2n^4R_L^2}{t_d^2}+4\pi^2+\frac{16\pi^2\left(T_0t_d+t_d^2\right)}{T_0^2}}<br>\end{equation*}$</p>
+<p>→$I_{\mathrm{RMS}_S}&#x3D;<br>\frac{1}{4\sqrt{2},R_L}<br>\sqrt{\frac{256C_j^2n^4R_L^2}{t_d^2}+4\pi^2+\frac{16\pi^2\left(T_0t_d+t_d^2\right)}{T_0^2}}<br>$</p>
+<p>→$P{con_Loss} &#x3D; f(t_d)$</p>
 <p>⑤确定Ln(Q) 。Lm确定情况下，Ln↑，Q↓。</p>
-<p>Ln越大，越接近串联谐振特性，更平缓(控制频率平缓，但增益范围变小)，所以需要Ln更小。但Ln越小，管子电流，电容电压应力更小。且Ln越小，相同Lm下最大增益越小。→确定Ln(Q)</p>
-<p>一句话：Ln越大，控制特性变好，但是增益范围变窄，所以在满足增益范围下，Ln越小越好。</p>
+<p>在Ln*Q&#x3D;C(定值)情况下，Ln越大(Q越小)，越接近串联谐振特性，更平缓(控制频率平缓，但增益范围变小)，谐振电容器件电流应力更小，所以需要Ln更大。但Ln越大，最大增益点下降。→权衡以确定Ln(Q)</p>
+<p>一句话：在Ln*Q&#x3D;C(定值)情况下，Ln越小，控制特性变好(频率范围更平缓)，应力变小，但是增益范围变窄，所以在满足增益范围下，Ln越小越好。</p>
+<p>注：两种确定Ln，Q的方法<br>①先根据ZVS条件确定Lm，再在Lm的基础上取小电流增益足够的Q。</p>
+<p>②先根据经验值确定大致的k，再在k确定的情况下，满足ZVS条件下选取大的Q。倒回去核算增益是否满足条件。</p>
 <p><strong>器件参数计算：</strong></p>
 <p><strong>fs &#x3D; fr：</strong></p>
 <p>等式：输入功率&#x3D;输出功率  时域电流大小</p>
 <p>变压器原边电流有效值：</p>
 <p>变压器副边电流有效值：</p>
-<h4 id="设计实例"><a href="#设计实例" class="headerlink" title="设计实例"></a>设计实例</h4><h3 id="SR-LLC谐振变换器"><a href="#SR-LLC谐振变换器" class="headerlink" title="SR-LLC谐振变换器"></a>SR-LLC谐振变换器</h3><h5 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h5><h5 id="参数设计"><a href="#参数设计" class="headerlink" title="参数设计"></a>参数设计</h5><h5 id="控制设计"><a href="#控制设计" class="headerlink" title="控制设计"></a>控制设计</h5><h2 id="DCM反激变换器设计"><a href="#DCM反激变换器设计" class="headerlink" title="DCM反激变换器设计"></a>DCM反激变换器设计</h2><h3 id="BCM波形图"><a href="#BCM波形图" class="headerlink" title="BCM波形图"></a>BCM波形图</h3><p><strong>波形图待补充</strong></p>
+<h4 id="设计实例"><a href="#设计实例" class="headerlink" title="设计实例"></a>设计实例</h4><h3 id="SR-LLC谐振变换器"><a href="#SR-LLC谐振变换器" class="headerlink" title="SR-LLC谐振变换器"></a>SR-LLC谐振变换器</h3><h5 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h5><h5 id="参数设计实例"><a href="#参数设计实例" class="headerlink" title="参数设计实例"></a>参数设计实例</h5><p>输入：800V 输出750-1000V  Po&#x3D;30kW</p>
+<p>取设定额定工况：800V 875V  Po&#x3D;30kW  fr &#x3D; 100kHz  </p>
+<p>变压器匝比：$n &#x3D; 875&#x2F;800 &#x3D; 1.1 →10：11$</p>
+<p>最大增益：(1000+1000-875)&#x2F;875&#x3D;1.142</p>
+<p>最小增益：(1000-1000+875)&#x2F;875&#x3D;0.857</p>
+<p>优化$Lm$：计算得到$t_d &#x3D; 530ns$   $L_m &#x3D; \frac{T_0t_d}{16C_j}&#x3D;10uH$</p>
+<p>计算Ln(Q)：</p>
+<h5 id="控制设计"><a href="#控制设计" class="headerlink" title="控制设计"></a>控制设计</h5><h2 id="DCM反激变换器设计"><a href="#DCM反激变换器设计" class="headerlink" title="DCM反激变换器设计"></a>DCM反激变换器设计</h2><h3 id="BCM波形图"><a href="#BCM波形图" class="headerlink" title="BCM波形图"></a>BCM波形图</h3><p><strong>波形图待补充</strong></p>
 <p><strong>系统器件参数：</strong></p>
 <p>输入功率：$P_{in}&#x3D;\frac{1}{T}\int_{0}^{DT}{U_{in}\frac{U_{in}}{L_m}t}dt&#x3D;\frac{U_{in}^2D^2T}{2L_m}$</p>
 <p>输出电压：$\frac{U_{in}}{L_m}DT &#x3D; \frac{nU_{o}}{L_m}(1-D)T→U_o &#x3D; \frac{D}{n(1-D)}U_{in}$</p>
@@ -413,7 +450,8 @@
 <h3 id="整流二极管"><a href="#整流二极管" class="headerlink" title="整流二极管"></a>整流二极管</h3><p>最大反向电压：$U_{D,max}&#x3D; \frac{U_{in}}{n}+U_o$ </p>
 <p>电流有效值：$I_{D,rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D,rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
 <h3 id="输出电容-C-out"><a href="#输出电容-C-out" class="headerlink" title="输出电容$C_{out}$"></a>输出电容$C_{out}$</h3><h3 id="RCD尖峰吸收电路设计"><a href="#RCD尖峰吸收电路设计" class="headerlink" title="RCD尖峰吸收电路设计"></a>RCD尖峰吸收电路设计</h3><p>RCD尖峰吸收电路原理：<br>模态①：漏感$L_{lk}$$和$$C_{oss}$$谐振，直到$$U_{ds}(U_{Coss})$$大于$$U_{in}$<br>模态②：漏感$L_{lk}$给$C_{clamp}$充电<br>模态③：并联$R$放电，要求单周期内R消耗能量不少于漏感存储能量。</p>
-<h3 id="补偿电路设计"><a href="#补偿电路设计" class="headerlink" title="补偿电路设计"></a>补偿电路设计</h3><h3 id="QR反激变换器"><a href="#QR反激变换器" class="headerlink" title="QR反激变换器"></a>QR反激变换器</h3><h2 id="PFC"><a href="#PFC" class="headerlink" title="PFC"></a>PFC</h2><h3 id="PWM调制技术"><a href="#PWM调制技术" class="headerlink" title="PWM调制技术"></a>PWM调制技术</h3><h4 id="SPWM"><a href="#SPWM" class="headerlink" title="SPWM"></a>SPWM</h4><h4 id="SVPWM"><a href="#SVPWM" class="headerlink" title="SVPWM"></a>SVPWM</h4><h3 id="单相整流器"><a href="#单相整流器" class="headerlink" title="单相整流器"></a>单相整流器</h3><p>单极性调制：上半个周期，Uin和0。下半个周期0和-Uin</p>
+<h3 id="补偿电路设计"><a href="#补偿电路设计" class="headerlink" title="补偿电路设计"></a>补偿电路设计</h3><h3 id="QR反激变换器"><a href="#QR反激变换器" class="headerlink" title="QR反激变换器"></a>QR反激变换器</h3><h2 id="单级拓扑QR-SSF拓扑"><a href="#单级拓扑QR-SSF拓扑" class="headerlink" title="单级拓扑QR-SSF拓扑"></a>单级拓扑QR-SSF拓扑</h2><p>意义：</p>
+<h2 id="PFC"><a href="#PFC" class="headerlink" title="PFC"></a>PFC</h2><h3 id="PWM调制技术"><a href="#PWM调制技术" class="headerlink" title="PWM调制技术"></a>PWM调制技术</h3><h4 id="SPWM"><a href="#SPWM" class="headerlink" title="SPWM"></a>SPWM</h4><h4 id="SVPWM"><a href="#SVPWM" class="headerlink" title="SVPWM"></a>SVPWM</h4><h3 id="单相整流器"><a href="#单相整流器" class="headerlink" title="单相整流器"></a>单相整流器</h3><p>单极性调制：上半个周期，Uin和0。下半个周期0和-Uin</p>
 <p>双极性调制：周期内要么Uin要么-Uin</p>
 <p>单极性倍频调制：最终的结果和单极性调制一样，但是调制波频率可以更低。</p>
 <h3 id="三相整流器"><a href="#三相整流器" class="headerlink" title="三相整流器"></a>三相整流器</h3><h4 id="Clark变换"><a href="#Clark变换" class="headerlink" title="Clark变换"></a>Clark变换</h4><p>物理意义：</p>
