@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/img/dianluchangshi.png">
 <meta property="article:published_time" content="2026-07-08T16:32:25.789Z">
-<meta property="article:modified_time" content="2026-08-26T12:24:23.991Z">
+<meta property="article:modified_time" content="2026-09-13T06:20:13.715Z">
 <meta property="article:author" content="Ydkukudeshuai">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/img/dianluchangshi.png">
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k 字
+          9.1k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          39 分钟
+          76 分钟
         
       </span>
     
@@ -451,6 +451,483 @@
 <p>电流有效值：$I_{D,rms}^2T &#x3D; \int_{DT}^{T}n^2[\frac{U_{in}}{L_m}DT-\frac{nU_o}{L_m}(t+DT)]^2dt→I_{D,rms} &#x3D; \frac{nU_{in}DT}{L_m}\sqrt{\frac{1-D}{3}}$</p>
 <h3 id="输出电容-C-out"><a href="#输出电容-C-out" class="headerlink" title="输出电容$C_{out}$"></a>输出电容$C_{out}$</h3><h3 id="RCD尖峰吸收电路设计"><a href="#RCD尖峰吸收电路设计" class="headerlink" title="RCD尖峰吸收电路设计"></a>RCD尖峰吸收电路设计</h3><p>RCD尖峰吸收电路原理：<br>模态①：漏感$L_{lk}$$和$$C_{oss}$$谐振，直到$$U_{ds}(U_{Coss})$$大于$$U_{in}$<br>模态②：漏感$L_{lk}$给$C_{clamp}$充电<br>模态③：并联$R$放电，要求单周期内R消耗能量不少于漏感存储能量。</p>
 <h3 id="补偿电路设计"><a href="#补偿电路设计" class="headerlink" title="补偿电路设计"></a>补偿电路设计</h3><h3 id="QR反激变换器"><a href="#QR反激变换器" class="headerlink" title="QR反激变换器"></a>QR反激变换器</h3><h2 id="单级拓扑QR-SSF拓扑"><a href="#单级拓扑QR-SSF拓扑" class="headerlink" title="单级拓扑QR-SSF拓扑"></a>单级拓扑QR-SSF拓扑</h2><p>意义：</p>
+<h2 id="Flybuck"><a href="#Flybuck" class="headerlink" title="Flybuck"></a>Flybuck</h2><p>核心特点：<strong>同步 Buck + 耦合电感反激</strong>，实现“一路非隔离主输出 + 一路或多路隔离辅助输出”。</p>
+<p><strong>一句话理解</strong>：把同步 Buck 的电感换成耦合电感，原边照旧闭环稳压；副边绕组在**低边管导通期间（$T_{OFF}$）**被反射出一个隔离电压源，经二极管整流得到隔离输出。能量的传递发生在低边管导通时——这就是“Fly（反激）-Buck（降压）”名字的由来。</p>
+<p>与反激、Buck、正激的<strong>区别</strong>：</p>
+<ul>
+<li>反激：无原边主输出，能量主要传副边。</li>
+<li>Buck：无隔离副边。</li>
+<li>FlyBuck：原边是 Buck，副边是反激隔离辅助输出。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">能量传递时刻</th>
+<th align="center">原边是否有独立输出</th>
+<th align="center">反馈方式</th>
+<th align="center">匝比</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Buck</td>
+<td align="center">电感全程续流即可</td>
+<td align="center">有，且是唯一输出</td>
+<td align="center">直接采样</td>
+<td align="center">无</td>
+</tr>
+<tr>
+<td align="center">反激</td>
+<td align="center">原边开关<strong>关断后</strong>传副边</td>
+<td align="center">无（能量基本全给副边）</td>
+<td align="center">光耦 &#x2F; 辅助绕组</td>
+<td align="center">一般不对称，偏离 1:1</td>
+</tr>
+<tr>
+<td align="center">正激</td>
+<td align="center">原边开关<strong>导通时</strong>传副边</td>
+<td align="center">可以有多路输出</td>
+<td align="center">光耦 &#x2F; 辅助绕组</td>
+<td align="center">1:1 附近</td>
+</tr>
+<tr>
+<td align="center"><strong>FlyBuck</strong></td>
+<td align="center"><strong>低边管导通时传副边（$T_{OFF}$）</strong></td>
+<td align="center"><strong>有，且是主输出</strong></td>
+<td align="center"><strong>无需光耦，副边跟随原边</strong></td>
+<td align="center">由输出电压比决定，接近 1:1</td>
+</tr>
+</tbody></table>
+<h3 id="优缺点与应用"><a href="#优缺点与应用" class="headerlink" title="优缺点与应用"></a>优缺点与应用</h3><p><strong>优点</strong></p>
+<ol>
+<li><strong>省掉隔离反馈</strong>：副边电压 $V_{o2}\approx \frac{N_s}{N_p}V_{o1}-V_F$，天然跟随原边，不需要光耦、TL431，也不需要辅助绕组。</li>
+<li><strong>省掉一路控制环路</strong>：原边就是标准 Buck，补偿网络直接按 Buck 设计，不用像反激那样重做环路。</li>
+<li><strong>器件少、体积小、成本低</strong>：比反激少一个反馈通道；比“Buck + 独立 Flyback”少一套开关管和控制器。</li>
+<li><strong>匝比接近 1:1</strong>：传递同样的功率，变压器磁芯和匝数可以更小。</li>
+<li><strong>原边效率高</strong>：同步 Buck 本身效率高，死区期间原边电流给寄生电容充放电，低边管近似 ZVS 开通。</li>
+<li><strong>扩展性强</strong>：耦合电感多绕一个绕组就多一路隔离输出；把二次绕组的“隔离地”换个接法就能得到负压输出。</li>
+</ol>
+<p><strong>缺点 &#x2F; 局限</strong></p>
+<ol>
+<li><strong>只有原边能精确稳压</strong>，隔离输出是<strong>准稳压（quasi-regulated）</strong>：受漏感、绕组 DCR、二极管压降影响，典型调整率 ±5% ~ ±10%。</li>
+<li><strong>占空比不能太高</strong>：副边输出电容只在 $T_{OFF}$ 期间充电，充电电流平均值为 $\frac{I_{o2}}{1-D}$，$D&gt;75%$ 后副边峰值&#x2F;RMS 电流急剧上升，$D&gt;80%$ 基本不实用。</li>
+<li><strong>功率等级受限</strong>：一般 &lt; 15W，定位是“隔离偏置电源”，不能当主功率变换器。</li>
+<li><strong>必须强制 CCM（禁止二极管仿真 &#x2F; 跳周期）</strong>：轻载时低边管必须持续导通、原边电流允许反向，否则副边失去回路，隔离输出直接塌掉。</li>
+<li><strong>隔离等级有限</strong>：通常只做功能隔离；要基本&#x2F;加强绝缘得靠变压器自身的结构、爬电距离和耐压设计。</li>
+<li><strong>对漏感敏感</strong>：漏感决定副边电流的换流速度，直接影响副边稳压和振铃&#x2F;EMI。</li>
+</ol>
+<p><strong>典型应用</strong></p>
+<ul>
+<li>电机驱动 &#x2F; 逆变器的<strong>隔离栅极驱动供电</strong>（IGBT、SiC 的 ±15V 偏置）</li>
+<li>工业 PLC、CAN &#x2F; RS-485 &#x2F; Profibus 等<strong>隔离通信接口电源</strong></li>
+<li>光伏逆变器、充电桩、UPS 内部的<strong>辅助 &#x2F; 偏置电源</strong></li>
+<li>PoE、隔离传感器、BMS 隔离采样供电</li>
+</ul>
+<h3 id="拓扑"><a href="#拓扑" class="headerlink" title="拓扑"></a>拓扑</h3><p><strong>拓扑图待补充</strong></p>
+<p>对应关系（把同步 Buck 的电感换掉即可）：</p>
+<table>
+<thead>
+<tr>
+<th align="center">Buck 元件</th>
+<th align="center">Fly-Buck 元件</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">上管 Q1</td>
+<td align="center">上管 Q1（HS-FET）</td>
+<td align="center">$T_{ON}$ 给原边绕组加压，磁化电流储能</td>
+</tr>
+<tr>
+<td align="center">下管 Q2</td>
+<td align="center">下管 Q2（LS-FET）</td>
+<td align="center">为副边电流提供<strong>低阻回流路径</strong>，同时给原边续流</td>
+</tr>
+<tr>
+<td align="center">电感 L</td>
+<td align="center">耦合电感原边 $N_p$（磁化电感 $L_m$）</td>
+<td align="center">原边滤波 + 储能</td>
+</tr>
+<tr>
+<td align="center">—</td>
+<td align="center">副边 $N_s$ + 二极管 D + $C_{o2}$</td>
+<td align="center">隔离输出整流滤波</td>
+</tr>
+<tr>
+<td align="center">输出电容 $C_{out}$</td>
+<td align="center">$C_{o1}$</td>
+<td align="center">原边输出滤波</td>
+</tr>
+</tbody></table>
+<p><strong>为什么必须是同步 Buck？</strong><br>副边导通时，被折算到原边的电流必须有一条通路流回原边地，这条通路就是低边管 Q2。若换成异步 Buck（下管用二极管），$T_{OFF}$ 期间开关节点被抬到 $-V_F$，副边反射电压会少一个二极管压降，原边回路阻抗也更大；更关键的是——<strong>异步 Buck 轻载会自动进入 DCM（二极管截止）</strong>，副边一失去回路隔离输出就崩。因此 Fly-Buck 必须用**支持强制 CCM &#x2F; 禁止二极管仿真（FPWM）**的同步 Buck 控制器。</p>
+<p><strong>扩展形式</strong></p>
+<ul>
+<li><strong>多路隔离输出</strong>：耦合电感做多个副边绕组，各自整流滤波。所有隔离输出都跟着原边走，只有一路适合加钳位&#x2F;微调。</li>
+<li><strong>负压输出（inverting）</strong>：把二次绕组的“隔离地”接在绕组另一端，即可得到负的 $V_{o2}$。</li>
+<li><strong>副边同步整流</strong>：D 换同步整流管可消掉 $V_F$ 造成的固定偏移，但需要额外驱动。</li>
+<li><strong>副边钳位 &#x2F; 后级 LDO</strong>：用齐纳二极管 + 电阻或 LDO 把某一路隔离输出钳到精确值，用效率换精度。</li>
+</ul>
+<h3 id="建模-工作原理-＆-模态"><a href="#建模-工作原理-＆-模态" class="headerlink" title="建模 工作原理 ＆ 模态"></a>建模 工作原理 ＆ 模态</h3><p><strong>等效电路图（三个模态，同一套拓扑只改开关状态）：</strong></p>
+<p><img src="/../pic/flybuck-mode1.svg" srcset="/img/loading.gif" lazyload alt="Flybuck 模态①：上管导通、副边续流换流"></p>
+<p><img src="/../pic/flybuck-mode2.svg" srcset="/img/loading.gif" lazyload alt="Flybuck 模态②：上管导通、副边开路"></p>
+<p><img src="/../pic/flybuck-mode3.svg" srcset="/img/loading.gif" lazyload alt="Flybuck 模态③：下管导通、副边导通传能"></p>
+<h4 id="符号约定"><a href="#符号约定" class="headerlink" title="符号约定"></a>符号约定</h4><table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$U_{in}$</td>
+<td align="left">输入电压</td>
+</tr>
+<tr>
+<td align="center">$V_{o1}$</td>
+<td align="left"><strong>原边（非隔离）输出电压</strong>，由反馈环稳压确定</td>
+</tr>
+<tr>
+<td align="center">$V_o$</td>
+<td align="left"><strong>副边总电压折算到原边</strong> $&#x3D;V_{o2}\cdot\frac{N_p}{N_s}$</td>
+</tr>
+<tr>
+<td align="center">$n$</td>
+<td align="left">折算匝比 $&#x3D;N_s&#x2F;N_p$（多路副边串联时取总匝数）</td>
+</tr>
+<tr>
+<td align="center">$L_m$</td>
+<td align="left">磁化电感</td>
+</tr>
+<tr>
+<td align="center">$L_r$</td>
+<td align="left">原边漏感</td>
+</tr>
+<tr>
+<td align="center">$R_1$</td>
+<td align="left">原边负载</td>
+</tr>
+<tr>
+<td align="center">$R_{tot}$</td>
+<td align="left">副边总负载，$R’&#x3D;R_{tot}&#x2F;n^2$ 为折算到原边的值</td>
+</tr>
+<tr>
+<td align="center">$T,\ D,\ D’$</td>
+<td align="left">开关周期、占空比、<strong>模态①占空比</strong></td>
+</tr>
+<tr>
+<td align="center">$I_{avrp}$</td>
+<td align="left">原边平均电流 $\langle i_{Lm}\rangle$</td>
+</tr>
+<tr>
+<td align="center">$I_{pk}$</td>
+<td align="left">副边峰值电流</td>
+</tr>
+</tbody></table>
+<p><strong>等效模型（T 模型）</strong>：节点 $SW$ —$L_r$— 节点 $A$ —（$L_m\ \parallel$ 理想变压器原边）— 节点 $B&#x3D;V_{o1}$。</p>
+<p>两个反复要用到的结论：</p>
+<ul>
+<li>理想变压器原边与 $L_m$ <strong>并联</strong>，所以 $\boxed{v_{Lm}&#x3D;v_{AB}}$ 永远成立；</li>
+<li>副边二极管导通时，副边把 $A$–$B$ 钳位到 $|v_{AB}|&#x3D;V_o$。</li>
+</ul>
+<h4 id="三个模态（忽略死区）"><a href="#三个模态（忽略死区）" class="headerlink" title="三个模态（忽略死区）"></a>三个模态（忽略死区）</h4><table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">区间</th>
+<th align="center">Q1 &#x2F; Q2</th>
+<th align="center">副边</th>
+<th align="center">$v_{Lr}$</th>
+<th align="center">$v_{Lm}$</th>
+<th align="center">$v_w&#x3D;v_{Lr}+v_{Lm}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">①</td>
+<td align="center">$0\sim D’T$</td>
+<td align="center">通 &#x2F; 断</td>
+<td align="center">二极管<strong>仍在续流</strong>（换流重叠）</td>
+<td align="center">$U_{in}-V_{o1}+V_o$</td>
+<td align="center">$-V_o$</td>
+<td align="center">$U_{in}-V_{o1}$</td>
+</tr>
+<tr>
+<td align="center">②</td>
+<td align="center">$D’T\sim DT$</td>
+<td align="center">通 &#x2F; 断</td>
+<td align="center">截止（支路开路）</td>
+<td align="center">$(U_{in}-V_{o1})\frac{L_r}{L_m+L_r}$</td>
+<td align="center">$(U_{in}-V_{o1})\frac{L_m}{L_m+L_r}$</td>
+<td align="center">$U_{in}-V_{o1}$</td>
+</tr>
+<tr>
+<td align="center">③</td>
+<td align="center">$DT\sim T$</td>
+<td align="center">断 &#x2F; 通</td>
+<td align="center">导通（向副边传能）</td>
+<td align="center">$V_o-V_{o1}&#x3D;-\Delta U$</td>
+<td align="center">$-V_o$</td>
+<td align="center">$-V_{o1}$</td>
+</tr>
+</tbody></table>
+<p><strong>副边电流的方向（容易搞反，务必记住）</strong>：模态③里副边电流由 <strong>0 线性升到峰值 $I_{pk}$</strong>，峰值出现在 $T_{OFF}\to T_{ON}$ 的交界处；然后在<strong>模态①</strong>里被漏感换流回 0。所以<strong>模态①是“副边峰值电流的换流尾巴”</strong>，不是衰减拖尾。</p>
+<p><strong>副边能建立起电流的前提</strong>（很多资料不讲）：</p>
+<p>$$\Delta U&#x3D;V_{o1}-V_o&gt;\frac{L_r}{L_m}V_o$$</p>
+<p>因为 $\frac{di_s}{dt}&#x3D;\frac{1}{n}\left(\frac{\Delta U}{L_r}-\frac{V_o}{L_m}\right)$，只有 $\Delta U$ 足够大（即副边环路有足够压降）副边电流才会上升。</p>
+<h4 id="四个方程"><a href="#四个方程" class="headerlink" title="四个方程"></a>四个方程</h4><p><strong>已知</strong> $U_{in},\ V_{o1},\ L_m,\ L_r,\ R_1,\ R_{tot},\ n,\ T$；<strong>待求</strong> $D,\ D’,\ V_o,\ I_{avrp}$。</p>
+<p><strong>（1）绕组伏秒平衡</strong>（Lr 与 Lm 两条相加即得）</p>
+<p>$$(U_{in}-V_{o1})D-V_{o1}(1-D)&#x3D;0<br>\quad\Longrightarrow\quad<br>D&#x3D;\frac{V_{o1}}{U_{in}}$$</p>
+<p><strong>（2）Lm 伏秒平衡</strong>（$k_m&#x3D;\frac{L_m}{L_m+L_r}$）</p>
+<p>$$-V_oD’+(U_{in}-V_{o1})k_m(D-D’)-V_o(1-D)&#x3D;0<br>\quad\Longrightarrow\quad<br>D-D’&#x3D;\frac{V_o}{V_o+k_m(U_{in}-V_{o1})}$$</p>
+<p><strong>（3）安匝 &#x2F; 电荷平衡</strong>（$i_{Lm}&#x3D;i_{Lr}+n,i_s$）</p>
+<p>$$I_{avrp}&#x3D;\langle i_{Lm}\rangle&#x3D;\frac{V_{o1}}{R_1}+\frac{V_o}{R’},\qquad R’&#x3D;\frac{R_{tot}}{n^2}$$</p>
+<p><strong>（4）副边电流与换流约束</strong></p>
+<p>$$I_{pk}&#x3D;\frac{(1-D)T}{n}\left(\frac{V_{o1}-V_o}{L_r}-\frac{V_o}{L_m}\right),\quad<br>\frac{1}{2}I_{pk}\big[(1-D)+D’\big]&#x3D;\frac{nV_o}{R_{tot}},\quad<br>D’&#x3D;\frac{nL_rI_{pk}}{T,(U_{in}-V_{o1}+V_o)}$$</p>
+<p><strong>求解顺序</strong>：(1)→$D$；(4) 的前两式联立→$V_o$；(2)→$D’$；(3)→$I_{avrp}$；第三式用于校验。$V_o$ 有显式解：</p>
+<p>$$V_o&#x3D;\frac{V_{o1}}{1+\dfrac{L_r}{L_m}+\dfrac{2n^2L_r}{R_{tot}\big<a href="1-D">(1-D)+D’\big</a>T}}$$</p>
+<p><strong>功率守恒校验</strong>（注意压降会带来一项损耗，所以不能直接令输入功率 &#x3D; 负载功率）：</p>
+<p>$$U_{in}D,I_{avrp}&#x3D;\frac{V_{o1}^2}{R_1}+\frac{V_o^2}{R’},\qquad<br>\frac{V_o(V_{o1}-V_o)}{R’}&#x3D;P_{loss}$$</p>
+<blockquote>
+<p>说明：在<strong>全理想器件</strong>（$V_F&#x3D;0$、无绕组电阻）下，功率守恒会推出 $V_o&#x3D;V_{o1}$，再代入 (2) 得 $D’&lt;0$——即<strong>理想模型下模态①根本不存在</strong>。所以模态①只能由非理想项（二极管压降、绕组电阻）造出来，$\Delta U$ 就是它的“发动机”，漏感只决定换流“多快”。</p>
+</blockquote>
+<h4 id="代入仿真参数（Flybuck-plecs）"><a href="#代入仿真参数（Flybuck-plecs）" class="headerlink" title="代入仿真参数（Flybuck.plecs）"></a>代入仿真参数（Flybuck.plecs）</h4><p>参数：$U_{in}&#x3D;12\text{V}$，$V_{o1}&#x3D;4\text{V}$，$T&#x3D;1&#x2F;350\text{kHz}$，$L_m&#x3D;24\mu H$，$L_r&#x3D;0.24\mu H$，$R_1&#x3D;5\Omega$，副边 $200\Omega\parallel2.2\text{k}\Omega$ 两路串联 $\Rightarrow R_{tot}&#x3D;366.7\Omega$，$n&#x3D;10$，$R’&#x3D;3.667\Omega$。</p>
+<table>
+<thead>
+<tr>
+<th align="center">未知量</th>
+<th align="left">解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$D$</td>
+<td align="left"><strong>0.3333</strong></td>
+</tr>
+<tr>
+<td align="center">$D’$</td>
+<td align="left"><strong>0.02064</strong>（换流约束独立校验 0.02070，残差 0.31%）</td>
+</tr>
+<tr>
+<td align="center">$V_o$（折算）</td>
+<td align="left"><strong>3.6036 V</strong> → 副边实际 36.04 V，折算压降 $\Delta U&#x3D;0.3964\text{V}$</td>
+</tr>
+<tr>
+<td align="center">$I_{avrp}$</td>
+<td align="left"><strong>1.7828 A</strong></td>
+</tr>
+<tr>
+<td align="center">$I_{pk}$（副边峰值）</td>
+<td align="left">0.2860 A</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">区间</th>
+<th align="center">时长</th>
+<th align="center">$v_{Lr}$</th>
+<th align="center">$v_{Lm}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">模态① $0\sim D’T$</td>
+<td align="center">58.97 ns（2.06%）</td>
+<td align="center"><strong>+11.6036 V</strong></td>
+<td align="center"><strong>−3.6036 V</strong></td>
+</tr>
+<tr>
+<td align="center">模态② $D’T\sim DT$</td>
+<td align="center">893.4 ns</td>
+<td align="center">+0.0792 V</td>
+<td align="center">+7.9208 V</td>
+</tr>
+<tr>
+<td align="center">模态③ $DT\sim T$</td>
+<td align="center">1904.8 ns</td>
+<td align="center"><strong>−0.3964 V</strong></td>
+<td align="center"><strong>−3.6036 V</strong></td>
+</tr>
+</tbody></table>
+<p>功率校验：$P_{in}&#x3D;7.1312\text{W}$，$P_{out}&#x3D;6.7417\text{W}$，$P_{loss}&#x3D;0.3896\text{W}$，残差 $\sim10^{-16}$。<br>副边导通条件：$\Delta U&#x3D;0.3964&gt;\frac{L_r}{L_m}V_o&#x3D;0.0360$ ✓</p>
+<blockquote>
+<p>上表中的 $\Delta U\approx0.40\text{V}$ 来自“副边电流严格三角波 + 压降全部折算进 $\Delta U$”这一偏粗的理想化。<strong>更准的做法</strong>：在仿真里用 <code>Vm5 − Vm6</code> 实测模态③的 $v_{Lr}$，把它作为 $\Delta U$ 输入模型替换 (4) 的第一式。</p>
+</blockquote>
+<p>配套 MATLAB 脚本：<code>D:\Data\PLECS_Data\flybuck_solve.m</code>，直接 <code>run</code> 即可复现上表。</p>
+<h4 id="小信号建模与控制"><a href="#小信号建模与控制" class="headerlink" title="小信号建模与控制"></a>小信号建模与控制</h4><ul>
+<li><strong>原边</strong>：与标准 Buck 完全一致。CCM 下控制-输出传递函数就是 Buck 的双极点 + ESR 零点，直接按 Buck 补偿即可。</li>
+<li><strong>副边</strong>：不参与反馈，本质是“开环跟随”，可把副边负载折算到原边看作一个额外负载电流。</li>
+<li>漏感较小时副边折射电流与原边开关波形基本<strong>同相</strong>，不带来额外相位滞后。恒定导通时间（COT）控制器建议用 <strong>Type III</strong> 纹波注入，且反射负载电流引起的原边输出纹波<strong>不需要</strong>额外补偿。</li>
+</ul>
+<h3 id="关键波形"><a href="#关键波形" class="headerlink" title="关键波形"></a>关键波形</h3><p><strong>波形图待补充</strong></p>
+<p>需要看的几路波形：</p>
+<ol>
+<li><strong>$V_{SW}$</strong>：标准 Buck 方波，$U_{in}\leftrightarrow 0$。</li>
+<li><strong>$i_{Lm}$ 磁化电流</strong>：TON 内上升、TOFF 内下降的三角波，平均值 $\langle i_{Lm}\rangle&#x3D;I_{avrp}&#x3D;\frac{V_{o1}}{R_1}+\frac{V_o}{R’}$，峰值 $&#x3D;I_{avrp}+\frac{\Delta i_{Lm}}{2}$，$\Delta i_{Lm}&#x3D;\frac{(U_{in}-V_{o1})(D-D’)T}{L_m}$。</li>
+<li><strong>$i_{Lr}$ 原边绕组电流</strong>：$i_{Lr}&#x3D;i_{Lm}-n,i_s$。模态①②内 $i_s&#x3D;0$ 故 $i_{Lr}&#x3D;i_{Lm}$；模态③内 $i_s$ 由 0 升到 $I_{pk}$，$i_{Lr}$ 被“抽走”这部分；模态①内 $i_s$ 降回 0，$i_{Lr}$ 快速回到 $i_{Lm}$。</li>
+<li><strong>$i_s$ 副边电流</strong>：TON 大部分时间为 0；模态③内<strong>由 0 线性升到 $I_{pk}$</strong>；模态①内快速降到 0。</li>
+<li><strong>$V_{o2}$ 副边输出电压</strong>：模态①和模态③内被充高，<strong>模态②（时长 $(D-D’)T$）内被负载拉低</strong>，故纹波 $\Delta V_{o2}\approx\frac{I_{o2}(D-D’)T}{C_{o2}}$。</li>
+<li><strong>Q2 电流</strong>：TOFF 内流过原边电流，<strong>副边重载时原边电流会反向</strong>，Q2 电流可为负。</li>
+</ol>
+<h3 id="仿真与测试"><a href="#仿真与测试" class="headerlink" title="仿真与测试"></a>仿真与测试</h3><p><strong>仿真（PLECS &#x2F; PSIM &#x2F; Simplis &#x2F; LTspice）</strong></p>
+<ol>
+<li>先搭标准同步 Buck，把输出调到 $V_{o1}$，确认 $V_{SW}$ 波形和 $\Delta i_{Lm}$。</li>
+<li>把电感换成耦合电感：$L_p&#x3D;L_m$、$L_s&#x3D;L_m n^2$、$k&#x3D;1-\frac{L_r}{L_m}$（或直接设定漏感）。<strong>不要设 $k&#x3D;1$</strong>，否则副边电流瞬间跳变，纹波与损耗全错。</li>
+<li>副边接二极管 + $C_{o2}$ + 负载 + <strong>预负载电阻</strong>。</li>
+<li>负载扫描：先固定 $I_{o1}$ 扫 $I_{o2}$，再固定 $I_{o2}$ 扫 $I_{o1}$，记录 $V_{o2}$ 变化，画<strong>交叉调整率曲线</strong>。</li>
+<li>参数扫描：改变 $L_r$ 与占空比，复现“漏感越大、$D$ 越高，副边稳压越差”。</li>
+<li>限流校核：让 $i_{sw(pk)}$ 接近 $I_{LIM(min)}$，确认不误触发过流保护。</li>
+</ol>
+<p><strong>实测</strong></p>
+<ul>
+<li>探头：$V_{SW}$ 用高带宽探头；$i_{Lr}$ 用电流探头或串联采样电阻；副边电流可用电流互感器。</li>
+<li>关键测点：不同 $I_{o2}$（空载→满载）下 $V_{o2}$ 的偏移量，判断是否需要预负载 &#x2F; 钳位 &#x2F; 后级 LDO。</li>
+<li>关注副边二极管反向恢复与漏感引起的<strong>振铃</strong>（$V_{DS}$ 尖峰、EMI），必要时加 RC &#x2F; RCD 缓冲。</li>
+<li>绕组极性绝不能接反：接反后 $T_{ON}$ 期间副边反而导通，$V_{o2}$ 关系完全不成立且原边电流异常增大。</li>
+</ul>
+<h3 id="设计实例-器件选型"><a href="#设计实例-器件选型" class="headerlink" title="设计实例 器件选型"></a>设计实例 器件选型</h3><p>以 TI AN-2292（LM5017）的经典例子为例。</p>
+<p><strong>设计规格</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$V_{in}$</td>
+<td align="center">36 ~ 72 V</td>
+</tr>
+<tr>
+<td align="center">$V_{o1}$（非隔离）</td>
+<td align="center">10 V &#x2F; 100 mA</td>
+</tr>
+<tr>
+<td align="center">$V_{o2}$（隔离）</td>
+<td align="center">10 V &#x2F; 200 mA</td>
+</tr>
+<tr>
+<td align="center">$f_{sw}$</td>
+<td align="center">750 kHz</td>
+</tr>
+<tr>
+<td align="center">控制器</td>
+<td align="center">LM5017（100V 同步 Buck，$I_{LIM(min)}&#x3D;0.7A$）</td>
+</tr>
+</tbody></table>
+<p><strong>设计步骤</strong></p>
+<ol>
+<li><p><strong>反馈电阻</strong>：$V_{o1}&#x3D;1.225V\times\left(1+\frac{R_{FB2}}{R_{FB1}}\right)$，取 $R_{FB1}&#x3D;1k\Omega\Rightarrow R_{FB2}&#x3D;7.16,k\Omega$。</p>
+</li>
+<li><p><strong>确定匝比</strong>：</p>
+</li>
+</ol>
+<p>$$\frac{N_s}{N_p}&#x3D;\frac{V_{o2}+V_F}{V_{o1}}&#x3D;\frac{10+1}{10}&#x3D;1.1\Rightarrow 取\ 1:1$$</p>
+<p>   取 1:1 后 $V_{o2}\approx9.3V$，可用齐纳二极管 + 电阻钳到 10V（或后级 LDO）。</p>
+<ol start="3">
+<li><p><strong>副边二极管耐压</strong>：$T_{ON}$ 时反压 $V_{D}&#x3D;\frac{N_s}{N_p}V_{in(max)}&#x3D;72V$ → 选 100V &#x2F; 1A 肖特基。</p>
+</li>
+<li><p><strong>原边磁化电感 $L_m$</strong>：</p>
+<ul>
+<li>先用限流余量反推允许的磁化电流纹波：</li>
+</ul>
+</li>
+</ol>
+<p>$$\Delta i_{Lm}&#x3D;\left(I_{LIM(min)}-I_{o1}-\frac{N_s}{N_p}I_{o2}\right)\times2&#x3D;(0.7-0.1-0.2)\times2&#x3D;0.8A<br>$$</p>
+<ul>
+<li>再由纹波公式反推最小电感：</li>
+</ul>
+<p>$$L_m&#x3D;\frac{(V_{in(max)}-V_{o1})V_{o1}}{\Delta i_{Lm}f_{sw}V_{in(max)}}<br>&#x3D;\frac{(72-10)\times10}{0.8\times750k\times72}&#x3D;14.4,\mu H$$</p>
+<ul>
+<li>留余量取 $L_m&#x3D;33,\mu H$，此时实际纹波为</li>
+</ul>
+<p>$$\Delta i_{Lm}&#x3D;\frac{(72-10)\times10}{33\mu\times750k\times72}\approx0.35A$$</p>
+<ul>
+<li>峰值电流校核：$i_{sw(pk)}&#x3D;I_{o1}+\frac{N_s}{N_p}I_{o2}+\frac{\Delta i_{Lm}}{2}&#x3D;0.1+0.2+\frac{0.35}{2}&#x3D;0.475A&lt;0.7A$ ✓</li>
+</ul>
+<ol start="5">
+<li><p><strong>原边输出电容</strong>：$\Delta V_{o1}&#x3D;\frac{(I_{o2}N_s&#x2F;N_p)T_{ON(max)}}{C_{o1}}$，取 $C_{o1}&#x3D;1\mu F&#x2F;25V$ X7R，得 $\Delta V_{o1}\approx50\sim75mV$。</p>
+</li>
+<li><p><strong>副边输出电容</strong>：$\Delta V_{o2}&#x3D;\frac{I_{o2}T_{ON(max)}}{C_{o2}}$，同样取 $C_{o2}&#x3D;1\mu F&#x2F;25V$ X7R。</p>
+</li>
+<li><p><strong>输入电容</strong>：$C_{in}\ge\frac{I_{out(max)}}{4f_{sw}\Delta V_{in}}$，取 0.47µF 陶瓷 + 2.2µF 体电容，耐压 100V。</p>
+</li>
+<li><p><strong>纹波注入电路</strong>：COT 控制器建议用 <strong>Type III</strong> 纹波注入（$R_r&#x3D;46.4k\Omega$、$C_r&#x3D;1000pF$、$C_{ac}&#x3D;0.1\mu F$），保证注入纹波大于 $C_{o1}$ 上的容性纹波，否则会抖动（jitter）。</p>
+</li>
+<li><p><strong>预负载</strong>：隔离输出加一个小预负载（约 1~5mA），保证空载时 $V_{o2}$ 不飘高。</p>
+</li>
+</ol>
+<p><strong>关键选型提醒</strong></p>
+<ul>
+<li><strong>耦合电感</strong>：优先选<strong>漏感小、耦合系数高</strong>的成品 Fly-Buck 耦合电感（Coilcraft、Würth 等有专门系列）。必须明确 $L_m$、匝比、$L_r$、饱和电流、隔离耐压、爬电距离。<strong>磁芯必须像 Buck 电感一样开气隙</strong>——原边绕组里流着直流输出电流，磁化电流含直流偏置，普通变压器磁芯会饱和。</li>
+<li><strong>控制器</strong>：必须支持<strong>强制 CCM &#x2F; 禁止二极管仿真</strong>（FPWM 引脚务必配置正确）。</li>
+<li><strong>副边二极管</strong>：耐压 $\ge\frac{N_s}{N_p}V_{in(max)}$，并尽量选小 $V_F$ 的肖特基；但注意<strong>压降太小反而会让副边电流建立不起来</strong>（见上文导通条件）。</li>
+</ul>
+<h3 id="问题与调试"><a href="#问题与调试" class="headerlink" title="问题与调试"></a>问题与调试</h3><ol>
+<li><p><strong>副边电压明显低于理论值</strong></p>
+<ul>
+<li>原因：漏感太大，$T_{OFF}$ 内副边电流来不及建立；或绕组 DCR &#x2F; 二极管 $V_F$ 压降。</li>
+<li>对策：换低漏感耦合电感、降低占空比、副边改同步整流、减小副边换流环路。</li>
+</ul>
+</li>
+<li><p><strong>副边电压随负载变化大（交叉调整率差）</strong></p>
+<ul>
+<li>这是准稳压的<strong>原理性缺陷</strong>。</li>
+<li>对策：加预负载、加齐纳钳位、后级 LDO，或改用真正的隔离反馈（光耦 &#x2F; 辅助绕组）。</li>
+</ul>
+</li>
+<li><p><strong>占空比过高导致副边电流与温升爆表</strong></p>
+<ul>
+<li>$D&gt;0.75$ 后副边充电电流是负载电流的 4 倍以上。</li>
+<li>对策：提高输入电压、降低 $V_{o1}$、调整匝比，把 $D$ 控制在 0.3 ~ 0.6。</li>
+</ul>
+</li>
+<li><p><strong>空载 &#x2F; 轻载时副边电压失控升高</strong></p>
+<ul>
+<li>副边负载电流很小，$T_{OFF}$ 期间充入的电荷用不掉。</li>
+<li>对策：加预负载电阻、加齐纳钳位。</li>
+</ul>
+</li>
+<li><p><strong>轻载下副边直接掉到 0</strong></p>
+<ul>
+<li>控制器进入了二极管仿真 &#x2F; DCM &#x2F; 跳周期，低边管关断，副边失去回路。</li>
+<li>对策：把控制器配置成 <strong>FPWM &#x2F; 强制 CCM</strong>。</li>
+</ul>
+</li>
+<li><p><strong>原边电流反向、低边管发热</strong></p>
+<ul>
+<li>副边重载 + 原边轻载时原边电流会反向流经 Q2，属于正常现象，但会增加 Q2 的 RMS 电流与损耗。</li>
+<li>对策：选 $R_{DS(on)}$ 更小的低边管；合理分配原&#x2F;副边负载比例。</li>
+</ul>
+</li>
+<li><p><strong>$V_{SW}$ 与副边振铃严重、EMI 超标</strong></p>
+<ul>
+<li>漏感与 $C_{oss}$、副边二极管结电容谐振。</li>
+<li>对策：加 RC &#x2F; RCD 吸收，减小换流环路面积，副边用软恢复二极管或加 RC 缓冲。</li>
+</ul>
+</li>
+<li><p><strong>副边绕组极性接反</strong></p>
+<ul>
+<li>现象：副边电压关系完全不成立、原边电流异常增大、效率骤降。</li>
+<li>对策：确认同名端（dot），保证只有 $T_{OFF}$ 期间副边二极管导通。</li>
+</ul>
+</li>
+<li><p><strong>控制器抖动（jitter）</strong></p>
+<ul>
+<li>COT 控制器在 Fly-Buck 下会受反射负载电流影响，Type I &#x2F; II 纹波注入容易不稳。</li>
+<li>对策：改用 Type III 纹波注入，并保证注入纹波大于 $C_{o1}$ 的容性纹波。</li>
+</ul>
+</li>
+<li><p><strong>隔离 &#x2F; 安规不达标</strong></p>
+<ul>
+<li>Fly-Buck 只做功能隔离；若要基本 &#x2F; 加强绝缘，必须选用满足爬电距离、电气间隙和耐压测试的变压器，并注意 PCB 隔离带开槽。</li>
+</ul>
+</li>
+</ol>
+<p><strong>参考资料</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.ti.com/lit/an/snva674c/snva674c.pdf">TI AN-2292 Designing an Isolated Buck (Fly-Buck) Converter (SNVA674)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ti.com/lit/an/snva790a/snva790a.pdf">TI SNVA790 Designing an Isolated Buck (Fly-Buck) Converter using the LMR36520</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ti.com/lit/ml/slpy004a/slpy004a.pdf">TI 电源技巧：为 Fly-Buck 转换器选择正确的匝数比（SLPY004）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.coilcraft.com/getmedia/34a4aeef-62e3-4a89-82f8-8a588cd0f865/Doc1393_FlybuckCoupledInductors_TI.pdf">Coilcraft Fly-Buck Coupled Inductors（选型手册）</a></li>
+</ul>
 <h2 id="PFC"><a href="#PFC" class="headerlink" title="PFC"></a>PFC</h2><h3 id="PWM调制技术"><a href="#PWM调制技术" class="headerlink" title="PWM调制技术"></a>PWM调制技术</h3><h4 id="SPWM"><a href="#SPWM" class="headerlink" title="SPWM"></a>SPWM</h4><h4 id="SVPWM"><a href="#SVPWM" class="headerlink" title="SVPWM"></a>SVPWM</h4><h3 id="单相整流器"><a href="#单相整流器" class="headerlink" title="单相整流器"></a>单相整流器</h3><p>单极性调制：上半个周期，Uin和0。下半个周期0和-Uin</p>
 <p>双极性调制：周期内要么Uin要么-Uin</p>
 <p>单极性倍频调制：最终的结果和单极性调制一样，但是调制波频率可以更低。</p>
