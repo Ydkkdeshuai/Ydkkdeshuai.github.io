@@ -1,0 +1,1504 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ydkukudeshuai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="用 TPS54308 设计简单低成本 Flybuck 方案 文档信息原名：Designing a Simple and Low-Cost Flybuck Solution With the TPS54308文档号：SLUA838A（2017-08 首发，2019-10 修订 A 版）作者：Ryan Hu（TI）篇幅：16 页（正文 14 页）附件原名：TPS54380应用手册.pdf —— ⚠️">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SLUA838A Flybuck 应用报告笔记（TPS54308）">
+<meta property="og:url" content="http://example.com/Skill/SLUA838A-Flybuck%E5%BA%94%E7%94%A8%E6%8A%A5%E5%91%8A%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="小帅的秘密基地">
+<meta property="og:description" content="用 TPS54308 设计简单低成本 Flybuck 方案 文档信息原名：Designing a Simple and Low-Cost Flybuck Solution With the TPS54308文档号：SLUA838A（2017-08 首发，2019-10 修订 A 版）作者：Ryan Hu（TI）篇幅：16 页（正文 14 页）附件原名：TPS54380应用手册.pdf —— ⚠️">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-09-19T05:39:50.353Z">
+<meta property="article:modified_time" content="2026-09-19T09:17:38.148Z">
+<meta property="article:author" content="Ydkukudeshuai">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>SLUA838A Flybuck 应用报告笔记（TPS54308） - 小帅的秘密基地</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":8128732132,"measurement_id":"G-RS98DN4LLB","tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png">
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Shuai</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="SLUA838A Flybuck 应用报告笔记（TPS54308）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-09-19 13:39" pubdate>
+          2026年9月19日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          40 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">SLUA838A Flybuck 应用报告笔记（TPS54308）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="用-TPS54308-设计简单低成本-Flybuck-方案"><a href="#用-TPS54308-设计简单低成本-Flybuck-方案" class="headerlink" title="用 TPS54308 设计简单低成本 Flybuck 方案"></a>用 TPS54308 设计简单低成本 Flybuck 方案</h1><blockquote>
+<p><strong>文档信息</strong><br>原名：<em>Designing a Simple and Low-Cost Flybuck Solution With the TPS54308</em><br>文档号：<strong>SLUA838A</strong>（2017-08 首发，2019-10 修订 A 版）<br>作者：Ryan Hu（TI）<br>篇幅：16 页（正文 14 页）<br>附件原名：<code>TPS54380应用手册.pdf</code> —— ⚠️ <strong>文件名与内容不符</strong>，实际是 <strong>TPS54308</strong> 的应用报告，不是”TPS54380”</p>
+</blockquote>
+<hr>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><table>
+<thead>
+<tr>
+<th align="left">章节</th>
+<th align="left">内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">Introduction 引言</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">Flybuck Converter Device Overview 原理概述（含全部核心公式）</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">Design Flybuck With TPS54308 设计实例（含完整 BOM 与逐步骤计算）</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">Experimental Results 实验结果</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">Conclusion 结论</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">References 参考</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="1-引言"><a href="#1-引言" class="headerlink" title="1　引言"></a>1　引言</h1><h2 id="1-1-应用背景"><a href="#1-1-应用背景" class="headerlink" title="1.1 应用背景"></a>1.1 应用背景</h2><p>隔离偏置电源（isolated bias rail）在通信设备、医疗设备、工业工厂自动化中非常常见。安全标准<strong>强制要求</strong>把用户与电源的危险电压隔开；有些场合则是为了<strong>断开地环路干扰</strong>（noise-sensitive application）。</p>
+<h2 id="1-2-需求与痛点"><a href="#1-2-需求与痛点" class="headerlink" title="1.2 需求与痛点"></a>1.2 需求与痛点</h2><p>很多场合需要的是”<strong>简单、元件少、直接从输入取电的隔离电源</strong>“。这时——</p>
+<blockquote>
+<p><strong>稳压精度不是重点，成本和板面积才是。</strong></p>
+</blockquote>
+<h2 id="1-3-解决方案：隔离-Buck（Flybuck）"><a href="#1-3-解决方案：隔离-Buck（Flybuck）" class="headerlink" title="1.3 解决方案：隔离 Buck（Flybuck）"></a>1.3 解决方案：隔离 Buck（Flybuck）</h2><ul>
+<li>把<strong>同步 Buck 的电感换成耦合电感或反激式变压器</strong>。</li>
+<li>因为<strong>副边紧紧跟随原边电压</strong>，所以<strong>不需要光耦、也不需要辅助绕组</strong>。</li>
+<li>结果是更小的体积和更低的成本，<strong>足以作为反激的替代方案</strong>。</li>
+</ul>
+<h2 id="1-4-TPS54308-简介"><a href="#1-4-TPS54308-简介" class="headerlink" title="1.4 TPS54308 简介"></a>1.4 TPS54308 简介</h2><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">参数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">输入电压范围</td>
+<td align="left">4.5 V ~ 28 V</td>
+</tr>
+<tr>
+<td align="left">输出电流</td>
+<td align="left">3 A</td>
+</tr>
+<tr>
+<td align="left">功率级</td>
+<td align="left">两个集成开关 FET</td>
+</tr>
+<tr>
+<td align="left">补偿</td>
+<td align="left"><strong>内部环路补偿</strong></td>
+</tr>
+<tr>
+<td align="left">软启动</td>
+<td align="left">5 ms 内部软启动</td>
+</tr>
+<tr>
+<td align="left">封装</td>
+<td align="left">SOT-23，高功率密度、占板面积小</td>
+</tr>
+<tr>
+<td align="left">轻载模式</td>
+<td align="left"><strong>FCCM 强制连续导通</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="2-原理概述"><a href="#2-原理概述" class="headerlink" title="2　原理概述"></a>2　原理概述</h1><h2 id="2-1-工作描述（Operation-Description）"><a href="#2-1-工作描述（Operation-Description）" class="headerlink" title="2.1 工作描述（Operation Description）"></a>2.1 工作描述（Operation Description）</h2><h3 id="2-1-1-拓扑定义"><a href="#2-1-1-拓扑定义" class="headerlink" title="2.1.1 拓扑定义"></a>2.1.1 拓扑定义</h3><p>隔离 Buck &#x3D; <strong>同步 Buck + 耦合电感（或反激变压器）</strong>。原边输出照旧由同步 Buck 环路稳压；副边输出由<strong>二极管对副边绕组整流</strong>得到。</p>
+<h3 id="2-1-2-两个开关区间的行为"><a href="#2-1-2-两个开关区间的行为" class="headerlink" title="2.1.2 两个开关区间的行为"></a>2.1.2 两个开关区间的行为</h3><table>
+<thead>
+<tr>
+<th align="center">区间</th>
+<th align="left">高&#x2F;低边管</th>
+<th align="left">副边反射电压</th>
+<th align="left">整流二极管</th>
+<th align="left">原边行为</th>
+<th align="left">$C_{OUT2}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$T_{ON}$</td>
+<td align="left">高侧 ON &#x2F; 低侧 OFF</td>
+<td align="left"><strong>负</strong></td>
+<td align="left"><strong>关断</strong></td>
+<td align="left"><strong>完全等同于一个 Buck 稳压器</strong></td>
+<td align="left"><strong>放电</strong>，提供负载电流</td>
+</tr>
+<tr>
+<td align="center">$T_{OFF}$</td>
+<td align="left">高侧 OFF &#x2F; 低侧 ON</td>
+<td align="left"><strong>正</strong></td>
+<td align="left"><strong>正偏导通</strong></td>
+<td align="left">原边绕组电流<strong>一分为二</strong>：① 继续供原边输出（磁化电流 $i_m$，类似 Buck 电感电流）；② 流向副边</td>
+<td align="left">被<strong>充电</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>副边电流波形由 <strong>负载、漏感、输出电容</strong> 三者共同决定。</p>
+</blockquote>
+<h3 id="2-1-3-式-1-原边输出电压（与-Buck-相同）"><a href="#2-1-3-式-1-原边输出电压（与-Buck-相同）" class="headerlink" title="2.1.3 式 (1)　原边输出电压（与 Buck 相同）"></a>2.1.3 式 (1)　原边输出电压（与 Buck 相同）</h3><p>$$V_{OUT1}&#x3D;\frac{T_{ON}}{T_{ON}+T_{OFF}}V_{IN}&#x3D;D\cdot V_{IN}$$</p>
+<h3 id="2-1-4-式-2-副边输出电压"><a href="#2-1-4-式-2-副边输出电压" class="headerlink" title="2.1.4 式 (2)　副边输出电压"></a>2.1.4 式 (2)　副边输出电压</h3><p>$$V_{OUT2}&#x3D;\frac{N_2}{N_1}V_{OUT1}-V_F$$</p>
+<ul>
+<li>$N_1,N_2$：原边、副边匝数</li>
+<li>$V_F$：副边整流二极管正向压降</li>
+</ul>
+<p><strong>结论</strong>：副边输出<strong>紧紧跟随</strong>原边输出，不需要额外绕组、也不需要跨隔离边界的反馈。</p>
+<h3 id="2-1-5-式-3-整流管在-T-ON-期间的反压"><a href="#2-1-5-式-3-整流管在-T-ON-期间的反压" class="headerlink" title="2.1.5 式 (3)　整流管在 $T_{ON}$ 期间的反压"></a>2.1.5 式 (3)　整流管在 $T_{ON}$ 期间的反压</h3><p>$$V_D&#x3D;V_{OUT2}+(V_{IN}-V_{OUT1})\frac{N_2}{N_1}$$</p>
+<blockquote>
+<p>⚠️ 这里比 AN-2292 的简化式 $V_D&#x3D;\frac{N_2}{N_1}V_{IN}$ <strong>更准确</strong>——SLUA838A 把原边输出压降 $V_{OUT1}$ 也算进去了。本文用 $12+(24-5)\times2.5&#x3D;59.5\text{V}$ 验算 ✓</p>
+</blockquote>
+<h2 id="2-2-最大输出电流方程（Equations-for-Maximum-Output-Current）"><a href="#2-2-最大输出电流方程（Equations-for-Maximum-Output-Current）" class="headerlink" title="2.2 最大输出电流方程（Equations for Maximum Output Current）"></a>2.2 最大输出电流方程（Equations for Maximum Output Current）</h2><blockquote>
+<p>本节是全篇最有价值的部分：<strong>漏感如何影响副边电流波形，进而限制输出能力</strong>。</p>
+</blockquote>
+<h3 id="2-2-1-漏感的影响（Figure-3）"><a href="#2-2-1-漏感的影响（Figure-3）" class="headerlink" title="2.2.1 漏感的影响（Figure 3）"></a>2.2.1 漏感的影响（Figure 3）</h3><ul>
+<li>变压器总有或大或小的漏感，<strong>漏感决定副边电流给输出电容充电的上升斜率</strong>。</li>
+<li><strong>漏感小</strong> → 电流迅速冲到高值 → 输出电容被<strong>快速</strong>充电。</li>
+<li><strong>漏感大</strong> → 电流上升缓慢 → 送到输出电容的能量变少 → <strong>输出（副边）电压偏低</strong>。</li>
+<li>同样输出功率率下，<strong>漏感越大，副边绕组的峰值充电电流越高</strong>；同时<strong>原边会反射出一个同样大的负向电流</strong>。</li>
+<li>漏感与占空比不仅影响副边稳压，还会因为<strong>低边灌电流限值的最小值</strong>而<strong>限制隔离输出功率</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>结论</strong>：必须尽量减小漏感，且必须谨慎选择最大占空比。</p>
+</blockquote>
+<p>图中三条波形对比（Normal &#x2F; Higher &#x2F; Lower leakage）标注了四个电流量：</p>
+<p>$$I_{pri_pospk},\quad I_{pri_negpk},\quad I_{sec_pk},\quad \Delta i_m$$</p>
+<h3 id="2-2-2-式-4-、-5-绕组与输出的单周期平均关系"><a href="#2-2-2-式-4-、-5-绕组与输出的单周期平均关系" class="headerlink" title="2.2.2 式 (4)、(5)　绕组与输出的单周期平均关系"></a>2.2.2 式 (4)、(5)　绕组与输出的单周期平均关系</h3><p>$$I_{pri}&#x3D;I_{OUT1},\qquad I_{sec}&#x3D;I_{OUT2}$$</p>
+<h3 id="2-2-3-式-6-磁化电流纹波"><a href="#2-2-3-式-6-磁化电流纹波" class="headerlink" title="2.2.3 式 (6)　磁化电流纹波"></a>2.2.3 式 (6)　磁化电流纹波</h3><p>原文强调：<strong>合并两个绕组电流后的磁化电流，其波形与 Buck 电感电流完全一致</strong>。</p>
+<p>$$\Delta i_m&#x3D;\frac{(V_{IN}-V_{OUT1})V_{OUT1}}{L_{pri}f_{sw}V_{IN}}&#x3D;\frac{(V_{IN}-V_{OUT1})D}{L_{pri}f_{sw}}$$</p>
+<h3 id="2-2-4-式-7-T-ON-期间正峰值电流"><a href="#2-2-4-式-7-T-ON-期间正峰值电流" class="headerlink" title="2.2.4 式 (7)　$T_{ON}$ 期间正峰值电流"></a>2.2.4 式 (7)　$T_{ON}$ 期间正峰值电流</h3><p>$$i_{SW_pospk}&#x3D;i_{pri_pospk}&#x3D;I_{OUT1}+I_{OUT2}\frac{N_2}{N_1}+I_{OUT3}\frac{N_3}{N_1}+\frac{\Delta i_m}{2}$$</p>
+<blockquote>
+<p><strong>要点</strong>：正峰值里包含<strong>折算后的所有隔离输出电流</strong>——这就是”原边电流能力会被隔离输出吃掉”的公式化体现。</p>
+</blockquote>
+<h3 id="2-2-5-式-8-、-9-副边绕组峰值电流"><a href="#2-2-5-式-8-、-9-副边绕组峰值电流" class="headerlink" title="2.2.5 式 (8)、(9)　副边绕组峰值电流"></a>2.2.5 式 (8)、(9)　副边绕组峰值电流</h3><p>由<strong>副边输出电容的电荷平衡</strong>推出：</p>
+<p>$$i_{sec_pk}&#x3D;I_{OUT2}\frac{2}{1-D}\quad(\text{higher leakage，取作最恶劣情况})$$</p>
+<p>$$i_{sec_pk}&#x3D;I_{OUT2}\frac{1+D}{1-D}\quad(\text{normal leakage})$$</p>
+<blockquote>
+<p>原文措辞：<em>“Considering the worst case, the following equations are derived based on having higher leakage.”</em></p>
+</blockquote>
+<h4 id="推导（原文未给出，以下是自洽推导）"><a href="#推导（原文未给出，以下是自洽推导）" class="headerlink" title="推导（原文未给出，以下是自洽推导）"></a>推导（原文未给出，以下是自洽推导）</h4><p>副边只在 $T_{OFF}$ 导通，窗口 $W&#x3D;(1-D)T$。对 $C_{OUT2}$ 做<strong>电荷平衡</strong>——二极管送出的电荷 &#x3D; 负载取走的电荷：</p>
+<p>$$I_{OUT2}\cdot T&#x3D;\int_0^T i_{sec},dt$$</p>
+<p><strong>① 纯三角波（窄脉冲，最恶劣）→ 式 (8)</strong></p>
+<p>面积 $&#x3D;\frac12 I_{pk}W$：</p>
+<p>$$I_{pk}&#x3D;\frac{2I_{OUT2}}{W&#x2F;T}&#x3D;\frac{2I_{OUT2}}{1-D}$$</p>
+<p><strong>② 梯形波（有平顶，正常漏感）→ 式 (9)</strong></p>
+<p>定义形状因子 $X&#x3D;\dfrac{\text{面积}}{I_{pk}W}$，则</p>
+<p>$$I_{pk}&#x3D;\frac{I_{OUT2}}{X}\cdot\frac{T}{W}$$</p>
+<table>
+<thead>
+<tr>
+<th align="left">波形</th>
+<th align="center">形状因子 $X$</th>
+<th align="left">峰值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">矩形（升降无穷快）</td>
+<td align="center">$1$</td>
+<td align="left">$I_{OUT2}&#x2F;(1-D)$ ← 理论下限</td>
+</tr>
+<tr>
+<td align="left"><strong>梯形</strong>（式 9）</td>
+<td align="center">$\dfrac{1}{1+D}$</td>
+<td align="left">$\dfrac{I_{OUT2}(1+D)}{1-D}$</td>
+</tr>
+<tr>
+<td align="left"><strong>三角形</strong>（式 8）</td>
+<td align="center">$\dfrac12$</td>
+<td align="left">$\dfrac{2I_{OUT2}}{1-D}$ ← 最恶劣</td>
+</tr>
+</tbody></table>
+<p>式 (9) 对应的上升 + 下降总时长：</p>
+<p>$$t_r+t_f&#x3D;2W\cdot\frac{D}{1+D}&#x3D;\frac{2D(1-D)}{1+D}T$$</p>
+<p><strong>物理含义</strong>：漏感小 → 电流升降都快 → 波形越接近矩形（$X\to1$）→ <strong>峰值越低</strong>；漏感大 → 升降都慢 → 越接近三角形（$X\to1&#x2F;2$）→ <strong>峰值越高</strong>。这正是原文 <em>“The higher leakage inductance is the higher peak charging current obtained in secondary winding”</em> 的含义。</p>
+<blockquote>
+<p>⚠️ <strong>关键提醒：$X&#x3D;\frac{1}{1+D}$ 不是推导结果，而是选取的插值曲线。</strong><br>可严格推导的只有两个端点：$X&#x3D;\frac12$（纯三角波，窗口固定为 $T_{OFF}$，最恶劣）与 $X&#x3D;1$（矩形波，$L_r\to0$）。任何真实波形都满足 $\frac12\le X\le1$。<br>而<strong>满足这两个端点的插值曲线有无穷多条</strong>：</p>
+<table>
+<thead>
+<tr>
+<th align="left">插值曲线</th>
+<th align="center">$X(0.5)$</th>
+<th align="center">$I_{pk}&#x2F;I_{OUT2}$（$D&#x3D;0.5$）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$1$（矩形）</td>
+<td align="center">1</td>
+<td align="center">2.00</td>
+</tr>
+<tr>
+<td align="left">$1-\frac{D}{2}$</td>
+<td align="center">0.750</td>
+<td align="center">2.67</td>
+</tr>
+<tr>
+<td align="left">$\sqrt{1-D}$</td>
+<td align="center">0.707</td>
+<td align="center">2.83</td>
+</tr>
+<tr>
+<td align="left">$\dfrac{1}{1+D}$</td>
+<td align="center"><strong>0.667</strong></td>
+<td align="center"><strong>3.00</strong> ← TI 所选</td>
+</tr>
+<tr>
+<td align="left">$\frac12$（三角）</td>
+<td align="center">0.500</td>
+<td align="center">4.00</td>
+</tr>
+</tbody></table>
+<p>TI 选 $\frac{1}{1+D}$ 最可能的理由是<strong>公式族自洽</strong>：$\frac{1+D}{1-D}&#x3D;\frac{2}{1-D}-1$，正好是”最恶劣峰值减一个 $I_{OUT2}$”，从而让式 (10)(11) 与式 (8)(9) 共用同一个 $\frac{1}{1-D}$ 分母族。</p>
+</blockquote>
+<h4 id="可推导的形状因子与实例校核"><a href="#可推导的形状因子与实例校核" class="headerlink" title="可推导的形状因子与实例校核"></a>可推导的形状因子与实例校核</h4><p>两段折线（$T_{OFF}$ 内线性上升、模态①内线性下降到 0、用时 $t_f$）的形状因子是严格可算的：</p>
+<p>$$X&#x3D;\frac{\frac12I_{pk}(W+t_f)}{I_{pk}W}&#x3D;\frac12\left(1+\frac{t_f}{W}\right),\qquad<br>\frac{t_f}{W}&#x3D;\frac{\Delta U-V_o\frac{L_r}{L_m}}{U_{in}-V_{o1}+V_o}$$</p>
+<p><strong>代入 TPS54308 实例</strong>（$V_{o1}&#x3D;5$、$V_o&#x3D;4.8$、$\Delta U&#x3D;0.2$、$L_r&#x2F;L_m\approx1%$、$V_{in}&#x3D;10\text{V}$ 时 $D&#x3D;0.5$、$V_{drive}&#x3D;9.8\text{V}$）：</p>
+<p>$$\frac{t_f}{W}&#x3D;0.0155\ \Rightarrow\ X&#x3D;0.5078\ \Rightarrow\ I_{pk}&#x3D;0.788\text{A}$$</p>
+<table>
+<thead>
+<tr>
+<th align="left">来源</th>
+<th align="center">$I_{pk}$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">式 (8)（$X&#x3D;1&#x2F;2$）</td>
+<td align="center">0.800 A</td>
+</tr>
+<tr>
+<td align="left"><strong>可推导模型</strong></td>
+<td align="center"><strong>0.788 A</strong></td>
+</tr>
+<tr>
+<td align="left">式 (9)（$X&#x3D;1&#x2F;(1+D)$）</td>
+<td align="center">0.600 A ← <strong>偏乐观约 24%，不宜用于选型</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>✅ <strong>工程结论</strong>：正常漏感（$\approx1%$）下副边电流波形本来就近三角波（$X\approx0.51$），因此<strong>峰值应取式 (8) 的 $2I_{OUT2}&#x2F;(1-D)$</strong>；这也正是 TI 自己选二极管（式 19&#x2F;20 得 0.8A）时用的那一式。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>趋势上的分歧（待仿真判定）</strong>：TI 表述为”漏感大 → 峰值高”，而按上式是”漏感大 → $t_f$ 大 → $X$ 大 → 峰值低”。建议在仿真里看 $i_{sec}$ 波形到底属于哪一种：</p>
+<ul>
+<li><strong>缓慢爬升、到 $T_{OFF}$ 末尾才到峰</strong> → 三角波，用式 (8)</li>
+<li><strong>$T_{OFF}$ 起点就冲到峰、之后缓慢衰减</strong> → 梯形波，式 (9) 才适用</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>✅ <strong>更严谨的形式</strong>（含模态①换流重叠 $D’$）：<br>$$I_{pk}&#x3D;\frac{2I_{OUT2}}{(1-D)+D’},\qquad D’T&#x3D;\frac{nL_rI_{pk}}{U_{in}-V_{o1}+V_o}$$<br>式 (8) 即 $D’&#x3D;0$ 的极限（窗口最窄 &#x3D; 最恶劣）。</p>
+</blockquote>
+<h3 id="2-2-6-式-10-、-11-原边负向峰值电流"><a href="#2-2-6-式-10-、-11-原边负向峰值电流" class="headerlink" title="2.2.6 式 (10)、(11)　原边负向峰值电流"></a>2.2.6 式 (10)、(11)　原边负向峰值电流</h3><p><strong>式 (10)（higher leakage 情况）</strong>：</p>
+<p>$$i_{pri_negpk}&#x3D;-i_{sec_pk}\frac{N_2}{N_1}+i_{pri_pospk}-\Delta i_m<br>&#x3D;-\left[\frac{N_2}{N_1}I_{OUT2}+\frac{N_3}{N_1}I_{OUT3}\right]\frac{1+D}{1-D}-\frac{\Delta i_m}{2}+I_{OUT1}$$</p>
+<p><strong>式 (11)（normal leakage 情况）</strong>：</p>
+<p>$$i_{pri_negpk}&#x3D;-\left[\frac{N_2}{N_1}I_{OUT2}+\frac{N_3}{N_1}I_{OUT3}\right]\frac{2D}{1-D}-\frac{\Delta i_m}{2}+I_{OUT1}$$</p>
+<h4 id="推导：为什么这里换成”另一族”因子"><a href="#推导：为什么这里换成”另一族”因子" class="headerlink" title="推导：为什么这里换成”另一族”因子"></a>推导：为什么这里换成”另一族”因子</h4><p>式 (10)、(11) 的第一步是个恒等式：</p>
+<p>$$i_{pri_negpk}&#x3D;-i_{sec_pk}\frac{N_2}{N_1}+i_{pri_pospk}-\Delta i_m$$</p>
+<p>把式 (7) 的 $i_{pri_pospk}&#x3D;I_{OUT1}+\frac{N_2}{N_1}I_{OUT2}+\frac{\Delta i_m}{2}$ 代入并整理：</p>
+<p>$$\boxed{i_{pri_negpk}&#x3D;I_{OUT1}-\frac{N_2}{N_1}\left(i_{sec_pk}-I_{OUT2}\right)-\frac{\Delta i_m}{2}}$$</p>
+<p><strong>括号里是 $i_{sec_pk}-I_{OUT2}$，不是 $i_{sec_pk}$</strong>。于是：</p>
+<table>
+<thead>
+<tr>
+<th align="left">代入</th>
+<th align="left">$i_{sec_pk}-I_{OUT2}&#x3D;$</th>
+<th align="left">得到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>式 (8)</strong>（大漏感）$i_{sec_pk}&#x3D;\frac{2I_{OUT2}}{1-D}$</td>
+<td align="left">$I_{OUT2}\left(\frac{2}{1-D}-1\right)&#x3D;I_{OUT2}\dfrac{1+D}{1-D}$</td>
+<td align="left"><strong>式 (10)</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>式 (9)</strong>（正常）$i_{sec_pk}&#x3D;I_{OUT2}\frac{1+D}{1-D}$</td>
+<td align="left">$I_{OUT2}\left(\frac{1+D}{1-D}-1\right)&#x3D;I_{OUT2}\dfrac{2D}{1-D}$</td>
+<td align="left"><strong>式 (11)</strong></td>
+</tr>
+</tbody></table>
+<p>数值验证（$D&#x3D;0.5$、$N_2&#x2F;N_1&#x3D;N_3&#x2F;N_1&#x3D;2.5$、$I_{OUT2}&#x3D;I_{OUT3}&#x3D;0.2\text{A}$、$\Delta i_{m(min)}&#x2F;2&#x3D;0.24$、$I_{OUT1}&#x3D;1\text{A}$）：</p>
+<ul>
+<li>式 (10)：$1-3.0-0.24&#x3D;-2.24\text{A}$ ✓（对应原文式 25 的值）</li>
+<li>式 (11)：$1-2.0-0.24&#x3D;-1.24\text{A}$ ✓（对应原文式 26 的值）</li>
+</ul>
+<blockquote>
+<p>✅ <strong>结论</strong>：式 (10)(11) 与式 (8)(9) <strong>完全自洽，不是笔误</strong>。注意 $\frac{1+D}{1-D}$ 在原文里同时扮演两个角色——既是”正常漏感的副边峰值电流”（式 9），又恰好是”最恶劣副边峰值减 $I_{OUT2}$”（式 10 展开后的系数），这正是容易看混的地方。</p>
+</blockquote>
+<h3 id="2-2-7-式-12-两条限流红线"><a href="#2-2-7-式-12-两条限流红线" class="headerlink" title="2.2.7 式 (12)　两条限流红线"></a>2.2.7 式 (12)　两条限流红线</h3><p>$$\begin{cases}<br>i_{pri_pospk}\le I_{LIM_HS(min)}\[4pt]<br>i_{pri_negpk}\le I_{LIM_LSSOC(min)}<br>\end{cases}$$</p>
+<ul>
+<li>$t&#x3D;T_{ON}$ 期间的<strong>正峰值</strong>不得超过<strong>高侧最小源电流限值</strong>；</li>
+<li>$t&#x3D;T_{OFF}$ 期间的<strong>负峰值</strong>不得超过<strong>低侧最小灌电流限值</strong>。</li>
+</ul>
+<hr>
+<h1 id="3-设计实例：12-V-输入-→-5-V-非隔离-双路-19-5-V-0-1-A-隔离"><a href="#3-设计实例：12-V-输入-→-5-V-非隔离-双路-19-5-V-0-1-A-隔离" class="headerlink" title="3　设计实例：12 V 输入 → 5 V 非隔离 + 双路 19.5 V &#x2F; 0.1 A 隔离"></a>3　设计实例：12 V 输入 → 5 V 非隔离 + 双路 19.5 V &#x2F; 0.1 A 隔离</h1><blockquote>
+<p>📌 <strong>本章为按新规格改写的计算实例</strong>。原 SLUA838A 的实例是 10–24 V → 5 V&#x2F;1 A + ±12 V&#x2F;0.2 A，两版对比见 3.11 节。</p>
+</blockquote>
+<p>- </p>
+<h2 id="3-9-物料清单（BOM）"><a href="#3-9-物料清单（BOM）" class="headerlink" title="3.9　物料清单（BOM）"></a>3.9　物料清单（BOM）</h2><table>
+<thead>
+<tr>
+<th align="left">位号</th>
+<th align="left">值 &#x2F; 型号</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">U1</td>
+<td align="left">TPS54308</td>
+<td align="left">4.5–28 V &#x2F; 3 A 同步 Buck</td>
+</tr>
+<tr>
+<td align="left">T1</td>
+<td align="left">15 µH，1:4:4，$L_r\le0.15\mu H$</td>
+<td align="left">耦合电感 &#x2F; 反激变压器</td>
+</tr>
+<tr>
+<td align="left">D1、D2</td>
+<td align="left">70 V &#x2F; 1~2 A 肖特基</td>
+<td align="left">两路隔离整流</td>
+</tr>
+<tr>
+<td align="left">R6 &#x2F; R7</td>
+<td align="left">100 kΩ &#x2F; 13.7 kΩ</td>
+<td align="left">反馈分压</td>
+</tr>
+<tr>
+<td align="left">R5</td>
+<td align="left">49.9 Ω</td>
+<td align="left">断环测试</td>
+</tr>
+<tr>
+<td align="left">C4</td>
+<td align="left">75 pF</td>
+<td align="left">前馈</td>
+</tr>
+<tr>
+<td align="left">$C_{IN}$</td>
+<td align="left">10 µF &#x2F; 25 V + 0.1 µF</td>
+<td align="left">输入</td>
+</tr>
+<tr>
+<td align="left">$C_{OUT1}$</td>
+<td align="left">22 µF &#x2F; 16 V</td>
+<td align="left">原边输出</td>
+</tr>
+<tr>
+<td align="left">$C_{OUT2}$、$C_{OUT3}$</td>
+<td align="left">10 µF &#x2F; 25 V</td>
+<td align="left">隔离输出</td>
+</tr>
+<tr>
+<td align="left">R8、R9</td>
+<td align="left">3.9 kΩ</td>
+<td align="left">预负载（19.5 V &#x2F; 5 mA）</td>
+</tr>
+<tr>
+<td align="left">R10+C12、R11+C13</td>
+<td align="left">100 Ω + 100 pF</td>
+<td align="left">RC 吸收</td>
+</tr>
+</tbody></table>
+<h2 id="3-10-关键结果汇总"><a href="#3-10-关键结果汇总" class="headerlink" title="3.10　关键结果汇总"></a>3.10　关键结果汇总</h2><table>
+<thead>
+<tr>
+<th align="left">量</th>
+<th align="left">值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">占空比 $D$</td>
+<td align="left">41.7%</td>
+</tr>
+<tr>
+<td align="left">匝比 $N_1:N_2:N_3$</td>
+<td align="left">1 : 4 : 4</td>
+</tr>
+<tr>
+<td align="left">原边电感 $L_{pri}$</td>
+<td align="left">15 µH（$\Delta i_m&#x3D;0.556\text{A}$）</td>
+</tr>
+<tr>
+<td align="left">正向峰值 $i_{SW_pospk}$</td>
+<td align="left">2.08 A（限值 4 A，余量 48%）</td>
+</tr>
+<tr>
+<td align="left">负向峰值（正常漏感、原边空载）</td>
+<td align="left"><strong>−1.42 A</strong>（限值 1.75 A，余量 19%）</td>
+</tr>
+<tr>
+<td align="left">二极管反压 &#x2F; 峰值</td>
+<td align="left">47.5 V &#x2F; 0.343 A</td>
+</tr>
+<tr>
+<td align="left">输出功率</td>
+<td align="left">8.9 W</td>
+</tr>
+</tbody></table>
+<h2 id="3-11-与原例对比"><a href="#3-11-与原例对比" class="headerlink" title="3.11　与原例对比"></a>3.11　与原例对比</h2><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">原例（SLUA838A）</th>
+<th align="left">本设计</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">输入</td>
+<td align="left">10 ~ 24 V</td>
+<td align="left"><strong>12 V</strong></td>
+</tr>
+<tr>
+<td align="left">原边输出</td>
+<td align="left">5 V &#x2F; 1 A</td>
+<td align="left">5 V &#x2F; 1 A</td>
+</tr>
+<tr>
+<td align="left">隔离输出</td>
+<td align="left">+12 V &#x2F; −12 V @ 0.2 A</td>
+<td align="left"><strong>19.5 V ×2 @ 0.1 A</strong></td>
+</tr>
+<tr>
+<td align="left">占空比</td>
+<td align="left">20% ~ 50%</td>
+<td align="left">41.7%（固定）</td>
+</tr>
+<tr>
+<td align="left">匝比</td>
+<td align="left">1 : 2.5 : 2.5</td>
+<td align="left"><strong>1 : 4 : 4</strong></td>
+</tr>
+<tr>
+<td align="left">二极管反压</td>
+<td align="left">59.5 V</td>
+<td align="left">47.5 V</td>
+</tr>
+<tr>
+<td align="left">原边电感</td>
+<td align="left">15 µH</td>
+<td align="left">15 µH</td>
+</tr>
+<tr>
+<td align="left">正向峰值</td>
+<td align="left">2.38 A</td>
+<td align="left">2.08 A</td>
+</tr>
+<tr>
+<td align="left">负向峰值（正常漏感，原边空载）</td>
+<td align="left">−2.24 A</td>
+<td align="left"><strong>−1.42 A</strong></td>
+</tr>
+<tr>
+<td align="left">低边灌电流余量（对 1.75 A）</td>
+<td align="left">不足（−2.24 A 超限）</td>
+<td align="left"><strong>✓ 19%</strong></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>⚠️ 注意：虽然本设计的隔离输出电压（19.5 V）远高于原例（12 V），但因为<strong>隔离电流只有一半（0.1 A vs 0.2 A）</strong>，反射到原边的电流反而更小（0.8 A vs 1.0 A），所以低边灌电流余量比原例更好。<strong>Fly-Buck 的瓶颈是”反射电流”，不是”输出电压”本身。</strong></p>
+</blockquote>
+<h1 id="4-实验结果（Figure-5-17）"><a href="#4-实验结果（Figure-5-17）" class="headerlink" title="4　实验结果（Figure 5 ~ 17）"></a>4　实验结果（Figure 5 ~ 17）</h1><table>
+<thead>
+<tr>
+<th align="center">图</th>
+<th align="left">内容</th>
+<th align="left">测试条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">5</td>
+<td align="left">效率 vs $I_{OUT1}$</td>
+<td align="left">$I_{OUT2}&#x3D;I_{OUT3}&#x3D;0$，$V_{IN}$ &#x3D; 10 &#x2F; 12 &#x2F; 16 &#x2F; 24 V</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">效率 vs $I_{OUT2}$</td>
+<td align="left">$I_{OUT1}&#x3D;I_{OUT3}&#x3D;0$，四条输入电压曲线</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">效率 vs $I_{OUT3}$</td>
+<td align="left">$I_{OUT1}&#x3D;I_{OUT2}&#x3D;0$，四条输入电压曲线</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">$V_{OUT2}$ 负载调整率 vs $I_{OUT2}$</td>
+<td align="left">$I_{OUT1}&#x3D;I_{OUT3}&#x3D;0$，$V_{IN}$ 四档</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">$V_{OUT3}$ 负载调整率 vs $I_{OUT3}$</td>
+<td align="left">四条输入电压曲线</td>
+</tr>
+<tr>
+<td align="center">10</td>
+<td align="left">$V_{OUT2}$ 线性调整率 vs $V_{IN}$（10~24 V）</td>
+<td align="left">负载 0 &#x2F; 10 &#x2F; 80 &#x2F; 150 mA</td>
+</tr>
+<tr>
+<td align="center">11</td>
+<td align="left">$V_{OUT3}$ 线性调整率 vs $V_{IN}$</td>
+<td align="left">负载 0 &#x2F; 10 &#x2F; 80 &#x2F; 150 mA</td>
+</tr>
+<tr>
+<td align="center">12</td>
+<td align="left">稳态波形</td>
+<td align="left">$V_{IN}&#x3D;10\text{V}$，$I_{OUT1}&#x3D;1\text{A}$，$I_{OUT2}&#x3D;I_{OUT3}&#x3D;0.2\text{A}$</td>
+</tr>
+<tr>
+<td align="center">13</td>
+<td align="left">稳态波形（<strong>原边空载</strong>）</td>
+<td align="left">$V_{IN}&#x3D;10\text{V}$，$I_{OUT1}&#x3D;0\text{A}$，两路隔离 0.2 A</td>
+</tr>
+<tr>
+<td align="center">14</td>
+<td align="left">纹波电压波形</td>
+<td align="left">同 Figure 12</td>
+</tr>
+<tr>
+<td align="center">15</td>
+<td align="left">负载阶跃响应 50 mA → 200 mA</td>
+<td align="left">$V_{IN}&#x3D;10\text{V}$，$I_{OUT1}&#x3D;I_{OUT3}&#x3D;0$</td>
+</tr>
+<tr>
+<td align="center">16</td>
+<td align="left">线性阶跃响应 10 V → 24 V</td>
+<td align="left">$I_{OUT1}&#x3D;1\text{A}$，两路隔离 0.2 A</td>
+</tr>
+<tr>
+<td align="center">17</td>
+<td align="left">上电波形</td>
+<td align="left">$V_{IN}&#x3D;10\text{V}$，满载</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>📌 <strong>从曲线读出的结论</strong>：隔离输出在 0 ~ 200 mA 范围内 $V_{OUT2}$&#x2F;$V_{OUT3}$ 大致在 <strong>11.5 V ~ 15 V</strong> 之间变化——<strong>这正是”准稳压”的直观体现</strong>，调整率约 ±15% 量级，并且明显受 $I_{OUT2}$ 和 $V_{IN}$ 影响。</p>
+</blockquote>
+<hr>
+<h1 id="5-结论"><a href="#5-结论" class="headerlink" title="5　结论"></a>5　结论</h1><p>本应用报告给出了 Fly-Buck 的工作<strong>原理</strong>、典型<strong>电流电压波形</strong>，并提供了一个<strong>详细的逐步骤设计实例</strong>，说明了如何选择外部元件。基于该实例测试的数据与波形表明：</p>
+<blockquote>
+<p><strong>Fly-Buck 可以提供一个简单、小巧、低成本（cost effective）的电源方案，足以作为反激的替代</strong>，而 TPS54308 让这一优势更加明显。</p>
+</blockquote>
+<hr>
+<h1 id="6-参考（References）"><a href="#6-参考（References）" class="headerlink" title="6　参考（References）"></a>6　参考（References）</h1><ol>
+<li>TPS54308 数据手册：4.5–28 V 输入、3 A、350 kHz 同步 FCCM 降压，SOT-23</li>
+<li><em>Designing an Isolated Buck (Flybuck) Converter</em>（即 AN-2292 &#x2F; SNVA674）</li>
+<li><em>Design a Flybuck Solution With Optocoupler to Improve Regulation Performance &#x2F; Create an Inverting Power Supply</em></li>
+<li><em>Creating a Split-Rail Power Supply With a Wide Input Voltage Buck Regulator</em></li>
+</ol>
+<hr>
+<h1 id="附录-A-公式总表"><a href="#附录-A-公式总表" class="headerlink" title="附录 A　公式总表"></a>附录 A　公式总表</h1><table>
+<thead>
+<tr>
+<th align="center">式号</th>
+<th align="left">公式</th>
+<th align="left">出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">(1)</td>
+<td align="left">$V_{OUT1}&#x3D;D,V_{IN}$</td>
+<td align="left">2.1</td>
+</tr>
+<tr>
+<td align="center">(2)</td>
+<td align="left">$V_{OUT2}&#x3D;\frac{N_2}{N_1}V_{OUT1}-V_F$</td>
+<td align="left">2.1</td>
+</tr>
+<tr>
+<td align="center">(3)</td>
+<td align="left">$V_D&#x3D;V_{OUT2}+(V_{IN}-V_{OUT1})\frac{N_2}{N_1}$</td>
+<td align="left">2.1</td>
+</tr>
+<tr>
+<td align="center">(4)(5)</td>
+<td align="left">$i_{pri}&#x3D;I_{OUT1}$，$i_{sec}&#x3D;I_{OUT2}$</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(6)</td>
+<td align="left">$\Delta i_m&#x3D;\frac{V_{OUT1}(V_{IN}-V_{OUT1})}{L_{pri}f_{sw}V_{IN}}$</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(7)</td>
+<td align="left">$i_{SW_pospk}&#x3D;I_{OUT1}+I_{OUT2}\frac{N_2}{N_1}+I_{OUT3}\frac{N_3}{N_1}+\frac{\Delta i_m}{2}$</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(8)</td>
+<td align="left">$i_{sec_pk}&#x3D;I_{OUT2}\frac{2}{1-D}$（higher leakage）</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(9)</td>
+<td align="left">$i_{sec_pk}&#x3D;I_{OUT2}\frac{1+D}{1-D}$（normal leakage）</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(10)</td>
+<td align="left">$i_{pri_negpk}&#x3D;-\left[\frac{N_2}{N_1}I_{OUT2}+\frac{N_3}{N_1}I_{OUT3}\right]\frac{1+D}{1-D}-\frac{\Delta i_m}{2}+I_{OUT1}$</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(11)</td>
+<td align="left">$i_{pri_negpk}&#x3D;-\left[\frac{N_2}{N_1}I_{OUT2}+\frac{N_3}{N_1}I_{OUT3}\right]\frac{2D}{1-D}-\frac{\Delta i_m}{2}+I_{OUT1}$</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(12)</td>
+<td align="left">$i_{pri_pospk}\le I_{LIM_HS(min)}$；$i_{pri_negpk}\le I_{LIM_LSSOC(min)}$</td>
+<td align="left">2.2</td>
+</tr>
+<tr>
+<td align="center">(13)(14)</td>
+<td align="left">$\frac{N_2}{N_1}&#x3D;\frac{V_{OUT2}+V_F}{V_{OUT1}}$；$\frac{N_3}{N_1}&#x3D;\frac{</td>
+<td align="left">V_{OUT3}</td>
+</tr>
+<tr>
+<td align="center">(15)(16)</td>
+<td align="left">$V_{OUT1}&#x3D;V_{FB}(1+\frac{R_6}{R_7})$；$R_7&#x3D;\frac{R_6V_{FB}}{V_{OUT1}-V_{FB}}$</td>
+<td align="left">3.2</td>
+</tr>
+<tr>
+<td align="center">(17)(18)</td>
+<td align="left">整流管反压</td>
+<td align="left">3.3</td>
+</tr>
+<tr>
+<td align="center">(19)(20)</td>
+<td align="left">整流管峰值电流</td>
+<td align="left">3.3</td>
+</tr>
+<tr>
+<td align="center">(21)</td>
+<td align="left">$\Delta i_{m(max)}&#x3D;2\left(I_{LIM_HS(min)}-I_{OUT1}-I_{OUT2}\frac{N_2}{N_1}-I_{OUT3}\frac{N_3}{N_1}\right)$</td>
+<td align="left">3.4</td>
+</tr>
+<tr>
+<td align="center">(22)</td>
+<td align="left">$L_{pri(min)}&#x3D;\frac{(V_{IN(max)}-V_{OUT1})V_{OUT1}}{\Delta i_m f_{sw}V_{IN(max)}}$</td>
+<td align="left">3.4</td>
+</tr>
+<tr>
+<td align="center">(23)</td>
+<td align="left">$L_{pri}&#x3D;\frac{(V_{IN(max)}-V_{OUT1})V_{OUT1}}{0.3\times3\text{A}\times f_{sw}\times V_{IN(max)}}$</td>
+<td align="left">3.4</td>
+</tr>
+<tr>
+<td align="center">(24)~(26)</td>
+<td align="left">正&#x2F;负原边峰值电流校核（$I_{OUT1}&#x3D;1\text{A}$）</td>
+<td align="left">3.4</td>
+</tr>
+<tr>
+<td align="center">(27)~(29)</td>
+<td align="left">正&#x2F;负原边峰值电流校核（$I_{OUT1}&#x3D;0\text{A}$，最恶劣）</td>
+<td align="left">3.4</td>
+</tr>
+<tr>
+<td align="center">(30)</td>
+<td align="left">$N_1&#x3D;\frac{L_{pri}i_{SW_pospk(max1)}}{B_{max}A_e}$</td>
+<td align="left">3.5</td>
+</tr>
+<tr>
+<td align="center">(31)</td>
+<td align="left">$C_{IN}\ge\frac{I_{OUT1}+\frac{N_2}{N_1}I_{OUT2}+\frac{N_3}{N_1}I_{OUT3}}{8f_{sw}\Delta V_{IN}}$</td>
+<td align="left">3.6</td>
+</tr>
+<tr>
+<td align="center">(32)</td>
+<td align="left">$C_{OUT1}\ge\frac{\left(I_{OUT2}\frac{N_2}{N_1}+I_{OUT3}\frac{N_3}{N_1}\right)D_{max}}{f_{sw}\Delta V_{OUT1}}$</td>
+<td align="left">3.6</td>
+</tr>
+<tr>
+<td align="center">(33)</td>
+<td align="left">$C_{OUT2}\ge\frac{I_{OUT2}D_{max}}{f_{sw}\Delta V_{OUT2}}$</td>
+<td align="left">3.6</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="附录-B-修订历史（SLUA838-→-SLUA838A）"><a href="#附录-B-修订历史（SLUA838-→-SLUA838A）" class="headerlink" title="附录 B　修订历史（SLUA838 → SLUA838A）"></a>附录 B　修订历史（SLUA838 → SLUA838A）</h1><table>
+<thead>
+<tr>
+<th align="left">修改内容</th>
+<th align="center">页码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">3.4 节中，最大磁化电流纹波计算的引用由式 (6) 改为式 <strong>(21)</strong></td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td align="left">式 (22)、(23) 中的 $I_{pri(min)},I_{pri}$ 改为 $L_{pri(min)},L_{pri}$（<strong>量纲修正</strong>）</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td align="left">修改了式 (24)、(27) 的数值</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="left">3.6 节中把 $\Delta V_{OUT1}$ 改为 $\Delta V_{OUT2}$</td>
+<td align="center">9</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="附录-C-📌-与自研-Flybuck-笔记的对照（批注）"><a href="#附录-C-📌-与自研-Flybuck-笔记的对照（批注）" class="headerlink" title="附录 C　📌 与自研 Flybuck 笔记的对照（批注）"></a>附录 C　📌 与自研 Flybuck 笔记的对照（批注）</h1><h2 id="C-1-互相印证的部分"><a href="#C-1-互相印证的部分" class="headerlink" title="C.1　互相印证的部分"></a>C.1　互相印证的部分</h2><table>
+<thead>
+<tr>
+<th align="left">自研笔记</th>
+<th align="left">本文档</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">必须<strong>强制 CCM（FPWM）</strong>、禁止二极管仿真</td>
+<td align="left">TPS54308 本身就是 <strong>FCCM</strong> 器件——这正是 TI 选它做 Fly-Buck 的原因</td>
+</tr>
+<tr>
+<td align="left">副边只在 $T_{OFF}$ 传能、$C_{OUT2}$ 在 $T_{ON}$ 放电</td>
+<td align="left">2.1 节原文一致</td>
+</tr>
+<tr>
+<td align="left">$V_{o2}&#x3D;V_{o1}\frac{N_2}{N_1}-V_F$</td>
+<td align="left">式 (2) 完全一致</td>
+</tr>
+<tr>
+<td align="left">副边峰值 $I_{pk}&#x3D;\frac{2I_{o2}}{1-D}$（三角波平均）</td>
+<td align="left">式 (8) 一致（即”大漏感&#x2F;最恶劣”那一条）</td>
+</tr>
+<tr>
+<td align="left">隔离输出是准稳压，受漏感与压降影响</td>
+<td align="left">3.8 节原文一致</td>
+</tr>
+<tr>
+<td align="left">原边峰值含折算后的副边电流</td>
+<td align="left">式 (7) 一致</td>
+</tr>
+</tbody></table>
+<h2 id="C-2-自研笔记里缺、值得补进去的"><a href="#C-2-自研笔记里缺、值得补进去的" class="headerlink" title="C.2　自研笔记里缺、值得补进去的"></a>C.2　自研笔记里缺、值得补进去的</h2><table>
+<thead>
+<tr>
+<th align="center">#</th>
+<th align="left">内容</th>
+<th align="left">价值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="left"><strong>低边灌电流限值 $I_{LIM_LSSOC}$ 是隔离输出功率的真正瓶颈</strong></td>
+<td align="left">大多数资料只讲高侧限流，这是隐藏天花板</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">占空比推荐 <strong>20% ~ 50%</strong></td>
+<td align="left">把原来”D &lt; 0.75”的粗线量化</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">漏感经验值 <strong>≤ 原边电感的 1%</strong></td>
+<td align="left">可直接写进耦合电感选型要求</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">原边负向峰值电流的两个工程近似式</td>
+<td align="left">用于校核低边灌电流余量</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">式 (3) 的精确反压 $V_D&#x3D;V_{o2}+(V_{IN}-V_{o1})\frac{N_2}{N_1}$</td>
+<td align="left">比简化式 $V_{IN}\frac{N_2}{N_1}$ 更准</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">预负载 <strong>5 mA 起点 &#x2F; 2.2 kΩ @±12V &#x2F; 可用齐纳替代以提效率</strong></td>
+<td align="left">具体可落地</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left"><strong>同一变压器做 ±12 V 双路隔离输出</strong></td>
+<td align="left">负压输出的工程实例</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">完整可抄实例：10–24 V → 5 V&#x2F;1 A + ±12 V&#x2F;0.2 A，含全部 BOM 与数值</td>
+<td align="left">最直接的设计模板</td>
+</tr>
+</tbody></table>
+<h2 id="C-3-使用时需注意的-3-个原文问题"><a href="#C-3-使用时需注意的-3-个原文问题" class="headerlink" title="C.3　使用时需注意的 3 个原文问题"></a>C.3　使用时需注意的 3 个原文问题</h2><ol>
+<li><strong>文件名不符</strong>：<code>TPS54380应用手册.pdf</code> 实为 <strong>TPS54308</strong> 的 SLUA838A。</li>
+<li><strong>$I_{LIM_LSSOC(min)}$ 口径不一致</strong>：应用报告用 2.6 A，数据手册最小值是 <strong>1.75 A</strong>；按数据手册复核时，实例中的 −2.24 A 会超限。</li>
+<li><strong>式 (22) 数值与形式不一致</strong>：按式 (22) 形式代入 $V_{IN(max)}$ 得 2.83 µH，原文给出 1.79 µH（对应 $V_{IN}&#x3D;10\text{V}$）。</li>
+</ol>
+<blockquote>
+<p>✅ <strong>已澄清、不算问题的一条</strong>：式 (8)(9) 与式 (10)(11) 的因子不同族（前者 $\frac{2}{1-D}$、$\frac{1+D}{1-D}$；后者 $\frac{1+D}{1-D}$、$\frac{2D}{1-D}$）<strong>完全自洽</strong>——因为式 (10)(11) 用的是 $i_{sec_pk}-I_{OUT2}$ 而不是 $i_{sec_pk}$，推导见 2.2.6 节。原文在此处无误。</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Work/" class="category-chain-item">Work</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/Work/%E4%B8%93%E4%B8%9A%E6%8A%80%E8%83%BD/" class="category-chain-item">专业技能</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>SLUA838A Flybuck 应用报告笔记（TPS54308）</div>
+      <div>http://example.com/Skill/SLUA838A-Flybuck应用报告笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ydkukudeshuai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年9月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Skill/%E5%85%85%E6%8D%A2%E7%94%B5%E7%90%86%E8%AE%BA/" title="充换电理论">
+                        <span class="hidden-mobile">充换电理论</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
